@@ -1,0 +1,11 @@
+*.iml
+.idea/
+.classpath
+.project
+.settings/
+.vscode/
+target/
+build.sbt
+dependency-reduced-pom.xml
+.attach*
+.surefire-*
