@@ -1,0 +1,111 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP prognose",
+  "variabler": {
+    "grunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "termin" : "<termin>",
+    "prognoseVersjon" : "<prognoseVersjon>"
+  },
+  "operasjoner": [
+    {
+      "handling": "opprettArbeidsMappe",
+      "arbeidsMappeId": "${grunnlagsdataMappe}",
+      "underMappe": ""
+    },
+
+    {
+      "handling": "opprettLocalInnMappeForBatch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopierFilerFraAktuarTilBatch",
+      "premiemodell": "poa_afp",
+      "periode": "${termin}",
+      "prognoseVersjon": "${prognoseVersjon}",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "lastNedReferanseDataForBatch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_prognosefakturaunderlag_poa_afp",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "POA_AFP"
+    },
+    {
+      "handling": "arkiverBatchOutput",
+      "filnavn": "fakturaunderlag",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "poa_afp_prognose/${termin}"
+    },
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_agressofil_for_poa_afp_prognose",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "POA_AFP"
+    },
+    {
+      "handling": "arkiverBatchOutput",
+      "filnavn": "agressofil_poa_afp_prognose",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "poa_afp_prognose/${termin}",
+      "filter": "Agressofil"
+    },
+
+
+    {
+      "handling": "opprettLocalInnMappeForBatch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopierFilerFraAktuarTilBatch",
+      "premiemodell": "poa_afp",
+      "periode": "${termin}",
+      "prognoseVersjon": "${prognoseVersjon}",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "lastNedReferanseDataForBatch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "prognosepremier_poa_afp_rapport_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "sendBatchOutputTilDVH",
+      "filPrefix": "prognosepremier_poa_afp_rapport_avtale",
+      "filListe": "POAAFP_FILLISTE_AVTALE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/poa_afp/fakturering/avtale"
+    },
+    {
+      "handling": "arkiverBatchOutput",
+      "filnavn": "prognosepremier_poa_afp_rapport_avtale",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "poa_afp_prognose/${termin}"
+    },
+
+    {
+      "handling": "ryddArbeidsMappe",
+      "arbeidsMappeId": "${grunnlagsdataMappe}"
+    }
+  ]
+}
