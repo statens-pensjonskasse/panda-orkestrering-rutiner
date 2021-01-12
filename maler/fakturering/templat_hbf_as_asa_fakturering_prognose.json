@@ -19,7 +19,7 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "hbf_as_asa",
+      "premiemodell": "hbf_as_asa_prognose",
       "periode": "${termin}",
       "prognoseVersjon": "${prognoseVersjon}",
       "batch": "pa_fak_ba_04",
