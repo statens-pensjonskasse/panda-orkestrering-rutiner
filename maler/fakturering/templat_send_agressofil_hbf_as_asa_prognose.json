@@ -6,7 +6,7 @@
   },
   "operasjoner": [
     {
-      "handling": "sendTilAgresso",
+      "handling": "send_til_agresso",
       "filnavn": "agressofil_hbf_prognose",
       "arkivFilsti": "hbf_as_asa_prognose/${termin}",
       "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"

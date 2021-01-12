@@ -7,18 +7,18 @@
   },
   "operasjoner": [
     {
-      "handling": "opprettArbeidsMappe",
+      "handling": "opprett_arbeids_mappe",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
       "underMappe": ""
     },
 
     {
-      "handling": "opprettLocalInnMappeForBatch",
+      "handling": "opprett_local_inn_mappe_for_batch",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopierFilerFraAktuarTilBatch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "poa_afp",
       "periode": "${termin}",
       "prognoseVersjon": "${prognoseVersjon}",
@@ -26,7 +26,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "lastNedReferanseDataForBatch",
+      "handling": "last_ned_referanse_data_for_batch",
       "filnavn": "termininfo",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -40,7 +40,7 @@
       "premiemodell": "POA_AFP"
     },
     {
-      "handling": "arkiverBatchOutput",
+      "handling": "arkiver_batch_output",
       "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -54,7 +54,7 @@
       "premiemodell": "POA_AFP"
     },
     {
-      "handling": "arkiverBatchOutput",
+      "handling": "arkiver_batch_output",
       "filnavn": "agressofil_poa_afp_prognose",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -64,12 +64,12 @@
 
 
     {
-      "handling": "opprettLocalInnMappeForBatch",
+      "handling": "opprett_local_inn_mappe_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopierFilerFraAktuarTilBatch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "poa_afp",
       "periode": "${termin}",
       "prognoseVersjon": "${prognoseVersjon}",
@@ -77,7 +77,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "lastNedReferanseDataForBatch",
+      "handling": "last_ned_referanse_data_for_batch",
       "filnavn": "termininfo",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -89,14 +89,14 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "sendBatchOutputTilDVH",
+      "handling": "send_batch_output_til_dvh",
       "filPrefix": "prognosepremier_poa_afp_rapport_avtale",
       "filListe": "POAAFP_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/poa_afp/fakturering/avtale"
     },
     {
-      "handling": "arkiverBatchOutput",
+      "handling": "arkiver_batch_output",
       "filnavn": "prognosepremier_poa_afp_rapport_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -104,7 +104,7 @@
     },
 
     {
-      "handling": "ryddArbeidsMappe",
+      "handling": "rydd_arbeids_mappe",
       "arbeidsMappeId": "${grunnlagsdataMappe}"
     }
   ]

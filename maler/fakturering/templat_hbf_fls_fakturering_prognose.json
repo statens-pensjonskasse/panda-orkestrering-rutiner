@@ -9,18 +9,18 @@
   },
   "operasjoner": [
     {
-      "handling": "opprettArbeidsMappe",
+      "handling": "opprett_arbeids_mappe",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
       "underMappe": ""
     },
 
     {
-      "handling": "opprettLocalInnMappeForBatch",
+      "handling": "opprett_local_inn_mappe_for_batch",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopierFilerFraAktuarTilBatch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${førstePeriode}",
       "prognoseVersjon": "${prognoseVersjon}",
@@ -33,12 +33,12 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "opprettArbeidsMappe",
+      "handling": "opprett_arbeids_mappe",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
       "underMappe": "pa_fak_ba_06/${førstePeriode}"
     },
     {
-      "handling": "kopierBatchOutputTilArbeidsMappe",
+      "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
@@ -46,7 +46,7 @@
     },
 
     {
-      "handling": "kopierFilerFraAktuarTilBatch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${andrePeriode}",
       "prognoseVersjon": "${prognoseVersjon}",
@@ -59,12 +59,12 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "opprettArbeidsMappe",
+      "handling": "opprett_arbeids_mappe",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
       "underMappe": "pa_fak_ba_06/${andrePeriode}"
     },
     {
-      "handling": "kopierBatchOutputTilArbeidsMappe",
+      "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
@@ -73,12 +73,12 @@
 
 
     {
-      "handling": "opprettLocalInnMappeForBatch",
+      "handling": "opprett_local_inn_mappe_for_batch",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatinerOgKopierFraArbeidsMappeTilBatch",
+      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -86,7 +86,7 @@
       "underMappe": "pa_fak_ba_06"
     },
     {
-      "handling": "lastNedReferanseDataForBatch",
+      "handling": "last_ned_referanse_data_for_batch",
       "filnavn": "termininfo",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -100,7 +100,7 @@
       "premiemodell": "HBF_FLS"
     },
     {
-      "handling": "arkiverBatchOutput",
+      "handling": "arkiver_batch_output",
       "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -114,7 +114,7 @@
       "premiemodell": "HBF_FLS"
     },
     {
-      "handling": "arkiverBatchOutput",
+      "handling": "arkiver_batch_output",
       "filnavn": "agressofil_hbf_fls_prognose",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -124,12 +124,12 @@
 
 
     {
-      "handling": "opprettLocalInnMappeForBatch",
+      "handling": "opprett_local_inn_mappe_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatinerOgKopierFraArbeidsMappeTilBatch",
+      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -137,13 +137,13 @@
       "underMappe": "pa_fak_ba_06"
     },
     {
-      "handling": "lastNedReferanseDataForBatch",
+      "handling": "last_ned_referanse_data_for_batch",
       "filnavn": "termininfo",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "genererMetadataFilFraAktuarFilTilBatch",
+      "handling": "generer_metadata_fil_fra_aktuar_fil_til_batch",
       "aktuarFil": "noekkelunderlag_prognosepremier",
       "generertFil": "prognose_metadata",
       "premiemodell": "hbf_fls",
@@ -161,14 +161,14 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "sendBatchOutputTilDVH",
+      "handling": "send_batch_output_til_dvh",
       "filPrefix": "utjevnet_premier_rapport_avtale",
       "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/prognosefakturering/avtale"
     },
     {
-      "handling": "arkiverBatchOutput",
+      "handling": "arkiver_batch_output",
       "filnavn": "utjevnet_premier_rapport_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -181,14 +181,14 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "sendBatchOutputTilDVH",
+      "handling": "send_batch_output_til_dvh",
       "filPrefix": "utjevnet_premier_rapport_medlem",
       "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/prognosefakturering/medlem"
     },
     {
-      "handling": "arkiverBatchOutput",
+      "handling": "arkiver_batch_output",
       "filnavn": "utjevnet_premier_rapport_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -196,7 +196,7 @@
     },
 
     {
-      "handling": "ryddArbeidsMappe",
+      "handling": "rydd_arbeids_mappe",
       "arbeidsMappeId": "${grunnlagsdataMappe}"
     }
   ]
