@@ -152,7 +152,7 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "typeindikator": "PROGNOSE_METADATA",
-      "felter": ["5"]
+      "felter": ["11"]
     },
 
     {
