@@ -37,7 +37,8 @@
       "modus": "generer_prognosefakturaunderlag_fra_avtale",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
-      "premiemodell": "HBF_AS/ASA"
+      "premiemodell": "HBF_AS/ASA",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -51,7 +52,8 @@
       "modus": "generer_agressofil_for_hbf_prognose",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
-      "premiemodell": "HBF_AS/ASA"
+      "premiemodell": "HBF_AS/ASA",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -86,7 +88,8 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "prognosepremier_rapport_avtale",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "send_batch_output_til_dvh",
@@ -106,7 +109,8 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "prognosepremier_rapport_medlem",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "send_batch_output_til_dvh",

@@ -28,7 +28,8 @@
     {
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_prognose_varsling",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "opprett_arbeids_mappe",
@@ -37,7 +38,7 @@
     },
     {
       "handling": "kopier_batch_output_til_arbeids_mappe",
-      "filnavn": "prognosepremieuttrekk",
+      "filnavn": "aars_prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
       "arbeidsMappeId": "${grunnlagsdataMappe}"
     },
@@ -50,7 +51,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
-      "filnavn": "prognosepremieuttrekk",
+      "filnavn": "aars_prognosepremieuttrekk",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
@@ -66,24 +67,25 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "typeindikator": "PROGNOSE_METADATA",
-      "felter": ["5"]
+      "felter": ["11"]
     },
 
     {
       "handling": "pa_fak_ba_09",
-      "modus": "utjevnet_premier_rapport_avtale_varsling",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "modus": "utjevnet_premier_varsling_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "send_batch_output_til_dvh",
-      "filPrefix": "utjevnet_premier_rapport_varsling_avtale",
+      "filPrefix": "utjevnet_premier_varsling_avtale",
       "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/prognose/avtale"
     },
     {
       "handling": "arkiver_batch_output",
-      "filnavn": "utjevnet_premier_rapport_varsling_avtale",
+      "filnavn": "utjevnet_premier_varsling_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "hbf_fls_prognose/${år}"
@@ -91,19 +93,20 @@
 
     {
       "handling": "pa_fak_ba_09",
-      "modus": "utjevnet_premier_rapport_medlem_varsling",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "modus": "utjevnet_premier_varsling_medlem",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "send_batch_output_til_dvh",
-      "filPrefix": "utjevnet_premier_rapport_varsling_medlem",
+      "filPrefix": "utjevnet_premier_varsling_medlem",
       "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/prognose/medlem"
     },
     {
       "handling": "arkiver_batch_output",
-      "filnavn": "utjevnet_premier_rapport_varsling_medlem",
+      "filnavn": "utjevnet_premier_varsling_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "hbf_fls_prognose/${år}"

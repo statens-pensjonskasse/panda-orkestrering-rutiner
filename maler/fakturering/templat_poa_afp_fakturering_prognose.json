@@ -37,7 +37,8 @@
       "modus": "generer_prognosefakturaunderlag_poa_afp",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
-      "premiemodell": "POA_AFP"
+      "premiemodell": "POA_AFP",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -51,7 +52,8 @@
       "modus": "generer_agressofil_for_poa_afp_prognose",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
-      "premiemodell": "POA_AFP"
+      "premiemodell": "POA_AFP",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -86,7 +88,8 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "prognosepremier_poa_afp_rapport_avtale",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "send_batch_output_til_dvh",
