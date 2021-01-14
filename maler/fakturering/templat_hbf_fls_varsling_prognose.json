@@ -34,13 +34,14 @@
     {
       "handling": "opprett_arbeids_mappe",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
-      "underMappe": "pa_fak_ba_06/${førstePeriode}"
+      "underMappe": "pa_fak_ba_06/${år}"
     },
     {
       "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "aars_prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
-      "arbeidsMappeId": "${grunnlagsdataMappe}"
+      "arbeidsMappeId": "${grunnlagsdataMappe}",
+      "underMappe": "${år}"
     },
 
 
@@ -55,14 +56,14 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "arbeidsMappeId": "${grunnlagsdataMappe}",
-      "underMappe": "pa_fak_ba_06"
+      "underMappe": "pa_fak_ba_06/${år}"
     },
     {
       "handling": "generer_metadata_fil_fra_aktuar_fil_til_batch",
       "aktuarFil": "noekkelunderlag_prognosepremier",
       "generertFil": "prognose_metadata",
       "premiemodell": "hbf_fls",
-      "periode": "${førstePeriode}",
+      "periode": "${år}",
       "prognoseVersjon": "${prognoseVersjon}",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
