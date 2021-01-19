@@ -1,0 +1,121 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS prognose",
+  "variabler": {
+    "grunnlagsdataMappe" : "grunnlagsdata_2021-01-19_13-53-00-00",
+    "år" : "2021",
+    "prognoseVersjon" : "1004"
+  },
+  "operasjoner": [
+    {
+      "handling": "opprett_arbeids_mappe",
+      "arbeidsMappeId": "${grunnlagsdataMappe}",
+      "underMappe": ""
+    },
+
+    {
+      "handling": "opprett_local_inn_mappe_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_fls",
+      "periode": "${år}",
+      "prognoseVersjon": "${prognoseVersjon}",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_prognose_varsling",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "opprett_arbeids_mappe",
+      "arbeidsMappeId": "${grunnlagsdataMappe}",
+      "underMappe": "pa_fak_ba_06/${år}"
+    },
+    {
+      "handling": "kopier_batch_output_til_arbeids_mappe",
+      "filnavn": "aars_prognosepremieuttrekk",
+      "batch": "pa_fak_ba_06",
+      "arbeidsMappeId": "${grunnlagsdataMappe}",
+      "underMappe": "${år}"
+    },
+
+
+    {
+      "handling": "opprett_local_inn_mappe_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
+      "filnavn": "aars_prognosepremieuttrekk",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "arbeidsMappeId": "${grunnlagsdataMappe}",
+      "underMappe": "pa_fak_ba_06/${år}"
+    },
+    {
+      "handling": "generer_metadata_fil_fra_aktuar_fil_til_batch",
+      "aktuarFil": "noekkelunderlag_prognosepremier",
+      "generertFil": "prognose_metadata",
+      "premiemodell": "hbf_fls",
+      "periode": "${år}",
+      "prognoseVersjon": "${prognoseVersjon}",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "typeindikator": "PROGNOSE_METADATA",
+      "felter": ["11"]
+    },
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "utjevnet_premier_varsling_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "utjevnet_premier_varsling_avtale",
+      "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_fls/prognose/avtale"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premier_varsling_avtale",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_fls_prognose/${år}"
+    },
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "utjevnet_premier_varsling_medlem",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "utjevnet_premier_varsling_medlem",
+      "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_fls/prognose/medlem"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premier_varsling_medlem",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_fls_prognose/${år}"
+    },
+
+    {
+      "handling": "rydd_arbeids_mappe",
+      "arbeidsMappeId": "${grunnlagsdataMappe}"
+    }
+  ]
+}
