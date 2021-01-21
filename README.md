@@ -7,7 +7,7 @@ i [panda-orkestrering](http://wiki.spk.no/display/dok/SPK-Panda+Orkestrering+bat
 
 1. Opprett en branch fra master
 
-   `git clone -b rutine/<ITSOS>_<kort_beskrivelse>`
+   `git checkout -b rutine/<ITSOS>_<kort_beskrivelse>`
 
 
 2. Kopier en mal fra `maler/` eller se egen rutinebesrkivelse.
@@ -17,7 +17,7 @@ i [panda-orkestrering](http://wiki.spk.no/display/dok/SPK-Panda+Orkestrering+bat
 
 3. Test kode på branch
     * Kode på branch kan kun testes fra Panda sitt DAT-miljø, logg på `dat@jee38t`
-    * Kjør `runbatch.sh -b <branch>`
+    * Kjør `runbatch.sh pa_ork_ba_01 -b <branch>`
     * Verifiser at batchen kjørte som forventet
    
 
@@ -26,3 +26,4 @@ i [panda-orkestrering](http://wiki.spk.no/display/dok/SPK-Panda+Orkestrering+bat
 
 5. Etter godkjenning, bestill kjøring av pa_ork_ba_01.
    * Se [Rutine - Orkestrering - Bestille kjøring av pa_ork_ba_01](http://wiki.spk.no/pages/viewpage.action?pageId=350323695)
+   * Slett branch når PR merges
