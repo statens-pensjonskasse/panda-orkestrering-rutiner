@@ -94,7 +94,7 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "prognosepremier_rapport_avtale",
-      "filListe": "HBFASASA_FILLISTE_AVTALE.txt",
+      "filListe": "ASASA_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_as_asa/fakturering/avtale"
     },
@@ -115,7 +115,7 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "prognosepremier_rapport_medlem",
-      "filListe": "HBFASASA_FILLISTE_MEDLEM.txt",
+      "filListe": "ASASA_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_as_asa/fakturering/medlem"
     },
