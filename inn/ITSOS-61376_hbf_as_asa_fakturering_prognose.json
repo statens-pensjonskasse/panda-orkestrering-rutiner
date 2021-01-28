@@ -1,7 +1,7 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF as/asa prognose",
   "variabler": {
-    "grunnlagsdataMappe" : "grunnlagsdata_2021-01-28_09-15-00-00>",
+    "grunnlagsdataMappe" : "grunnlagsdata_2021-01-28_09-15-00-00",
     "termin" : "2021-01",
     "prognoseVersjon" : "1007"
   },
