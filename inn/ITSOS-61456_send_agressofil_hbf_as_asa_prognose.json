@@ -1,0 +1,15 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF as/asa prognose",
+  "variabler": {
+    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_2021-01-29_11-55-00-00",
+    "termin" : "2021-01"
+  },
+  "operasjoner": [
+    {
+      "handling": "send_til_agresso",
+      "filnavn": "agressofil_hbf_prognose",
+      "arkivFilsti": "hbf_as_asa_prognose/${termin}",
+      "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
+    }
+  ]
+}
