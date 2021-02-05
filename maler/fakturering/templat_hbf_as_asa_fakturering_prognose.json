@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF as/asa prognose",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA prognosefakturering",
   "variabler": {
     "grunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "termin" : "<termin>",
