@@ -1,22 +1,12 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA prognosefakturering",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA prognosefakturering for termin ${termin} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.9",
   "variabler": {
     "grunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "termin" : "<termin>",
     "prognoseVersjon" : "<prognoseVersjon>"
   },
   "operasjoner": [
-    {
-      "handling": "opprett_arbeids_mappe",
-      "arbeidsMappeId": "${grunnlagsdataMappe}",
-      "underMappe": ""
-    },
-
-    {
-      "handling": "opprett_local_inn_mappe_for_batch",
-      "batch": "pa_fak_ba_04",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_as_asa_prognose",
@@ -65,11 +55,6 @@
     },
 
 
-    {
-      "handling": "opprett_local_inn_mappe_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_as_asa_prognose",
@@ -125,11 +110,6 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "hbf_as_asa_prognose/${termin}"
-    },
-
-    {
-      "handling": "rydd_arbeids_mappe",
-      "arbeidsMappeId": "${grunnlagsdataMappe}"
     }
   ]
 }

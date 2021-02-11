@@ -1,22 +1,12 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS varsling prognose",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS varsling prognose for år ${år} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.9",
   "variabler": {
     "grunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "år" : "<år>",
     "prognoseVersjon" : "<prognoseVersjon>"
   },
   "operasjoner": [
-    {
-      "handling": "opprett_arbeids_mappe",
-      "arbeidsMappeId": "${grunnlagsdataMappe}",
-      "underMappe": ""
-    },
-
-    {
-      "handling": "opprett_local_inn_mappe_for_batch",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
@@ -32,30 +22,18 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "opprett_arbeids_mappe",
-      "arbeidsMappeId": "${grunnlagsdataMappe}",
-      "underMappe": "pa_fak_ba_06/${år}"
-    },
-    {
       "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "aars_prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
-      "arbeidsMappeId": "${grunnlagsdataMappe}",
       "underMappe": "${år}"
     },
 
 
     {
-      "handling": "opprett_local_inn_mappe_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
       "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
       "filnavn": "aars_prognosepremieuttrekk",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "arbeidsMappeId": "${grunnlagsdataMappe}",
       "underMappe": "pa_fak_ba_06/${år}"
     },
     {
@@ -111,11 +89,6 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "hbf_fls_prognose/${år}"
-    },
-
-    {
-      "handling": "rydd_arbeids_mappe",
-      "arbeidsMappeId": "${grunnlagsdataMappe}"
     }
   ]
 }
