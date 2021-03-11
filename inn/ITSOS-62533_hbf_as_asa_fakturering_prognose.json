@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA prognosefakturering for termin ${termin} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.9",
   "variabler": {
-    "grunnlagsdataMappe" : "grunnlagsdata_2021-03-09_09-21-00-00",
+    "grunnlagsdataMappe" : "grunnlagsdata_2021-03-11_10-20-00-00",
     "termin" : "2021-01",
     "prognoseVersjon" : "1008"
   },
