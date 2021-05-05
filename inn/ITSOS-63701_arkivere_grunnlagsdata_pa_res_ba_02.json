@@ -1,0 +1,12 @@
+{
+  "navn": "Arkivere grunnlagsdata fra pa_res_ba_02 for ${dato}",
+  "variabler": {
+    "dato" : "30.04.2021"
+  },
+  "operasjoner": [
+    {
+      "handling": "arkiver_utdata_pa_res_ba_02",
+      "uttrekksdato": "${dato}"
+    }
+  ]
+}
