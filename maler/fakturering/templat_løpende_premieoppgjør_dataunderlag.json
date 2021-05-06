@@ -1,0 +1,114 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for oversending av løpende premieoppgjør for år ${år} og bokføringsperiode ${bokføringsperiode}",
+  "gyldigVersjon": "0.0.9",
+  "variabler": {
+    "grunnlagsdataMappeForKjøring": "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraFaktiskPremie": "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraPrognose":"grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraTotalreserver":"grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraAdministrasjonspremieunderlag":"grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "førsteFremskriving":"????????",
+    "år" : "<år>",
+    "bokføringsperiode": "<bokføringsperiode>"
+  },
+  "operasjoner": [
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_faktisk_premie",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_07",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraFaktiskPremie}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappeForKjøring}",
+      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_07",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraPrognose}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappeForKjøring}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${førsteFremskriving}"
+    },
+    {
+      "handling": "pa_fak_ba_07",
+      "modus": "beregn_lopende_premieoppgjoer",
+      "grunnlagsdataMappe": "${grunnlagsdataMappeForKjøring}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "kopier_batch_output_til_arbeids_mappe",
+      "filnavn": "lopende_premieoppgjoer",
+      "batch": "pa_fak_ba_07",
+      "underMappe": "${bokføringsperiode}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "lopende_premieoppgjoer",
+      "batch": "pa_fak_ba_07",
+      "grunnlagsdataMappe": "${grunnlagsdataMappeKjøring}",
+      "nøkkel": "beregn_lopende_premieoppgjoer/${år}/${bokføringsperiode}"
+    },
+
+
+    {
+      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
+      "filnavn": "totalpremier_medlem",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappeKjøring}",
+      "underMappe": "pa_fak_ba_07"
+    },
+    {
+      "handling": "generer_metadata_fil_fra_aktuar_fil_til_batch",
+      "aktuarFil": "noekkelunderlag_prognosepremier",
+      "generertFil": "prognose_metadata",
+      "premiemodell": "hbf_fls",
+      "periode": "${år}",
+      "prognoseVersjon": "${prognoseVersjon}",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "typeindikator": "PROGNOSE_METADATA",
+      "felter": ["11"]
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "totalreserver",
+      "batchFra": "pa_fak_ba_02",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraTotalreserver}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappeForKjøring}",
+      "nøkkel": "reserveaggregering/${førsteFremskriving}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeFraPrognose": "${grunnlagsdataMappeFraAdministrasjonspremieunderlag}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappeForKjøring}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskriving}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "loepende_premieoppgjoer_dataunderlag",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "totalpremier_medlem",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappeKjøring}",
+      "nøkkel": "loepende_premieoppgjoer_dataunderlag/${bokføringsperiode}"
+    },
+
+
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+      "filListe": "HBFFLS_FILLISTE_PREMIEOPPGJOER.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_fls/lopende_premieoppgjoer"
+    }
+  ]
+}
