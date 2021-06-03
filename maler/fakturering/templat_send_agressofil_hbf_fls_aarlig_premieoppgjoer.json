@@ -3,12 +3,13 @@
   "gyldigVersjon": "0.0.9",
   "variabler": {
     "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "inneværendeÅr" : "<YYYY>"
   },
   "operasjoner": [
     {
       "handling": "send_til_agresso",
       "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
-      "arkivFilsti": "agressofil_hbf_fls_aarlig_premieoppgjoer/06",
+      "arkivFilsti": "hbf_fls_premieoppgjoer/${inneværendeÅr}",
       "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     }
   ]

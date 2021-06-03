@@ -224,7 +224,7 @@
       "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_premieoppgjoer/${inneværendeÅr}",
+      "nøkkel": "hbf_fls_premieoppgjor/${inneværendeÅr}",
       "filter": "Agressofil"
     }
   ]
