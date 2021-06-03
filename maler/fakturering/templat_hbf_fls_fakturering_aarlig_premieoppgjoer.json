@@ -1,8 +1,9 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS premieoppgjør for år ${inneværendeÅr} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.9",
+  "gyldigVersjon": "0.0.20",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappeFra" : "grunnlagsdata_2020-10-10_10-00-00-00",
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
     "prognoseVersjon" : "<prognoseVersjon>"
@@ -61,7 +62,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${forrigeÅr}12"
     },
@@ -70,7 +71,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}01"
     },
@@ -79,7 +80,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}02"
     },
@@ -88,7 +89,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}03"
     },
@@ -97,7 +98,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}04"
     },
@@ -106,7 +107,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}05"
     },
@@ -115,7 +116,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}06"
     },
@@ -124,7 +125,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}07"
     },
@@ -133,7 +134,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}08"
     },
@@ -142,7 +143,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}09"
     },
@@ -151,7 +152,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}10"
     },
@@ -160,7 +161,7 @@
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
-      "grunnlagsdataMappeFra": "grunnlagsdata_2020-10-10_10-00-00-00",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
     },
@@ -186,7 +187,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
-      "filnavn": "prognosepremieuttrekk",
+      "filnavn": "premieoppgjor",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "underMappe": "pa_fak_ba_10/${inneværendeÅr}"
@@ -198,7 +199,7 @@
       "modus": "generer_fakturaunderlag_hbf_fls_for_aarlig_premieoppgjoer",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${inneværendeÅr}-06",
-      "premiemodell": "hbf_fls",
+      "premiemodell": "HBF_FLS",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -210,13 +211,12 @@
     },
 
 
-
     {
       "handling": "pa_fak_ba_04",
       "modus": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${inneværendeÅr}-06",
-      "premiemodell": "hbf_fls",
+      "premiemodell": "HBF_FLS",
       "validerFeilendeMedlemmer": true
     },
     {
