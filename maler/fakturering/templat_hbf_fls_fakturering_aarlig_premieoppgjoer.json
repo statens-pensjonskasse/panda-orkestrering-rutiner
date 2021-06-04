@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.20",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataMappeFra" : "grunnlagsdata_2020-10-10_10-00-00-00",
+    "grunnlagsdataMappeFra" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
     "prognoseVersjon" : "<prognoseVersjon>"
