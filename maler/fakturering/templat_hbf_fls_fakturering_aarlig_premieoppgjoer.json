@@ -11,6 +11,11 @@
 
   "operasjoner": [
     {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${inneværendeÅr}11",
@@ -25,10 +30,24 @@
       "validerFeilendeMedlemmer": true
     },
     {
+      "handling": "arkiver_batch_output",
+      "filnavn": "prognosepremieuttrekk",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}11"
+    },
+    {
       "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
       "underMappe": "${inneværendeÅr}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -45,10 +64,24 @@
       "validerFeilendeMedlemmer": true
     },
     {
+      "handling": "arkiver_batch_output",
+      "filnavn": "prognosepremieuttrekk",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}12"
+    },
+    {
       "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
       "underMappe": "${inneværendeÅr}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_10",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
@@ -165,7 +198,6 @@
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
     },
-
     {
       "handling": "pa_fak_ba_10",
       "modus": "sammenstill_premieoppgjor",
@@ -177,13 +209,20 @@
       "filnavn": "premieoppgjor",
       "batch": "pa_fak_ba_10",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "sammenstill_premieoppgjor/${år}"
+      "nøkkel": "sammenstill_premieoppgjor/${inneværendeÅr}"
     },
     {
       "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "premieoppgjor",
       "batch": "pa_fak_ba_10",
       "underMappe": "${inneværendeÅr}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
@@ -192,8 +231,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "underMappe": "pa_fak_ba_10/${inneværendeÅr}"
     },
-
-
     {
       "handling": "pa_fak_ba_04",
       "modus": "generer_fakturaunderlag_hbf_fls_for_aarlig_premieoppgjoer",
@@ -207,10 +244,8 @@
       "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_premieoppgjoer/${inneværendeÅr}"
+      "nøkkel": "generer_fakturaunderlag_hbf_fls_for_aarlig_premieoppgjoer/${inneværendeÅr}"
     },
-
-
     {
       "handling": "pa_fak_ba_04",
       "modus": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer",
@@ -224,7 +259,7 @@
       "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_premieoppgjor/${inneværendeÅr}",
+      "nøkkel": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${inneværendeÅr}",
       "filter": "Agressofil"
     }
   ]
