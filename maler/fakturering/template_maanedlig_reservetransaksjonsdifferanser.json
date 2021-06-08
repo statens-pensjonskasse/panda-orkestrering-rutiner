@@ -1,12 +1,14 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig fakturadatagrunnlag av totalpremier med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig fakturadatagrunnlag av reservetransaksjonsdifferanser med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.21",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataMappeFra": "grunnlagsdata_2021-01-01_10-00-00-00",
-    "fremskrivingsDato" : "2021.01.01",
+    "midlertidigGrunnlagsdataMappeForKontoføringerFra": "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "midlertidigGrunnlagsdataMappeForrigeKjøring" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode":"<YYYYMM>"
+    "periode":"<YYYYMM>",
+    "fraGrunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>"
   },
   "operasjoner": [
     {
@@ -14,7 +16,7 @@
       "filnavn": "kontofoeringer",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_02",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
+      "grunnlagsdataMappeFra": "${midlertidigGrunnlagsdataMappeForKontoføringerFra}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
     },
@@ -33,10 +35,10 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "kontofoeringer",
+      "filnavn": "totalpremier_medlem",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_03",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
+      "grunnlagsdataMappeFra": "${midlertidigGrunnlagsdataMappeForrigeKjøring}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premieaggregering_for_medlem/${forrigeFremskrivingsDato}"
     },
@@ -64,6 +66,17 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${periode}"
     },
 
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+      "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
     {
       "handling": "pa_res_ba_01",
       "modus": "panda_administrasjonspremieunderlag",
@@ -79,6 +92,12 @@
       "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
     },
 
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_05",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
     {
       "handling": "kopier_filer_fra_batch_til_batch",
       "filnavn": "administrasjonspremieunderlag",
@@ -86,7 +105,6 @@
       "tilBatch": "pa_fak_ba_05",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
-
     {
       "handling": "pa_fak_ba_05",
       "modus": "generer_administrasjonspremier",
