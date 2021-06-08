@@ -12,6 +12,11 @@
   },
   "operasjoner": [
     {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "kontofoeringer",
       "batchFra": "pa_res_ba_01",
@@ -32,6 +37,12 @@
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premieaggregering_for_medlem/${fremskrivingsDato}"
+    },
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
