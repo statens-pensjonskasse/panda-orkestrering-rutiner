@@ -1,8 +1,12 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA faktiske premier for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.21",
+  "gyldigVersjon": "0.0.22",
   "variabler": {
-    "grunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappeFraFørstePeriode" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraAndrePeriode" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraFørstePeriodeAdm" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraAndrePeriodeAdm" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "termin" : "<termin>",
     "førstePeriode" : "<YYYYMM>",
     "andrePeriode" : "<YYYYMM>"
@@ -19,7 +23,7 @@
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraFørstePeriode}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
     },
@@ -28,7 +32,7 @@
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraAndrePeriode}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
     },
@@ -37,7 +41,7 @@
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraFørstePeriodeAdm}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
     },
@@ -46,7 +50,7 @@
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraAndrePeriodeAdm}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
     },
@@ -65,14 +69,7 @@
     {
       "handling": "kopier_solvensfil_fra_aktuar_til_batch",
       "premiemodell": "hbf_as_asa",
-      "periode": "${førstePeriode}",
-      "batch": "pa_fak_ba_04",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_solvensfil_fra_aktuar_til_batch",
-      "premiemodell": "hbf_as_asa",
-      "periode": "${andrePeriode}",
+      "termin": "${termin}",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
