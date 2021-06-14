@@ -9,7 +9,7 @@
     {
       "handling": "send_til_agresso",
       "filnavn": "agressofil_hbf_as_asa",
-      "arkivFilsti": "hbf_as_asa/${termin}",
+      "arkivFilsti": "generer_agressofil_for_hbf_as_asa/${termin}",
       "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     }
   ]
