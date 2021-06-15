@@ -1,0 +1,134 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig fakturadatagrunnlag av reservetransaksjonsdifferanser og administrasjonspremier med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.21",
+  "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "midlertidigGrunnlagsdataMappeForKontoføringerFra": "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "midlertidigGrunnlagsdataMappeForrigeKjøring" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "fremskrivingsDato" : "<YYYY.MM.dd>",
+    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
+    "periode":"<periode>",
+    "fraGrunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>"
+  },
+  "operasjoner": [
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "kontofoeringer",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_02",
+      "grunnlagsdataMappeFra": "${midlertidigGrunnlagsdataMappeForKontoføringerFra}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
+    },
+    {
+      "handling": "pa_fak_ba_02",
+      "modus": "premieaggregering_for_medlem",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "totalpremier_medlem",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premieaggregering_for_medlem/${fremskrivingsDato}"
+    },
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "totalpremier_medlem",
+      "batchFra": "pa_fak_ba_02",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeFra": "${midlertidigGrunnlagsdataMappeForrigeKjøring}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premieaggregering_for_medlem/${forrigeFremskrivingsDato}"
+    },
+    {
+      "handling": "kopier_filer_fra_batch_til_batch",
+      "filnavn": "totalpremier_medlem",
+      "fraBatch": "pa_fak_ba_02",
+      "tilBatch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_fak_ba_03",
+      "modus": "reservetransaksjonsdifferanse_for_medlem",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "førsteKjøring": "${forrigeFremskrivingsDato}",
+      "andreKjøring": "${fremskrivingsDato}",
+      "bokføringsperiode": "${periode}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${periode}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+      "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_administrasjonspremieunderlag",
+      "sisteFremskrivingsdato": "${fremskrivingsDato}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "rettighet": "panda_veldig_forenkla_rettighet"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "administrasjonspremieunderlag",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_05",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_batch_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "fraBatch": "pa_res_ba_01",
+      "tilBatch": "pa_fak_ba_05",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_fak_ba_05",
+      "modus": "generer_administrasjonspremier",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "bokføringsperiode": "${periode}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "administrasjonspremie",
+      "batch": "pa_fak_ba_05",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${periode}"
+    }
+  ]
+}
