@@ -67,9 +67,9 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_solvensfil_fra_aktuar_til_batch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_as_asa",
-      "termin": "${termin}",
+      "periode": "${termin}",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
