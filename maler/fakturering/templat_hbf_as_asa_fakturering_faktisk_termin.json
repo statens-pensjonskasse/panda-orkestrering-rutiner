@@ -8,8 +8,8 @@
     "grunnlagsdataMappeFraFørstePeriodeAdm" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "grunnlagsdataMappeFraAndrePeriodeAdm" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "termin" : "<termin>",
-    "førstePeriode" : "<YYYYMM>",
-    "andrePeriode" : "<YYYYMM>"
+    "førstePeriode" : "<førstePeriode>",
+    "andrePeriode" : "<andrePeriode>"
   },
   "operasjoner": [
 
