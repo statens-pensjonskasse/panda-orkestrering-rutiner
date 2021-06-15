@@ -7,7 +7,7 @@
     "midlertidigGrunnlagsdataMappeForrigeKjøring" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode":"<YYYYMM>",
+    "periode":"<periode>",
     "fraGrunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>"
   },
   "operasjoner": [
