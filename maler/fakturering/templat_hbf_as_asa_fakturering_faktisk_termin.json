@@ -1,0 +1,110 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA faktiske premier for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.22",
+  "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappeFraFørstePeriode" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraAndrePeriode" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraFørstePeriodeAdm" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeFraAndrePeriodeAdm" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "termin" : "<termin>",
+    "førstePeriode" : "<førstePeriode>",
+    "andrePeriode" : "<andrePeriode>"
+  },
+  "operasjoner": [
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraFørstePeriode}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraAndrePeriode}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraFørstePeriodeAdm}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraAndrePeriodeAdm}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_solvensfil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa",
+      "termin": "${termin}",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_fakturaunderlag_fra_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "HBF_AS/ASA",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "fakturaunderlag",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturaunderlag_fra_avtale/${termin}"
+    },
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_agressofil_for_hbf_as_asa",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "HBF_AS/ASA",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "agressofil_hbf_as_asa",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_agressofil_for_hbf_as_asa/${termin}",
+      "filter": "Agressofil"
+    }
+  ]
+}
