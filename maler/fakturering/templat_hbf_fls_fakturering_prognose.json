@@ -24,6 +24,13 @@
       "validerFeilendeMedlemmer": true
     },
     {
+      "handling": "arkiver_batch_output",
+      "filnavn": "prognosepremieuttrekk",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${førstePeriode}"
+    },
+    {
       "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
@@ -43,6 +50,13 @@
       "modus": "premiefellesskap_utjevning_prognose",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "prognosepremieuttrekk",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${andrePeriode}"
     },
     {
       "handling": "kopier_batch_output_til_arbeids_mappe",
