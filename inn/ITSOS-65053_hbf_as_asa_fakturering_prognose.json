@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.9",
   "variabler": {
     "grunnlagsdataMappe" : "grunnlagsdata_2021-06-30_09-00-00-00",
-    "termin" : "202103",
+    "termin" : "2021-03",
     "prognoseVersjon" : "1025"
   },
   "operasjoner": [
