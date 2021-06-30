@@ -1,0 +1,115 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA prognosefakturering for termin ${termin} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.9",
+  "variabler": {
+    "grunnlagsdataMappe" : "grunnlagsdata_2021-06-30_09-00-00-00",
+    "termin" : "2021-03",
+    "prognoseVersjon" : "1025"
+  },
+  "operasjoner": [
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa_prognose",
+      "periode": "${termin}",
+      "prognoseVersjon": "${prognoseVersjon}",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_prognosefakturaunderlag_fra_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "HBF_AS/ASA",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "fakturaunderlag",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_as_asa_prognose/${termin}"
+    },
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_agressofil_for_hbf_prognose",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "HBF_AS/ASA",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "agressofil_hbf_prognose",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_as_asa_prognose/${termin}",
+      "filter": "Agressofil"
+    },
+
+
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa_prognose",
+      "periode": "${termin}",
+      "prognoseVersjon": "${prognoseVersjon}",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "prognosepremier_rapport_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "prognosepremier_rapport_avtale",
+      "filListe": "ASASA_FILLISTE_AVTALE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_as_asa/fakturering/avtale"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "prognosepremier_rapport_avtale",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_as_asa_prognose/${termin}"
+    },
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "prognosepremier_rapport_medlem",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "prognosepremier_rapport_medlem",
+      "filListe": "ASASA_FILLISTE_MEDLEM.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_as_asa/fakturering/medlem"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "prognosepremier_rapport_medlem",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_as_asa_prognose/${termin}"
+    }
+  ]
+}
