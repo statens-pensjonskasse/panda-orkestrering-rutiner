@@ -261,6 +261,84 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${inneværendeÅr}",
       "filter": "Agressofil"
+    },
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "premieoppgjor",
+      "batchFra": "pa_fak_ba_10",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "sammenstill_premieoppgjor/${inneværendeÅr}"
+    },
+    { --mest sansynlig kopiere fra en mappe, som solvens
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "oppgjoersfil",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "premieoppgjoer_dataunderlag_for_medlem",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "premieoppgjoer_dataunderlag_medlem",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premieoppgjoer_dataunderlag_medlem/${inneværendeÅr}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "premieoppgjoer_dataunderlag_medlem",
+      "filListe": "HBFFLS_FILLISTE_PREMIEOPPGJOR_AVTALE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
+    },
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_batch_til_batch",
+      "filnavn": "premieoppgjoer_dataunderlag_medlem",
+      "fraBatch": "pa_fak_ba_09",
+      "tilBatch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "premieoppgjoer_dataunderlag_for_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "det som kommer ut av 09",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premieoppgjoer_dataunderlag_for_avtale/${inneværendeÅr}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "premieoppgjoer_dataunderlag_avtale",
+      "filListe": "HBFFLS_FILLISTE_PREMIEOPPGJOR_AVTALE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_fls/premieoppgjoer/avtale"
     }
   ]
 }
