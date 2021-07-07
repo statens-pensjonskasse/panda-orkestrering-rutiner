@@ -4,6 +4,7 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeFra" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "kjøringsId" : "<kjøringsId>",
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
     "prognoseVersjon" : "<prognoseVersjon>"
@@ -199,6 +200,20 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
     },
     {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_fls",
+      "periode": "oppgjoersfil/premieoppgjoer/${inneværendeÅr}/${prognoseVersjon}",
+      "batch": "pa_fak_ba_10",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kommentar" : "kopierer oppgjoersfil"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_10",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
       "handling": "pa_fak_ba_10",
       "modus": "sammenstill_premieoppgjor",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -275,20 +290,23 @@
       "filnavn": "premieoppgjor",
       "batchFra": "pa_fak_ba_10",
       "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "sammenstill_premieoppgjor/${inneværendeÅr}"
     },
-    { --mest sansynlig kopiere fra en mappe, som solvens
-      "handling": "last_ned_referanse_data_for_batch",
-      "filnavn": "oppgjoersfil",
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_fls",
+      "periode": "oppgjoersfil/premieoppgjoer/${inneværendeÅr}/${prognoseVersjon}",
       "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kommentar" : "kopierer oppgjoersfil"
     },
     {
       "handling": "pa_fak_ba_09",
       "modus": "premieoppgjoer_dataunderlag_for_medlem",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kjøringsId": "${kjøringsId}",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -296,7 +314,8 @@
       "filnavn": "premieoppgjoer_dataunderlag_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premieoppgjoer_dataunderlag_medlem/${inneværendeÅr}"
+      "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}",
+      "filter": "Typeidentifikator"
     },
     {
       "handling": "send_batch_output_til_dvh",
@@ -307,18 +326,19 @@
     },
 
 
-
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_filer_fra_batch_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "premieoppgjoer_dataunderlag_medlem",
-      "fraBatch": "pa_fak_ba_09",
-      "tilBatch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "batchFra": "pa_fak_ba_09",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
     },
     {
       "handling": "pa_fak_ba_09",
@@ -328,7 +348,7 @@
     },
     {
       "handling": "arkiver_batch_output",
-      "filnavn": "det som kommer ut av 09",
+      "filnavn": "premieoppgjoer_dataunderlag_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premieoppgjoer_dataunderlag_for_avtale/${inneværendeÅr}"
