@@ -7,7 +7,8 @@
     "kjøringsId" : "<kjøringsId>",
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
-    "prognoseVersjon" : "<prognoseVersjon>"
+    "prognoseVersjon" : "<prognoseVersjon>",
+    "oppgjørsVersjon": "<oppgjørsVersjon>"
   },
 
   "operasjoner": [
@@ -202,7 +203,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "oppgjoersfil/premieoppgjoer/${inneværendeÅr}/${prognoseVersjon}",
+      "periode": "${inneværendeÅr}12/${oppgjørsVersjon}",
       "batch": "pa_fak_ba_10",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "kommentar" : "kopierer oppgjoersfil"
@@ -297,7 +298,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "oppgjoersfil/premieoppgjoer/${inneværendeÅr}/${prognoseVersjon}",
+      "periode": "${inneværendeÅr}12/${oppgjørsVersjon}",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "kommentar" : "kopierer oppgjoersfil"
