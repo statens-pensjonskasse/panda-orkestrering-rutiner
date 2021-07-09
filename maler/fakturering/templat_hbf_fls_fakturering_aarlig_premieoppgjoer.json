@@ -345,6 +345,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "premieoppgjoer_dataunderlag_for_avtale",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kjøringsId": "${kjøringsId}",
       "validerFeilendeMedlemmer": true
     },
     {
