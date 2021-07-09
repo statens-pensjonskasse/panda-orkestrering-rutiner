@@ -320,7 +320,7 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "premieoppgjoer_dataunderlag_medlem",
-      "filListe": "HBFFLS_FILLISTE_PREMIEOPPGJOR_AVTALE.txt",
+      "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
     },
@@ -357,7 +357,7 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "premieoppgjoer_dataunderlag_avtale",
-      "filListe": "HBFFLS_FILLISTE_PREMIEOPPGJOR_AVTALE.txt",
+      "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/premieoppgjoer/avtale"
     }
