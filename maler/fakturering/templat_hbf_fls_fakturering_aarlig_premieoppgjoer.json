@@ -4,9 +4,9 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeFra" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "kjøringsId" : "<kjøringsId>",
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
+    "kjøringsId" : "<kjøringsId>",
     "prognoseVersjon" : "<prognoseVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>"
   },
@@ -278,7 +278,6 @@
       "nøkkel": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${inneværendeÅr}",
       "filter": "Agressofil"
     },
-
 
 
     {
