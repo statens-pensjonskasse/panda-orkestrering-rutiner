@@ -3,14 +3,13 @@
   "gyldigVersjon": "0.0.21",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "midlertidigGrunnlagsdataMappeForKontoføringerFra": "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "midlertidigGrunnlagsdataMappeForrigeKjøring" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
     "fraGrunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>"
   },
   "operasjoner": [
+
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_02",
@@ -21,9 +20,9 @@
       "filnavn": "kontofoeringer",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_02",
-      "grunnlagsdataMappeFra": "${midlertidigGrunnlagsdataMappeForKontoføringerFra}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
       "handling": "pa_fak_ba_02",
@@ -39,6 +38,7 @@
       "nøkkel": "premieaggregering_for_medlem/${fremskrivingsDato}"
     },
 
+
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_03",
@@ -49,9 +49,9 @@
       "filnavn": "totalpremier_medlem",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_03",
-      "grunnlagsdataMappeFra": "${midlertidigGrunnlagsdataMappeForrigeKjøring}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering_for_medlem/${forrigeFremskrivingsDato}"
+      "nøkkel": "premieaggregering_for_medlem/${forrigeFremskrivingsDato}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
       "handling": "kopier_filer_fra_batch_til_batch",
