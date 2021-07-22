@@ -5,8 +5,7 @@
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode":"<periode>",
-    "fraGrunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>"
+    "periode":"<periode>"
   },
   "operasjoner": [
 
@@ -17,7 +16,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "kontofoeringer",
+      "filnavn": "kontofoering",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_02",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
@@ -85,8 +84,8 @@
     },
     {
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
-      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
       "handling": "pa_res_ba_01",
