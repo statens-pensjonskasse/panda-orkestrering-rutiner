@@ -3,11 +3,33 @@
   "gyldigVersjon": "0.0.21",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "konverteringsAar": "<konverteringsår>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>"
   },
   "operasjoner": [
+    {
+      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_reserveberegning",
+      "konverteringsAar": "${konverteringsAar}",
+      "sisteFremskrivingsdato": "${fremskrivingsDato}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoering",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
+    },
+
+
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
