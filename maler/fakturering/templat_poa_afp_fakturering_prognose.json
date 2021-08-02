@@ -1,12 +1,17 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP prognosefakturering for termin ${termin} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.9",
+  "gyldigVersjon": "0.0.20",
   "variabler": {
-    "grunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "termin" : "<termin>",
     "prognoseVersjon" : "<prognoseVersjon>"
   },
   "operasjoner": [
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "poa_afp",
@@ -55,6 +60,11 @@
     },
 
 
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "poa_afp",
