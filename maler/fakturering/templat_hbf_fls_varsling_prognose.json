@@ -1,12 +1,17 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS varsling prognose for år ${år} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.9",
+  "gyldigVersjon": "0.0.20",
   "variabler": {
-    "grunnlagsdataMappe" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "år" : "<år>",
     "prognoseVersjon" : "<prognoseVersjon>"
   },
   "operasjoner": [
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
@@ -29,6 +34,11 @@
     },
 
 
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
     {
       "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
       "filnavn": "aars_prognosepremieuttrekk",
