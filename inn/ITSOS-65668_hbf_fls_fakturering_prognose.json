@@ -2,11 +2,11 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS prognosefakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.20",
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
-    "prognoseVersjon" : "<prognoseVersjon>"
+    "grunnlagsdataMappe" : "grunnlagsdata_2021-08-11_16-00-00-00",
+    "termin" : "2021-04",
+    "førstePeriode" : "202107",
+    "andrePeriode" : "202108",
+    "prognoseVersjon" : "1029"
   },
   "operasjoner": [
     {
