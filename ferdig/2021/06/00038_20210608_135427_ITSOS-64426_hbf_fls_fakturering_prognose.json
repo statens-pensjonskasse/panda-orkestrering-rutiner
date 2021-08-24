@@ -1,19 +1,14 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS prognosefakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.20",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS prognosefakturering for termin ${termin}, førstePeriode ${førstePeriode}, andrePeriode ${andrePeriode} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.9",
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
-    "prognoseVersjon" : "<prognoseVersjon>"
+    "grunnlagsdataMappe" : "grunnlagsdata_2021-06-08_11-45-00-00",
+    "termin" : "2021-03",
+    "førstePeriode" : "202105",
+    "andrePeriode" : "202106",
+    "prognoseVersjon" : "1024"
   },
   "operasjoner": [
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
@@ -29,24 +24,12 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "prognosepremieuttrekk",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_prognose/${førstePeriode}"
-    },
-    {
       "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
       "underMappe": "${førstePeriode}"
     },
 
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
@@ -62,13 +45,6 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "prognosepremieuttrekk",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_prognose/${andrePeriode}"
-    },
-    {
       "handling": "kopier_batch_output_til_arbeids_mappe",
       "filnavn": "prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
@@ -76,11 +52,6 @@
     },
 
 
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_04",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
       "filnavn": "prognosepremieuttrekk",
@@ -128,11 +99,6 @@
     },
 
 
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
       "filnavn": "prognosepremieuttrekk",
