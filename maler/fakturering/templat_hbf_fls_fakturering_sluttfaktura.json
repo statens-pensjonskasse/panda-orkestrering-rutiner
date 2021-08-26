@@ -6,6 +6,7 @@
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
     "termin": "<YYYY-TT>",
+    "avsluttendeBokføringsperiode" : "<bokføringsperiode>",
     "kjøringsId" : "#{genererUUID}",
     "oppgjørsVersjon": "<oppgjørsVersjon>"
   },
@@ -35,11 +36,29 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}01",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}02",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}02",
       "feilHvisFilMangler": false
     },
     {
@@ -53,11 +72,29 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}03",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}04",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}04",
       "feilHvisFilMangler": false
     },
     {
@@ -71,11 +108,29 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}05",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}06",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}06",
       "feilHvisFilMangler": false
     },
     {
@@ -89,11 +144,29 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}07",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}08",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}08",
       "feilHvisFilMangler": false
     },
     {
@@ -107,11 +180,29 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}09",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}10",
+      "feilHvisFilMangler": false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}10",
       "feilHvisFilMangler": false
     },
     {
@@ -124,9 +215,18 @@
       "feilHvisFilMangler": false
     },
     {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_10",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}11",
+      "feilHvisFilMangler": false
+    },
+    {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${termin}/${oppgjørsVersjon}",
+      "periode": "${avsluttendeBokføringsperiode}/${oppgjørsVersjon}",
       "batch": "pa_fak_ba_10",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "kommentar" : "kopierer oppgjoersfil"
