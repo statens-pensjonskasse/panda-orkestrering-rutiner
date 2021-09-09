@@ -3,7 +3,7 @@
   "operasjoner": [
     {
       "handling": "arkiver_reserveberegning_grunnlagsdata_fra_aktuar",
-      "beskrivelse": "<Hva er endret?>"
+      "beskrivelse": "Første arkivering av grunnlagsdata fra aktuar"
     }
   ]
 }
