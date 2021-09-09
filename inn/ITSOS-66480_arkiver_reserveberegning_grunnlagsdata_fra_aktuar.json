@@ -3,7 +3,7 @@
   "operasjoner": [
     {
       "handling": "arkiver_reserveberegning_grunnlagsdata_fra_aktuar",
-      "beskrivelse": "<Hva er endret?>"
+      "beskrivelse": "Lagt til fremskrivingsplaner for alderspensjon påslag eventuell og afp livsvarig eventuell"
     }
   ]
 }
