@@ -1,6 +1,6 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig fakturadatagrunnlag av reservetransaksjonsdifferanser og administrasjonspremier med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.21",
+  "gyldigVersjon": "0.0.35",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
@@ -74,6 +74,13 @@
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "hent_spesifisert_del_av_medlemsdata",
+      "batchTil": "pa_fak_ba_11",
+      "filnavnTil": "etterlatte",
+      "typeindikator": "ETTERLATT",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
       "handling": "pa_fak_ba_11",
