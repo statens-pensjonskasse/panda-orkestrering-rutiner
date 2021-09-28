@@ -14,7 +14,7 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "hbf_stat",
+      "premiemodell": "hbf_fls",
       "periode": "${termin}",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
