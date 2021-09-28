@@ -126,6 +126,14 @@
       "nøkkel": "aggreger_faktiske_premier/${periode}"
     },
     {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${periode}"
+    },
+    {
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_faktisk_premie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
