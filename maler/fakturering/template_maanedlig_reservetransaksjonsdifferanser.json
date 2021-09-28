@@ -7,7 +7,8 @@
     "konverteringsAar": "<konverteringsår>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode":"<periode>"
+    "periode":"<periode>",
+    "estimer-rettighet": "<estimer-rettighet>"
   },
   "operasjoner": [
     {
@@ -25,7 +26,8 @@
       "modus": "panda_reserveberegning",
       "konverteringsAar": "${konverteringsAar}",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "estimer-rettighet": "${estimer-rettighet}"
     },
     {
       "handling": "arkiver_batch_output",
@@ -193,7 +195,6 @@
       "modus": "panda_administrasjonspremieunderlag",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "rettighet": "panda_veldig_forenkla_rettighet"
     },
     {
       "handling": "arkiver_batch_output",
@@ -229,6 +230,48 @@
       "batch": "pa_fak_ba_05",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_administrasjonspremier/${periode}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_fls",
+      "periode": "${termin}",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_batch_til_batch",
+      "filnavn": "totalpremier_medlem",
+      "fraBatch": "pa_fak_ba_02",
+      "tilBatch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_batch_til_batch",
+      "filnavn": "administrasjonspremie",
+      "fraBatch": "pa_fak_ba_05",
+      "tilBatch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_fak_ba_03",
+      "modus": "aggregert_reservetransaksjonsdifferanse",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "bokføringsperiode": "${periode}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${periode}"
     }
   ]
 }
