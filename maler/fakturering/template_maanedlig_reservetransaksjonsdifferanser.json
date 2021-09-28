@@ -158,8 +158,8 @@
     {
       "handling": "kopier_filer_fra_batch_til_batch",
       "filnavn": "totalpremier_medlem",
-      "fraBatch": "pa_fak_ba_02",
-      "tilBatch": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_02",
+      "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
@@ -213,8 +213,8 @@
     {
       "handling": "kopier_filer_fra_batch_til_batch",
       "filnavn": "administrasjonspremieunderlag",
-      "fraBatch": "pa_res_ba_01",
-      "tilBatch": "pa_fak_ba_05",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_05",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
@@ -248,15 +248,15 @@
     {
       "handling": "kopier_filer_fra_batch_til_batch",
       "filnavn": "totalpremier_medlem",
-      "fraBatch": "pa_fak_ba_02",
-      "tilBatch": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_02",
+      "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
       "handling": "kopier_filer_fra_batch_til_batch",
       "filnavn": "administrasjonspremie",
-      "fraBatch": "pa_fak_ba_05",
-      "tilBatch": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {

@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.35",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "fremskrivingsDato" : "<YYYY.MM.dd>",
+    "fremskrivingsdato" : "<YYYY.MM.dd>",
     "periode":"<periode>"
   },
   "operasjoner": [
@@ -29,7 +29,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "reservetransaksjonsdifferanse_medlem",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
@@ -41,7 +41,7 @@
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggregerte_reservetransaksjonsdifferanser/${periode}"
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${periode}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -54,8 +54,8 @@
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
-      "fraBatch": "pa_res_ba_01",
-      "tilBatch": "pa_fak_ba_08",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsdato}"
     },
@@ -83,8 +83,8 @@
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
-      "fraBatch": "pa_fak_ba_08",
-      "tilBatch": "pa_fak_ba_08",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag/${periode}"
     },
@@ -112,16 +112,16 @@
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
-      "fraBatch": "pa_fak_ba_08",
-      "tilBatch": "pa_fak_ba_06",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag/${periode}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
-      "fraBatch": "pa_fak_ba_08",
-      "tilBatch": "pa_fak_ba_06",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_faktiske_premier/${periode}"
     },
