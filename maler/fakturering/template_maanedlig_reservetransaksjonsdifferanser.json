@@ -8,7 +8,7 @@
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
-    "estimer-rettighet": "<estimer-rettighet>"
+    "rettighet": "<rettighet>"
   },
   "operasjoner": [
     {
@@ -27,7 +27,7 @@
       "konverteringsAar": "${konverteringsAar}",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "estimer-rettighet": "${estimer-rettighet}"
+      "rettighet": "${rettighet}"
     },
     {
       "handling": "arkiver_batch_output",
@@ -195,6 +195,7 @@
       "modus": "panda_administrasjonspremieunderlag",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "rettighet": "<rettighet>"
     },
     {
       "handling": "arkiver_batch_output",
