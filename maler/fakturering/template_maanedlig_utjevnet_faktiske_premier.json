@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig utjevnet faktiske premier for HBF FLS med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig utjevnet faktiske premier for HBF FLS med grunnlagsdataMappe ${grunnlagsdataMappe} for periode ${periode}",
   "gyldigVersjon": "0.0.35",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
