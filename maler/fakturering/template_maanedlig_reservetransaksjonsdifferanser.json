@@ -203,16 +203,6 @@
 
 
     {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_res_ba_01",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
       "handling": "pa_res_ba_01",
       "modus": "panda_administrasjonspremieunderlag",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
@@ -259,34 +249,11 @@
 
 
     {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_03",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${termin}",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "totalpremier_medlem",
-      "batchFra": "pa_fak_ba_02",
-      "batchTil": "pa_fak_ba-03",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}",
-      "kommentar": "Henter fra forrige grunnlagsdatamappe"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "totalpremier_medlem",
-      "batchFra": "pa_fak_ba_02",
-      "batchTil": "pa_fak_ba-03",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${fremskrivingsDato}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
