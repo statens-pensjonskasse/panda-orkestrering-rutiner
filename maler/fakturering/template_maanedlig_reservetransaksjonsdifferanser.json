@@ -4,7 +4,6 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "konverteringsAar": "<konverteringsår>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
@@ -174,7 +173,7 @@
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
+      "kommentar": "Henter fra forrige grunnlagsdatamappe"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -270,6 +269,15 @@
       "periode": "${termin}",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "totalpremier_medlem",
+      "batchFra": "pa_fak_ba_02",
+      "batchTil": "pa_fak_ba-03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}",
+      "kommentar": "Henter fra forrige grunnlagsdatamappe"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
