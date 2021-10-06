@@ -16,6 +16,7 @@
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${periode}",
+      "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
@@ -25,7 +26,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveaggregering/${fremskrivingsdato}"
+      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsdato}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",

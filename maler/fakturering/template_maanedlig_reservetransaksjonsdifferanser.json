@@ -128,6 +128,7 @@
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${periode}",
+      "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
@@ -274,6 +275,7 @@
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${periode}",
+      "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
