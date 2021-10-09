@@ -7,7 +7,8 @@
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
-    "rettighet": "<rettighet>"
+    "rettighet": "<rettighet>",
+    "uttrekksdato": "<uttrekksdato>"
   },
 
   "operasjoner": [
@@ -308,6 +309,45 @@
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_kontofoeringunderlag",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "uttrekksdato": "${uttrekksdato}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoeringunderlag",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "kontofoeringunderlag",
+      "filListe": "HBF_FILLISTE_KONTOFOERING.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/kontofoering",
+      "encoding": "UTF-16"
     }
   ]
 }
