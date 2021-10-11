@@ -344,7 +344,7 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "kontofoeringunderlag",
-      "filListe": "HBF_FILLISTE_KONTOFOERING.txt",
+      "filListe": "KONTOFOERING_FILLISTE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/kontofoering",
       "encoding": "UTF-16"
