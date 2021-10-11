@@ -332,7 +332,7 @@
       "modus": "generer_kontofoeringunderlag",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "uttrekksdato": "${uttrekksdato}",
-      "validerFeilendeMedlemmer": true
+      "komprimerOutput": true
     },
     {
       "handling": "arkiver_batch_output",
