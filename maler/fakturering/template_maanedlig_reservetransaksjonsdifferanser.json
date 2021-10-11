@@ -92,8 +92,15 @@
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
+      "handling": "hent_spesifisert_del_av_medlemsdata",
+      "batchTil": "pa_fak_ba_11",
+      "filnavnTil": "personfil",
+      "typeindikator": "PERSON",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+    },
+    {
       "handling": "pa_fak_ba_11",
-      "modus": "flette_feilende_medlemmer",
+      "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
