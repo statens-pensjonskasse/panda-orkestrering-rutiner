@@ -49,7 +49,7 @@
       "filnavn": "feilmeldinger",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/feilmeldinger"
     },
 
 
@@ -73,7 +73,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/feilmeldinger",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
