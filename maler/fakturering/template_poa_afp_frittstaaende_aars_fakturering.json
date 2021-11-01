@@ -4,7 +4,7 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "#{genererUUID}",
-    "termin": "2021-06",
+    "termin": "2021-04",
 
     "fremskrivingsDato01": "2021.02.01",
     "fremskrivingsDato02": "2021.03.01",
