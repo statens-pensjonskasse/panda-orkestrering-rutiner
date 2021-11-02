@@ -1610,6 +1610,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode01}"
     },
     {
@@ -1617,6 +1618,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode02}"
     },
     {
@@ -1624,6 +1626,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode03}"
     },
     {
@@ -1631,6 +1634,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode04}"
     },
     {
@@ -1638,6 +1642,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode05}"
     },
     {
@@ -1652,6 +1657,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode07}"
     },
     {
@@ -1659,6 +1665,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode08}"
     },
     {
@@ -1666,6 +1673,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode09}"
     },
     {
@@ -1673,6 +1681,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode10}"
     },
     {
@@ -1680,6 +1689,7 @@
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode11}"
     },
 
