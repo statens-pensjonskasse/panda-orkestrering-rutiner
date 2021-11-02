@@ -1,0 +1,1454 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.21",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "kjøringsId": "#{genererUUID}",
+    "termin": "2021-04",
+
+    "fremskrivingsDato01": "2021.02.01",
+    "fremskrivingsDato02": "2021.03.01",
+    "fremskrivingsDato03": "2021.04.01",
+    "fremskrivingsDato04": "2021.05.01",
+    "fremskrivingsDato05": "2021.06.01",
+    "fremskrivingsDato06": "2021.07.01",
+    "fremskrivingsDato07": "2021.08.01",
+    "fremskrivingsDato08": "2021.09.01",
+    "fremskrivingsDato09": "2021.10.01",
+    "fremskrivingsDato10": "2021.11.01",
+    "fremskrivingsDato11": "2021.12.01",
+
+    "bokføringsperiode01": "202101",
+    "bokføringsperiode02": "202102",
+    "bokføringsperiode03": "202103",
+    "bokføringsperiode04": "202104",
+    "bokføringsperiode05": "202105",
+    "bokføringsperiode06": "202106",
+    "bokføringsperiode07": "202107",
+    "bokføringsperiode08": "202108",
+    "bokføringsperiode09": "202109",
+    "bokføringsperiode10": "202110",
+    "bokføringsperiode11": "202111"
+  },
+  "operasjoner": [
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode01}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato01}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode01}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode01}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode01}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode01}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode02}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato02}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode02}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode02}"
+    },
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode02}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode02}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode03}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato03}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode03}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode03}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode03}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode03}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode04}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato04}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode04}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode04}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode04}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode04}"
+    },
+
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode05}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato05}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode05}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode05}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode05}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode05}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode06}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato06}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode06}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode06}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode06}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode06}"
+    },
+
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode07}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato07}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode07}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode07}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode07}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode07}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode08}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato08}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode08}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode08}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode08}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode08}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode09}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato09}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode09}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode09}"
+    },
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode09}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode09}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode10}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato10}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode10}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode10}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode10}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode10}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode11}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato11}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
+      "bokføringsperiode": "${bokføringsperiode11}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode11}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_08",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode11}"
+    },
+    {
+      "handling": "pa_fak_ba_08",
+      "modus": "aggreger_noekler_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode11}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode01}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode01}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode01}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode01}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode02}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode02}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode02}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode02}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode03}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode03}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode03}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode03}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode04}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode04}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode04}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode04}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode05}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode05}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode05}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode05}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode06}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode06}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode06}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode06}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode07}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode07}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode07}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode07}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode08}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode08}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode08}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode08}"
+    },
+
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode09}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode09}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode09}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode09}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode10}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode10}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode10}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": false
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode10}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode11}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode11}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode11}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode11}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode11}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode01}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode02}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode03}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode04}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode05}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode06}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode07}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode08}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode09}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode10}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode11}"
+    },
+
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_aars_fakturaunderlag_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "POA_AFP",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "fakturaunderlag",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_aars_fakturaunderlag_poa_afp_frittstaaende/${termin}"
+    },
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_aars_agressofil_poa_afp_frittstaaende",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "POA_AFP",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "agressofil_poa_afp_frittstaaende",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_aars_agressofil_poa_afp_frittstaaende/${termin}",
+      "filter": "Agressofil"
+    }
+  ]
+
+
+}
