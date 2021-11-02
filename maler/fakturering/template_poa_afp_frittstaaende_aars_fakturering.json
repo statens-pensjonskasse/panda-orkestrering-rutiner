@@ -67,15 +67,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode01}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode01}/feilmeldinger"
-    },
+
 
 
 
@@ -105,15 +97,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode01}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode01}/feilmeldinger"
-    },
+
 
 
 
@@ -152,15 +136,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode02}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode02}/feilmeldinger"
-    },
 
 
 
@@ -190,15 +165,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode02}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode02}/feilmeldinger"
-    },
+
 
 
 
@@ -238,15 +205,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode03}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode03}/feilmeldinger"
-    },
+
 
 
 
@@ -276,15 +235,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode03}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode03}/feilmeldinger"
-    },
+
 
 
 
@@ -324,15 +275,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode04}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode04}/feilmeldinger"
-    },
+
 
 
 
@@ -362,15 +305,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode04}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode04}/feilmeldinger"
-    },
+
 
 
 
@@ -411,15 +346,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode05}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode05}/feilmeldinger"
-    },
+
 
 
 
@@ -448,15 +375,6 @@
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode05}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode05}/feilmeldinger"
     },
 
 
@@ -497,15 +415,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode06}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode06}/feilmeldinger"
-    },
+
 
 
 
@@ -535,15 +445,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode06}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode06}/feilmeldinger"
-    },
+
 
 
 
@@ -584,15 +486,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode07}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode07}/feilmeldinger"
-    },
+
 
 
 
@@ -621,15 +515,6 @@
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode07}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode07}/feilmeldinger"
     },
 
 
@@ -670,15 +555,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode08}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode08}/feilmeldinger"
-    },
+
 
 
 
@@ -707,15 +584,6 @@
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode08}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode08}/feilmeldinger"
     },
 
 
@@ -757,15 +625,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode09}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode09}/feilmeldinger"
-    },
 
 
 
@@ -795,15 +654,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode09}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode09}/feilmeldinger"
-    },
+
 
 
 
@@ -842,15 +693,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode10}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode10}/feilmeldinger"
-    },
+
 
 
 
@@ -879,15 +722,6 @@
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode10}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode10}/feilmeldinger"
     },
 
 
@@ -929,15 +763,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode11}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${bokføringsperiode11}/feilmeldinger"
-    },
+
 
 
 
@@ -967,15 +793,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode11}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode11}/feilmeldinger"
-    },
+
 
 
 
@@ -1022,15 +840,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode01}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode01}/feilmeldinger"
-    },
+
 
 
 
@@ -1076,15 +886,6 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode02}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode02}/feilmeldinger"
     },
 
 
@@ -1133,15 +934,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode03}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode03}/feilmeldinger"
-    },
+
 
 
 
@@ -1187,15 +980,6 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode04}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode04}/feilmeldinger"
     },
 
 
@@ -1244,15 +1028,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode05}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode05}/feilmeldinger"
-    },
 
 
 
@@ -1300,15 +1075,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode06}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode06}/feilmeldinger"
-    },
+
 
 
 
@@ -1354,15 +1121,6 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode07}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode07}/feilmeldinger"
     },
 
 
@@ -1411,15 +1169,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode08}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode08}/feilmeldinger"
-    },
+
 
 
 
@@ -1466,15 +1216,6 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode09}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode09}/feilmeldinger"
     },
 
 
@@ -1523,15 +1264,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode10}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode10}/feilmeldinger"
-    },
 
 
 
@@ -1570,7 +1302,7 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -1579,21 +1311,20 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode11}"
     },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
-      "filter": "Feiltype",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "feilHvisTomOutput": "false",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode11}/feilmeldinger"
-    },
 
 
 
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${bokføringsperiode11}",
+      "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
@@ -1700,112 +1431,6 @@
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_aars_fakturaunderlag_poa_afp_frittstaaende/${termin}"
-    },
-
-
-
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_04",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_frittstaaende",
-      "periode": "${bokføringsperiode11}",
-      "prognoseVersjon": "avtaleliste",
-      "batch": "pa_fak_ba_04",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode01}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode02}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode03}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode04}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode05}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode06}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode07}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode08}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode09}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode10}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
-      "batchFra": "pa_fak_ba_06",
-      "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${bokføringsperiode11}"
     },
     {
       "handling": "pa_fak_ba_04",
