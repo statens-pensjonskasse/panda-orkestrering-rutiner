@@ -999,7 +999,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode01}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode01}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1054,7 +1054,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode02}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode02}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1110,7 +1110,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode03}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode03}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1165,7 +1165,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode04}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode04}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1221,7 +1221,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode05}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode05}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1277,7 +1277,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode06}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode06}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1332,7 +1332,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode07}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode07}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1388,7 +1388,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode08}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode08}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1444,7 +1444,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode09}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode09}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1500,7 +1500,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode10}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode10}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -1556,7 +1556,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode11}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${bokføringsperiode11}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
