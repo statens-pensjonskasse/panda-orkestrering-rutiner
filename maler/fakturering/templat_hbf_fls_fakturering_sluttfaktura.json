@@ -294,7 +294,7 @@
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_agressofil_hbf_fls_for_sluttfaktura/${termin}",
-      "filter": "Agressofil,Feiltype"
+      "filter": "Agressofil"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",

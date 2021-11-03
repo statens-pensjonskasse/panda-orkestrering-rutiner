@@ -126,7 +126,7 @@
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_agressofil_for_hbf_fls_prognose/${termin}",
-      "filter": "Agressofil,Feiltype"
+      "filter": "Agressofil"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",

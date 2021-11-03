@@ -56,7 +56,7 @@
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_agressofil_for_poa_afp_prognose/${termin}",
-      "filter": "Agressofil,Feiltype"
+      "filter": "Agressofil"
     },
 
 

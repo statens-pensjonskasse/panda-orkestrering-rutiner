@@ -103,7 +103,7 @@
       "filnavn": "prognosepremier_rapport_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_as_asa_prognose/${termin}"
+      "nøkkel": "prognosepremier_rapport_avtale/${termin}"
     },
 
     {
@@ -124,7 +124,7 @@
       "filnavn": "prognosepremier_rapport_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_as_asa_prognose/${termin}"
+      "nøkkel": "prognosepremier_rapport_medlem/${termin}"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
