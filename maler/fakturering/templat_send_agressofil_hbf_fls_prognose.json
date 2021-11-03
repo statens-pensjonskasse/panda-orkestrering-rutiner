@@ -9,7 +9,7 @@
     {
       "handling": "send_til_agresso",
       "filnavn": "agressofil_hbf_fls_prognose",
-      "arkivFilsti": "hbf_fls_prognose/${termin}",
+      "arkivFilsti": "generer_agressofil_for_hbf_fls_prognose/${termin}",
       "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     }
   ]

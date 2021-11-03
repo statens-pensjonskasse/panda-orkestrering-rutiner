@@ -102,6 +102,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggreger_faktiske_premier/${periode}"
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_08",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
 
@@ -146,6 +151,11 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${periode}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
   ]
 }

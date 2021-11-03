@@ -40,7 +40,7 @@
       "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_as_asa_prognose/${termin}"
+      "nøkkel": "generer_prognosefakturaunderlag_fra_avtale/${termin}"
     },
     {
       "handling": "pa_fak_ba_04",
@@ -55,8 +55,13 @@
       "filnavn": "agressofil_hbf_prognose",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_as_asa_prognose/${termin}",
+      "nøkkel": "generer_agressofil_for_hbf_prognose/${termin}",
       "filter": "Agressofil"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -120,6 +125,11 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "hbf_as_asa_prognose/${termin}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
   ]
 }

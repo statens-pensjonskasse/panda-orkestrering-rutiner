@@ -35,12 +35,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_prognose/${førstePeriode}"
     },
-    {
-      "handling": "kopier_batch_output_til_arbeids_mappe",
-      "filnavn": "prognosepremieuttrekk",
-      "batch": "pa_fak_ba_06",
-      "underMappe": "${førstePeriode}"
-    },
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -69,10 +63,9 @@
       "nøkkel": "premiefellesskap_utjevning_prognose/${andrePeriode}"
     },
     {
-      "handling": "kopier_batch_output_til_arbeids_mappe",
-      "filnavn": "prognosepremieuttrekk",
+      "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_06",
-      "underMappe": "${andrePeriode}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -82,11 +75,20 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
-      "batch": "pa_fak_ba_04",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "underMappe": "pa_fak_ba_06"
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${førstePeriode}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${andrePeriode}"
     },
     {
       "handling": "last_ned_referanse_data_for_batch",
@@ -108,7 +110,7 @@
       "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_prognose/${termin}"
+      "nøkkel": "generer_fakturaunderlag_for_utjevnet_prognose_fra_avtale/${termin}"
     },
     {
       "handling": "pa_fak_ba_04",
@@ -123,8 +125,13 @@
       "filnavn": "agressofil_hbf_fls_prognose",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_prognose/${termin}",
-      "filter": "Agressofil"
+      "nøkkel": "generer_agressofil_for_hbf_fls_prognose/${termin}",
+      "filter": "Agressofil,Feiltype"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -134,11 +141,20 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "underMappe": "pa_fak_ba_06"
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${førstePeriode}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "prognosepremieuttrekk",
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose/${andrePeriode}"
     },
     {
       "handling": "last_ned_referanse_data_for_batch",
@@ -177,7 +193,7 @@
       "filnavn": "utjevnet_premier_rapport_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_prognose/${termin}"
+      "nøkkel": "utjevnet_premier_rapport_avtale/${termin}"
     },
 
     {
@@ -198,7 +214,12 @@
       "filnavn": "utjevnet_premier_rapport_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_prognose/${termin}"
+      "nøkkel": "utjevnet_premier_rapport_medlem/${termin}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
   ]
 }

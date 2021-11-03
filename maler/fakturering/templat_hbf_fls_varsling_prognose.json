@@ -27,10 +27,16 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "kopier_batch_output_til_arbeids_mappe",
+      "handling": "arkiver_batch_output",
       "filnavn": "aars_prognosepremieuttrekk",
       "batch": "pa_fak_ba_06",
-      "underMappe": "${år}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose_varsling/${år}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -40,11 +46,12 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "aars_prognosepremieuttrekk",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "underMappe": "pa_fak_ba_06/${år}"
+      "batchFra": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_prognose_varsling/${år}"
     },
     {
       "handling": "generer_metadata_fil_fra_aktuar_fil_til_batch",
@@ -77,7 +84,7 @@
       "filnavn": "utjevnet_premier_varsling_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_prognose/${år}"
+      "nøkkel": "utjevnet_premier_varsling_avtale/${år}"
     },
 
     {
@@ -98,7 +105,7 @@
       "filnavn": "utjevnet_premier_varsling_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_fls_prognose/${år}"
+      "nøkkel": "utjevnet_premier_varsling_medlem/${år}"
     }
   ]
 }

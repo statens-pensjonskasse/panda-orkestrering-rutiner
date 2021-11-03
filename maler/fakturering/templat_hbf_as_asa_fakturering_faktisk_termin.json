@@ -3,10 +3,7 @@
   "gyldigVersjon": "0.0.22",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataMappeFraFørstePeriode" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "grunnlagsdataMappeFraAndrePeriode" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "grunnlagsdataMappeFraFørstePeriodeAdm" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "grunnlagsdataMappeFraAndrePeriodeAdm" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "solvensVersjon" : "<solvensVersjon>",
     "termin" : "<termin>",
     "førstePeriode" : "<førstePeriode>",
     "andrePeriode" : "<andrePeriode>"
@@ -23,7 +20,6 @@
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraFørstePeriode}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
     },
@@ -32,7 +28,6 @@
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraAndrePeriode}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
     },
@@ -41,7 +36,6 @@
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraFørstePeriodeAdm}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
     },
@@ -50,13 +44,14 @@
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
-      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFraAndrePeriodeAdm}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
     },
     {
-      "handling": "last_ned_referanse_data_for_batch",
-      "filnavn": "avtaleliste",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa",
+      "periode": "${termin}",
+      "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
@@ -70,6 +65,7 @@
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_as_asa",
       "periode": "${termin}",
+      "prognoseVersjon": "${solvensVersjon}",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
@@ -105,6 +101,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_agressofil_for_hbf_as_asa/${termin}",
       "filter": "Agressofil"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
   ]
 }
