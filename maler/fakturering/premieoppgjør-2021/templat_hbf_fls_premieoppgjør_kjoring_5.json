@@ -31,6 +31,10 @@
     "fremskrivingsDato12": "2021.12.01"
   },
   "operasjoner": [
+    {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",

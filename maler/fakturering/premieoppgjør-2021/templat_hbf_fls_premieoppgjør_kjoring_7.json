@@ -6,9 +6,11 @@
     "bokføringsperiode02": "202102",
 
     "fremskrivingsDato03": "2021.03.01",
+    "uttrekksdato03": "<uttrekksdato03>",
     "bokføringsperiode03": "202103",
 
-    "fremskrivingsDato04": "2021.04.01"
+    "fremskrivingsDato04": "2021.04.01",
+    "uttrekksdato04": "<uttrekksdato04>"
   },
   "operasjoner": [
     {
@@ -30,9 +32,9 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato03}"
@@ -41,6 +43,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_kontofoeringunderlag",
       "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato03}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -49,7 +52,8 @@
       "filnavn": "kontofoeringunderlag",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato03}"
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato03}",
+      "komprimerOutput": true
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
@@ -57,6 +61,11 @@
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/kontofoering",
       "encoding": "UTF_16LE"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -99,6 +108,11 @@
       "nøkkel": "reserveoppbygging/${bokføringsperiode02}",
       "komprimerOutput": true
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
     {
@@ -107,7 +121,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reserveoppbygging",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -118,6 +132,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_reserveoppbygging_dataunderlag",
       "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato03}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -126,7 +141,8 @@
       "filnavn": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode02}"
+      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode02}",
+      "komprimerOutput": true
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
@@ -156,9 +172,9 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato04}"
@@ -167,6 +183,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_kontofoeringunderlag",
       "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato04}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -175,7 +192,8 @@
       "filnavn": "kontofoeringunderlag",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato04}"
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato04}",
+      "komprimerOutput": true
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
@@ -183,6 +201,11 @@
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/kontofoering",
       "encoding": "UTF_16LE"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -224,6 +247,11 @@
       "nøkkel": "reserveoppbygging/${bokføringsperiode03}",
       "komprimerOutput": true
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
     {
@@ -232,7 +260,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reserveoppbygging",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -243,6 +271,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_reserveoppbygging_dataunderlag",
       "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato04}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -251,13 +280,19 @@
       "filnavn": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode03}"
+      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode03}",
+      "komprimerOutput": true
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/reserveoppbygging"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
