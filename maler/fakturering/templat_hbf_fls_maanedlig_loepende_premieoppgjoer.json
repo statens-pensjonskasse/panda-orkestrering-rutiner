@@ -79,7 +79,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveaggregering/${fremskrivingsdato}"
+      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsdato}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
