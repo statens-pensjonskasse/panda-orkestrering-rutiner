@@ -37,7 +37,6 @@
     },
     {
       "handling": "arkiver_batch_output",
-      "filter": "Typeidentifikator",
       "filnavn": "kontofoering",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -45,11 +44,9 @@
       "komprimerOutput": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "feilmeldinger",
+      "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/feilmeldinger"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -73,7 +70,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/feilmeldinger",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
@@ -141,6 +138,22 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_fls",
+      "periode": "${periode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
+      "periode": "${periode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
@@ -151,7 +164,7 @@
     },
     {
       "handling": "pa_fak_ba_02",
-      "modus": "premieaggregering",
+      "modus": "premieaggregering_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -282,6 +295,14 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
+      "periode": "${periode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_frittstaaende",
       "periode": "${periode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_03",

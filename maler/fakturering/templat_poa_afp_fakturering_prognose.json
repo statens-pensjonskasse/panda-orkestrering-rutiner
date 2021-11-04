@@ -40,7 +40,7 @@
       "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "poa_afp_prognose/${termin}"
+      "nøkkel": "generer_prognosefakturaunderlag_poa_afp/${termin}"
     },
     {
       "handling": "pa_fak_ba_04",
@@ -55,7 +55,7 @@
       "filnavn": "agressofil_poa_afp_prognose",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "poa_afp_prognose/${termin}",
+      "nøkkel": "generer_agressofil_for_poa_afp_prognose/${termin}",
       "filter": "Agressofil"
     },
 
@@ -98,7 +98,7 @@
       "filnavn": "prognosepremier_poa_afp_rapport_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "poa_afp_prognose/${termin}"
+      "nøkkel": "prognosepremier_poa_afp_rapport_avtale/${termin}"
     }
   ]
 }

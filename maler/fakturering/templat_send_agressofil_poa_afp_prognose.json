@@ -9,7 +9,7 @@
     {
       "handling": "send_til_agresso",
       "filnavn": "agressofil_poa_afp_prognose",
-      "arkivFilsti": "poa_afp_prognose/${termin}",
+      "arkivFilsti": "generer_agressofil_for_poa_afp_prognose/${termin}",
       "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     }
   ]

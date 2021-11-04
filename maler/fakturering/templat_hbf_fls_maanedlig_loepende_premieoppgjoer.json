@@ -36,12 +36,6 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "kopier_batch_output_til_arbeids_mappe",
-      "filnavn": "lopende_premieoppgjoer",
-      "batch": "pa_fak_ba_07",
-      "underMappe": "${bokføringsperiode}"
-    },
-    {
       "handling": "arkiver_batch_output",
       "filnavn": "lopende_premieoppgjoer",
       "batch": "pa_fak_ba_07",
@@ -56,11 +50,12 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "underMappe": "pa_fak_ba_07"
+      "batchFra": "pa_fak_ba_07",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -84,7 +79,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveaggregering/${fremskrivingsdato}"
+      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsdato}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -110,6 +105,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "loepende_premieoppgjoer_dataunderlag",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kjøringsId": "#{genererUUID}",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -124,9 +120,9 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
-      "filListe": "HBFFLS_FILLISTE_PREMIEOPPGJOER.txt",
+      "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/hbf_fls/lopende_premieoppgjoer"
+      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
     }
   ]
 }
