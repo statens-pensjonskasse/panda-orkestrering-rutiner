@@ -7,9 +7,11 @@
     "bokføringsperiode10": "202110",
 
     "fremskrivingsDato11": "2021.11.01",
+    "uttrekksdato09": "<uttrekksdato10>",
     "bokføringsperiode11": "202111",
 
-    "fremskrivingsDato12": "2021.12.01"
+    "fremskrivingsDato12": "2021.12.01",
+    "uttrekksdato09": "<uttrekksdato11>"
   },
   "operasjoner": [
     {
@@ -22,15 +24,18 @@
     },
 
 
+
+
+
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato11}"
@@ -39,6 +44,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_kontofoeringunderlag",
       "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato11}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -47,7 +53,8 @@
       "filnavn": "kontofoeringunderlag",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato11}"
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato11}",
+      "komprimerOutput": true
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
@@ -56,6 +63,13 @@
       "filstiHosDVH": "/kontofoering",
       "encoding": "UTF_16LE"
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -95,6 +109,11 @@
       "nøkkel": "reserveoppbygging/${bokføringsperiode10}",
       "komprimerOutput": true
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
     {
@@ -103,7 +122,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reserveoppbygging",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -114,6 +133,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_reserveoppbygging_dataunderlag",
       "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato11}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -122,7 +142,8 @@
       "filnavn": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode10}"
+      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode10}",
+      "komprimerOutput": true
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
@@ -152,9 +173,9 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato12}"
@@ -163,6 +184,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_kontofoeringunderlag",
       "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato12}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -171,7 +193,8 @@
       "filnavn": "kontofoeringunderlag",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato12}"
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato12}",
+      "komprimerOutput": true
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
@@ -179,6 +202,11 @@
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/kontofoering",
       "encoding": "UTF_16LE"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -220,6 +248,11 @@
       "nøkkel": "reserveoppbygging/${bokføringsperiode11}",
       "komprimerOutput": true
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
     {
@@ -228,7 +261,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reserveoppbygging",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -239,6 +272,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_reserveoppbygging_dataunderlag",
       "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato12}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -247,13 +281,19 @@
       "filnavn": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode11}"
+      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode11}",
+      "komprimerOutput": true
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/reserveoppbygging"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
