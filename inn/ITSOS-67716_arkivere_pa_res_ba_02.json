@@ -1,7 +1,7 @@
 {
   "navn": "Arkivere grunnlagsdata fra pa_res_ba_02 for ${dato}",
   "variabler": {
-    "dato" : "03.11.2021"
+    "dato" : "04.11.2021"
   },
   "operasjoner": [
     {
