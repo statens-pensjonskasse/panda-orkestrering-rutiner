@@ -9,16 +9,16 @@
     "bokføringsperiode07": "202107",
 
     "prognoseVersjonTermin04": "1029",
-    "grunnlagsdataFremskriving08": "grunnlagsdata_2021-07-31_17-06-28-86",
+    "grunnlagsdataFremskriving08": "<grunnlagsdata>",
     "fremskrivingsDato08": "2021.08.01",
     "bokføringsperiode08": "202108",
 
-    "grunnlagsdataFremskriving09": "grunnlagsdata_2021-08-31_20-34-54-76",
+    "grunnlagsdataFremskriving09": "<grunnlagsdata>",
     "fremskrivingsDato09": "2021.09.01",
     "bokføringsperiode09": "202109",
 
     "prognoseVersjonTermin05": "1031",
-    "grunnlagsdataFremskriving10": "grunnlagsdata_2021-09-30_20-35-11-33",
+    "grunnlagsdataFremskriving10": "<grunnlagsdata>",
     "fremskrivingsDato10": "2021.10.01",
     "bokføringsperiode10": "202110",
 
@@ -86,7 +86,7 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -119,14 +119,6 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_frittstaaende",
-      "periode": "${bokføringsperiode07}",
-      "prognoseVersjon": "avtaleliste",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${bokføringsperiode07}",
       "prognoseVersjon": "avtaleliste",
@@ -145,7 +137,7 @@
       "handling": "pa_fak_ba_02",
       "modus": "premieaggregering_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -316,7 +308,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
@@ -324,7 +316,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -332,7 +324,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -340,7 +332,7 @@
       "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
@@ -348,7 +340,7 @@
       "nøkkel": "generer_administrasjonspremier/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_08",
@@ -377,7 +369,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
@@ -413,7 +405,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -421,7 +413,7 @@
       "nøkkel": "generer_noekkelunderlag/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -429,7 +421,7 @@
       "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_06",
@@ -440,7 +432,7 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_faktisk_premie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -448,6 +440,11 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode07}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -459,7 +456,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -467,7 +464,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -487,6 +484,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode07}"
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_07",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
 
@@ -497,7 +499,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
@@ -505,7 +507,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -513,7 +515,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -521,7 +523,7 @@
       "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode07}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
@@ -529,7 +531,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
@@ -571,6 +573,11 @@
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -630,7 +637,7 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -663,14 +670,6 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_frittstaaende",
-      "periode": "${bokføringsperiode08}",
-      "prognoseVersjon": "avtaleliste",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${bokføringsperiode08}",
       "prognoseVersjon": "avtaleliste",
@@ -689,7 +688,7 @@
       "handling": "pa_fak_ba_02",
       "modus": "premieaggregering_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -860,7 +859,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
@@ -868,7 +867,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -876,7 +875,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -884,7 +883,7 @@
       "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
@@ -892,7 +891,7 @@
       "nøkkel": "generer_administrasjonspremier/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_08",
@@ -921,7 +920,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
@@ -957,7 +956,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -965,7 +964,7 @@
       "nøkkel": "generer_noekkelunderlag/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -973,7 +972,7 @@
       "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_06",
@@ -984,7 +983,7 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_faktisk_premie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -992,6 +991,11 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode08}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -1003,7 +1007,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -1011,7 +1015,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -1031,6 +1035,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode08}"
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_07",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
 
@@ -1041,7 +1050,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
@@ -1049,7 +1058,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -1057,7 +1066,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -1065,7 +1074,7 @@
       "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode08}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
@@ -1073,7 +1082,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
@@ -1115,6 +1124,11 @@
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -1195,7 +1209,7 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -1228,14 +1242,6 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_frittstaaende",
-      "periode": "${bokføringsperiode09}",
-      "prognoseVersjon": "avtaleliste",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${bokføringsperiode09}",
       "prognoseVersjon": "avtaleliste",
@@ -1254,7 +1260,7 @@
       "handling": "pa_fak_ba_02",
       "modus": "premieaggregering_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -1425,7 +1431,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
@@ -1433,7 +1439,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -1441,7 +1447,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -1449,7 +1455,7 @@
       "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
@@ -1457,7 +1463,7 @@
       "nøkkel": "generer_administrasjonspremier/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_08",
@@ -1486,7 +1492,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
@@ -1522,7 +1528,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -1530,7 +1536,7 @@
       "nøkkel": "generer_noekkelunderlag/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -1538,7 +1544,7 @@
       "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_06",
@@ -1549,7 +1555,7 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_faktisk_premie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -1557,6 +1563,11 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode09}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -1568,7 +1579,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -1576,7 +1587,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -1596,6 +1607,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode09}"
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_07",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
 
@@ -1606,7 +1622,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
@@ -1614,7 +1630,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -1622,7 +1638,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -1630,7 +1646,7 @@
       "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode09}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
@@ -1638,7 +1654,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
@@ -1680,6 +1696,11 @@
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -1762,7 +1783,7 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -1795,14 +1816,6 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_frittstaaende",
-      "periode": "${bokføringsperiode10}",
-      "prognoseVersjon": "avtaleliste",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${bokføringsperiode10}",
       "prognoseVersjon": "avtaleliste",
@@ -1821,7 +1834,7 @@
       "handling": "pa_fak_ba_02",
       "modus": "premieaggregering_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -1992,7 +2005,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
@@ -2000,7 +2013,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -2008,7 +2021,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -2016,7 +2029,7 @@
       "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
@@ -2024,7 +2037,7 @@
       "nøkkel": "generer_administrasjonspremier/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_08",
@@ -2053,7 +2066,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
@@ -2089,7 +2102,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -2097,7 +2110,7 @@
       "nøkkel": "generer_noekkelunderlag/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -2105,7 +2118,7 @@
       "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_06",
@@ -2116,7 +2129,7 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_faktisk_premie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -2124,6 +2137,11 @@
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode10}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -2134,7 +2152,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -2142,7 +2160,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -2162,6 +2180,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode10}"
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_07",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
 
@@ -2172,7 +2195,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
@@ -2180,7 +2203,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -2188,7 +2211,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -2196,7 +2219,7 @@
       "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode10}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
@@ -2204,7 +2227,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
@@ -2246,6 +2269,11 @@
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -2320,7 +2348,7 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -2353,14 +2381,6 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_frittstaaende",
-      "periode": "${bokføringsperiode11}",
-      "prognoseVersjon": "avtaleliste",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${bokføringsperiode11}",
       "prognoseVersjon": "avtaleliste",
@@ -2379,7 +2399,7 @@
       "handling": "pa_fak_ba_02",
       "modus": "premieaggregering_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -2550,7 +2570,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
@@ -2558,7 +2578,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato12}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -2566,7 +2586,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -2574,7 +2594,7 @@
       "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
@@ -2582,7 +2602,7 @@
       "nøkkel": "generer_administrasjonspremier/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_08",
@@ -2611,7 +2631,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
@@ -2647,7 +2667,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -2655,7 +2675,7 @@
       "nøkkel": "generer_noekkelunderlag/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -2663,7 +2683,7 @@
       "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_06",
@@ -2674,7 +2694,7 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_faktisk_premie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": false
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_batch_output",
@@ -2709,6 +2729,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode11}"
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
 
@@ -2721,7 +2746,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -2729,7 +2754,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -2749,6 +2774,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode11}"
     },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_07",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
 
 
@@ -2759,7 +2789,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
@@ -2767,7 +2797,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -2775,7 +2805,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -2783,7 +2813,7 @@
       "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode11}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
@@ -2791,7 +2821,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato12}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
@@ -2833,6 +2863,11 @@
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
