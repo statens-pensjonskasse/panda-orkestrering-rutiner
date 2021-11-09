@@ -56,10 +56,11 @@
       "komprimerOutput": true
     },
     {
-      "handling": "send_bare_filer_fra_batch_output_til_dvh",
+      "handling": "send_batch_output_til_dvh",
       "filPrefix": "kontofoeringunderlag",
+      "filListe": "KONTOFOERING_FILLISTE.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/kontofoering",
+      "filstiHosDVH": "/kontofoering/${fremskrivingsDato03}",
       "encoding": "UTF_16LE"
     },
     {
@@ -196,10 +197,11 @@
       "komprimerOutput": true
     },
     {
-      "handling": "send_bare_filer_fra_batch_output_til_dvh",
+      "handling": "send_batch_output_til_dvh",
       "filPrefix": "kontofoeringunderlag",
+      "filListe": "KONTOFOERING_FILLISTE.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/kontofoering",
+      "filstiHosDVH": "/kontofoering/${fremskrivingsDato04}",
       "encoding": "UTF_16LE"
     },
     {
@@ -301,12 +303,6 @@
 
 
 
-    {
-      "handling": "opprett_filliste_og_triggerfil_hos_dvh",
-      "filPrefix": "kontofoeringunderlag",
-      "filListe": "KONTOFOERING_FILLISTE.txt",
-      "filstiHosDVH": "/kontofoering"
-    },
     {
       "handling": "opprett_filliste_og_triggerfil_hos_dvh",
       "filPrefix": "reserveoppbygging_dataunderlag",
