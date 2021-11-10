@@ -560,7 +560,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato03}"
     },
     {
-      "handling": "opier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
