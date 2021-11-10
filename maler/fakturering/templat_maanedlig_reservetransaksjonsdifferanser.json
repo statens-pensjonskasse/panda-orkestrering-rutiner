@@ -43,11 +43,6 @@
       "nøkkel": "panda_reserveberegning/${fremskrivingsDato}",
       "komprimerOutput": true
     },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_res_ba_01",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
 
 
     {
