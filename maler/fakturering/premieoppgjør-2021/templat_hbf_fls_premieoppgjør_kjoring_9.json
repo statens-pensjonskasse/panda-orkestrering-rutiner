@@ -2,6 +2,8 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for reserveoppbygging dataunerlag periode 202106 og 202107",
   "gyldigVersjon": "0.0.9",
   "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+
     "fremskrivingsDato06": "2021.06.01",
     "bokføringsperiode06": "202106",
 
