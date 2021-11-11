@@ -152,7 +152,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/reserveoppbygging"
+      "filstiHosDVH": "/reserveoppbygging",
+      "encoding": "UTF_16LE"
     },
 
 
@@ -292,7 +293,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/reserveoppbygging"
+      "filstiHosDVH": "/reserveoppbygging",
+      "encoding": "UTF_16LE"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
