@@ -8,11 +8,11 @@
     "bokføringsperiode10": "202110",
 
     "fremskrivingsDato11": "2021.11.01",
-    "uttrekksdato09": "<uttrekksdato10>",
+    "uttrekksdato11": "<uttrekksdato11>",
     "bokføringsperiode11": "202111",
 
     "fremskrivingsDato12": "2021.12.01",
-    "uttrekksdato09": "<uttrekksdato11>"
+    "uttrekksdato12": "<uttrekksdato12>"
   },
   "operasjoner": [
     {
@@ -22,53 +22,6 @@
     {
       "handling": "rydd_filområde_hos_dvh",
       "filstiHosDVH": "/reserveoppbygging"
-    },
-
-
-
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato11}"
-    },
-    {
-      "handling": "pa_fak_ba_09",
-      "modus": "generer_kontofoeringunderlag",
-      "kjøringsId": "#{genererUUID}",
-      "uttrekksdato": "${uttrekksdato11}",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "kontofoeringunderlag",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato11}",
-      "komprimerOutput": true
-    },
-    {
-      "handling": "send_batch_output_til_dvh",
-      "filPrefix": "kontofoeringunderlag",
-      "filListe": "KONTOFOERING_FILLISTE.txt",
-      "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/kontofoering/${fremskrivingsDato11}",
-      "encoding": "UTF_16LE"
-    },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
 
@@ -152,59 +105,6 @@
       "filPrefix": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/reserveoppbygging",
-      "encoding": "UTF_16LE"
-    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato12}"
-    },
-    {
-      "handling": "pa_fak_ba_09",
-      "modus": "generer_kontofoeringunderlag",
-      "kjøringsId": "#{genererUUID}",
-      "uttrekksdato": "${uttrekksdato12}",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "kontofoeringunderlag",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato12}",
-      "komprimerOutput": true
-    },
-    {
-      "handling": "send_batch_output_til_dvh",
-      "filPrefix": "kontofoeringunderlag",
-      "filListe": "KONTOFOERING_FILLISTE.txt",
-      "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/kontofoering/${fremskrivingsDato12}",
       "encoding": "UTF_16LE"
     },
     {
@@ -301,17 +201,97 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
-
+    {
+      "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+      "filPrefix": "reserveoppbygging_dataunderlag",
+      "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
+      "filstiHosDVH": "/reserveoppbygging"
+    },
 
 
 
 
 
     {
-      "handling": "opprett_filliste_og_triggerfil_hos_dvh",
-      "filPrefix": "reserveoppbygging_dataunderlag",
-      "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
-      "filstiHosDVH": "/reserveoppbygging"
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato11}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_kontofoeringunderlag",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato11}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoeringunderlag",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato11}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "kontofoeringunderlag",
+      "filListe": "KONTOFOERING_FILLISTE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/kontofoering/${fremskrivingsDato11}",
+      "encoding": "UTF_16LE"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato12}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_kontofoeringunderlag",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato12}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoeringunderlag",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato12}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "kontofoeringunderlag",
+      "filListe": "KONTOFOERING_FILLISTE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/kontofoering/${fremskrivingsDato12}",
+      "encoding": "UTF_16LE"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
   ]
 }

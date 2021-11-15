@@ -10,24 +10,24 @@
     "bokføringsperiode02": "202102",
 
     "prognoseVersjonTermin02": "1012",
-    "grunnlagsdataFremskriving03" :  "grunnlagsdata_2021-02-28_00-00-00-00",
+    "grunnlagsdataFremskriving03" :  "grunnlagsdata_2021-02-14_00-00-00-00",
     "fremskrivingsDato03": "2021.03.01",
     "bokføringsperiode03": "202103",
 
-    "grunnlagsdataFremskriving04" :  "grunnlagsdata_2021-03-31_00-00-00-00",
+    "grunnlagsdataFremskriving04" :  "grunnlagsdata_2021-03-14_00-00-00-00",
     "fremskrivingsDato04": "2021.04.01",
     "bokføringsperiode04": "202104",
 
     "prognoseVersjonTermin03": "1024",
-    "grunnlagsdataFremskriving05" :  "grunnlagsdata_2021-04-30_00-00-00-00",
+    "grunnlagsdataFremskriving05" :  "grunnlagsdata_2021-04-14_00-00-00-00",
     "fremskrivingsDato05": "2021.05.01",
     "bokføringsperiode05": "202105",
 
-    "grunnlagsdataFremskriving06" :  "grunnlagsdata_2021-05-31_00-00-00-00",
+    "grunnlagsdataFremskriving06" :  "grunnlagsdata_2021-05-14_00-00-00-00",
     "fremskrivingsDato06": "2021.06.01",
     "bokføringsperiode06": "202106",
 
-    "grunnlagsdataFremskriving07" :  "grunnlagsdata_2021-06-30_00-00-00-00",
+    "grunnlagsdataFremskriving07" :  "grunnlagsdata_2021-06-14_00-00-00-00",
     "fremskrivingsDato07": "2021.07.01"
   },
   "operasjoner": [
