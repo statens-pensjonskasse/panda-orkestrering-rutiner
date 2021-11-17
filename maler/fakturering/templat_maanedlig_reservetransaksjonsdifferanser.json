@@ -159,14 +159,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_frittstaaende",
-      "periode": "${periode}",
-      "prognoseVersjon": "avtaleliste",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
