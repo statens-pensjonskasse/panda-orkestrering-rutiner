@@ -91,7 +91,7 @@
       "filPrefix": "prognosepremier_poa_afp_rapport_avtale",
       "filListe": "POAAFP_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/poa_afp/fakturering/avtale"
+      "filstiHosDVH": "/poa_afp/fakturering/kjeder/avtale"
     },
     {
       "handling": "arkiver_batch_output",
