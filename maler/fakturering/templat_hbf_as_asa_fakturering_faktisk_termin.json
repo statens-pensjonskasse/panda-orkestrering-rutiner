@@ -7,7 +7,8 @@
     "termin" : "<termin>",
     "førstePeriode" : "<førstePeriode>",
     "andrePeriode" : "<andrePeriode>",
-    "sisteFremskrivingsDato" : "<sisteFremskrivingsdato>"
+    "sisteFremskrivingsdatoFørstePeriode" : "<sisteFremskrivingsdatoFørstePeriode>",
+    "sisteFremskrivingsdatoAndrePeriode" : "<sisteFremskrivingsdatoAndrePeriode>"
   },
   "operasjoner": [
 
@@ -110,7 +111,6 @@
     },
 
 
-
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
@@ -119,7 +119,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_as_asa",
-      "periode": "${termin}",
+      "periode": "${førstePeriode}",
       "prognoseVersjon": "${solvensVersjon}",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -130,7 +130,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_administrasjonspremieunderlag/${sisteFremskrivingsDato}"
+      "nøkkel": "panda_administrasjonspremieunderlag/${sisteFremskrivingsdatoFørstePeriode}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -142,14 +142,6 @@
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "reservetransaksjonsdifferanser_medlem",
-      "batchFra": "pa_fak_ba_03",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_09",
@@ -157,17 +149,9 @@
       "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
-      "filnavn": "administrasjonspremie",
-      "batchFra": "pa_fak_ba_05",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
-    },
-    {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_as_asa",
-      "periode": "${termin}",
+      "periode": "${førstePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -195,12 +179,15 @@
       "filnavn": "hbf_as_asa_dataunderlag_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_as_asa_dataunderlag_for_medlem/${termin}"
+      "nøkkel": "hbf_as_asa_dataunderlag_for_medlem/${førstePeriode}"
     },
     {
-      "handling": "send_batch_output_til_dvh",
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/hbf_as_asa/fakturering/medlem"
+    },
+    {
+      "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "hbf_as_asa_dataunderlag_medlem",
-      "filListe": "ASASA_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_as_asa/fakturering/medlem"
     },
@@ -218,13 +205,130 @@
       "filnavn": "hbf_as_asa_dataunderlag_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_as_asa_dataunderlag_for_avtale/${termin}"
+      "nøkkel": "hbf_as_asa_dataunderlag_for_avtale/${førstePeriode}"
     },
     {
-      "handling": "send_batch_output_til_dvh",
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/hbf_as_asa/fakturering/avtale"
+    },
+    {
+      "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "hbf_as_asa_dataunderlag_avtale",
-      "filListe": "ASASA_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_as_asa/fakturering/avtale"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa",
+      "periode": "${andrePeriode}",
+      "prognoseVersjon": "${solvensVersjon}",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${sisteFremskrivingsdatoAndrePeriode}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa",
+      "periode": "${andrePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "hbf_as_asa_dataunderlag_for_medlem",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "premiemodell": "HBF_AS/ASA",
+      "termin": "${termin}",
+      "kjøringsId": "#{genererUUID}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "hbf_as_asa_dataunderlag_medlem",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_as_asa_dataunderlag_for_medlem/${andrePeriode}"
+    },
+    {
+      "handling": "send_bare_filer_fra_batch_output_til_dvh",
+      "filPrefix": "hbf_as_asa_dataunderlag_medlem",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_as_asa/fakturering/medlem"
+    },
+    {
+      "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+      "filPrefix": "hbf_as_asa_dataunderlag_medlem",
+      "filListe": "ASASA_FILLISTE_MEDLEM.TXT",
+      "filstiHosDVH": "/hbf_as_asa/fakturering/medlem"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "hbf_as_asa_dataunderlag_for_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "premiemodell": "HBF_AS/ASA",
+      "termin": "${termin}",
+      "kjøringsId": "#{genererUUID}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "hbf_as_asa_dataunderlag_avtale",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_as_asa_dataunderlag_for_avtale/${andrePeriode}"
+    },
+    {
+      "handling": "send_bare_filer_fra_batch_output_til_dvh",
+      "filPrefix": "hbf_as_asa_dataunderlag_avtale",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_as_asa/fakturering/avtale"
+    },
+    {
+      "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+      "filPrefix": "hbf_as_asa_dataunderlag_avtale",
+      "filListe": "ASASA_FILLISTE_AVTALE.TXT",
       "filstiHosDVH": "/hbf_as_asa/fakturering/avtale"
     },
     {
