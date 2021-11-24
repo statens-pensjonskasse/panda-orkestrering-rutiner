@@ -3,7 +3,6 @@
   "gyldigVersjon": "0.0.9",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
 
     "prognoseVersjonTermin01": "1006",
     "fremskrivingsDato02": "2021.02.01",
