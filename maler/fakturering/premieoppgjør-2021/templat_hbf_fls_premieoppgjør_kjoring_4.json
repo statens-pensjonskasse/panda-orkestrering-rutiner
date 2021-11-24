@@ -5,7 +5,7 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "rettighet": "panda_veldig_forenkla_rettighet",
 
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<reserveberegningGrunnlagsdataAktuarVersjon>",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "3",
     "grunnlagsdataFremskriving12" : "<grunnlagsdataFremskriving 2021.12.01>"
   },
   "operasjoner": [
