@@ -20,10 +20,12 @@
   },
   "operasjoner": [
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_filområde_hos_dvh",
       "filstiHosDVH": "/kontofoering"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_filområde_hos_dvh",
       "filstiHosDVH": "/reserveoppbygging"
     },
@@ -31,11 +33,13 @@
 
 
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_11",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${bokføringsperiode01}",
@@ -45,6 +49,7 @@
       "kommentar": "Kopierer inn en manuelt opprettet flettet kontoføringsfil basert på feilliste fra pa_ork_ba_01"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "kontofoering",
       "batchFra": "pa_res_ba_01",
@@ -53,6 +58,7 @@
       "nøkkel": "panda_reserveberegning/${fremskrivingsDato01}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "feilmeldinger",
       "batchFra": "pa_res_ba_01",
@@ -61,6 +67,7 @@
       "nøkkel": "panda_reserveberegning/${fremskrivingsDato01}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "hent_spesifisert_del_av_medlemsdata",
       "batchTil": "pa_fak_ba_11",
       "filnavnTil": "etterlatte",
@@ -69,6 +76,7 @@
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "hent_spesifisert_del_av_medlemsdata",
       "batchTil": "pa_fak_ba_11",
       "filnavnTil": "personfil",
@@ -77,12 +85,14 @@
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_batch_output",
       "filnavn": "flettede_kontofoeringer",
       "batch": "pa_fak_ba_11",
@@ -91,6 +101,7 @@
       "komprimerOutput": true
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_11",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -100,11 +111,13 @@
 
 
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
@@ -113,6 +126,7 @@
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato01}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_fak_ba_09",
       "modus": "generer_kontofoeringunderlag",
       "kjøringsId": "#{genererUUID}",
@@ -121,6 +135,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_batch_output",
       "filnavn": "kontofoeringunderlag",
       "batch": "pa_fak_ba_09",
