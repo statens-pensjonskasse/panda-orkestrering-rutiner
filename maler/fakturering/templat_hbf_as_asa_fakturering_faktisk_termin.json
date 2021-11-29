@@ -117,14 +117,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "hbf_as_asa",
-      "periode": "${førstePeriode}",
-      "prognoseVersjon": "${solvensVersjon}",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
