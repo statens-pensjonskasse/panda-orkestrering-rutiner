@@ -1,0 +1,66 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for reserveberegning med fremskriving 2021.12.01",
+  "gyldigVersjon": "0.0.9",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+
+    "reserveberegningGrunnlagsdataAktuarVersjon": "3",
+    "grunnlagsdataFremskriving12" : "grunnlagsdata_2021-11-30_20-35-27-36"
+  },
+  "operasjoner": [
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+      "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving12}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+      "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_reserveberegning",
+      "sisteFremskrivingsdato": "2021.12.01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoering",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_reserveberegning/2021.12.01",
+      "komprimerOutput": true
+    },
+
+
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_administrasjonspremieunderlag",
+      "sisteFremskrivingsdato": "2021.12.01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "administrasjonspremieunderlag",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/2021.12.01",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    }
+  ]
+}
