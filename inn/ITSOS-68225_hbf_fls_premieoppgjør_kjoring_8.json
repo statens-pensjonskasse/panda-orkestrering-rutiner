@@ -1,0 +1,309 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for reserveoppbygging dataunerlag periode 202104 og 202105",
+  "gyldigVersjon": "0.0.9",
+  "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+
+    "fremskrivingsDato04": "2021.04.01",
+    "bokføringsperiode04": "202104",
+
+    "fremskrivingsDato05": "2021.05.01",
+    "uttrekksdato05": "14.04.2021",
+    "bokføringsperiode05": "202105",
+
+    "fremskrivingsDato06": "2021.06.01",
+    "uttrekksdato06": "14.05.2021"
+  },
+  "operasjoner": [
+    {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/kontofoering"
+    },
+    {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/reserveoppbygging"
+    },
+
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato05}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_kontofoeringunderlag",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato05}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoeringunderlag",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato05}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "kontofoeringunderlag",
+      "filListe": "KONTOFOERING_FILLISTE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/kontofoering/${fremskrivingsDato05}",
+      "encoding": "UTF_16LE"
+    },
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato04}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato05}"
+    },
+    {
+      "handling": "pa_fak_ba_03",
+      "modus": "reserveoppbygging",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "førsteKjøring": "${fremskrivingsDato04}",
+      "andreKjøring": "${fremskrivingsDato05}",
+      "bokføringsperiode": "${bokføringsperiode04}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "reserveoppbygging",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "reserveoppbygging/${bokføringsperiode04}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reserveoppbygging",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reserveoppbygging/${bokføringsperiode04}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_reserveoppbygging_dataunderlag",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato05}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "reserveoppbygging_dataunderlag",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode04}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "send_bare_filer_fra_batch_output_til_dvh",
+      "filPrefix": "reserveoppbygging_dataunderlag",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/reserveoppbygging",
+      "encoding": "UTF_16LE"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato05}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato06}"
+    },
+    {
+      "handling": "pa_fak_ba_03",
+      "modus": "reserveoppbygging",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "førsteKjøring": "${fremskrivingsDato05}",
+      "andreKjøring": "${fremskrivingsDato06}",
+      "bokføringsperiode": "${bokføringsperiode05}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "reserveoppbygging",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "reserveoppbygging/${bokføringsperiode05}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reserveoppbygging",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reserveoppbygging/${bokføringsperiode05}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_reserveoppbygging_dataunderlag",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato06}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "reserveoppbygging_dataunderlag",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_reserveoppbygging_dataunderlag/${bokføringsperiode05}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "send_bare_filer_fra_batch_output_til_dvh",
+      "filPrefix": "reserveoppbygging_dataunderlag",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/reserveoppbygging",
+      "encoding": "UTF_16LE"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+    {
+      "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+      "filPrefix": "reserveoppbygging_dataunderlag",
+      "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
+      "filstiHosDVH": "/reserveoppbygging"
+    },
+
+
+
+
+
+
+
+
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato06}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_kontofoeringunderlag",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato06}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoeringunderlag",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato06}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "kontofoeringunderlag",
+      "filListe": "KONTOFOERING_FILLISTE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/kontofoering/${fremskrivingsDato06}",
+      "encoding": "UTF_16LE"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    }
+  ]
+}
