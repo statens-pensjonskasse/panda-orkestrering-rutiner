@@ -1,0 +1,9 @@
+{
+  "navn": "Arkivere grunnlagsdata fra aktuar for reserveberegning",
+  "operasjoner": [
+    {
+      "handling": "arkiver_reserveberegning_grunnlagsdata_fra_aktuar",
+      "beskrivelse": "Nye fremskrivingsplaner for eventuell uføre og barnetillegg for nye antatt pensjonsaldre"
+    }
+  ]
+}
