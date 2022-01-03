@@ -1,6 +1,6 @@
 {
   "navn": "Rutine for kjøring av polise og rettighetsmodus inkludert tilhørende kontoføringsunderlag og reserveoppbygging til datavarehus for fremskriving ${fremskrivingsDato}",
-  "gyldigVersjon": "0.0.44",
+  "gyldigVersjon": "0.0.46",
   "variabler": {
     "grunnlagsdatamappeNå" : "#{grunnlagsdatamappeNå}",
     "reserveberegningGrunnlagsdataAktuarVersjon" : "3",
