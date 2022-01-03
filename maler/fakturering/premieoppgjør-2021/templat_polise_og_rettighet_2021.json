@@ -35,14 +35,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "poliser",
-      "batch": "pa_res_ba_01",
-      "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
-      "nøkkel": "panda-poliser/${fremskrivingsDato}",
-      "komprimerOutput": true
-    },
-    {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "poliser",
       "filListe": "POLISE_FILLISTE.txt",
@@ -50,30 +42,13 @@
       "encoding": "utf-16le",
       "filstiHosDVH": "/polise/${fremskrivingsDato}"
     },
-
-
-    {
-      "handling": "pa_res_ba_01",
-      "modus": "panda-testdata-rettighet-ytelser",
-      "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-      "sisteFremskrivingsdato": "${fremskrivingsDato}",
-      "rettighet": "${rettighet}"
-    },
     {
       "handling": "arkiver_batch_output",
-      "filnavn": "testdata_rettighet_og_ytelser",
+      "filnavn": "poliser",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
-      "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
+      "nøkkel": "panda-poliser/${fremskrivingsDato}",
       "komprimerOutput": true
-    },
-    {
-      "handling": "send_batch_output_til_dvh",
-      "filPrefix": "testdata_rettighet_og_ytelser",
-      "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
-      "batch": "pa_res_ba_01",
-      "encoding": "utf-16le",
-      "filstiHosDVH": "/rettighet_ytelse/${fremskrivingsDato}"
     },
 
 
@@ -118,7 +93,31 @@
       "filPrefix": "reserveoppbyggging_dataunderlag",
       "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
       "filstiHosDVH": "/reserveoppbygging/${bokføringsperiode}"
-    }
+    },
 
+
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda-testdata-rettighet-ytelser",
+      "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+      "sisteFremskrivingsdato": "${fremskrivingsDato}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "testdata_rettighet_og_ytelser",
+      "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
+      "batch": "pa_res_ba_01",
+      "encoding": "utf-16le",
+      "filstiHosDVH": "/rettighet_ytelse/${fremskrivingsDato}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "testdata_rettighet_og_ytelser",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
+      "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
+      "komprimerOutput": true
+    }
   ]
 }
