@@ -5,6 +5,7 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "reserveberegningGrunnlagsdataAktuarVersjon" : "4",
     "rettighet": "panda_veldig_forenkla_rettighet",
+    "valgtGrunnlagsdataMappe": "grunnlagsdata_2021-12-31_20-43-22-15",
 
     "bokføringsperiode00": "202112",
     "bokføringsperiode01": "202201",
@@ -21,7 +22,7 @@
     },
     {
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "fraGrunnlagsdataMappe": "${fremskrivingsDato01}",
+      "fraGrunnlagsdataMappe": "${valgtGrunnlagsdataMappe}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
@@ -174,7 +175,7 @@
     },
     {
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "fraGrunnlagsdataMappe": "${fremskrivingsDato02}",
+      "fraGrunnlagsdataMappe": "${valgtGrunnlagsdataMappe}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
@@ -341,7 +342,7 @@
     },
     {
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "fraGrunnlagsdataMappe": "${fremskrivingsDato02}",
+      "fraGrunnlagsdataMappe": "${valgtGrunnlagsdataMappe}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
