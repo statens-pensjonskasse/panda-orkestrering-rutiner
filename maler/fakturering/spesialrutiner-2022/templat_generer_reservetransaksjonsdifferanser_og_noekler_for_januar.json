@@ -3,10 +3,13 @@
   "gyldigVersjon": "0.0.46",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "bokføringsperiode01": "202112",
-    "bokføringsperiode02": "202201",
-    "fremskrivingsdato01": "2022.01.01",
-    "fremskrivingsdato02": "2022.02.01"
+
+    "bokføringsperiode00": "202112",
+    "bokføringsperiode01": "202201",
+
+    "fremskrivingsDato00": "2021.12.01",
+    "fremskrivingsDato01": "2022.01.01",
+    "fremskrivingsDato02": "2022.02.01"
   },
   "operasjoner": [
     {
@@ -20,7 +23,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsdato01}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato01}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
@@ -29,7 +32,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsdato01}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato01}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
@@ -38,7 +41,7 @@
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdato01}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato00}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
@@ -66,7 +69,130 @@
       "filnavn": "flettede_kontofoeringer",
       "batch": "pa_fak_ba_11",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdato01}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato01}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_11",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "hent_spesifisert_del_av_medlemsdata",
+      "batchTil": "pa_fak_ba_02",
+      "filnavnTil": "personfil",
+      "typeindikator": "PERSON",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_fls",
+      "periode": "${bokføringsperiode00}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_02",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato01}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_fak_ba_02",
+      "modus": "premieaggregering_med_filtrering",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "totalpremier_medlem",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premieaggregering/${fremskrivingsDato01}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_11",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "kontofoering",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_11",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato02}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "feilmeldinger",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_11",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato02}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_11",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato01}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "hent_spesifisert_del_av_medlemsdata",
+      "batchTil": "pa_fak_ba_11",
+      "filnavnTil": "etterlatte",
+      "typeindikator": "ETTERLATT",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "hent_spesifisert_del_av_medlemsdata",
+      "batchTil": "pa_fak_ba_11",
+      "filnavnTil": "personfil",
+      "typeindikator": "PERSON",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_fak_ba_11",
+      "modus": "flette_feilende_medlemmer_med_filtrering",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "flettede_kontofoeringer",
+      "batch": "pa_fak_ba_11",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato02}",
       "komprimerOutput": true
     },
     {
@@ -106,7 +232,7 @@
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_02",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdato01}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato02}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
@@ -120,130 +246,7 @@
       "filnavn": "totalpremier_medlem",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${fremskrivingsdato01}"
-    },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-
-
-
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_11",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "kontofoering",
-      "batchFra": "pa_res_ba_01",
-      "batchTil": "pa_fak_ba_11",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsdato02}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "feilmeldinger",
-      "batchFra": "pa_res_ba_01",
-      "batchTil": "pa_fak_ba_11",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsdato02}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_11",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdato02}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
-      "handling": "hent_spesifisert_del_av_medlemsdata",
-      "batchTil": "pa_fak_ba_11",
-      "filnavnTil": "etterlatte",
-      "typeindikator": "ETTERLATT",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "hent_spesifisert_del_av_medlemsdata",
-      "batchTil": "pa_fak_ba_11",
-      "filnavnTil": "personfil",
-      "typeindikator": "PERSON",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "pa_fak_ba_11",
-      "modus": "flette_feilende_medlemmer_med_filtrering",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "flettede_kontofoeringer",
-      "batch": "pa_fak_ba_11",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdato02}",
-      "komprimerOutput": true
-    },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_11",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-
-
-
-
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "hent_spesifisert_del_av_medlemsdata",
-      "batchTil": "pa_fak_ba_02",
-      "filnavnTil": "personfil",
-      "typeindikator": "PERSON",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "hbf_fls",
-      "periode": "${bokføringsperiode02}",
-      "prognoseVersjon": "avtaleliste",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_02",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdato02}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
-      "handling": "pa_fak_ba_02",
-      "modus": "premieaggregering_med_filtrering",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "totalpremier_medlem",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${fremskrivingsdato02}"
+      "nøkkel": "premieaggregering/${fremskrivingsDato02}"
     },
     {
       "handling": "pa_fak_ba_02",
@@ -256,7 +259,7 @@
       "filnavn": "totalreserver",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsdato02}"
+      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato02}"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -287,7 +290,7 @@
       "handling": "pa_fak_ba_05",
       "modus": "generer_administrasjonspremier",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "bokføringsperiode": "${bokføringsperiode02}",
+      "bokføringsperiode": "${bokføringsperiode01}",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -295,7 +298,7 @@
       "filnavn": "administrasjonspremie",
       "batch": "pa_fak_ba_05",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${bokføringsperiode02}"
+      "nøkkel": "generer_administrasjonspremier/${bokføringsperiode01}"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -318,7 +321,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${fremskrivingsdato01}",
+      "nøkkel": "premieaggregering/${fremskrivingsDato01}",
       "kommentar": "Henter fra forrige grunnlagsdatamappe"
     },
     {
@@ -327,16 +330,16 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${fremskrivingsdato02}",
+      "nøkkel": "premieaggregering/${fremskrivingsDato02}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
       "handling": "pa_fak_ba_03",
       "modus": "reservetransaksjonsdifferanse_for_medlem",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "førsteKjøring": "${fremskrivingsdato01}",
-      "andreKjøring": "${fremskrivingsdato02}",
-      "bokføringsperiode": "${bokføringsperiode02}",
+      "førsteKjøring": "${fremskrivingsDato01}",
+      "andreKjøring": "${fremskrivingsDato02}",
+      "bokføringsperiode": "${bokføringsperiode01}",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -344,7 +347,7 @@
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode02}"
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode01}"
     },
 
 
@@ -355,7 +358,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${bokføringsperiode02}",
+      "periode": "${bokføringsperiode01}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -366,16 +369,16 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${bokføringsperiode02}",
+      "nøkkel": "generer_administrasjonspremier/${bokføringsperiode01}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
       "handling": "pa_fak_ba_03",
       "modus": "aggregert_reservetransaksjonsdifferanse",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "førsteKjøring": "${fremskrivingsdato01}",
-      "andreKjøring": "${fremskrivingsdato02}",
-      "bokføringsperiode": "${bokføringsperiode02}",
+      "førsteKjøring": "${fremskrivingsDato01}",
+      "andreKjøring": "${fremskrivingsDato02}",
+      "bokføringsperiode": "${bokføringsperiode01}",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -383,7 +386,7 @@
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode02}"
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode01}"
     },
 
 
@@ -402,7 +405,7 @@
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdato01}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato00}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
@@ -411,16 +414,16 @@
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdato02}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato00}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
       "handling": "pa_fak_ba_03",
       "modus": "reserveoppbygging",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "førsteKjøring": "${fremskrivingsdato01}",
-      "andreKjøring": "${fremskrivingsdato02}",
-      "bokføringsperiode": "${bokføringsperiode02}",
+      "førsteKjøring": "${fremskrivingsDato00}",
+      "andreKjøring": "${fremskrivingsDato01}",
+      "bokføringsperiode": "${bokføringsperiode00}",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -428,7 +431,56 @@
       "filnavn": "reserveoppbygging",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveoppbygging/${bokføringsperiode02}",
+      "nøkkel": "reserveoppbygging/${bokføringsperiode00}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato01}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato02}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_fak_ba_03",
+      "modus": "reserveoppbygging",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "førsteKjøring": "${fremskrivingsDato00}",
+      "andreKjøring": "${fremskrivingsDato01}",
+      "bokføringsperiode": "${bokføringsperiode00}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "reserveoppbygging",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "reserveoppbygging/${bokføringsperiode00}",
       "komprimerOutput": true
     },
     {
@@ -450,7 +502,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${bokføringsperiode02}",
+      "periode": "${bokføringsperiode01}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -461,7 +513,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsdato02}"
+      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato02}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -469,7 +521,7 @@
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode02}"
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode01}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -477,7 +529,7 @@
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode02}"
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode01}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -485,7 +537,7 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${bokføringsperiode02}"
+      "nøkkel": "generer_administrasjonspremier/${bokføringsperiode01}"
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -493,7 +545,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsdato02}"
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato02}"
     },
     {
       "handling": "pa_fak_ba_08",
@@ -506,7 +558,7 @@
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${bokføringsperiode02}"
+      "nøkkel": "generer_noekkelunderlag/${bokføringsperiode01}"
     },
 
 
@@ -524,7 +576,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${bokføringsperiode02}"
+      "nøkkel": "generer_noekkelunderlag/${bokføringsperiode01}"
     },
     {
       "handling": "pa_fak_ba_08",
@@ -537,7 +589,7 @@
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode02}"
+      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode01}"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
