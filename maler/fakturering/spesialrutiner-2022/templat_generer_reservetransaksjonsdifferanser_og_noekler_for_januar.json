@@ -595,6 +595,60 @@
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_faktiske_premier",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag/${bokføringsperiode01}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_faktiske_premier",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode01}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode01}"
+    },
+    {
+      "handling": "pa_fak_ba_06",
+      "modus": "premiefellesskap_utjevning_faktisk_premie",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "utjevnet_faktisk_premie",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode01}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_06",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
+
   ]
 }
