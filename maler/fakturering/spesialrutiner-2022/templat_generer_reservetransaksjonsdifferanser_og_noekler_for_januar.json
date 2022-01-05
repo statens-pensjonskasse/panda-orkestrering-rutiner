@@ -598,6 +598,14 @@
       "validerFeilendeMedlemmer": true
     },
     {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "reserveoppbygging",
+      "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
+      "batch": "pa_fak_ba_03",
+      "filstiHosDVH": "/reserveoppbygging/${bokføringsperiode00}",
+      "encoding": "UTF-16LE"
+    },
+    {
       "handling": "arkiver_batch_output",
       "filnavn": "reserveoppbygging",
       "batch": "pa_fak_ba_03",
@@ -645,6 +653,14 @@
       "andreKjøring": "${fremskrivingsDato01}",
       "bokføringsperiode": "${bokføringsperiode00}",
       "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "reserveoppbygging",
+      "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
+      "batch": "pa_fak_ba_03",
+      "filstiHosDVH": "/reserveoppbygging/${bokføringsperiode01}",
+      "encoding": "UTF-16LE"
     },
     {
       "handling": "arkiver_batch_output",
