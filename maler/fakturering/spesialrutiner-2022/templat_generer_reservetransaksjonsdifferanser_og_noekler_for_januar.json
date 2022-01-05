@@ -14,6 +14,13 @@
   "operasjoner": [
     {
       "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_11",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
@@ -388,101 +395,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode01}"
     },
-
-
-
-
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_03",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_03",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato00}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_03",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato00}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
-      "handling": "pa_fak_ba_03",
-      "modus": "reserveoppbygging",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "førsteKjøring": "${fremskrivingsDato00}",
-      "andreKjøring": "${fremskrivingsDato01}",
-      "bokføringsperiode": "${bokføringsperiode00}",
-      "validerFeilendeMedlemmer": true
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "reserveoppbygging",
-      "batch": "pa_fak_ba_03",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveoppbygging/${bokføringsperiode00}",
-      "komprimerOutput": true
-    },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_03",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-
-
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_03",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_03",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato01}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "flettede_kontofoeringer",
-      "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_03",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato02}",
-      "kommentar": "Henter fra siste grunnlagsdatamappe"
-    },
-    {
-      "handling": "pa_fak_ba_03",
-      "modus": "reserveoppbygging",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "førsteKjøring": "${fremskrivingsDato00}",
-      "andreKjøring": "${fremskrivingsDato01}",
-      "bokføringsperiode": "${bokføringsperiode00}",
-      "validerFeilendeMedlemmer": true
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "reserveoppbygging",
-      "batch": "pa_fak_ba_03",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveoppbygging/${bokføringsperiode00}",
-      "komprimerOutput": true
-    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_03",
@@ -648,7 +560,104 @@
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    }
+    },
 
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato00}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato00}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_fak_ba_03",
+      "modus": "reserveoppbygging",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "førsteKjøring": "${fremskrivingsDato00}",
+      "andreKjøring": "${fremskrivingsDato01}",
+      "bokføringsperiode": "${bokføringsperiode00}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "reserveoppbygging",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "reserveoppbygging/${bokføringsperiode00}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato01}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato02}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_fak_ba_03",
+      "modus": "reserveoppbygging",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "førsteKjøring": "${fremskrivingsDato00}",
+      "andreKjøring": "${fremskrivingsDato01}",
+      "bokføringsperiode": "${bokføringsperiode00}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "reserveoppbygging",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "reserveoppbygging/${bokføringsperiode00}",
+      "komprimerOutput": true
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_03",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    }
   ]
 }
