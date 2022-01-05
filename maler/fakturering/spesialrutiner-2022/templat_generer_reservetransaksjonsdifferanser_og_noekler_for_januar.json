@@ -3,6 +3,8 @@
   "gyldigVersjon": "0.0.46",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "reserveberegningGrunnlagsdataAktuarVersjon" : "4",
+    "rettighet": "panda_veldig_forenkla_rettighet",
 
     "bokføringsperiode00": "202112",
     "bokføringsperiode01": "202201",
@@ -16,6 +18,31 @@
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+      "fraGrunnlagsdataMappe": "${fremskrivingsDato01}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+      "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_reserveberegning",
+      "sisteFremskrivingsdato": "${fremskrivingsDato01}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoering",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato01}",
+      "komprimerOutput": true
     },
 
 
@@ -139,6 +166,37 @@
     },
 
 
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+      "fraGrunnlagsdataMappe": "${fremskrivingsDato02}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+      "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_reserveberegning",
+      "sisteFremskrivingsdato": "${fremskrivingsDato02}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoering",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato02}",
+      "komprimerOutput": true
+    },
 
 
 
@@ -276,6 +334,36 @@
 
 
 
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+      "fraGrunnlagsdataMappe": "${fremskrivingsDato02}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+      "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_administrasjonspremieunderlag",
+      "sisteFremskrivingsdato": "${fremskrivingsDato02}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "administrasjonspremieunderlag",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato02}",
+      "komprimerOutput": true
+    },
 
 
 
