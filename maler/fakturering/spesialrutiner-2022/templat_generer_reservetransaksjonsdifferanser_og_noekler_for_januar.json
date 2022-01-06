@@ -738,9 +738,9 @@
       "handling": "pa_fak_ba_03",
       "modus": "reserveoppbygging",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "førsteKjøring": "${fremskrivingsDato00}",
-      "andreKjøring": "${fremskrivingsDato01}",
-      "bokføringsperiode": "${bokføringsperiode00}",
+      "førsteKjøring": "${fremskrivingsDato01}",
+      "andreKjøring": "${fremskrivingsDato02}",
+      "bokføringsperiode": "${bokføringsperiode01}",
       "validerFeilendeMedlemmer": true
     },
     {
