@@ -653,7 +653,10 @@
 
 
 
-
+    {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/reserveoppbygging"
+    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_03",
@@ -687,12 +690,11 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "send_batch_output_til_dvh",
+      "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "reserveoppbygging",
-      "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
       "batch": "pa_fak_ba_03",
-      "filstiHosDVH": "/reserveoppbygging/${bokføringsperiode00}",
-      "encoding": "UTF-16LE"
+      "filstiHosDVH": "/reserveoppbygging",
+      "encoding": "UTF_16LE"
     },
     {
       "handling": "arkiver_batch_output",
@@ -707,7 +709,6 @@
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
-
 
 
 
@@ -744,12 +745,11 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "send_batch_output_til_dvh",
+      "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "reserveoppbygging",
-      "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
       "batch": "pa_fak_ba_03",
-      "filstiHosDVH": "/reserveoppbygging/${bokføringsperiode01}",
-      "encoding": "UTF-16LE"
+      "filstiHosDVH": "/reserveoppbygging",
+      "encoding": "UTF_16LE"
     },
     {
       "handling": "arkiver_batch_output",
@@ -763,6 +763,15 @@
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+    {
+      "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+      "filPrefix": "reserveoppbygging",
+      "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
+      "filstiHosDVH": "/reserveoppbygging"
     }
   ]
 }
