@@ -660,7 +660,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
@@ -669,12 +669,12 @@
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato00}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato01}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
@@ -717,7 +717,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
@@ -726,7 +726,7 @@
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
