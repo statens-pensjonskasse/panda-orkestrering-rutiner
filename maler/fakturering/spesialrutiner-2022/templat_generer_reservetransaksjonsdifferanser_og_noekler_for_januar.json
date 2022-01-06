@@ -509,7 +509,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
@@ -517,7 +517,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato02}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -525,7 +525,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_08",
@@ -533,7 +533,7 @@
       "nøkkel": "aggregert_reservetransaksjonsdifferanse/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
@@ -541,7 +541,7 @@
       "nøkkel": "generer_administrasjonspremier/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_08",
@@ -572,7 +572,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
@@ -609,7 +609,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -617,7 +617,7 @@
       "nøkkel": "generer_noekkelunderlag/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -625,7 +625,7 @@
       "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_reservetransaksjonsdifferanser",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_06",
