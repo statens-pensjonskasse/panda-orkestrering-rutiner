@@ -6,9 +6,9 @@
     "reserveberegningGrunnlagsdataAktuarVersjon" : "3",
     "rettighet": "panda_veldig_forenkla_rettighet",
 
-    "bokføringsperiode": "202012",
-    "fremskrivingsDato": "2021.01.01",
-    "grunnlagsdataFremskriving" :  "grunnlagsdata_2020-12-18_00-00-00-00"
+    "bokføringsperiode": "<YYYYMM>",
+    "fremskrivingsDato": "<YYYY.MM.DD>",
+    "grunnlagsdataFremskriving" :  "grunnlagsdata_YYYY-MM-DD_HH-mm-ss"
 
   },
   "operasjoner": [
@@ -80,7 +80,7 @@
     },
     {
       "handling": "split_fil_fra_arkiv_til_dvh",
-      "filPrefix": "reserveoppbyggging_dataunderlag",
+      "filPrefix": "reserveoppbygging_dataunderlag",
       "batch": "pa_fak_ba_09",
       "modus": "generer_reserveoppbygging_dataunderlag",
       "periode": "${bokføringsperiode}",
@@ -90,7 +90,7 @@
     },
     {
       "handling": "opprett_filliste_og_triggerfil_hos_dvh",
-      "filPrefix": "reserveoppbyggging_dataunderlag",
+      "filPrefix": "reserveoppbygging_dataunderlag",
       "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
       "filstiHosDVH": "/reserveoppbygging/${bokføringsperiode}"
     },
