@@ -3,10 +3,13 @@
   "gyldigVersjon": "0.0.46",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+
+    "prognoseVersjon" : "<prognoseVersjon>",
     "termin" : "2022-01",
+    "år" : "2022",
+
     "bokføringsperiode01" : "202201",
-    "bokføringsperiode02" : "202202",
-    "prognoseVersjon" : "<prognoseVersjon>"
+    "bokføringsperiode02" : "202202"
   },
 
   "operasjoner": [
