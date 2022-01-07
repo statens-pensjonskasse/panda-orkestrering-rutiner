@@ -1,11 +1,12 @@
 {
-  "navn": "Spesialrutine - header kommer her -",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for reserveoppbygging 202112 of 202201 og utjevnet faktisk premie 202201",
   "gyldigVersjon": "0.0.46",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "reserveberegningGrunnlagsdataAktuarVersjon" : "4",
     "rettighet": "panda_veldig_forenkla_rettighet",
-    "valgtGrunnlagsdataMappe": "grunnlagsdata_2021-12-31_20-43-22-15",
+    "grunnlagsdataMappe01": "grunnlagsdata_2021-12-31_20-43-22-15",
+    "grunnlagsdataMappe02": "grunnlagsdata_2021-12-31_20-43-22-15",
 
     "bokføringsperiode00": "202112",
     "bokføringsperiode01": "202201",
@@ -25,7 +26,7 @@
     },
     {
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "fraGrunnlagsdataMappe": "${valgtGrunnlagsdataMappe}",
+      "fraGrunnlagsdataMappe": "${grunnlagsdataMappe01}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
@@ -178,7 +179,7 @@
     },
     {
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "fraGrunnlagsdataMappe": "${valgtGrunnlagsdataMappe}",
+      "fraGrunnlagsdataMappe": "${grunnlagsdataMappe02}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
@@ -345,7 +346,7 @@
     },
     {
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "fraGrunnlagsdataMappe": "${valgtGrunnlagsdataMappe}",
+      "fraGrunnlagsdataMappe": "${grunnlagsdataMappe02}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
