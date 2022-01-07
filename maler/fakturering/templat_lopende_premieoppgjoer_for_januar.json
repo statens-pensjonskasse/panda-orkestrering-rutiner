@@ -1,5 +1,5 @@
 {
-  "navn": "Spesialrutine - header kommer her -",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for utjevnet prognosepremie 202201 og 202202 og løpende premieoppgjør 202201",
   "gyldigVersjon": "0.0.46",
   "variabler": {
     "prognoseVersjon": "<prognoseVersjon>",
