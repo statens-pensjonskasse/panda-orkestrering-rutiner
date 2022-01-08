@@ -12,7 +12,6 @@
 
   },
   "operasjoner": [
-
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
@@ -28,6 +27,33 @@
       "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
     },
+
+
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda-testdata-rettighet-ytelser",
+      "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+      "sisteFremskrivingsdato": "${fremskrivingsDato}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "testdata_rettighet_og_ytelser",
+      "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
+      "batch": "pa_res_ba_01",
+      "encoding": "utf-16le",
+      "filstiHosDVH": "/rettighet_ytelse/${fremskrivingsDato}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "testdata_rettighet_og_ytelser",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
+      "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
+      "komprimerOutput": true
+    },
+
+
     {
       "handling": "pa_res_ba_01",
       "modus": "panda-poliser",
@@ -93,31 +119,6 @@
       "filPrefix": "reserveoppbygging_dataunderlag",
       "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
       "filstiHosDVH": "/reserveoppbygging/${bokføringsperiode}"
-    },
-
-
-    {
-      "handling": "pa_res_ba_01",
-      "modus": "panda-testdata-rettighet-ytelser",
-      "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-      "sisteFremskrivingsdato": "${fremskrivingsDato}",
-      "rettighet": "${rettighet}"
-    },
-    {
-      "handling": "send_batch_output_til_dvh",
-      "filPrefix": "testdata_rettighet_og_ytelser",
-      "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
-      "batch": "pa_res_ba_01",
-      "encoding": "utf-16le",
-      "filstiHosDVH": "/rettighet_ytelse/${fremskrivingsDato}"
-    },
-    {
-      "handling": "arkiver_batch_output",
-      "filnavn": "testdata_rettighet_og_ytelser",
-      "batch": "pa_res_ba_01",
-      "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
-      "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
-      "komprimerOutput": true
     }
   ]
 }
