@@ -4,7 +4,6 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "prognoseVersjon" : "<prognoseVersjon>",
     "termin" : "2022-01",
     "år" : "2022",
 
@@ -159,11 +158,6 @@
 
 
 
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "aars_prognosepremieuttrekk",
