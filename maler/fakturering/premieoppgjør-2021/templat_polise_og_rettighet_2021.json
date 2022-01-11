@@ -50,6 +50,7 @@
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
       "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
+      "filter": "KjoeringsId",
       "komprimerOutput": true
     },
 
@@ -74,6 +75,7 @@
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
       "nøkkel": "panda-poliser/${fremskrivingsDato}",
+      "filter": "KjoeringsId",
       "komprimerOutput": true
     },
 
