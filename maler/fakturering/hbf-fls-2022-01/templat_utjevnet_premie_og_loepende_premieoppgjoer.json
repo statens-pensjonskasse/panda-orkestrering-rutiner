@@ -210,6 +210,10 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/verdikjedetest"
+    },
+    {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
@@ -263,6 +267,8 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "loepende_premieoppgjoer_dataunderlag/${bokføringsperiode01}"
     },
+
+
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
