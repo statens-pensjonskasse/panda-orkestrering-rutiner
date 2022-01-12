@@ -36,7 +36,7 @@
       "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -83,7 +83,7 @@
       "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -130,7 +130,7 @@
       "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
@@ -166,7 +166,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -174,7 +174,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch_og_konverter_fnr",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -214,7 +214,7 @@
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/verdikjedetest"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
@@ -222,7 +222,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -230,7 +230,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch_og_konverter_fnr",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -238,7 +238,7 @@
       "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${bokføringsperiode01}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
@@ -246,7 +246,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato02}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
