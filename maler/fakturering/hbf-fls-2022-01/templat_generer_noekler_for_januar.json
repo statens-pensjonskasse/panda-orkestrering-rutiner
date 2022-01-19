@@ -6,7 +6,7 @@
     "reserveberegningGrunnlagsdataAktuarVersjon" : "4",
     "rettighet": "panda_veldig_forenkla_rettighet",
     "grunnlagsdataMappe01": "grunnlagsdata_2021-12-31_20-43-22-15",
-    "grunnlagsdataMappe02": "grunnlagsdata_2021-12-31_20-43-22-15",
+    "grunnlagsdataMappe02": "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
 
     "bokføringsperiode00": "202112",
     "bokføringsperiode01": "202201",
