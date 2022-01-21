@@ -142,7 +142,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "filnavn": "avtaleliste_hbf_stat"
     },
-    //TODO: premiejusteringsfil
+    //TODO: premiejusteringsfils sti er ikke bestemt
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
@@ -218,7 +218,6 @@
       "filstiHosDVH": "/hbf_stat/fakturering/medlem"
     },
 
-  //TODO: Håndteres deretter på avtalenivå, finnes ikke ennå
     {
       "handling": "pa_fak_ba_09",
       "modus": "hbf_stat_dataunderlag_for_avtale",
