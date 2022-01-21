@@ -142,7 +142,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "filnavn": "avtaleliste_hbf_stat"
     },
-    //TODO: premiejusteringsfils sti er ikke bestemt
+    //TODO: premiejusteringsfil
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
