@@ -6,9 +6,9 @@
     "reserveberegningGrunnlagsdataAktuarVersjon" : "3",
     "rettighet": "panda_veldig_forenkla_rettighet",
 
-    "bokføringsperiode": "<YYYYMM>",
-    "fremskrivingsDato": "<YYYY.MM.DD>",
-    "grunnlagsdataFremskriving": "grunnlagsdata_YYYY-MM-DD_HH-mm-ss"
+    "bokføringsperiode": "202111",
+    "fremskrivingsDato": "2021.12.01",
+    "grunnlagsdataFremskriving": "grunnlagsdata_2021-11-30_20-35-27-36"
 
   },
   "operasjoner": [
