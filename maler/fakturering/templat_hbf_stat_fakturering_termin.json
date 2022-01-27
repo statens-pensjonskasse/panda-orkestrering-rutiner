@@ -6,7 +6,8 @@
     "termin" : "<termin>",
     "førstePeriode" : "<førstePeriode>",
     "andrePeriode" : "<andrePeriode>",
-    "sisteFremskrivingsdato" : "<sisteFremskrivingsdato>"
+    "sisteFremskrivingsdato" : "<sisteFremskrivingsdato>",
+    "premiejusteringsVersjon" : "<premiejusteringsVersjon>"
   },
   "operasjoner": [
 
@@ -142,12 +143,11 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "filnavn": "avtaleliste_hbf_stat"
     },
-    //TODO: premiejusteringsfil
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${termin}",
-      "prognoseVersjon": "premiejustering_IKKE_ENDELIG",
+      "prognoseVersjon": "${premiejusteringsVersjon}",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "filnavn": "premiejustering_hbf_stat"
