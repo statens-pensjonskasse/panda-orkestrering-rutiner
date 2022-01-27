@@ -4,6 +4,7 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "solvensVersjon" : "<solvensVersjon>",
+    "premiejusteringVersjon" : "<premiejusteringVersjon>",
     "termin" : "<termin>",
     "førstePeriode" : "<førstePeriode>",
     "andrePeriode" : "<andrePeriode>",
@@ -39,6 +40,15 @@
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "filnavn": "avtaleliste_hbf_as_asa"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa",
+      "periode": "${termin}",
+      "prognoseVersjon": "${premiejusteringVersjon}",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "tillatTomFil": true
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -158,6 +168,15 @@
       "prognoseVersjon": "${solvensVersjon}",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa",
+      "periode": "${termin}",
+      "prognoseVersjon": "${premiejusteringVersjon}",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "tillatTomFil": true
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
