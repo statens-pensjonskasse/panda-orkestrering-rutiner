@@ -73,6 +73,15 @@
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
     },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${termin}",
+      "prognoseVersjon": "${premiejusteringsVersjon}",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "premiejustering_hbf_stat"
+    },
 
 
 
