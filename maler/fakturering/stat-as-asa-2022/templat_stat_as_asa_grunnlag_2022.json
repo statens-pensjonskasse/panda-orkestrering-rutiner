@@ -1,15 +1,14 @@
 {
-  "navn": "Rutine for kjøring av polise og rettighetsmodus inkludert tilhørende kontoføringsunderlag og reserveoppbygging til datavarehus for fremskriving ${fremskrivingsDato}",
+  "navn": "Rutine for kjøring av fast månedlig grunnlagsrutine for fremskriving ${fremskrivingsDato} for STAT / AS_ASA",
   "gyldigVersjon": "0.0.46",
   "variabler": {
     "grunnlagsdatamappeNå" : "#{grunnlagsdatamappeNå}",
-    "reserveberegningGrunnlagsdataAktuarVersjon" : "3",
+    "reserveberegningGrunnlagsdataAktuarVersjon" : "4",
     "rettighet": "panda_veldig_forenkla_rettighet",
 
     "bokføringsperiode": "<YYYYMM>",
     "fremskrivingsDato": "<YYYY.MM.DD>",
-    "grunnlagsdataFremskriving" :  "grunnlagsdata_YYYY-MM-DD_HH-mm-ss"
-
+    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>"
   },
   "operasjoner": [
     {
@@ -26,6 +25,40 @@
       "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
       "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+    },
+
+
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_reserveberegning",
+      "sisteFremskrivingsdato": "${fremskrivingsDato}",
+      "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "kontofoering",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}",
+      "komprimerOutput": true
+    },
+
+
+    {
+      "handling": "pa_res_ba_01",
+      "modus": "panda_administrasjonspremieunderlag",
+      "sisteFremskrivingsdato": "${fremskrivingsDato}",
+      "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+      "rettighet": "${rettighet}"
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "administrasjonspremieunderlag",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdatamappeNå}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}",
+      "komprimerOutput": true
     },
 
 
@@ -77,6 +110,11 @@
       "nøkkel": "panda-poliser/${fremskrivingsDato}",
       "filter": "KjoeringsId",
       "komprimerOutput": true
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01",
+      "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
     },
 
 
