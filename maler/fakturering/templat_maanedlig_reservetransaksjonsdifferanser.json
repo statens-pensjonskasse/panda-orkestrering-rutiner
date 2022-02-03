@@ -3,6 +3,7 @@
   "gyldigVersjon": "0.0.35",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappeUttrekk" : "<grunnlagsdata_yyyy-MM-dd_HH-mm-ss-SS>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
@@ -16,23 +17,24 @@
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappeUttrekk}"
     },
     {
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "fraGrunnlagsdataMappe": "${grunnlagsdataMappeUttrekk}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappeUttrekk}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
       "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
       "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappeUttrekk}"
     },
     {
       "handling": "pa_res_ba_01",
       "modus": "panda_reserveberegning",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappeUttrekk}",
       "rettighet": "${rettighet}"
     },
     {
@@ -47,7 +49,7 @@
       "handling": "pa_res_ba_01",
       "modus": "panda_administrasjonspremieunderlag",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappeUttrekk}"
     },
     {
       "handling": "arkiver_batch_output",
@@ -59,7 +61,7 @@
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappeUttrekk}"
     },
 
 
@@ -324,7 +326,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
@@ -333,7 +335,7 @@
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
