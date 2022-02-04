@@ -1,16 +1,26 @@
 {
   "navn": "Rutine for kjøring av fast månedlig grunnlagsrutine for fremskriving ${fremskrivingsDato} for STAT / AS_ASA",
-  "gyldigVersjon": "0.0.46",
+  "gyldigVersjon": "0.0.50",
   "variabler": {
     "grunnlagsdatamappeNå" : "#{grunnlagsdatamappeNå}",
     "reserveberegningGrunnlagsdataAktuarVersjon" : "4",
     "rettighet": "panda_veldig_forenkla_rettighet",
+    "paResBa01Versjon": "<X.Y.Z>",
 
     "bokføringsperiode": "<YYYYMM>",
     "fremskrivingsDato": "<YYYY.MM.DD>",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>"
   },
   "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_01",
+          "versjon": "${paResBa01Versjon}"
+        }
+      ]
+    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
