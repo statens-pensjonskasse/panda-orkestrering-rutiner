@@ -16,7 +16,7 @@
       "handling": "deploy_batch",
       "batcher": [
         {
-          "navn": "pa_fak_ba_01",
+          "navn": "pa_res_ba_01",
           "versjon": "${paResBa01Versjon}"
         }
       ]
