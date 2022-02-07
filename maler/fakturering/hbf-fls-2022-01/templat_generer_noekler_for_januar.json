@@ -569,7 +569,7 @@
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${bokføringsperiode01}"
+      "nøkkel": "januar_noekler_2022/generer_noekkelunderlag/${bokføringsperiode01}"
     },
 
 
@@ -587,7 +587,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${bokføringsperiode01}"
+      "nøkkel": "januar_noekler_2022/generer_noekkelunderlag/${bokføringsperiode01}"
     },
     {
       "handling": "pa_fak_ba_08",
@@ -600,7 +600,7 @@
       "filnavn": "aggregerte_noekler_faktiske_premier",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode01}"
+      "nøkkel": "januar_noekler_2022/aggreger_faktiske_premier/${bokføringsperiode01}"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -624,7 +624,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${bokføringsperiode01}"
+      "nøkkel": "januar_noekler_2022/generer_noekkelunderlag/${bokføringsperiode01}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -632,7 +632,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode01}"
+      "nøkkel": "januar_noekler_2022/aggreger_faktiske_premier/${bokføringsperiode01}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
