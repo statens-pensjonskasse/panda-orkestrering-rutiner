@@ -230,7 +230,7 @@
       "periode": "${fjerdePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${fjerdePeriode}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "filnavn": "avtaleliste_hbf_stat",
       "tillatTomFil" : true
     },
