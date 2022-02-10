@@ -2,7 +2,8 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for utjevnet prognosepremie 202201 og 202202 og løpende premieoppgjør 202201",
   "gyldigVersjon": "0.0.46",
   "variabler": {
-    "prognoseVersjon": "1055",
+    "prognoseVersjon": "1054",
+    "prognoseVersjonVarsling": "1055",
     "år" : "2022",
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
@@ -117,7 +118,7 @@
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "periode": "${år}",
-      "prognoseVersjon": "${prognoseVersjon}",
+      "prognoseVersjon": "${prognoseVersjonVarsling}",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
