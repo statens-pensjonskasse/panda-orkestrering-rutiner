@@ -102,6 +102,7 @@
       "batchTil": "pa_fak_ba_11",
       "filnavnTil": "etterlatte",
       "typeindikator": "ETTERLATT",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeUttrekk}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
@@ -109,6 +110,7 @@
       "batchTil": "pa_fak_ba_11",
       "filnavnTil": "personfil",
       "typeindikator": "PERSON",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeUttrekk}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
@@ -142,6 +144,7 @@
       "batchTil": "pa_fak_ba_02",
       "filnavnTil": "personfil",
       "typeindikator": "PERSON",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeUttrekk}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
