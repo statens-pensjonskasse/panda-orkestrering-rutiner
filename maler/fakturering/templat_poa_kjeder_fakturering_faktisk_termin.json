@@ -80,7 +80,8 @@
       "prognoseVersjon": "${premiejusteringsVersjon}",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "premiejustering_fakturering"
+      "filnavn": "premiejustering_fakturering",
+      "tillatTomFil": true
     },
 
 
