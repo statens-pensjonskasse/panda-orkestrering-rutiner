@@ -6,6 +6,8 @@
     "termin" : "<termin>",
     "førstePeriode" : "<førstePeriode>",
     "andrePeriode" : "<andrePeriode>",
+    "tredjePeriode" : "<tredjePeriode>",
+    "fjerdePeriode" : "<fjerdePeriode>",
     "sisteFremskrivingsdato" : "<sisteFremskrivingsdato>",
     "premiejusteringsVersjon" : "<premiejusteringsVersjon>"
   },
@@ -39,7 +41,28 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "avtaleliste_hbf_stat"
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${tredjePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${fjerdePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -55,7 +78,26 @@
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${tredjePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${fjerdePeriode}",
+      "feilHvisFilMangler" : false
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -71,7 +113,26 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+      "nøkkel": "generer_administrasjonspremier/${andrePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${tredjePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}",
+      "feilHvisFilMangler" : false
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -80,7 +141,8 @@
       "prognoseVersjon": "${premiejusteringsVersjon}",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "premiejustering_hbf_stat"
+      "filnavn": "premiejustering_hbf_stat",
+      "tillatTomFil": true
     },
 
 
@@ -150,7 +212,28 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "avtaleliste_hbf_stat"
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${tredjePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${fjerdePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -159,7 +242,8 @@
       "prognoseVersjon": "${premiejusteringsVersjon}",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "premiejustering_hbf_stat"
+      "filnavn": "premiejustering_hbf_stat",
+      "tillatTomFil": true
     },
 
     {
@@ -176,7 +260,26 @@
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${tredjePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${fjerdePeriode}",
+      "feilHvisFilMangler" : false
     },
     {
       "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
@@ -192,7 +295,26 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+      "nøkkel": "generer_administrasjonspremier/${andrePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${tredjePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}",
+      "feilHvisFilMangler" : false
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
