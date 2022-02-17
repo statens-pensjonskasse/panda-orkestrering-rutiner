@@ -102,7 +102,7 @@
     },
     {
       "handling": "pa_fak_ba_04",
-      "modus": "generer_agressofil_for_poa_afp_kjeder",
+      "modus": "generer_agressofil_poa_afp_kjeder",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
       "premiemodell": "POA_AFP",
@@ -113,7 +113,7 @@
       "filnavn": "agressofil_poa_afp_kjeder",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_agressofil_for_poa_afp_kjeder/${termin}",
+      "nøkkel": "generer_agressofil_poa_afp_kjeder/${termin}",
       "filter": "Agressofil"
     },
     {
@@ -134,7 +134,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
       "premiemodell": "poa_afp",
       "periode": "${førstePeriode}",
       "prognoseVersjon": "avtaleliste",
@@ -143,7 +143,7 @@
       "filnavn": "avtaleliste_poa_kjeder"
     },
     {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
       "premiemodell": "poa_afp",
       "periode": "${andrePeriode}",
       "prognoseVersjon": "avtaleliste",
@@ -152,7 +152,7 @@
       "filnavn": "avtaleliste_poa_kjeder"
     },
     {
-      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
       "premiemodell": "poa_afp",
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
