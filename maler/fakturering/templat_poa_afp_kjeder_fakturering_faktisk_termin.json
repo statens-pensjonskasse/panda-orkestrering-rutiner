@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for POA kjeder for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP kjeder for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.22",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
@@ -50,7 +50,7 @@
       "filnavn": "avtaleliste_poa_kjeder"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -58,7 +58,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -66,7 +66,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -109,7 +109,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
+      "handling": "arkiver_all_batch_output",
       "filnavn": "agressofil_poa_afp_kjeder",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -172,7 +172,7 @@
     },
 
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -180,7 +180,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -188,7 +188,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -207,7 +207,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
+      "handling": "arkiver_all_batch_output",
       "filnavn": "poa_afp_kjeder_dataunderlag_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -231,7 +231,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
+      "handling": "arkiver_all_batch_output",
       "filnavn": "poa_afp_kjeder_dataunderlag_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
