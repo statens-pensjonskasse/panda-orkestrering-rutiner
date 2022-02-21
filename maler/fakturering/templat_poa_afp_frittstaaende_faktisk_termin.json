@@ -5,9 +5,11 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "#{genererUUID}",
     "termin": "<termin>",
+    
     "førsteFremskrivingsdato": "<førsteFremskrivingsdato>",
     "andreFremskrivingsdato": "<andreFremskrivingsdato>",
     "tredjeFremskrivingsdato": "<tredjeFremskrivingsdato>",
+    
     "førstePeriode": "<førstePeriode>",
     "andrePeriode": "<andrePeriode>",
     "tredjePeriode": "<tredjePeriode>"
@@ -53,7 +55,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batcch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
@@ -382,7 +384,7 @@
       "filnavn": "avtaleliste_poa_frittstaaende"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
@@ -390,7 +392,7 @@
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
@@ -398,7 +400,7 @@
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${andrePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
@@ -414,7 +416,8 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_all_batch_output",
+      "handling": "arkiver_batch_output",
+      "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_fakturaunderlag_poa_afp_frittstaaende/${termin}"
@@ -431,8 +434,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_agressofil_poa_afp_frittstaaende/${termin}",
-      "filter": "Agressofil"
+      "nøkkel": "generer_agressofil_poa_afp_frittstaaende/${termin}"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -478,7 +480,7 @@
       "filnavn": "avtaleliste_poa_frittstaaende"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -486,7 +488,7 @@
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -494,7 +496,7 @@
       "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${andrePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_premie_poa_afp_frittstaaende",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
