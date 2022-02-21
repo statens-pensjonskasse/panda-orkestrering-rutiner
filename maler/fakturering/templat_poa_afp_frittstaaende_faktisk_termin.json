@@ -3,7 +3,6 @@
   "gyldigVersjon": "0.0.53",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "kjøringsId": "#{genererUUID}",
     "termin": "<termin>",
     
     "førsteFremskrivingsdato": "<førsteFremskrivingsdato>",
