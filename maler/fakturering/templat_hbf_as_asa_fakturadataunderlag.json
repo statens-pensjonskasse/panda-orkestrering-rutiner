@@ -39,7 +39,7 @@
       "filnavn": "avtaleliste_hbf_as_asa"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -47,7 +47,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -64,8 +64,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "fakturaunderlag",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_fakturaunderlag_fra_avtale/fakturadataunderlag/${termin}"
@@ -101,8 +100,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "hbf_as_asa_fakturadataunderlag",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "hbf_as_asa_fakturadataunderlag/${termin}"
