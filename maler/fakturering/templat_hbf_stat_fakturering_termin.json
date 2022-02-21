@@ -65,7 +65,7 @@
       "tillatTomFil" : true
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -73,7 +73,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -82,7 +82,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -91,7 +91,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
@@ -100,7 +100,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
@@ -108,7 +108,7 @@
       "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
@@ -117,7 +117,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
@@ -126,7 +126,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
@@ -245,7 +245,7 @@
     },
 
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -253,7 +253,7 @@
       "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -262,7 +262,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -271,7 +271,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
@@ -280,7 +280,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_09",
@@ -288,7 +288,7 @@
       "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_09",
@@ -297,7 +297,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_09",
@@ -306,7 +306,7 @@
       "feilHvisFilMangler" : false
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremie",
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_09",
