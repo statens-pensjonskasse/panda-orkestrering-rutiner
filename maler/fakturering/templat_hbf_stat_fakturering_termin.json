@@ -156,7 +156,8 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_all_batch_output",
+      "handling": "arkiver_batch_output",
+      "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_fakturaunderlag_for_hbf_stat/${termin}"
