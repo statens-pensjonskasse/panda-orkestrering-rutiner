@@ -216,9 +216,9 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "poa_afp_kjeder_dataunderlag_medlem",
-      "filListe": "POAAFPKJEDER_FILLISTE_MEDLEM.txt",
+      "filListe": "POAAFP_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/poa_afp/fakturering/medlem"
+      "filstiHosDVH": "/poa_afp/fakturering/kjeder/medlem"
     },
 
     {
@@ -240,9 +240,9 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "poa_afp_kjeder_dataunderlag_avtale",
-      "filListe": "POAAFPKJEDER_FILLISTE_AVTALE.txt",
+      "filListe": "POAAFP_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/poa_afp/fakturering/avtale"
+      "filstiHosDVH": "/poa_afp/fakturering/kjeder/avtale"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
