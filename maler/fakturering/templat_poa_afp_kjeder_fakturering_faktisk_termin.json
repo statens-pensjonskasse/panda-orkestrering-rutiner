@@ -110,7 +110,6 @@
     },
     {
       "handling": "arkiver_all_batch_output",
-      "filnavn": "agressofil_poa_afp_kjeder",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_agressofil_poa_afp_kjeder/${termin}",
@@ -208,7 +207,6 @@
     },
     {
       "handling": "arkiver_all_batch_output",
-      "filnavn": "poa_afp_kjeder_dataunderlag_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "poa_afp_kjeder_dataunderlag_for_medlem/${termin}"
@@ -232,7 +230,6 @@
     },
     {
       "handling": "arkiver_all_batch_output",
-      "filnavn": "poa_afp_kjeder_dataunderlag_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "poa_afp_kjeder_dataunderlag_for_avtale/${termin}"
