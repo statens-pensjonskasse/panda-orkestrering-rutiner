@@ -156,8 +156,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "fakturaunderlag",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_fakturaunderlag_for_hbf_stat/${termin}"
@@ -171,8 +170,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "agressofil_hbf_stat",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_agressofil_for_stat/${termin}",
@@ -335,8 +333,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "hbf_stat_dataunderlag_medlem",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "hbf_stat_dataunderlag_for_medlem/${termin}"
@@ -359,8 +356,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "hbf_stat_dataunderlag_avtale",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "hbf_stat_dataunderlag_for_avtale/${termin}"
