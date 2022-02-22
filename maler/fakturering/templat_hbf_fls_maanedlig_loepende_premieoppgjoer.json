@@ -1,6 +1,6 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for oversending av løpende premieoppgjør for bokføringsperiode ${bokføringsperiode}",
-  "gyldigVersjon": "0.0.22",
+  "gyldigVersjon": "0.0.53",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fremskrivingsdato":"<fremskrivingsdato>",
@@ -14,7 +14,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -22,7 +22,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
@@ -36,8 +36,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "lopende_premieoppgjoer",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_07",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
@@ -55,7 +54,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
@@ -63,7 +62,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -71,7 +70,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -79,7 +78,7 @@
       "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
@@ -87,24 +86,12 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsdato}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsdato}"
-    },
-    {
-      "handling": "generer_metadata_fil_fra_aktuar_fil_til_batch",
-      "aktuarFil": "noekkelunderlag_prognosepremier",
-      "generertFil": "prognose_metadata",
-      "premiemodell": "hbf_fls",
-      "periode": "${bokføringsperiode}",
-      "prognoseVersjon": "${prognoseVersjon}",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "typeindikator": "PROGNOSE_METADATA",
-      "felter": ["11"]
     },
     {
       "handling": "pa_fak_ba_09",
@@ -114,14 +101,11 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "loepende_premieoppgjoer_dataunderlag",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "loepende_premieoppgjoer_dataunderlag/${bokføringsperiode}"
     },
-
-
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
@@ -129,7 +113,6 @@
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
     },
-
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
