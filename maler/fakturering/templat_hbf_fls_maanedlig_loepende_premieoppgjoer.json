@@ -4,7 +4,6 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fremskrivingsdato":"<fremskrivingsdato>",
-    "prognoseVersjon":"<prognoseversjon>",
     "bokføringsperiode": "<bokføringsperiode>"
   },
   "operasjoner": [
@@ -27,7 +26,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode}"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${bokføringsperiode}"
     },
     {
       "handling": "pa_fak_ba_07",
@@ -75,7 +74,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode}"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${bokføringsperiode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
