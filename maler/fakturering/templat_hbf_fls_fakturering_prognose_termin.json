@@ -1,6 +1,6 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS varsling og fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.46",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.53",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
@@ -10,7 +10,8 @@
     "andrePeriode" : "<andrePeriode>",
 
     "prognoseVersjon": "<prognoseVersjon>",
-    "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>"
+    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
+    "fordelingsnøkkelSti" : "<fordelingsnøkkelStri>"
   },
 
   "operasjoner": [
@@ -34,7 +35,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "januar_noekler_2022/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -42,7 +43,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "januar_noekler_2022/aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -77,7 +78,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "januar_noekler_2022/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -85,7 +86,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "januar_noekler_2022/aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -99,7 +100,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${andrePeriode}"
     },
-
 
 
 
