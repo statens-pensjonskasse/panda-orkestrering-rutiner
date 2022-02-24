@@ -3,14 +3,14 @@
   "gyldigVersjon": "0.0.53",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "paResBa01Versjon": "<X.Y.Z>",
-    "fremskrivingsDato" : "<YYYY.MM.dd>",
-    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode":"<periode>",
-    "rettighet": "<rettighet>",
-    "uttrekksdato": "<dd.MM.YYYY>"
+    "grunnlagsdataFremskriving": "grunnlagsdata_2021-12-31_20-34-52-61",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "4",
+    "paResBa01Versjon": "1.0.31",
+    "fremskrivingsDato" : "2022.01.01",
+    "forrigeFremskrivingsDato": "2021.12.01",
+    "periode":"202112",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+    "uttrekksdato": "31.12.2021"
   },
 
   "operasjoner": [
