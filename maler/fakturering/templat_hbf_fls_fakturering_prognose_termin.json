@@ -168,15 +168,6 @@
     },
 
 
-
-    {
-      "handling": "rydd_filområde_hos_dvh",
-      "filstiHosDVH": "/hbf_fls/prognosefakturering/avtale"
-    },
-    {
-      "handling": "rydd_filområde_hos_dvh",
-      "filstiHosDVH": "/hbf_fls/prognosefakturering/medlem"
-    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
