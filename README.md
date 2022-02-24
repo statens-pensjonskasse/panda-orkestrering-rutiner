@@ -27,3 +27,13 @@ i [panda-orkestrering](http://wiki.spk.no/display/dok/SPK-Panda+Orkestrering+bat
 5. Etter godkjenning, bestill kjøring av pa_ork_ba_01.
    * Se [Rutine - Orkestrering - Bestille kjøring av pa_ork_ba_01](http://wiki.spk.no/pages/viewpage.action?pageId=350323695)
    * Slett branch når PR merges
+   
+   
+   
+# Maler
+Maler som brukes i ulike leveranser
+* [prognosefakturering-2021](maler/fakturering/prognosefakturering-2021) inneholder maler for prognosefakturering fra Panda i premieåret 2021
+* [fakturering](maler/fakturering) inneholder maler for fakturering fra Panda
+
+
+   
