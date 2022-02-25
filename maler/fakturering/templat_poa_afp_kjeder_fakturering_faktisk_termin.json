@@ -24,7 +24,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp",
+      "premiemodell": "poa_kjeder",
       "periode": "${førstePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
@@ -33,7 +33,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp",
+      "premiemodell": "poa_kjeder",
       "periode": "${andrePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
@@ -42,7 +42,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp",
+      "premiemodell": "poa_kjeder",
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
@@ -75,7 +75,7 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp",
+      "premiemodell": "poa_kjeder",
       "periode": "${termin}",
       "prognoseVersjon": "${premiejusteringsVersjon}",
       "batch": "pa_fak_ba_04",
@@ -134,7 +134,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp",
+      "premiemodell": "poa_kjeder",
       "periode": "${førstePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_09",
@@ -143,7 +143,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp",
+      "premiemodell": "poa_kjeder",
       "periode": "${andrePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_09",
@@ -152,7 +152,7 @@
     },
     {
       "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp",
+      "premiemodell": "poa_kjeder",
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_09",
@@ -161,7 +161,7 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp",
+      "premiemodell": "poa_kjeder",
       "periode": "${termin}",
       "prognoseVersjon": "${premiejusteringsVersjon}",
       "batch": "pa_fak_ba_09",
