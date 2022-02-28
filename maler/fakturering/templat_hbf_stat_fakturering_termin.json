@@ -342,7 +342,7 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "hbf_stat_dataunderlag_medlem",
-      "filListe": "ASSTAT_FILLISTE_MEDLEM.txt",
+      "filListe": "HBFSTAT_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_stat/fakturering/medlem"
     },
@@ -365,7 +365,7 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "hbf_stat_dataunderlag_avtale",
-      "filListe": "ASSTAT_FILLISTE_AVTALE.txt",
+      "filListe": "HBFSTAT_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/hbf_stat/fakturering/avtale"
     },
