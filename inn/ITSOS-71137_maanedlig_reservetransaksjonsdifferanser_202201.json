@@ -75,7 +75,8 @@
       "modus": "panda-testdata-rettighet-ytelser",
       "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
-      "rettighet": "${rettighet}"
+      "rettighet": "${rettighet}",
+      "csvformat": "rettighet_og_ytelese_datavarehus"
     },
     {
       "handling": "send_batch_output_til_dvh",
