@@ -8,6 +8,15 @@
   },
   "operasjoner": [
     {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "0.0.52"
+        }
+      ]
+    },
+    {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_07",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
