@@ -4,7 +4,8 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fremskrivingsdato":"<fremskrivingsdato>",
-    "bokføringsperiode": "<bokføringsperiode>"
+    "bokføringsperiode": "<bokføringsperiode>",
+    "paFakBa09Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -12,7 +13,7 @@
       "batcher": [
         {
           "navn": "pa_fak_ba_09",
-          "versjon": "0.0.52"
+          "versjon": "${paFakBa09Versjon}"
         }
       ]
     },
