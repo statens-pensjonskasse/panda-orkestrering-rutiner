@@ -4,7 +4,8 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fremskrivingsdato":"<fremskrivingsdato>",
-    "bokføringsperiode": "<bokføringsperiode>"
+    "bokføringsperiode": "<bokføringsperiode>",
+    "prognoseVersjon": "<prognoseVersjon>"
   },
   "operasjoner": [
     {
@@ -60,6 +61,18 @@
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "generer_metadata_fil_fra_aktuar_fil_til_batch",
+      "aktuarFil": "noekkelunderlag_prognosepremier",
+      "generertFil": "prognose_metadata",
+      "premiemodell": "hbf_fls",
+      "periode": "${bokføringsperiode}",
+      "prognoseVersjon": "${prognoseVersjon}",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "typeindikator": "PROGNOSE_METADATA",
+      "felter": ["11"]
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
