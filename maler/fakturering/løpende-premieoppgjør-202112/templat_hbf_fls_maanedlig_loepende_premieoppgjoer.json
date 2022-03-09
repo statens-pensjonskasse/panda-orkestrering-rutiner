@@ -75,7 +75,7 @@
       "felter": ["11"]
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
@@ -83,7 +83,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "utjevnet_faktisk_premie",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -91,7 +91,7 @@
       "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
@@ -99,7 +99,7 @@
       "nøkkel": "premiefellesskap_utjevning_prognose/${bokføringsperiode}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
@@ -107,7 +107,7 @@
       "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsdato}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
+      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_09",
