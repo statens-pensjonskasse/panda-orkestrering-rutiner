@@ -1,6 +1,6 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig fakturadatagrunnlag av reservetransaksjonsdifferanser og administrasjonspremier med grunnlagsdataMappe ${grunnlagsdataMappe} for periode ${periode}",
-  "gyldigVersjon": "0.0.59",
+  "gyldigVersjon": "0.0.60",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
