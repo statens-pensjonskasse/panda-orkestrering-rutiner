@@ -1,11 +1,13 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for systemkorreksjons sammenlikning mellom to versjoner av panda ${termin}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for systemkorreksjons sammenlikning mellom to versjoner av panda ${første_versjon} og ${andre_versjon}",
   "gyldigVersjon": "0.0.60",
   "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
+    "bokføringsperiode": "<bokføringsperiode>",
     "rettighet": "<rettighet>",
 
     "første_versjon_finnes_i_arkiv": "true",
@@ -94,7 +96,7 @@
       "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
       "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}",
       "kommentar": "Henter fra fakturering",
-      "tillatTomFil": true
+      "feilHvisFilMangler" : false
     },
     {
       "handling": "hent_spesifisert_del_av_medlemsdata",
@@ -206,7 +208,7 @@
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
       "kommentar": "Henter fra fakturering",
-      "tillatTomFil": true
+      "feilHvisFilMangler" : false
     },
     {
       "handling": "hent_spesifisert_del_av_medlemsdata",
@@ -254,7 +256,7 @@
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}",
       "kommentar": "Henter fra fakturering hvis første versjon ikke er systemkorreksjon",
@@ -264,16 +266,17 @@
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${første_versjon}",
-      "tillatTomFil": true
+      "tillatTomFil": true,
+      "feilHvisFilMangler" : false
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "flettede_kontofoeringer",
       "batchFra": "pa_fak_ba_11",
-      "batchTil": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${andre_versjon}"
     },
@@ -282,9 +285,11 @@
       "handling": "pa_fak_ba_03",
       "modus": "systemkorreksjon",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "bokføringsperiode":"${bokføringsperiode}",
       "fraReserveberegningVersjon": "${første_versjon}",
       "tilReserveberegningVersjon": "${andre_versjon}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "feilHvisFilMangler" : false
     },
     {
       "handling": "arkiver_all_batch_output",
