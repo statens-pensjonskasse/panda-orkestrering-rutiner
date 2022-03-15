@@ -10,11 +10,11 @@
     "bokføringsperiode": "<bokføringsperiode>",
     "rettighet": "<rettighet>",
 
-    "første_versjon_finnes_i_arkiv": "true",
-    "første_versjon_er_systemkorreksjon": "false",
+    "første_versjon_finnes_i_arkiv": "<true/false>",
+    "første_versjon_er_systemkorreksjon": "<true/false>",
 
-    "første_versjon": "1.0.49",
-    "andre_versjon": "1.0.50"
+    "første_versjon": "<X.Y.Z>",
+    "andre_versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -120,6 +120,7 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "reserveberegningVersjon": "${første_versjon}",
       "validerFeilendeMedlemmer": true,
       "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
     },
@@ -230,6 +231,7 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "reserveberegningVersjon": "${andre_versjon}",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -295,7 +297,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "systemkorreksjon/${andre_versjon}"
+      "nøkkel": "systemkorreksjon/${første_versjon}-${andre_versjon}"
     }
   ]
 }
