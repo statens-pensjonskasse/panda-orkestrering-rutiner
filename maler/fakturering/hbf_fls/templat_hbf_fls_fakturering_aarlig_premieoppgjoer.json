@@ -24,17 +24,32 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_faktiske_premier",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_faktiske_premier/{inneværendeÅr}11"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_faktiske_premier",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag/{inneværendeÅr}11"
+    },
+    {
       "handling": "pa_fak_ba_06",
-      "modus": "premiefellesskap_utjevning_prognose",
+      "modus": "premiefellesskap_utjevning_aggregert_prognosepremie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "prognosepremieuttrekk",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}11"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
     },
 
 
@@ -52,17 +67,32 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "aggregerte_noekler_faktiske_premier",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "aggreger_faktiske_premier/{inneværendeÅr}12"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_faktiske_premier",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_06",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_noekkelunderlag/{inneværendeÅr}12"
+    },
+    {
       "handling": "pa_fak_ba_06",
-      "modus": "premiefellesskap_utjevning_prognose",
+      "modus": "premiefellesskap_utjevning_aggregert_prognosepremie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
-      "filnavn": "prognosepremieuttrekk",
+      "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}12"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}12"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -84,7 +114,7 @@
       "underMappe": "pa_fak_ba_06/${inneværendeÅr}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -92,7 +122,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${forrigeÅr}12"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -100,7 +130,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}01"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -108,7 +138,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}02"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -116,7 +146,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}03"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -124,7 +154,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}04"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -132,7 +162,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}05"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -140,7 +170,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}06"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -148,7 +178,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}07"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -156,7 +186,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}08"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -164,7 +194,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}09"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -172,7 +202,7 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}10"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "lopende_premieoppgjoer",
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_10",
@@ -180,20 +210,20 @@
       "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}12"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}12"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_prognose/${inneværendeÅr}11"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -217,7 +247,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
+      "handling": "arkiver_all_batch_output",
       "filnavn": "premieoppgjor",
       "batch": "pa_fak_ba_10",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -236,7 +266,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "premieoppgjor",
       "batchFra": "pa_fak_ba_10",
       "batchTil": "pa_fak_ba_04",
@@ -252,7 +282,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
+      "handling": "arkiver_all_batch_output",
       "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -267,7 +297,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
+      "handling": "arkiver_all_batch_output",
       "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -287,7 +317,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "premieoppgjor",
       "batchFra": "pa_fak_ba_10",
       "batchTil": "pa_fak_ba_09",
@@ -311,7 +341,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
+      "handling": "arkiver_all_batch_output",
       "filnavn": "premieoppgjoer_dataunderlag_medlem",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -332,7 +362,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fra_arkiv_til_batch",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "premieoppgjoer_dataunderlag_medlem",
       "batchFra": "pa_fak_ba_09",
       "batchTil": "pa_fak_ba_09",
@@ -347,7 +377,7 @@
       "validerFeilendeMedlemmer": true
     },
     {
-      "handling": "arkiver_batch_output",
+      "handling": "arkiver_all_batch_output",
       "filnavn": "premieoppgjoer_dataunderlag_avtale",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
