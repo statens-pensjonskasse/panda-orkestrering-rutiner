@@ -19,7 +19,6 @@
   },
 
   "operasjoner": [
-
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_06",
@@ -396,6 +395,10 @@
 
 
     {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
+    {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -452,10 +455,6 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "loepende_premieoppgjoer_dataunderlag/${andrePeriodeLPO}"
-    },
-    {
-      "handling": "rydd_filområde_hos_dvh",
-      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
