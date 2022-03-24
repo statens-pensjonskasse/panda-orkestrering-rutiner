@@ -20,6 +20,10 @@
 
   "operasjoner": [
     {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
+    {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -394,10 +398,6 @@
     },
 
 
-    {
-      "handling": "rydd_filområde_hos_dvh",
-      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
-    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
