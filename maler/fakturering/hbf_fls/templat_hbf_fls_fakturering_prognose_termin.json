@@ -454,6 +454,10 @@
       "nøkkel": "loepende_premieoppgjoer_dataunderlag/${andrePeriodeLPO}"
     },
     {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+    },
+    {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
       "batch": "pa_fak_ba_09",
