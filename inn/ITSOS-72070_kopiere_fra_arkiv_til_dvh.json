@@ -5,8 +5,8 @@
     "grunnlagsdataMappe": "grunnlagsdata_2022-03-24_13-08-57-79",
     "filPrefix": "loepende_premieoppgjoer_dataunderlag",
     "filstiArkiv":"loepende_premieoppgjoer_dataunderlag/202112",
-    "filListe": "HBFFLS_FILLISTE_PREMIEOPPGJOER.txt",
-    "filstiHosDVH":"/hbf_fls/lopende_premieoppgjoer"
+    "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
+    "filstiHosDVH":"/hbf_fls/loepende_premieoppgjoer/medlem"
   },
   "operasjoner": [
     {
