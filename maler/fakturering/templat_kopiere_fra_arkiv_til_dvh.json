@@ -10,6 +10,10 @@
   },
   "operasjoner": [
     {
+      "handling": "rydd_filområde_hos_dvh",
+      "filstiHosDVH": "${filstiHosDVH}"
+    },
+    {
       "handling": "send_bare_filer_fra_arkiv_til_dvh",
       "filPrefix": "${filPrefix}",
       "batch": "pa_fak_ba_09",
