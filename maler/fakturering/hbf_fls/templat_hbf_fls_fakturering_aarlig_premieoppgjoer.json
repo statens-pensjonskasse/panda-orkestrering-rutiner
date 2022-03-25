@@ -6,7 +6,8 @@
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
     "prognoseVersjon" : "<prognoseVersjon>",
-    "oppgjørsVersjon": "<oppgjørsVersjon>"
+    "oppgjørsVersjon": "<oppgjørsVersjon>",
+    "fordelingsnøkkelSti" : "<fordelingsnøkkelStri>"
   },
 
   "operasjoner": [
@@ -29,7 +30,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/{inneværendeÅr}11"
+      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/{inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -37,7 +38,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/{inneværendeÅr}11"
+      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/{inneværendeÅr}11"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -72,7 +73,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/{inneværendeÅr}12"
+      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/{inneværendeÅr}12"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -80,7 +81,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/{inneværendeÅr}12"
+      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/{inneværendeÅr}12"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -105,13 +106,6 @@
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_10",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "konkatiner_og_kopier_fra_arbeids_mappe_til_batch",
-      "filnavn": "prognosepremieuttrekk",
-      "batch": "pa_fak_ba_10",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "underMappe": "pa_fak_ba_06/${inneværendeÅr}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -215,7 +209,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}12"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -223,7 +217,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_10",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}12"
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
