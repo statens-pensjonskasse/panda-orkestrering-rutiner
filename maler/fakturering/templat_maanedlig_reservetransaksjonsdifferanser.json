@@ -3,6 +3,7 @@
   "gyldigVersjon": "0.0.60",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataForrigeFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "paResBa01Versjon": "<X.Y.Z>",
@@ -322,7 +323,7 @@
       "batchTil": "pa_fak_ba_02",
       "filnavnTil": "personfil",
       "typeindikator": "PERSON",
-      "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
+      "grunnlagsdataMappeFra": "${grunnlagsdataForrigeFremskriving}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
