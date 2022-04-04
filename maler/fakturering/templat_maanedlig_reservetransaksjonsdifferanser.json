@@ -3,6 +3,7 @@
   "gyldigVersjon": "0.0.60",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataForrigeFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "paResBa01Versjon": "<X.Y.Z>",
@@ -322,6 +323,57 @@
       "batchTil": "pa_fak_ba_02",
       "filnavnTil": "personfil",
       "typeindikator": "PERSON",
+      "grunnlagsdataMappeFra": "${grunnlagsdataForrigeFremskriving}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${periode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_fls",
+      "periode": "${periode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "flettede_kontofoeringer",
+      "batchFra": "pa_fak_ba_11",
+      "batchTil": "pa_fak_ba_02",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_fak_ba_02",
+      "modus": "premieaggregering_med_filtrering",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}/${periode}"
+    },
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_02",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "hent_spesifisert_del_av_medlemsdata",
+      "batchTil": "pa_fak_ba_02",
+      "filnavnTil": "personfil",
+      "typeindikator": "PERSON",
       "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
@@ -426,7 +478,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}",
+      "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}/${periode}",
       "kommentar": "Henter fra forrige grunnlagsdatamappe"
     },
     {
