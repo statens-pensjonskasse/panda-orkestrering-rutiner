@@ -279,6 +279,15 @@
       "nøkkel": "generer_fakturaunderlag_hbf_fls_for_sluttfaktura/${termin}"
     },
     {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_fls",
+      "prognoseVersjon": "${oppgjørsVersjon}",
+      "periode": "${avsluttendeBokføringsperiode}",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kommentar" : "kopierer oppgjoersfil"
+    },
+    {
       "handling": "pa_fak_ba_04",
       "modus": "generer_agressofil_hbf_fls_for_sluttfaktura",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -317,7 +326,7 @@
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
       "prognoseVersjon": "${oppgjørsVersjon}",
-      "periode": "${termin}",
+      "periode": "${avsluttendeBokføringsperiode}",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "kommentar" : "kopierer oppgjoersfil"
