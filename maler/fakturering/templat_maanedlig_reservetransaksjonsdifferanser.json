@@ -363,11 +363,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premieaggregering/${forrigePeriode}/${forrigeFremskrivingsDato}"
     },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
