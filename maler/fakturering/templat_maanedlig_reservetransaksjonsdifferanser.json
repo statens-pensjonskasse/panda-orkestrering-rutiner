@@ -9,7 +9,6 @@
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
-    "forrigePeriode":"<periode>",
     "rettighet": "<rettighet>",
     "uttrekksdato": "<dd.MM.YYYY>"
   },
@@ -361,7 +360,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${forrigePeriode}/${forrigeFremskrivingsDato}"
+      "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}/${periode}"
     },
 
     {
@@ -478,7 +477,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premieaggregering/${forrigePeriode}/${forrigeFremskrivingsDato}",
+      "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}/${periode}",
       "kommentar": "Henter fra forrige grunnlagsdatamappe"
     },
     {
