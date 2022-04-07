@@ -10,7 +10,7 @@ i [panda-orkestrering](http://wiki.spk.no/display/dok/SPK-Panda+Orkestrering+bat
    `git checkout -b rutine/<ITSOS>_<kort_beskrivelse>`
 
 
-2. Kopier en mal fra `maler/` eller se egen rutinebesrkivelse.
+2. Kopier en mal fra `maler/` eller se egen rutinebeskrivelse.
     * Oppdater `variabler` seksjonen i rutinefilen med gyldige variabler.
     * Commit & Push kode til branch
 
