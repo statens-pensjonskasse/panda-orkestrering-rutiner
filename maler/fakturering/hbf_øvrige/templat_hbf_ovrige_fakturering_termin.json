@@ -1,6 +1,6 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF Øvrige for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.22",
+  "gyldigVersjon": "0.0.65",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "termin": "<termin>",
@@ -226,16 +226,16 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "hbf_ovrige_dataunderlag_medlem",
-      "filListe": "HBFOEVRIGE_FILLISTE_MEDLEM.txt",
+      "filListe": "HBFOVRIGE_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/hbf_oevrige/fakturering/medlem"
+      "filstiHosDVH": "/hbf_ovrige/fakturering/medlem"
     },
 
     {
       "handling": "pa_fak_ba_09",
       "modus": "hbf_ovrige_dataunderlag_for_avtale",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "premiemodell": "HBF_STAT",
+      "premiemodell": "HBF_ØVRIGE",
       "termin": "${termin}",
       "kjøringsId": "#{genererUUID}",
       "validerFeilendeMedlemmer": true
@@ -249,9 +249,9 @@
     {
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "hbf_ovrige_dataunderlag_avtale",
-      "filListe": "HBFOEVRIGE_FILLISTE_MEDLEM.txt",
+      "filListe": "HBFOVRIGE_FILLISTE_AVTALE.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/hbf_oevrige/fakturering/avtale"
+      "filstiHosDVH": "/hbf_ovrige/fakturering/avtale"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
