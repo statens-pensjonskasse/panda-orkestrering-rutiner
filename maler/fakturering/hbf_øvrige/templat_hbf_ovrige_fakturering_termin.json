@@ -37,8 +37,7 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "avtaleliste_hbf_ovrige",
-      "tillatTomFil": true
+      "filnavn": "avtaleliste_hbf_ovrige"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -54,8 +53,7 @@
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_04",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}",
-      "feilHvisFilMangler": false
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -71,8 +69,7 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_04",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${andrePeriode}",
-      "feilHvisFilMangler": false
+      "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -100,7 +97,7 @@
       "filnavn": "fakturaunderlag",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_fakturaunderlag_fra_avtale/${termin}"
+      "nøkkel": "generer_fakturaunderlag_for_hbf_ovrige/${termin}"
     },
     {
       "handling": "pa_fak_ba_04",
@@ -114,8 +111,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_agressofil_for_hbf_ovrige/${termin}",
-      "filter": "Agressofil"
+      "nøkkel": "generer_agressofil_for_hbf_ovrige/${termin}"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -179,8 +175,7 @@
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}",
-      "feilHvisFilMangler" : false
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -196,8 +191,7 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${andrePeriode}",
-      "feilHvisFilMangler" : false
+      "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -221,7 +215,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_ovrige_dataunderlag_medlem/${termin}"
+      "nøkkel": "hbf_ovrige_dataunderlag_for_medlem/${termin}"
     },
     {
       "handling": "send_batch_output_til_dvh",
@@ -244,7 +238,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "hbf_ovrige_dataunderlag_avtale/${termin}"
+      "nøkkel": "hbf_ovrige_dataunderlag_for_avtale/${termin}"
     },
     {
       "handling": "send_batch_output_til_dvh",
