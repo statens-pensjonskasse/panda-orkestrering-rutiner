@@ -1,0 +1,18 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 som aggregerer totalreserve",
+  "gyldigVersjon": "0.0.63",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "fremskrivingsDato": "2022.05.01"
+  },
+  "operasjoner": [
+    {
+      "handling": "aggreger_csv_fra_arkiv",
+      "batch": "pa_fak_ba_02",
+      "nøkkelIArkivet": "reserveaggregering_for_medlem/${fremskrivingsDato}",
+      "filnavn": "totalreserver",
+      "grunnlagsdataMappeTilArkiv": "${grunnlagsdataMappe}",
+      "resultatfelter": "5"
+    }
+  ]
+}
