@@ -10,9 +10,9 @@
       "handling": "aggreger_csv_fra_arkiv",
       "batch": "pa_fak_ba_02",
       "nøkkelIArkivet": "reserveaggregering_for_medlem/${fremskrivingsDato}",
-      "filnavn": "totalpremier_medlem",
+      "filnavn": "totalreserver",
       "grunnlagsdataMappeTilArkiv": "${grunnlagsdataMappe}",
-      "resultatfelter": "8"
+      "resultatfelter": "5"
     }
   ]
 }
