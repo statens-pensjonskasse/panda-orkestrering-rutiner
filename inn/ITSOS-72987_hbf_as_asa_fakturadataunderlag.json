@@ -3,9 +3,9 @@
   "gyldigVersjon": "0.0.22",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>"
+    "termin" : "2022-02",
+    "førstePeriode" : "202203",
+    "andrePeriode" : "202204"
   },
   "operasjoner": [
 
