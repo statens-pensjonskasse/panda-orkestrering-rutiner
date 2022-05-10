@@ -434,6 +434,16 @@
 
 
     {
+      "handling": "aggreger_csv_fra_arkiv",
+      "batch": "pa_fak_ba_02",
+      "nøkkelIArkivet": "reserveaggregering_for_medlem/${fremskrivingsDato}",
+      "filnavn": "totalreserver",
+      "grunnlagsdataMappeTilArkiv": "${grunnlagsdataMappe}",
+      "resultatfelter": "5"
+    },
+
+
+    {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_05",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
