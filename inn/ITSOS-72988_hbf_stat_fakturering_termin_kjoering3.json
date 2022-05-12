@@ -1,0 +1,378 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF stat for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.22",
+  "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "termin" : "2022-02",
+    "førstePeriode" : "202203",
+    "andrePeriode" : "202204",
+    "tredjePeriode" : "NA",
+    "fjerdePeriode" : "NA",
+    "sisteFremskrivingsdato" : "2022.05.01",
+    "premiejusteringsVersjon" : "1004"
+  },
+  "operasjoner": [
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${førstePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${andrePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${tredjePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${fjerdePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${tredjePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${fjerdePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${andrePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${tredjePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${termin}",
+      "prognoseVersjon": "${premiejusteringsVersjon}",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "premiejustering_hbf_stat",
+      "tillatTomFil": true
+    },
+
+
+
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_fakturaunderlag_for_hbf_stat",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "HBF_STAT",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_batch_output",
+      "filnavn": "fakturaunderlag",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturaunderlag_for_hbf_stat/${termin}"
+    },
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_agressofil_for_hbf_stat",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "HBF_STAT",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_agressofil_for_hbf_stat/${termin}",
+      "filter": "Agressofil"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${førstePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${andrePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${tredjePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${fjerdePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_stat",
+      "tillatTomFil" : true
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_stat",
+      "periode": "${termin}",
+      "prognoseVersjon": "${premiejusteringsVersjon}",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "premiejustering_hbf_stat",
+      "tillatTomFil": true
+    },
+
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${tredjePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${fjerdePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${andrePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${tredjePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremie",
+      "batchFra": "pa_fak_ba_05",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}",
+      "feilHvisFilMangler" : false
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${sisteFremskrivingsdato}"
+    },
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "hbf_stat_dataunderlag_for_medlem",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "premiemodell": "HBF_STAT",
+      "termin": "${termin}",
+      "kjøringsId": "#{genererUUID}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_stat_dataunderlag_for_medlem/${termin}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "hbf_stat_dataunderlag_medlem",
+      "filListe": "HBFSTAT_FILLISTE_MEDLEM.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_stat/fakturering/medlem"
+    },
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "hbf_stat_dataunderlag_for_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "premiemodell": "HBF_STAT",
+      "termin": "${termin}",
+      "kjøringsId": "#{genererUUID}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_stat_dataunderlag_for_avtale/${termin}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "hbf_stat_dataunderlag_avtale",
+      "filListe": "HBFSTAT_FILLISTE_AVTALE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_stat/fakturering/avtale"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    }
+  ]
+}
