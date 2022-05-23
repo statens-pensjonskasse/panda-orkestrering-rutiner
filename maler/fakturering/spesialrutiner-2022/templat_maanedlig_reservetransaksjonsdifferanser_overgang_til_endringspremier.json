@@ -7,6 +7,8 @@
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "paResBa01Versjon": "<X.Y.Z>",
+    "paFakBa02VersjonFørstePeriode": "<X.Y.Z>",
+    "paFakBa02VersjonAndrePeriode": "<X.Y.Z>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
@@ -314,6 +316,15 @@
 
 
     {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${paFakBa02VersjonFørstePeriode}"
+        }
+      ]
+    },
+    {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -364,6 +375,16 @@
       "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}/${periode}"
     },
 
+
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${paFakBa02VersjonAndrePeriode}"
+        }
+      ]
+    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_02",
@@ -404,7 +425,7 @@
     },
     {
       "handling": "pa_fak_ba_02",
-      "modus": "premieaggregering_med_filtrering",
+      "modus": "premieaggregering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -414,6 +435,8 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premieaggregering/${fremskrivingsDato}"
     },
+
+
     {
       "handling": "pa_fak_ba_02",
       "modus": "reserveaggregering_for_medlem",
