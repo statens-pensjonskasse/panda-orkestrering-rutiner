@@ -456,13 +456,28 @@
     },
 
 
+
     {
-      "handling": "aggreger_csv_fra_arkiv",
-      "batch": "pa_fak_ba_02",
-      "nøkkelIArkivet": "reserveaggregering_for_medlem/${fremskrivingsDato}",
+      "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "totalreserver",
-      "grunnlagsdataMappeTilArkiv": "${grunnlagsdataMappe}",
+      "batchFra": "pa_fak_ba_02",
+      "batchTil": "pa_fak_ba_12",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}"
+    },
+    {
+      "handling": "pa_fak_ba_12",
+      "modus": "aggreger_csv",
+      "filnavn": "totalreserver",
+      "utFilnavn": "totalreserve",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "resultatfelter": "5"
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_12",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "pa_fak_ba_02/reserveaggregering_for_medlem/${fremskrivingsDato}"
     },
 
 
