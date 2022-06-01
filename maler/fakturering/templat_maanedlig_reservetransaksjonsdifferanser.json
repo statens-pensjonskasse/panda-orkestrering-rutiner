@@ -8,7 +8,7 @@
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "paResBa01Versjon": "<X.Y.Z>",
     "tidligerePaFakBa02Versjon": "<X.Y.Z>",
-    "nyestePaFakBa02Versjon": "latest",
+    "nyestePaFakBa02Versjon": "<X.Y.Z>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
