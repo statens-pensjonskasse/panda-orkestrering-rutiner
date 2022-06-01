@@ -7,6 +7,8 @@
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "paResBa01Versjon": "<X.Y.Z>",
+    "forrigePaFakBa02Versjon": "<X.Y.Z>",
+    "paFakBa02Versjon": "<X.Y.Z>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
@@ -312,6 +314,15 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${forrigePaFakBa02Versjon}"
+        }
+      ]
+    },
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -362,6 +373,16 @@
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premieaggregering/${forrigeFremskrivingsDato}/${periode}"
+    },
+
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${paFakBa02Versjon}"
+        }
+      ]
     },
 
     {
