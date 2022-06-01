@@ -3,17 +3,17 @@
   "gyldigVersjon": "0.0.60",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataForrigeFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "paResBa01Versjon": "<X.Y.Z>",
-    "forrigePaFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa02Versjon": "<X.Y.Z>",
-    "fremskrivingsDato" : "<YYYY.MM.dd>",
-    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode":"<periode>",
-    "rettighet": "<rettighet>",
-    "uttrekksdato": "<dd.MM.YYYY>"
+    "grunnlagsdataForrigeFremskriving": "grunnlagsdata_2022-04-30_17-05-24-29",
+    "grunnlagsdataFremskriving": "grunnlagsdata_2022-05-31_21-35-30-50",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "5",
+    "paResBa01Versjon": "1.2.9",
+    "forrigePaFakBa02Versjon": "0.0.58",
+    "paFakBa02Versjon": "0.0.61",
+    "fremskrivingsDato" : "2022.06.01",
+    "forrigeFremskrivingsDato": "2022.05.01",
+    "periode":"202205",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+    "uttrekksdato": "31.05.2022"
   },
 
   "operasjoner": [
