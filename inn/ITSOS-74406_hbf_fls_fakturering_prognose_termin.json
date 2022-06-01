@@ -4,18 +4,18 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
-    "førstePeriodeLPO": "<førstePeriodeLPO>",
-    "andrePeriodeLPO": "<andrePeriodeLPO>",
+    "termin" : "2022-03",
+    "førstePeriode" : "202205",
+    "andrePeriode" : "202206",
+    "førstePeriodeLPO": "202204",
+    "andrePeriodeLPO": "202205",
 
-    "fremskrivingsDato1": "<fremskrivingsDato1>",
-    "fremskrivingsDato2": "<fremskrivingsDato2>",
+    "fremskrivingsDato1": "2022.05.01",
+    "fremskrivingsDato2": "2022.06.01",
 
-    "prognoseVersjon": "<prognoseVersjon>",
-    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
-    "fordelingsnøkkelSti" : "<fordelingsnøkkelStri>"
+    "prognoseVersjon": "1061",
+    "fordelingsnøkkelPeriode" : "202201",
+    "fordelingsnøkkelSti" : "januar_noekler_2022"
   },
 
   "operasjoner": [
