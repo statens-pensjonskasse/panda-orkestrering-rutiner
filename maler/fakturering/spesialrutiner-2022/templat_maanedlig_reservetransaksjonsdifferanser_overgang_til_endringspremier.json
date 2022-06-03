@@ -7,8 +7,8 @@
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "paResBa01Versjon": "<X.Y.Z>",
-    "paFakBa02VersjonFørstePeriode": "<X.Y.Z>",
-    "paFakBa02VersjonAndrePeriode": "<X.Y.Z>",
+    "forrigePaFakBa02Versjon": "<X.Y.Z>",
+    "paFakBa02Versjon": "<X.Y.Z>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
@@ -320,7 +320,7 @@
       "batcher": [
         {
           "navn": "pa_fak_ba_02",
-          "versjon": "${paFakBa02VersjonFørstePeriode}"
+          "versjon": "${forrigePaFakBa02Versjon}"
         }
       ]
     },
@@ -381,7 +381,7 @@
       "batcher": [
         {
           "navn": "pa_fak_ba_02",
-          "versjon": "${paFakBa02VersjonAndrePeriode}"
+          "versjon": "${paFakBa02Versjon}"
         }
       ]
     },
