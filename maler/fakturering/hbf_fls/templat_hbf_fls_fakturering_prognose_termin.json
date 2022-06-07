@@ -205,6 +205,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_rapport_avtale",
+      "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -225,6 +226,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_rapport_medlem",
+      "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
