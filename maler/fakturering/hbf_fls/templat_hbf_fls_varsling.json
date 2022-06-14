@@ -67,6 +67,14 @@
       "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie_varsling/${år}"
     },
     {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "noekkelunderlag_faktiske_premier",
+      "batchFra": "pa_fak_ba_08",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+    },
+    {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_varsling_avtale",
       "kjøringsId": "#{genererUUID}",
