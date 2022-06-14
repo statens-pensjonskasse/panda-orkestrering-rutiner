@@ -70,7 +70,7 @@
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "noekkelunderlag_faktiske_premier",
       "batchFra": "pa_fak_ba_08",
-      "batchTil": "pa_fak_ba_06",
+      "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
