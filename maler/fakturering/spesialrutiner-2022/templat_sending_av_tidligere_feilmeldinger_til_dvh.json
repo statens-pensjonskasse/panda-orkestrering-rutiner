@@ -104,11 +104,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -144,11 +141,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -184,11 +178,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -224,10 +215,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
 
 
     {
@@ -263,11 +252,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -303,10 +289,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
 
 
     {
@@ -342,11 +326,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -382,13 +363,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
-
-
 
 
     {
@@ -424,11 +400,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -464,10 +437,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
 
 
     {
@@ -503,12 +474,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
-
 
 
     {
@@ -544,15 +511,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
-
-
-
-
 
 
     {
@@ -588,11 +548,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -628,11 +585,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -668,11 +622,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -708,11 +659,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
 
 
     {
@@ -748,10 +696,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
 
 
     {
@@ -787,19 +733,8 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
-
-
-
-
-
-
-
-
-
-
 
 
     {
@@ -835,7 +770,6 @@
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "batch": "pa_fak_ba_09",
-      "encoding": "utf-16le",
       "filstiHosDVH": "/feilende_medlemmer"
     },
 
