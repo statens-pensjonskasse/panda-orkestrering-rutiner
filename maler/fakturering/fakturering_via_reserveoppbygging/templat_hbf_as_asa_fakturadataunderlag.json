@@ -2,8 +2,6 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturadataunderlag ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.69",
   "variabler": {
-    "grunnlagsdataFørsteFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "grunnlagsdataAndreFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
     "termin" : "<termin>",
@@ -23,14 +21,6 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "hent_spesifisert_del_av_medlemsdata",
-      "batchTil": "pa_fak_ba_14",
-      "filnavnTil": "personfil",
-      "typeindikator": "PERSON",
-      "grunnlagsdataMappeFra": "${grunnlagsdataFørsteFremskriving}",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -68,14 +58,6 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "hent_spesifisert_del_av_medlemsdata",
-      "batchTil": "pa_fak_ba_14",
-      "filnavnTil": "personfil",
-      "typeindikator": "PERSON",
-      "grunnlagsdataMappeFra": "${grunnlagsdataAndreFremskriving}",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
