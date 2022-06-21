@@ -122,6 +122,48 @@
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "feilmeldinger",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "feilmelding_dataunderlag",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "bokføringsperiode":"${periode}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "feilmelding_dataunderlag/${fremskrivingsDato}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "feilmelding_dataunderlag",
+      "filListe": "FEILENDE_MEDLEM_FILLISTE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/feilende_medlemmer"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_11",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
