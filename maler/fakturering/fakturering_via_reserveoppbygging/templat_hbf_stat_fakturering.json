@@ -221,7 +221,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_agressofil_for_hbf_as_asa/${termin}",
+      "nøkkel": "generer_agressofil_for_hbf_stat/${termin}",
       "filter": "Agressofil"
     },
     {
