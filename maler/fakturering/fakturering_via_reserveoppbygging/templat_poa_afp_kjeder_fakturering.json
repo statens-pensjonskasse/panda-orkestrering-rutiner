@@ -13,6 +13,127 @@
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_afp_kjeder",
+      "periode": "${førstePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "fakturerbare_premiedifferanser",
+      "batchFra": "pa_fak_ba_13",
+      "batchTil": "pa_fak_ba_14",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
+    },
+    {
+      "handling": "pa_fak_ba_14",
+      "modus": "premiefiltrering_for_poa_afp_kjeder",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${førstePeriode}"
+    },
+
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_afp_kjeder",
+      "periode": "${andrePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "fakturerbare_premiedifferanser",
+      "batchFra": "pa_fak_ba_13",
+      "batchTil": "pa_fak_ba_14",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+    },
+    {
+      "handling": "pa_fak_ba_14",
+      "modus": "premiefiltrering_for_poa_afp_kjeder",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${andrePeriode}"
+    },
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "poa_afp_kjeder",
+      "periode": "${tredjePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "fakturerbare_premiedifferanser",
+      "batchFra": "pa_fak_ba_13",
+      "batchTil": "pa_fak_ba_14",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+    },
+    {
+      "handling": "pa_fak_ba_14",
+      "modus": "premiefiltrering_for_poa_afp_kjeder",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${tredjePeriode}"
+    },
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
