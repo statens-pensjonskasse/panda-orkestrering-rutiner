@@ -97,7 +97,7 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp_kjeder",
+      "premiemodell": "poa_kjeder",
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
@@ -109,7 +109,7 @@
       "batchFra": "pa_fak_ba_13",
       "batchTil": "pa_fak_ba_14",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}"
     },
     {
       "handling": "pa_fak_ba_14",
