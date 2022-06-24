@@ -18,7 +18,7 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp_kjeder",
+      "premiemodell": "poa_kjeder",
       "periode": "${førstePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
@@ -55,7 +55,7 @@
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
-      "premiemodell": "poa_afp_kjeder",
+      "premiemodell": "poa_kjeder",
       "periode": "${andrePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
