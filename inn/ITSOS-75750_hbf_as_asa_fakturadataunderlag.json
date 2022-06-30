@@ -1,0 +1,121 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturadataunderlag ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.22",
+  "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "termin" : "<termin>",
+    "førstePeriode" : "<førstePeriode>",
+    "andrePeriode" : "<andrePeriode>"
+  },
+  "operasjoner": [
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa",
+      "periode": "${førstePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_as_asa"
+    },
+    {
+      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "premiemodell": "hbf_as_asa",
+      "periode": "${andrePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "filnavn": "avtaleliste_hbf_as_asa"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "reservetransaksjonsdifferanser_medlem",
+      "batchFra": "pa_fak_ba_03",
+      "batchTil": "pa_fak_ba_04",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
+    },
+
+    {
+      "handling": "pa_fak_ba_04",
+      "modus": "generer_fakturaunderlag_fra_avtale",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "termin": "${termin}",
+      "premiemodell": "HBF_AS/ASA",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturaunderlag_fra_avtale/fakturadataunderlag/${termin}"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_04",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "fakturaunderlag",
+      "batchFra": "pa_fak_ba_04",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturaunderlag_fra_avtale/fakturadataunderlag/${termin}"
+    },
+
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "hbf_as_asa_fakturadataunderlag",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "kjøringsId": "#{genererUUID}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "hbf_as_asa_fakturadataunderlag/${termin}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "hbf_as_asa_fakturadataunderlag",
+      "filListe": "ASASA_FILLISTE_AVTALE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/hbf_as_asa/solvensunderlag/avtale"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    }
+  ]
+}
