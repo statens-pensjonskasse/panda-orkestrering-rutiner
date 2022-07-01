@@ -9,6 +9,7 @@
     "paResBa01Versjon": "<X.Y.Z>",
     "forrigePaFakBa02Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
+    "paFakBa03Versjon": "<X.Y.Z>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
@@ -233,6 +234,15 @@
     },
 
 
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_03",
+          "versjon": "${paFakBa03Versjon}"
+        }
+      ]
+    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_03",
