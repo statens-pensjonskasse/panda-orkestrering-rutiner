@@ -9,7 +9,6 @@
     "paResBa01Versjon": "<X.Y.Z>",
     "forrigePaFakBa02Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa03Versjon": "<X.Y.Z>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
@@ -126,48 +125,6 @@
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "feilmeldinger",
-      "batchFra": "pa_res_ba_01",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
-    },
-    {
-      "handling": "pa_fak_ba_09",
-      "modus": "feilmelding_dataunderlag",
-      "kjøringsId": "#{genererUUID}",
-      "uttrekksdato": "${uttrekksdato}",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "bokføringsperiode":"${periode}",
-      "validerFeilendeMedlemmer": true
-    },
-    {
-      "handling": "arkiver_all_batch_output",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "feilmelding_dataunderlag/${fremskrivingsDato}"
-    },
-    {
-      "handling": "send_batch_output_til_dvh",
-      "filPrefix": "feilmelding_dataunderlag",
-      "filListe": "FEILENDE_MEDLEM_FILLISTE.txt",
-      "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/feilende_medlemmer"
-    },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_11",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
@@ -234,15 +191,6 @@
     },
 
 
-    {
-      "handling": "deploy_batch",
-      "batcher": [
-        {
-          "navn": "pa_fak_ba_03",
-          "versjon": "${paFakBa03Versjon}"
-        }
-      ]
-    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_03",
@@ -416,7 +364,7 @@
     },
     {
       "handling": "pa_fak_ba_02",
-      "modus": "premieaggregering",
+      "modus": "premieaggregering_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -477,7 +425,7 @@
     },
     {
       "handling": "pa_fak_ba_02",
-      "modus": "premieaggregering",
+      "modus": "premieaggregering_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
