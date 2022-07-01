@@ -3,12 +3,12 @@
   "gyldigVersjon": "0.0.22",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "solvensVersjon" : "<solvensVersjon>",
-    "premiejusteringVersjon" : "<premiejusteringVersjon>",
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
-    "sisteFremskrivingsdato" : "<sisteFremskrivingsdato>"
+    "solvensVersjon" : "1",
+    "premiejusteringVersjon" : "10006_10007",
+    "termin" : "2022-03",
+    "førstePeriode" : "202205",
+    "andrePeriode" : "202206",
+    "sisteFremskrivingsdato" : "2022.07.01"
   },
   "operasjoner": [
 
