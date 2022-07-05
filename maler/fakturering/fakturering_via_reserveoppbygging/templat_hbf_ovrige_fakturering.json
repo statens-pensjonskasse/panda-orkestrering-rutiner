@@ -1,6 +1,6 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF Øvrige for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.65",
+  "gyldigVersjon": "0.0.69",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "termin": "<termin>",
@@ -10,6 +10,76 @@
     "premiejusteringsVersjon": "<premiejusteringsVersjon>"
   },
   "operasjoner": [
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_ovrige",
+      "periode": "${førstePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "fakturerbare_premiedifferanser",
+      "batchFra": "pa_fak_ba_13",
+      "batchTil": "pa_fak_ba_14",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
+    },
+    {
+      "handling": "pa_fak_ba_14",
+      "modus": "premiefiltrering_for_hbf_ovrige",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefiltrering_for_hbf_ovrige/${førstePeriode}"
+    },
+
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_filer_fra_aktuar_til_batch",
+      "premiemodell": "hbf_ovrige",
+      "periode": "${andrePeriode}",
+      "prognoseVersjon": "avtaleliste",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "fakturerbare_premiedifferanser",
+      "batchFra": "pa_fak_ba_13",
+      "batchTil": "pa_fak_ba_14",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+    },
+    {
+      "handling": "pa_fak_ba_14",
+      "modus": "premiefiltrering_for_hbf_ovrige",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_14",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "premiefiltrering_for_hbf_ovrige/${andrePeriode}"
+    },
+
+
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_04",
@@ -42,18 +112,18 @@
     {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
-      "batchFra": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_04",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
+      "nøkkel": "premiefiltrering_for_hbf_ovrige/${førstePeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
-      "batchFra": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_04",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
+      "nøkkel": "premiefiltrering_for_hbf_ovrige/${andrePeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -164,18 +234,18 @@
     {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
-      "batchFra": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${førstePeriode}"
+      "nøkkel": "premiefiltrering_for_hbf_ovrige/${førstePeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "reservetransaksjonsdifferanser_medlem",
-      "batchFra": "pa_fak_ba_03",
+      "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reservetransaksjonsdifferanse_for_medlem/${andrePeriode}"
+      "nøkkel": "premiefiltrering_for_hbf_ovrige/${andrePeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
