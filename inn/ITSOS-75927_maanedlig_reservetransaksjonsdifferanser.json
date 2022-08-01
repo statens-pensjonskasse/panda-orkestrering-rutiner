@@ -3,18 +3,18 @@
   "gyldigVersjon": "0.0.60",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataForrigeFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "paResBa01Versjon": "<X.Y.Z>",
-    "forrigePaFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa03Versjon": "<X.Y.Z>",
-    "fremskrivingsDato" : "<YYYY.MM.dd>",
-    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode":"<periode>",
-    "rettighet": "<rettighet>",
-    "uttrekksdato": "<dd.MM.YYYY>"
+    "grunnlagsdataForrigeFremskriving": "grunnlagsdata_2022-06-15_21-35-04-55",
+    "grunnlagsdataFremskriving": "grunnlagsdata_2022-07-31_17-08-58-54",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "5",
+    "paResBa01Versjon": "1.2.11",
+    "forrigePaFakBa02Versjon": "0.0.61",
+    "paFakBa02Versjon": "0.0.61",
+    "paFakBa03Versjon": "0.0.48",
+    "fremskrivingsDato" : "2022.08.01",
+    "forrigeFremskrivingsDato": "2022.07.01",
+    "periode":"202207",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+    "uttrekksdato": "31.07.2022"
   },
 
   "operasjoner": [
