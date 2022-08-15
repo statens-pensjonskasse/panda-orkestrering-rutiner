@@ -109,15 +109,6 @@
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "hent_spesifisert_del_av_medlemsdata",
-      "batchTil": "pa_fak_ba_11",
-      "filnavnTil": "personfil",
-      "typeindikator": "PERSON",
-      "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
-      "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
-    },
-    {
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -217,14 +208,6 @@
       "batchTil": "pa_fak_ba_11",
       "filnavnTil": "etterlatte",
       "typeindikator": "ETTERLATT",
-      "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "hent_spesifisert_del_av_medlemsdata",
-      "batchTil": "pa_fak_ba_11",
-      "filnavnTil": "personfil",
-      "typeindikator": "PERSON",
       "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
     },
