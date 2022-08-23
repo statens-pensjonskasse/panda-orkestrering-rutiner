@@ -18,7 +18,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${førstePeriode}",
       "prognoseVersjon": "avtaleliste",
@@ -52,7 +52,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${andrePeriode}",
       "prognoseVersjon": "avtaleliste",
@@ -86,7 +86,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
@@ -121,7 +121,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+      "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${fjerdePeriode}",
       "prognoseVersjon": "avtaleliste",
