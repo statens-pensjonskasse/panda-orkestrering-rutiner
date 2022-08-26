@@ -10,8 +10,8 @@ set -o nounset
 # arkivet for saa aa legge til Aarskull paa kolonne 22
 # basert paa de fire foerste verdiene i kolonne 1.
 # Deretter lagres den nye filen i arkivet under
-# fakturering/pa_fak_ba_11/manuell_aarskull/2022.08.01/
-# grunnlagsdata_2022-08-31_00-00-00-00
+# fakturering/pa_fak_ba_11/manuelle_tilpasninger/legg_til_aarskull/
+# 2022.08.01/grunnlagsdata_2022-08-31_00-00-00-00
 #===========================================================
 
 #===========================================================
