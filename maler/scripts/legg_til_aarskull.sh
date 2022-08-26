@@ -35,7 +35,7 @@ FLETTEDE_KONTOFOERINGER="flettede_kontofoeringer.csv"
 
 mkdir -p ${PA_FAK_BA_11_AKRIV_STI}/${NY_ARKIV_STI}
 
-echo "Starter kopiering av flettede kontofoeringer"
+echo "`date` - Starter kopiering av flettede kontofoeringer"
 
 if [ -d ${GRUNNLAGSDATAMAPPE_I_ARKIV} ]
     then
@@ -51,4 +51,4 @@ if [ -d ${GRUNNLAGSDATAMAPPE_I_ARKIV} ]
         echo "Finner ikke filene for flettede kontoføringer 2022.08.01 i arkivet"
 fi
 
-echo "Kopiering er ferdig"
+echo "`date` - Kopiering er ferdig"
