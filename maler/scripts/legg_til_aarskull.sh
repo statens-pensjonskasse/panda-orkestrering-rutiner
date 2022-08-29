@@ -27,7 +27,7 @@ set -o nounset
 
 
 PA_FAK_BA_11_AKRIV_STI="${SPK_DATA}/panda/arkiv/fakturering/pa_fak_ba_11"
-NY_ARKIV_STI="manuelle_tilpasninger/legg_til_aarskull/2022.09.01/grunnlagsdata_2022-08-31_00-00-00-00"
+NY_ARKIV_STI="flette_feilende_medlemmer/manuelle_tilpasninger/legg_til_aarskull/2022.09.01/grunnlagsdata_2022-08-31_00-00-00-00"
 GRUNNLAGSDATAMAPPE="<grunnlagsdatamappe_som_skal_kopieres>"
 GRUNNLAGSDATAMAPPE_I_ARKIV="${PA_FAK_BA_11_AKRIV_STI}/flette_feilende_medlemmer/2022.09.01/${GRUNNLAGSDATAMAPPE}"
 
