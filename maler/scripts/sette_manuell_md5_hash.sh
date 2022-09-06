@@ -32,12 +32,13 @@ NY_MD5HASH="manuell_md5_hash_2d020a6ff45c9d8"
 echo "Script starter"
 
 echo "Konverterer ${FILSTI} til UTF-8"
-iconv -f UTF-16LE -t UTF-8 -o ${FILSTI} ${FILSTI}
+iconv -f UTF-16LE -t UTF-8 -o ${FILSTI}.tmp ${FILSTI}
 
 echo "Bytter ut md5-hash '59a0f374b4008f3072d020a6ff45c9d8' med 'manuell_md5_hash_2d020a6ff45c9d8' for linje med identifikator '12;1' i filen ${FILSTI}"
-sed -i -E -e "/${MD5HASH}/s/^(.*)${MD5HASH}(.*${IDENTIFIER}.*)$/\1${NY_MD5HASH}\2/" ${FILSTI}
+sed -i -E -e "/${MD5HASH}/s/^(.*)${MD5HASH}(.*${IDENTIFIER}.*)$/\1${NY_MD5HASH}\2/" ${FILSTI}.tmp
 
 echo "Konverterer ${FILSTI} tilbake til UTF-16LE"
-iconv -f UTF-8 -t UTF-16LE -o ${FILSTI} ${FILSTI}
+iconv -f UTF-8 -t UTF-16LE -o ${FILSTI} ${FILSTI}.tmp
+rm ${FILSTI}.tmp
 
 echo "Script fullfoert"
