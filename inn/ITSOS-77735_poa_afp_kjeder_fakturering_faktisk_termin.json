@@ -3,11 +3,11 @@
   "gyldigVersjon": "0.0.22",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
-    "tredjePeriode" : "<tredjePeriode>",
-    "premiejusteringsVersjon" : "<premiejusteringsVersjon>"
+    "termin" : "2022-03",
+    "førstePeriode" : "202206",
+    "andrePeriode" : "202207",
+    "tredjePeriode" : "202208",
+    "premiejusteringsVersjon" : "NA"
   },
   "operasjoner": [
 

@@ -3,15 +3,15 @@
   "gyldigVersjon": "0.0.53",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "termin": "<termin>",
+    "termin": "2022-03",
 
-    "førsteFremskrivingsdato": "<førsteFremskrivingsdato>",
-    "andreFremskrivingsdato": "<andreFremskrivingsdato>",
-    "tredjeFremskrivingsdato": "<tredjeFremskrivingsdato>",
+    "førsteFremskrivingsdato": "2022.07.01",
+    "andreFremskrivingsdato": "2022.08.01",
+    "tredjeFremskrivingsdato": "2022.09.01",
 
-    "førstePeriode": "<førstePeriode>",
-    "andrePeriode": "<andrePeriode>",
-    "tredjePeriode": "<tredjePeriode>"
+    "førstePeriode": "202206",
+    "andrePeriode": "202207",
+    "tredjePeriode": "202208"
   },
   "operasjoner": [
     {
