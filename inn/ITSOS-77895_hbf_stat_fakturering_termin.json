@@ -3,13 +3,13 @@
   "gyldigVersjon": "0.0.22",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
-    "tredjePeriode" : "<tredjePeriode>",
-    "fjerdePeriode" : "<fjerdePeriode>",
-    "sisteFremskrivingsdato" : "<sisteFremskrivingsdato>",
-    "premiejusteringsVersjon" : "<premiejusteringsVersjon>"
+    "termin" : "2022-04",
+    "førstePeriode" : "202207",
+    "andrePeriode" : "202208",
+    "tredjePeriode" : "NA",
+    "fjerdePeriode" : "NA",
+    "sisteFremskrivingsdato" : "2022.09.01",
+    "premiejusteringsVersjon" : "10008_10009"
   },
   "operasjoner": [
 
