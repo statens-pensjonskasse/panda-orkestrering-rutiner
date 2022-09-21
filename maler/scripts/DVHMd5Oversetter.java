@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.math.BigInteger;
+import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -189,7 +190,19 @@ class DVHMd5Oversetter {
         } catch (IOException ex) {
             System.err.println("Klarte ikke å skrive til midlertidig fil. " + ex);
         }
-        final File filTilDVH = new File(System.getenv("SPK_DATA"), "dvh/panda_datalevering/rettighet_ytelse/oppdaterteMD5Verdier.csv");
+        final File filTilDVH = new File(System.getenv("SPK_DATA"), "dvh/panda_datalevering/rettighet_ytelse_md5_oppdatering/oppdaterteMD5Verdier.csv");
+        final File filTilArkiv = new File(System.getenv("SPK_DATA"), "panda/arkiv/reserveberegning/pa_res_ba_01/panda-testdata-rettighet-ytelser/2022.09.01/md5_mapping_gammel_ny/oppdaterteMD5Verdier.csv");
+        try {
+            if (!filTilArkiv.getParentFile().mkdirs()) {
+                throw new RuntimeException(String.format("Klarte ikke kopiere midlertidig fil %s til arkivet %s. Klarte ikke opprette mapper i arkivet", midlertidigFilTilDVH, filTilArkiv));
+            }
+            Files.copy(midlertidigFilTilDVH.toPath(), filTilArkiv.toPath());
+        } catch (IOException e) {
+            throw new RuntimeException(String.format("Klarte ikke kopiere midlertidig fil %s til arkivet %s", midlertidigFilTilDVH, filTilArkiv), e);
+        }
+        if (!filTilDVH.getParentFile().mkdirs()) {
+            throw new RuntimeException(String.format("Klarte ikke å flytte midlertidig fil %s til DVH %s. Klarte ikke opprette mapper hos DVH", midlertidigFilTilDVH, filTilDVH));
+        }
         if(midlertidigFilTilDVH.renameTo(filTilDVH)) {
             System.out.println("Ferdig! Produserte filen " + filTilDVH.getAbsolutePath());
         } else {
