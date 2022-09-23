@@ -1,3 +1,5 @@
+#!/usr/bin/env -S java --source 17
+
 import static java.lang.String.join;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -44,7 +46,7 @@ import java.util.zip.GZIPInputStream;
 #===========================================================
 # Kjøring
 #===========================================================
-# Program kjøres som `java DVHMd5Oversetter.java`
+# Program kjøres som `./DVHMd5Oversetter`
 # Krever java 17+
 
  */
