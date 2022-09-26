@@ -33,6 +33,7 @@ i [panda-orkestrering](http://wiki.spk.no/display/dok/SPK-Panda+Orkestrering+bat
 # Maler
 Maler som brukes i ulike leveranser
 * [prognosefakturering-2021](maler/fakturering/deprecated-prognosefakturering-2021/prognosefakturering-2021) inneholder maler for prognosefakturering fra Panda i premieåret 2021
+* [panda_fakturering-2022](maler/fakturering/deprecated-panda-fakturering-2022) inneholder maler for panda fakturering fra Panda i januar 2022 t.om. august 2022
 * [fakturering](maler/fakturering) inneholder maler for fakturering fra Panda
 
 
