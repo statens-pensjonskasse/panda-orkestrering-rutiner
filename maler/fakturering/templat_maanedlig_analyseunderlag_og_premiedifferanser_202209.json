@@ -192,7 +192,7 @@
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${arkivStiForrigeFlettedeKontoføringer}/${forrigeFremskrivingsDato}",
+      "nøkkel": "flette_feilende_medlemmer/${arkivStiForrigeFlettedeKontoføringer}/${forrigeFremskrivingsDato}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
@@ -234,7 +234,7 @@
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
+      "nøkkel": "flette_feilende_medlemmer/${arkivStiForrigeFlettedeKontoføringer}/${forrigeFremskrivingsDato}",
       "kommentar": "Henter fra siste grunnlagsdatamappe"
     },
     {
