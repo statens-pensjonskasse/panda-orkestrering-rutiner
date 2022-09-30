@@ -66,54 +66,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
     },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_res_ba_01",
-      "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
-    },
-
-
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "administrasjonspremieunderlag",
-      "batchFra": "pa_res_ba_01",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
-    },
-    {
-      "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
-      "kjøringsId": "#{genererUUID}",
-      "uttrekksId": "${grunnlagsdataFremskriving}",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "bokføringsperiode":"${periode}",
-      "validerFeilendeMedlemmer": true
-    },
-    {
-      "handling": "arkiver_all_batch_output",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDato}"
-    },
-    {
-      "handling": "send_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
-      "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
-      "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/administrasjonspremieunderlag"
-    },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-
 
     {
       "handling": "pa_res_ba_01",
@@ -164,6 +116,46 @@
       "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
     },
 
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "administrasjonspremieunderlag",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_administrasjonspremieunderlag",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksId": "${grunnlagsdataFremskriving}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "bokføringsperiode":"${periode}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDato}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "administrasjonspremieunderlag",
+      "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
+      "batch": "pa_fak_ba_09",
+      "filstiHosDVH": "/administrasjonspremieunderlag"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
