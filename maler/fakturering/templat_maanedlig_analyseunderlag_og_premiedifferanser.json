@@ -501,7 +501,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
-
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
@@ -513,7 +512,7 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_administrasjonspremie/${periode}"
+      "nøkkel": "generer_administrasjonspremier/${periode}"
     },
     {
       "handling": "pa_fak_ba_09",
@@ -541,5 +540,7 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
+
+
   ]
 }
