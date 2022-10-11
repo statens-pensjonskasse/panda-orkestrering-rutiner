@@ -133,7 +133,6 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_administrasjonspremieunderlag",
       "kjøringsId": "#{genererUUID}",
-      "uttrekksId": "${grunnlagsdataFremskriving}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${periode}",
       "validerFeilendeMedlemmer": true
@@ -518,7 +517,6 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_administrasjonspremie",
       "kjøringsId": "#{genererUUID}",
-      "uttrekksId": "${grunnlagsdataFremskriving}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
