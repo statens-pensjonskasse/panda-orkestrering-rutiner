@@ -56,8 +56,9 @@
     },
     {
       "handling": "rydd_filområde_hos_dvh",
-      "filstiHosDVH": "/administrasjonspremieunderlag"
+      "filstiHosDVH": "/administrasjonspremie"
     },
+
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
@@ -73,7 +74,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeJanuar2021}",
@@ -83,11 +84,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoJanuar2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoJanuar2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -107,7 +108,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -116,11 +117,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeJanuar2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeJanuar2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -142,7 +143,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeFebruar2021}",
@@ -152,11 +153,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoFebruar2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoFebruar2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -176,7 +177,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -185,11 +186,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeFebruar2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeFebruar2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -211,7 +212,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeMars2021}",
@@ -221,11 +222,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoMars2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoMars2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -245,7 +246,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -254,11 +255,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeMars2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeMars2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -280,7 +281,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeApril2021}",
@@ -290,11 +291,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoApril2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoApril2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -314,7 +315,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunerlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -323,11 +324,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeApril2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeApril2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -349,7 +350,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeMai2021}",
@@ -359,11 +360,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoMai2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoMai2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -383,7 +384,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -392,11 +393,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeMai2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeMai2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -418,7 +419,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeJuni2021}",
@@ -428,11 +429,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoJuni2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoJuni2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -452,7 +453,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -461,11 +462,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeJuni2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeJuni2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -487,7 +488,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeJuli2021}",
@@ -497,11 +498,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoJuli2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoJuli2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -521,7 +522,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -530,11 +531,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeJuli2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeJuli2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -556,7 +557,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeAugust2021}",
@@ -566,11 +567,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoAugust2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoAugust2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -590,7 +591,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -599,11 +600,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeAugust2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeAugust2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -626,7 +627,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeSeptember2021}",
@@ -636,11 +637,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoSeptember2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoSeptember2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -660,7 +661,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -669,11 +670,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeSeptember2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeSeptember2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -695,7 +696,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeOktober2021}",
@@ -705,11 +706,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoOktober2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoOktober2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -729,7 +730,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -738,11 +739,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeOktober2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeOktober2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -763,7 +764,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeNovember2021}",
@@ -773,11 +774,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoNovember2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoNovember2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -797,7 +798,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -806,11 +807,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeNovember2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeNovember2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -831,7 +832,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeDesember2021}",
@@ -841,11 +842,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoDesember2021}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoDesember2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -865,7 +866,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -874,11 +875,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeDesember2021}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeDesember2021}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -899,7 +900,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeJanuar2022}",
@@ -909,11 +910,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoJanuar2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoJanuar2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -933,7 +934,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -942,11 +943,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeJanuar2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeJanuar2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -967,7 +968,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeFebruar2022}",
@@ -977,11 +978,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoFebruar2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoFebruar2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -1001,7 +1002,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -1010,11 +1011,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeFebruar2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeFebruar2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -1036,7 +1037,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeMars2022}",
@@ -1046,11 +1047,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoMars2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoMars2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -1070,7 +1071,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -1079,11 +1080,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeMars2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeMars2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -1106,7 +1107,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeApril2022}",
@@ -1116,11 +1117,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoApril2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoApril2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -1140,7 +1141,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -1149,11 +1150,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeApril2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeApril2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -1175,7 +1176,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeMai2022}",
@@ -1185,11 +1186,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoMai2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoMai2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -1209,7 +1210,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -1218,11 +1219,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeMai2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeMai2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -1244,7 +1245,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeJuni2022}",
@@ -1254,11 +1255,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoJuni2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoJuni2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -1278,7 +1279,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -1287,11 +1288,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeJuni2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeJuni2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -1313,7 +1314,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeJuli2022}",
@@ -1323,11 +1324,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoJuli2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoJuli2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -1347,7 +1348,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -1356,11 +1357,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeJuli2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeJuli2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -1382,7 +1383,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeAugust2022}",
@@ -1392,11 +1393,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoAugust2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoAugust2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -1416,7 +1417,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -1425,11 +1426,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeAugust2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeAugust2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -1451,7 +1452,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiodeSeptember2022}",
@@ -1461,11 +1462,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDatoSeptember2022}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDatoSeptember2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
@@ -1485,7 +1486,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -1494,11 +1495,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${bokføringsperiodeSeptember2022}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${bokføringsperiodeSeptember2022}"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
     },
@@ -1511,13 +1512,13 @@
 
     {
       "handling": "opprett_filliste_og_triggerfil_hos_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
     {
       "handling": "opprett_filliste_og_triggerfil_hos_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.tx",
       "filstiHosDVH": "/administrasjonspremie"
     }
