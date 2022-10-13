@@ -315,7 +315,7 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie_dataunerlag",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
