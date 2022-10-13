@@ -131,9 +131,8 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremieunderlag",
+      "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
-      "uttrekksId": "${grunnlagsdataFremskriving}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${periode}",
       "validerFeilendeMedlemmer": true
@@ -142,11 +141,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremieunderlag/${fremskrivingsDato}"
+      "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDato}"
     },
     {
       "handling": "send_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremieunderlag",
+      "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
@@ -516,9 +515,8 @@
     },
     {
       "handling": "pa_fak_ba_09",
-      "modus": "generer_administrasjonspremie",
+      "modus": "generer_administrasjonspremie_dataunderlag",
       "kjøringsId": "#{genererUUID}",
-      "uttrekksId": "${grunnlagsdataFremskriving}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -526,11 +524,11 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremie/${periode}"
+      "nøkkel": "generer_administrasjonspremie_dataunderlag/${periode}"
     },
     {
       "handling": "send_batch_output_til_dvh",
-      "filPrefix": "administrasjonspremie",
+      "filPrefix": "administrasjonspremie_dataunderlag",
       "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.txt",
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremie"
@@ -540,7 +538,5 @@
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     }
-
-
   ]
 }
