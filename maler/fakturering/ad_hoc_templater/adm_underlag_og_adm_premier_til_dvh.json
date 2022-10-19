@@ -1519,7 +1519,7 @@
     {
       "handling": "opprett_filliste_og_triggerfil_hos_dvh",
       "filPrefix": "administrasjonspremie_dataunderlag",
-      "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.tx",
+      "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.txt",
       "filstiHosDVH": "/administrasjonspremie"
     }
   ]
