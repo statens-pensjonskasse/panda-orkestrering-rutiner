@@ -5,8 +5,6 @@
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
-    "førstePeriodeLPO": "<førstePeriodeLPO>",
-    "andrePeriodeLPO": "<andrePeriodeLPO>",
 
     "prognoseVersjon" : "<prognoseVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
@@ -119,7 +117,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${førstePeriodeLPO}",
+      "periode": "${inneværendeÅr}10",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -130,7 +128,7 @@
       "batchFra": "pa_fak_ba_13",
       "batchTil": "pa_fak_ba_14",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriodeLPO}"
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${inneværendeÅr}10"
     },
     {
       "handling": "pa_fak_ba_14",
@@ -142,7 +140,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}"
+      "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}10"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -160,7 +158,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${førstePeriodeLPO}",
+      "periode": "${inneværendeÅr}10",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -171,7 +169,7 @@
       "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_02",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}"
+      "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -179,7 +177,7 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_02",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}"
+      "nøkkel": "generer_administrasjonspremier/${inneværendeÅr}10"
     },
     {
       "handling": "pa_fak_ba_02",
@@ -191,7 +189,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}"
+      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}10"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -210,7 +208,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${førstePeriodeLPO}",
+      "periode": "${inneværendeÅr}10",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -229,7 +227,7 @@
       "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}"
+      "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -237,7 +235,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}"
+      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -245,7 +243,7 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}"
+      "nøkkel": "generer_administrasjonspremier/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -265,7 +263,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}"
+      "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}10"
     },
 
 
@@ -284,7 +282,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}"
+      "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}10"
     },
     {
       "handling": "pa_fak_ba_08",
@@ -296,7 +294,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${førstePeriodeLPO}"
+      "nøkkel": "aggreger_faktiske_premier/${inneværendeÅr}10"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -319,7 +317,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}"
+      "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -327,7 +325,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${førstePeriodeLPO}"
+      "nøkkel": "aggreger_faktiske_premier/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -335,7 +333,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}"
+      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}10"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -347,7 +345,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${førstePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}10"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -370,7 +368,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${førstePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -378,7 +376,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${førstePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}10"
     },
     {
       "handling": "pa_fak_ba_07",
@@ -390,7 +388,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_07",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "beregn_lopende_premieoppgjoer/${førstePeriodeLPO}"
+      "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}10"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -411,7 +409,7 @@
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "beregn_lopende_premieoppgjoer/${førstePeriodeLPO}"
+      "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -419,7 +417,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${førstePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -427,7 +425,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${førstePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}10"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -456,7 +454,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "loepende_premieoppgjoer_dataunderlag/${førstePeriodeLPO}"
+      "nøkkel": "loepende_premieoppgjoer_dataunderlag/${inneværendeÅr}10"
     },
     {
       "handling": "send_bare_filer_fra_batch_output_til_dvh",
@@ -475,7 +473,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${andrePeriodeLPO}",
+      "periode": "${inneværendeÅr}11",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -486,7 +484,7 @@
       "batchFra": "pa_fak_ba_13",
       "batchTil": "pa_fak_ba_14",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriodeLPO}"
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${inneværendeÅr}11"
     },
     {
       "handling": "pa_fak_ba_14",
@@ -498,7 +496,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}"
+      "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}11"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -515,7 +513,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${andrePeriodeLPO}",
+      "periode": "${inneværendeÅr}11",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -526,7 +524,7 @@
       "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_02",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}"
+      "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -534,7 +532,7 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_02",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}"
+      "nøkkel": "generer_administrasjonspremier/${inneværendeÅr}11"
     },
     {
       "handling": "pa_fak_ba_02",
@@ -546,7 +544,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}"
+      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}11"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -563,7 +561,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${andrePeriodeLPO}",
+      "periode": "${inneværendeÅr}11",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -582,7 +580,7 @@
       "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}"
+      "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -590,7 +588,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}"
+      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -598,7 +596,7 @@
       "batchFra": "pa_fak_ba_05",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}"
+      "nøkkel": "generer_administrasjonspremier/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -618,7 +616,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}"
+      "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}11"
     },
 
 
@@ -634,7 +632,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}"
+      "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}11"
     },
     {
       "handling": "pa_fak_ba_08",
@@ -646,7 +644,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${andrePeriodeLPO}"
+      "nøkkel": "aggreger_faktiske_premier/${inneværendeÅr}11"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -668,7 +666,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}"
+      "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -676,7 +674,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_faktiske_premier/${andrePeriodeLPO}"
+      "nøkkel": "aggreger_faktiske_premier/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -684,7 +682,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}"
+      "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}11"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -696,7 +694,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${andrePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}11"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -716,7 +714,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${andrePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -724,7 +722,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_07",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${andrePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
     },
     {
       "handling": "pa_fak_ba_07",
@@ -736,7 +734,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_07",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "beregn_lopende_premieoppgjoer/${andrePeriodeLPO}"
+      "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -758,7 +756,7 @@
       "batchFra": "pa_fak_ba_07",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "beregn_lopende_premieoppgjoer/${andrePeriodeLPO}"
+      "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -766,7 +764,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${andrePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -774,7 +772,7 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${andrePeriodeLPO}"
+      "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -803,7 +801,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "loepende_premieoppgjoer_dataunderlag/${andrePeriodeLPO}"
+      "nøkkel": "loepende_premieoppgjoer_dataunderlag/${inneværendeÅr}11"
     },
 
     {
