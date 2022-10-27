@@ -41,7 +41,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/{fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -49,7 +49,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/{fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -84,7 +84,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/{fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -92,7 +92,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/{fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "pa_fak_ba_06",
