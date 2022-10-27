@@ -9,6 +9,9 @@
     "prognoseVersjon" : "<prognoseVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
 
+    "fremskrivingsDato1": "<fremskrivingsDato1>",
+    "fremskrivingsDato2": "<fremskrivingsDato2>",
+
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
     "fordelingsnøkkelSti" : "<fordelingsnøkkelSti>"
   },
