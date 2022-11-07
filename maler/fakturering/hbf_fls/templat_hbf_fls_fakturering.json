@@ -212,6 +212,8 @@
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_rapport_avtale",
       "kjøringsId": "#{genererUUID}",
+      "premiemodell": "HBF_FLS",
+      "termin": "${termin}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -233,6 +235,8 @@
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_rapport_medlem",
       "kjøringsId": "#{genererUUID}",
+      "premiemodell": "HBF_FLS",
+      "termin": "${termin}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
