@@ -24,17 +24,13 @@ i [panda-orkestrering](http://wiki.spk.no/display/dok/SPK-Panda+Orkestrering+bat
 4. Opprett PR til master (Team Sterope godkjenner).
 
 
-5. Etter godkjenning, bestill kjøring av pa_ork_ba_01.
-   * Se [Rutine - Orkestrering - Bestille kjøring av pa_ork_ba_01](http://wiki.spk.no/pages/viewpage.action?pageId=350323695)
-   * Slett branch når PR merges
-   
-   
-   
+5. Etter PRen er godkjent skal den merges inn i master-branchen. En cron-jobb kjører hvert 5. minutt og plukker opp rutinefiler i inn-mappa. Når rutina er
+   kjørt ferdig av orkestreringsbatchen blir den automatisk flyttet til ferdig-mappa.
+
 # Maler
-Maler som brukes i ulike leveranser
+
+Maler som brukes i ulike leveranser:
+
 * [prognosefakturering-2021](maler/fakturering/deprecated-prognosefakturering-2021/prognosefakturering-2021) inneholder maler for prognosefakturering fra Panda i premieåret 2021
 * [panda_fakturering-2022](maler/fakturering/deprecated-panda-fakturering-2022) inneholder maler for panda fakturering fra Panda i januar 2022 t.om. august 2022
 * [fakturering](maler/fakturering) inneholder maler for fakturering fra Panda
-
-
-   
