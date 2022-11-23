@@ -1,0 +1,16 @@
+{
+  "navn": "Kopiere termininfofil ${termininfoVersjon} fra panda-arkiv til batch.",
+  "variabler": {
+    "termininfoVersjon" : "<yyyy/vx>",
+    "grunnlagsdataMappe": "grunnlagsdata_2021-01-05_21-06-49-96"
+
+  },
+  "operasjoner": [
+    {
+      "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+      "batchTil": "<pa_fak_ba_04>",
+      "termininfoVersjon": "${termininfoVersjon}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+    }
+  ]
+}
