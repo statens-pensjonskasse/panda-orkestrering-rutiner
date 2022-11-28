@@ -100,12 +100,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "kopier_termininfofil_fra_arkiv_til_batch",
-      "batchTil": "pa_fak_ba_04",
-      "termininfoVersjon": "${termininfoVersjon}",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
       "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${førstePeriode}",
