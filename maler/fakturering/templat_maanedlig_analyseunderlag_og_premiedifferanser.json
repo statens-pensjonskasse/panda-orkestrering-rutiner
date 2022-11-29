@@ -150,11 +150,6 @@
       "batch": "pa_fak_ba_09",
       "filstiHosDVH": "/administrasjonspremieunderlag"
     },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",

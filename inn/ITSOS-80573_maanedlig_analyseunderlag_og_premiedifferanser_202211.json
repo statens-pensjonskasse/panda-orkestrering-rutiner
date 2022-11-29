@@ -3,14 +3,14 @@
   "gyldigVersjon": "0.0.60",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "paResBa01Versjon": "<X.Y.Z>",
-    "fremskrivingsDato" : "<YYYY.MM.dd>",
-    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode":"<periode>",
-    "rettighet": "<rettighet>",
-    "uttrekksdato": "<dd.MM.YYYY>"
+    "grunnlagsdataFremskriving": "grunnlagsdata_2022-11-28_21-35-38-79",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "5",
+    "paResBa01Versjon": "1.2.52",
+    "fremskrivingsDato" : "2022.12.01",
+    "forrigeFremskrivingsDato": "2022.11.01",
+    "periode":"202211",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+    "uttrekksdato": "28.11.2022"
   },
 
   "operasjoner": [
@@ -20,6 +20,34 @@
         {
           "navn": "pa_res_ba_01",
           "versjon": "${paResBa01Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_11",
+          "versjon": "1.0.3"
+        },
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "1.0.1"
+        },
+        {
+          "navn": "pa_fak_ba_03",
+          "versjon": "1.0.1"
+        },
+        {
+          "navn": "pa_fak_ba_05",
+          "versjon": "1.0.0"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "1.0.7"
+        },
+        {
+          "navn": "pa_fak_ba_12",
+          "versjon": "1.0.0"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "1.0.1"
         }
       ]
     },
@@ -156,11 +184,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
     {
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "feilmeldinger",
