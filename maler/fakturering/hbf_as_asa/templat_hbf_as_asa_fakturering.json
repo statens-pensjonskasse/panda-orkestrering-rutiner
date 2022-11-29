@@ -10,7 +10,8 @@
     "sisteFremskrivingsdato" : "<sisteFremskrivingsdato>",
 
     "solvensVersjon" : "<solvensVersjon>",
-    "premiejusteringVersjon" : "<premiejusteringVersjon>"
+    "premiejusteringVersjon" : "<premiejusteringVersjon>",
+    "termininfoVersjon" : "<termininfoVersjon>"
   },
   "operasjoner": [
     {
@@ -97,9 +98,9 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "last_ned_referanse_data_for_batch",
-      "filnavn": "termininfo",
-      "batch": "pa_fak_ba_04",
+      "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+      "batchTil": "pa_fak_ba_04",
+      "termininfoVersjon": "${termininfoVersjon}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
@@ -216,11 +217,13 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
-      "handling": "last_ned_referanse_data_for_batch",
-      "filnavn": "termininfo",
-      "batch": "pa_fak_ba_09",
+      "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+      "batchTil": "pa_fak_ba_09",
+      "termininfoVersjon": "${termininfoVersjon}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
+
+
     {
       "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
       "premiemodell": "hbf_as_asa",

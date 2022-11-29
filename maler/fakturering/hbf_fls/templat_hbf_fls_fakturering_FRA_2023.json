@@ -15,7 +15,8 @@
     "fremskrivingsDato2": "<fremskrivingsDato2>",
 
     "prognoseVersjon": "<prognoseVersjon>",
-    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>"
+    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
+    "termininfoVersjon" : "<termininfoVersjon>"
   },
 
   "operasjoner": [
@@ -613,9 +614,9 @@
       "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${andrePeriode}"
     },
     {
-      "handling": "last_ned_referanse_data_for_batch",
-      "filnavn": "termininfo",
-      "batch": "pa_fak_ba_04",
+      "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+      "batchTil": "pa_fak_ba_04",
+      "termininfoVersjon": "${termininfoVersjon}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
 
@@ -680,9 +681,9 @@
       "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${andrePeriode}"
     },
     {
-      "handling": "last_ned_referanse_data_for_batch",
-      "filnavn": "termininfo",
-      "batch": "pa_fak_ba_09",
+      "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+      "batchTil": "pa_fak_ba_09",
+      "termininfoVersjon": "${termininfoVersjon}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
