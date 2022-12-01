@@ -4,20 +4,50 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "forrigeÅr" : "<YYYY>",
-    "inneværendeÅr": "<YYYY>",
+    "forrigeÅr" : "2021",
+    "inneværendeÅr": "2022",
 
-    "prognoseVersjon" : "<prognoseVersjon>",
-    "oppgjørsVersjon": "<oppgjørsVersjon>",
+    "prognoseVersjon" : "1064",
+    "oppgjørsVersjon": "60003",
 
-    "fremskrivingsDato1": "<fremskrivingsDato1>",
-    "fremskrivingsDato2": "<fremskrivingsDato2>",
+    "fremskrivingsDato1": "2022.11.01",
+    "fremskrivingsDato2": "2022.12.01",
 
-    "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
-    "fordelingsnøkkelSti" : "<fordelingsnøkkelSti>"
+    "fordelingsnøkkelPeriode": "202201",
+    "fordelingsnøkkelSti" : "januar_noekler_2022"
   },
 
   "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "1.0.4"
+        },
+        {
+          "navn": "pa_fak_ba_06",
+          "versjon": "1.0.0"
+        },
+        {
+          "navn": "pa_fak_ba_07",
+          "versjon": "1.0.0"
+        },
+        {
+          "navn": "pa_fak_ba_08",
+          "versjon": "1.0.0"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "1.0.7"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "1.0.1"
+        }
+      ]
+    },
+
     {
       "handling": "rydd_filområde_hos_dvh",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
