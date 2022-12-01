@@ -9,7 +9,6 @@
 
     "prognoseVersjon" : "<prognoseVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
-    "termininfoVersjon" : "<termininfoVersjon>",
 
     "fremskrivingsDato1": "<fremskrivingsDato1>",
     "fremskrivingsDato2": "<fremskrivingsDato2>",
@@ -957,9 +956,9 @@
       "kommentar" : "kopierer oppgjoersfil"
     },
     {
-      "handling": "kopier_termininfofil_fra_arkiv_til_batch",
-      "batchTil": "pa_fak_ba_10",
-      "termininfoVersjon": "${termininfoVersjon}",
+      "handling": "last_ned_referanse_data_for_batch",
+      "filnavn": "termininfo",
+      "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
