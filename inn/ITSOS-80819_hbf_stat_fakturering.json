@@ -4,12 +4,12 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
-    "termin": "<terminår>-06",
-    "førstePeriode": "<førstePeriodeÅrstall>11",
-    "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
+    "termin": "2022-06",
+    "førstePeriode": "202211",
+    "sisteFremskrivingsdato": "2022.12.01",
 
-    "premiejusteringVersjon": "<premiejusteringVersjon>",
-    "termininfoVersjon" : "<termininfoVersjon>"
+    "premiejusteringVersjon": "10012",
+    "termininfoVersjon" : "v3"
   },
   "operasjoner": [
     {
@@ -46,16 +46,6 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefiltrering_for_hbf_stat/${førstePeriode}"
     },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_14",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
-    {
-      "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_14",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-    },
 
 
     {
@@ -75,7 +65,7 @@
     },
     {
       "handling": "kopier_termininfofil_fra_arkiv_til_batch",
-      "batchTil": "pa_fak_ba_09",
+      "batchTil": "pa_fak_ba_04",
       "termininfoVersjon": "${termininfoVersjon}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
