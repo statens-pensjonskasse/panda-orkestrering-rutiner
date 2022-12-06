@@ -4,13 +4,13 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
-    "tredjePeriode" : "<tredjePeriode>",
+    "termin" : "2022-04",
+    "førstePeriode": "202209",
+    "andrePeriode": "202210",
+    "tredjePeriode": "202211",
 
     "premiejusteringsVersjon" : "<premiejusteringsVersjon>",
-    "termininfoVersjon" : "<termininfoVersjon>"
+    "termininfoVersjon" : "2022/v3"
   },
   "operasjoner": [
 

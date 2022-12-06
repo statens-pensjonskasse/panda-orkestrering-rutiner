@@ -4,16 +4,16 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
-    "termin": "<termin>",
-    "førsteFremskrivingsdato": "<førsteFremskrivingsdato>",
-    "andreFremskrivingsdato": "<andreFremskrivingsdato>",
-    "tredjeFremskrivingsdato": "<tredjeFremskrivingsdato>",
+    "termin": "2022-04",
+    "førsteFremskrivingsdato": "2022.10.01",
+    "andreFremskrivingsdato": "2022.11.01",
+    "tredjeFremskrivingsdato": "2022.12.01",
 
-    "førstePeriode": "<førstePeriode>",
-    "andrePeriode": "<andrePeriode>",
-    "tredjePeriode": "<tredjePeriode>",
+    "førstePeriode": "202209",
+    "andrePeriode": "202210",
+    "tredjePeriode": "202211",
 
-    "termininfoVersjon" : "<termininfoVersjon>"
+    "termininfoVersjon" : "2022/v3"
   },
   "operasjoner": [
     {
