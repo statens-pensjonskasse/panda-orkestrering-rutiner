@@ -1,6 +1,6 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP Frittstående for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.53",
+  "gyldigVersjon": "0.0.76",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
