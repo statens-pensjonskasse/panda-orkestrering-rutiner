@@ -1,16 +1,17 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF STAT fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.70",
+  "gyldigVersjon": "0.0.78",
+
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "termin": "<termin>",
     "førstePeriode": "<førstePeriode>",
     "andrePeriode": "<andrePeriode>",
     "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
 
-    "premiejusteringVersjon": "<premiejusteringVersjon>",
-    "termininfoVersjon" : "<termininfoVersjon>"
+    "premiejusteringVersjon": "<premiejusteringVersjon>"
   },
   "operasjoner": [
     {

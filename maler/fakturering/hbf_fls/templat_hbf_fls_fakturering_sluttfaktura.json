@@ -1,13 +1,17 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS sluttfaktura for termin ${termin} og oppgjørsVersjon ${oppgjørsVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.29",
+
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "kjøringsId" : "#{genererUUID}",
+
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
     "termin": "<YYYY-TT>",
+
     "avsluttendeBokføringsperiode" : "<bokføringsperiode>",
-    "kjøringsId" : "#{genererUUID}",
+
     "oppgjørsVersjon": "<oppgjørsVersjon>"
   },
 

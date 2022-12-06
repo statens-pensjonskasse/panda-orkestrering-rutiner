@@ -1,16 +1,17 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP kjeder for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.69",
+  "gyldigVersjon": "0.0.78",
+
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "termin" : "<termin>",
     "førstePeriode" : "<førstePeriode>",
     "andrePeriode" : "<andrePeriode>",
     "tredjePeriode" : "<tredjePeriode>",
 
-    "premiejusteringsVersjon" : "<premiejusteringsVersjon>",
-    "termininfoVersjon" : "<termininfoVersjon>"
+    "premiejusteringsVersjon" : "<premiejusteringsVersjon>"
   },
   "operasjoner": [
 

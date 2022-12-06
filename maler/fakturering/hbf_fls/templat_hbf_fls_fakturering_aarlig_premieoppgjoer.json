@@ -1,15 +1,16 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS premieoppgjør for år ${inneværendeÅr} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.21",
+  "gyldigVersjon": "0.0.78",
+
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
 
     "prognoseVersjon" : "<prognoseVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
-    "termininfoVersjon" : "<termininfoVersjon>",
 
     "fremskrivingsDato1": "<fremskrivingsDato1>",
     "fremskrivingsDato2": "<fremskrivingsDato2>",

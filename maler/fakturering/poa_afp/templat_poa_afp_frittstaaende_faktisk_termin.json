@@ -1,8 +1,10 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP Frittstående for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.53",
+  "gyldigVersjon": "0.0.78",
+
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "termin": "<termin>",
     "førsteFremskrivingsdato": "<førsteFremskrivingsdato>",
@@ -11,9 +13,7 @@
 
     "førstePeriode": "<førstePeriode>",
     "andrePeriode": "<andrePeriode>",
-    "tredjePeriode": "<tredjePeriode>",
-
-    "termininfoVersjon" : "<termininfoVersjon>"
+    "tredjePeriode": "<tredjePeriode>"
   },
   "operasjoner": [
     {

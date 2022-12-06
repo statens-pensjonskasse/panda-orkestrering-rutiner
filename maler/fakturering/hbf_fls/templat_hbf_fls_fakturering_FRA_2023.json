@@ -1,9 +1,10 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF FLS fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.69",
+  "gyldigVersjon": "0.0.78",
 
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "termin" : "<termin>",
     "førstePeriodeLPO" : "<førstePeriodeLPO>",
@@ -15,8 +16,7 @@
     "fremskrivingsDato2": "<fremskrivingsDato2>",
 
     "prognoseVersjon": "<prognoseVersjon>",
-    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
-    "termininfoVersjon" : "<termininfoVersjon>"
+    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>"
   },
 
   "operasjoner": [
@@ -24,9 +24,6 @@
       "handling": "rydd_filområde_hos_dvh",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
     },
-
-
-
 
     {
       "handling": "rydd_grunnlagsdata_for_batch",
