@@ -75,7 +75,7 @@
     },
     {
       "handling": "kopier_termininfofil_fra_arkiv_til_batch",
-      "batchTil": "pa_fak_ba_09",
+      "batchTil": "pa_fak_ba_04",
       "termininfoVersjon": "${termininfoVersjon}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
