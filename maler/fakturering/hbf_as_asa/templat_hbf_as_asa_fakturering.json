@@ -1,8 +1,10 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.69",
+  "gyldigVersjon": "0.0.78",
+
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "termin" : "<termin>",
     "førstePeriode" : "<førstePeriode>",
@@ -10,8 +12,7 @@
     "sisteFremskrivingsdato" : "<sisteFremskrivingsdato>",
 
     "solvensVersjon" : "<solvensVersjon>",
-    "premiejusteringVersjon" : "<premiejusteringVersjon>",
-    "termininfoVersjon" : "<termininfoVersjon>"
+    "premiejusteringVersjon" : "<premiejusteringVersjon>"
   },
   "operasjoner": [
     {

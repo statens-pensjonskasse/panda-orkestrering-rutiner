@@ -1,9 +1,10 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF FLS fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.69",
+  "gyldigVersjon": "0.0.78",
 
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "termin" : "<termin>",
     "førstePeriodeLPO" : "<førstePeriodeLPO>",
@@ -15,7 +16,6 @@
     "fremskrivingsDato2": "<fremskrivingsDato2>",
 
     "prognoseVersjon": "<prognoseVersjon>",
-    "termininfoVersjon" : "<termininfoVersjon>",
 
     "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
     "fordelingsnøkkelSti" : "<fordelingsnøkkelSti>"
