@@ -16,10 +16,62 @@
     "fremskrivingsDato2": "<fremskrivingsDato2>",
 
     "prognoseVersjon": "<prognoseVersjon>",
-    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>"
+    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
+
+    "paFakBa02Versjon": "<X.Y.Z>",
+    "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa05Versjon": "<X.Y.Z>",
+    "paFakBa06Versjon": "<X.Y.Z>",
+    "paFakBa07Versjon": "<X.Y.Z>",
+    "paFakBa08Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa13Versjon": "<X.Y.Z>",
+    "paFakBa14Versjon": "<X.Y.Z>"
   },
 
   "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${paFakBa02Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_05",
+          "versjon": "${paFakBa05Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_06",
+          "versjon": "${paFakBa06Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_07",
+          "versjon": "${paFakBa07Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_08",
+          "versjon": "${paFakBa08Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "${paFakBa13Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "${paFakBa14Versjon}"
+        }
+      ]
+    },
+
     {
       "handling": "rydd_filområde_hos_dvh",
       "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"

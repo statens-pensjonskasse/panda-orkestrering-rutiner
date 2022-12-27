@@ -8,10 +8,30 @@
     "år" : "<år>",
     "prognoseVersjonVarsling" : "<prognoseVersjonVarsling>",
     "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
-    "fordelingsnøkkelSti": "<fordelingsnøkkelSti>"
+    "fordelingsnøkkelSti": "<fordelingsnøkkelSti>",
+
+    "paFakBa06Versjon" : "<X.Y.Z>",
+    "paFakBa08Versjon" : "<X.Y.Z>",
+    "paFakBa09Versjon" : "<X.Y.Z>"
   },
   "operasjoner": [
-
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_06",
+          "versjon": "${paFakBa06Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_08",
+          "versjon": "${paFakBa08Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        }
+      ]
+    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_06",
