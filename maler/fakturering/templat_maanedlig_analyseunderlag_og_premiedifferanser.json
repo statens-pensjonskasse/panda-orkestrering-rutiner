@@ -26,6 +26,10 @@
       "handling": "deploy_batch",
       "batcher": [
         {
+          "navn": "pa_res_ba_01",
+          "versjon": "${paResBa01Versjon}"
+        },
+        {
           "navn": "pa_fak_ba_02",
           "versjon": "${paFakBa02Versjon}"
         },
@@ -56,15 +60,6 @@
       ]
     },
 
-    {
-      "handling": "deploy_batch",
-      "batcher": [
-        {
-          "navn": "pa_res_ba_01",
-          "versjon": "${paResBa01Versjon}"
-        }
-      ]
-    },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
