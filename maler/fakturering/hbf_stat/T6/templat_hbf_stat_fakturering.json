@@ -12,7 +12,6 @@
     "premiejusteringVersjon": "<premiejusteringVersjon>",
 
     "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa05Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa14Versjon": "<X.Y.Z>"
   },
@@ -23,10 +22,6 @@
         {
           "navn": "pa_fak_ba_04",
           "versjon": "${paFakBa04Versjon}"
-        },
-        {
-          "navn": "pa_fak_ba_05",
-          "versjon": "${paFakBa05Versjon}"
         },
         {
           "navn": "pa_fak_ba_09",
