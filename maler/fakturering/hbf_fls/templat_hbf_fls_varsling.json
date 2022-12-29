@@ -11,7 +11,6 @@
     "fordelingsnøkkelSti": "<fordelingsnøkkelSti>",
 
     "paFakBa06Versjon" : "<X.Y.Z>",
-    "paFakBa08Versjon" : "<X.Y.Z>",
     "paFakBa09Versjon" : "<X.Y.Z>"
   },
   "operasjoner": [
@@ -21,10 +20,6 @@
         {
           "navn": "pa_fak_ba_06",
           "versjon": "${paFakBa06Versjon}"
-        },
-        {
-          "navn": "pa_fak_ba_08",
-          "versjon": "${paFakBa08Versjon}"
         },
         {
           "navn": "pa_fak_ba_09",
