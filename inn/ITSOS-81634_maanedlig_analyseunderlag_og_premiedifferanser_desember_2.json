@@ -52,16 +52,19 @@
       ]
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
       "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
       "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
       "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
@@ -69,6 +72,7 @@
 
 
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_res_ba_01",
       "modus": "panda_reserveberegning",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
@@ -76,12 +80,14 @@
       "rettighet": "${rettighet}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_all_batch_output",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_res_ba_01",
       "modus": "panda_administrasjonspremieunderlag",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
@@ -89,6 +95,7 @@
       "rettighet": "${rettighet}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_all_batch_output",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -96,6 +103,7 @@
     },
 
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_res_ba_01",
       "modus": "panda-testdata-rettighet-ytelser",
       "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
@@ -103,6 +111,7 @@
       "rettighet": "${rettighet}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "rettighet_ytelser_for_dvh",
       "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
@@ -111,6 +120,7 @@
       "filstiHosDVH": "/rettighet_ytelse"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_all_batch_output",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -119,12 +129,14 @@
 
 
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_res_ba_01",
       "modus": "panda-poliser",
       "sisteFremskrivingsdato": "${fremskrivingsDato}",
       "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "poliser",
       "filListe": "POLISE_FILLISTE.txt",
@@ -133,23 +145,27 @@
       "filstiHosDVH": "/polise"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_all_batch_output",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "panda-poliser/${fremskrivingsDato}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
     },
 
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "administrasjonspremieunderlag",
       "batchFra": "pa_res_ba_01",
@@ -158,6 +174,7 @@
       "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_fak_ba_09",
       "modus": "generer_administrasjonspremieunderlag_dataunderlag",
       "kjøringsId": "#{genererUUID}",
@@ -166,12 +183,14 @@
       "validerFeilendeMedlemmer": true
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDato}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "administrasjonspremieunderlag_dataunderlag",
       "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
@@ -180,11 +199,13 @@
     },
 
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "feilmeldinger",
       "batchFra": "pa_res_ba_01",
@@ -193,6 +214,7 @@
       "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_fak_ba_09",
       "modus": "feilmelding_dataunderlag",
       "kjøringsId": "#{genererUUID}",
@@ -202,12 +224,14 @@
       "validerFeilendeMedlemmer": true
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "feilmelding_dataunderlag/${fremskrivingsDato}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "send_batch_output_til_dvh",
       "filPrefix": "feilmelding_dataunderlag",
       "filListe": "FEILENDE_MEDLEM_FILLISTE.txt",
@@ -215,6 +239,7 @@
       "filstiHosDVH": "/feilende_medlemmer"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
