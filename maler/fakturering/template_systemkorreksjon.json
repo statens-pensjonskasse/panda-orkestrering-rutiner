@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for systemkorreksjons sammenlikning mellom to versjoner av panda ${første_versjon} og ${andre_versjon}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for systemkorreksjons sammenlikning mellom to versjoner av panda ${første_versjon_reserveberegning} og ${andre_versjon_reserveberegning}",
   "gyldigVersjon": "0.0.60",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
@@ -14,16 +14,38 @@
     "første_versjon_finnes_i_arkiv": "<true/false>",
     "første_versjon_er_systemkorreksjon": "<true/false>",
 
-    "første_versjon": "<X.Y.Z>",
-    "andre_versjon": "<X.Y.Z>"
+    "første_versjon_reserveberegning": "<X.Y.Z>",
+    "andre_versjon_reserveberegning": "<X.Y.Z>",
+
+    "paFakBa03Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa11Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
       "handling": "deploy_batch",
       "batcher": [
         {
+          "navn": "pa_fak_ba_03",
+          "versjon": "${paFakBa03Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_11",
+          "versjon": "${paFakBa11Versjon}"
+        }
+      ]
+    },
+
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
           "navn": "pa_res_ba_01",
-          "versjon": "${første_versjon}"
+          "versjon": "${første_versjon_reserveberegning}"
         }
       ],
       "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
@@ -59,7 +81,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
       "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
     },
 
@@ -76,7 +98,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
       "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
     },
     {
@@ -85,7 +107,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon}",
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
       "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
     },
     {
@@ -112,7 +134,7 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "reserveberegningVersjon": "${første_versjon}",
+      "reserveberegningVersjon": "${første_versjon_reserveberegning}",
       "validerFeilendeMedlemmer": true,
       "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
     },
@@ -120,7 +142,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_11",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${første_versjon}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
       "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
     },
     {
@@ -139,7 +161,7 @@
       "batcher": [
         {
           "navn": "pa_res_ba_01",
-          "versjon": "${andre_versjon}"
+          "versjon": "${andre_versjon_reserveberegning}"
         }
       ]
     },
@@ -169,7 +191,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_res_ba_01",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon}"
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
     },
 
     {
@@ -183,7 +205,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon}"
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -191,7 +213,7 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_11",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon}"
+      "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -215,14 +237,14 @@
       "handling": "pa_fak_ba_11",
       "modus": "flette_feilende_medlemmer_med_filtrering",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "reserveberegningVersjon": "${andre_versjon}",
+      "reserveberegningVersjon": "${andre_versjon_reserveberegning}",
       "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_11",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${andre_versjon}"
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -254,7 +276,7 @@
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${første_versjon}",
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
       "tillatTomFil": true,
       "feilHvisFilMangler" : false
     },
@@ -264,7 +286,7 @@
       "batchFra": "pa_fak_ba_11",
       "batchTil": "pa_fak_ba_03",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${andre_versjon}"
+      "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
     },
 
     {
@@ -272,8 +294,8 @@
       "modus": "systemkorreksjon",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${bokføringsperiode}",
-      "fraReserveberegningVersjon": "${første_versjon}",
-      "tilReserveberegningVersjon": "${andre_versjon}",
+      "fraReserveberegningVersjon": "${første_versjon_reserveberegning}",
+      "tilReserveberegningVersjon": "${andre_versjon_reserveberegning}",
       "validerFeilendeMedlemmer": true,
       "feilHvisFilMangler" : false
     },
@@ -281,7 +303,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_03",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "systemkorreksjon/${første_versjon}-${andre_versjon}"
+      "nøkkel": "systemkorreksjon/${første_versjon_reserveberegning}-${andre_versjon_reserveberegning}"
     },
 
 
@@ -298,7 +320,7 @@
       "batchFra": "pa_fak_ba_03",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "systemkorreksjon/${første_versjon}-${andre_versjon}"
+      "nøkkel": "systemkorreksjon/${første_versjon_reserveberegning}-${andre_versjon_reserveberegning}"
     },
     {
       "handling": "pa_fak_ba_09",
@@ -312,7 +334,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "systemkorreksjon/${første_versjon}-${andre_versjon}"
+      "nøkkel": "systemkorreksjon/${første_versjon_reserveberegning}-${andre_versjon_reserveberegning}"
     },
     {
       "handling": "send_batch_output_til_dvh",

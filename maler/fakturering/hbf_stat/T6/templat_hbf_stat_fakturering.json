@@ -9,9 +9,31 @@
     "førstePeriode": "<førstePeriodeÅrstall>11",
     "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
 
-    "premiejusteringVersjon": "<premiejusteringVersjon>"
+    "premiejusteringVersjon": "<premiejusteringVersjon>",
+
+    "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa14Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "${paFakBa14Versjon}"
+        }
+      ]
+    },
+
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_14",

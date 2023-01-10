@@ -5,12 +5,20 @@
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "paResBa01Versjon": "<X.Y.Z>",
     "fremskrivingsDato" : "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
     "periode":"<periode>",
     "rettighet": "<rettighet>",
-    "uttrekksdato": "<dd.MM.YYYY>"
+    "uttrekksdato": "<dd.MM.YYYY>",
+
+    "paResBa01Versjon": "<X.Y.Z>",
+    "paFakBa02Versjon": "<X.Y.Z>",
+    "paFakBa03Versjon": "<X.Y.Z>",
+    "paFakBa05Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa11Versjon": "<X.Y.Z>",
+    "paFakBa12Versjon": "<X.Y.Z>",
+    "paFakBa13Versjon": "<X.Y.Z>"
   },
 
   "operasjoner": [
@@ -20,9 +28,38 @@
         {
           "navn": "pa_res_ba_01",
           "versjon": "${paResBa01Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${paFakBa02Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_03",
+          "versjon": "${paFakBa03Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_05",
+          "versjon": "${paFakBa05Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_11",
+          "versjon": "${paFakBa11Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_12",
+          "versjon": "${paFakBa12Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "${paFakBa13Versjon}"
         }
       ]
     },
+
     {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_res_ba_01",
