@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
 
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2023-01-11_14-55-15-90",
     "termininfoVersjon" : "2022/v3",
 
     "termin" : "2022-06",
