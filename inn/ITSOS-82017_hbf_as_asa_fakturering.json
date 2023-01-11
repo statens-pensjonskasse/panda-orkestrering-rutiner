@@ -6,17 +6,17 @@
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "termininfoVersjon" : "#{gyldigTermininfo}",
 
-    "termin" : "<termin>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
-    "sisteFremskrivingsdato" : "<sisteFremskrivingsdato>",
+    "termin" : "2022-06",
+    "førstePeriode" : "202211",
+    "andrePeriode" : "202212",
+    "sisteFremskrivingsdato" : "2023.01.01",
 
-    "solvensVersjon" : "<solvensVersjon>",
-    "premiejusteringVersjon" : "<premiejusteringVersjon>",
+    "solvensVersjon" : "1",
+    "premiejusteringVersjon" : "10013",
 
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "paFakBa04Versjon": "1.0.4",
+    "paFakBa09Versjon": "1.0.12",
+    "paFakBa14Versjon": "1.0.2"
   },
   "operasjoner": [
     {
