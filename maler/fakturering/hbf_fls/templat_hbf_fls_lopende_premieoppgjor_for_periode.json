@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF FLS generer nøkler for bokføringsperiode ${periode} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Ad-hoc - Rutine for kjøring av pa_ork_ba_01 for HBF FLS generer nøkler for bokføringsperiode ${periode} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
 
   "variabler": {
@@ -296,7 +296,7 @@
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_fls",
-      "periode": "${førstePeriode}",
+      "periode": "${periode}",
       "prognoseVersjon": "${prognoseVersjon}",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -307,7 +307,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${periode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -315,7 +315,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/${periode}"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -327,7 +327,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/premiefellesskap_utjevning_aggregert_prognosepremie/${førstePeriode}"
+      "nøkkel": "${fordelingsnøkkelSti}/premiefellesskap_utjevning_aggregert_prognosepremie/${periode}"
     },
 
 
