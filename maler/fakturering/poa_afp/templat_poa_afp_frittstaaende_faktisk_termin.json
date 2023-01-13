@@ -4,7 +4,6 @@
 
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "termin": "<termin>",
     "førsteFremskrivingsdato": "<førsteFremskrivingsdato>",
@@ -15,6 +14,8 @@
     "andrePeriode": "<andrePeriode>",
     "tredjePeriode": "<tredjePeriode>",
 
+    "termininfoVersjon" : "<termininfoVersjon>",
+
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa06Versjon": "<X.Y.Z>",
@@ -22,6 +23,7 @@
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa14Versjon": "<X.Y.Z>"
   },
+
   "operasjoner": [
     {
       "handling": "deploy_batch",
