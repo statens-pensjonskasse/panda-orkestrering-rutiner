@@ -1,8 +1,8 @@
 {
   "navn": "Arkivere termininfofil for år ${år}, med versjon ${versjon} fra aktuar-arkiv",
   "variabler": {
-    "år" : "<yyyy>",
-    "versjon": "v<x>"
+    "år" : "2023",
+    "versjon": "v2"
 
   },
   "operasjoner": [
