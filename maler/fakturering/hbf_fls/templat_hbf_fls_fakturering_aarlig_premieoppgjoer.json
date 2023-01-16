@@ -4,11 +4,11 @@
 
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "termininfoVersjon" : "#{gyldigTermininfo}",
 
     "forrigeÅr" : "<YYYY>",
     "inneværendeÅr": "<YYYY>",
 
+    "termininfoVersjon" : "<termininfoVersjon>",
     "prognoseVersjon" : "<prognoseVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
 
