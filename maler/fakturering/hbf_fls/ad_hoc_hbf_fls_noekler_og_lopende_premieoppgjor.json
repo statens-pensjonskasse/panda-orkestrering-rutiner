@@ -8,6 +8,7 @@
     "periode": "<periode>",
     "fremskrivingsDato": "<fremskrivingsDato>",
     "fordelingsnøkkelSti": "<fordelingsnøkkelSti>",
+    "prognoseVersjon": "<prognoseVersjon>",
 
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa06Versjon": "<X.Y.Z>",
@@ -162,7 +163,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/reserveaggregering_for_medlem/${fremskrivingsDato}"
+      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -410,7 +411,7 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/reserveaggregering_for_medlem/${periode}"
+      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
