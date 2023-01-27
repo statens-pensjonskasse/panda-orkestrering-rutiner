@@ -190,7 +190,7 @@ class DVHRettighetNyeFelterOgMd5Oversetter {
         } catch (IOException ex) {
             System.err.println("Klarte ikke å skrive til midlertidig fil. " + ex);
         }
-        final File filTilDVH = new File(System.getenv("SPK_DATA"), "dvh/panda_datalevering/rettighet_ytelse_md5_oppdatering/oppdaterteMD5VerdierOgNyeFelter.csv");
+        final File filTilDVH = new File(System.getenv("SPK_DATA"), "dvh/panda_datalevering/rettighet_ytelse_md5_oppdatering/rettighet_ytelse_md5_oppdatering.csv");
 
         if (!filTilDVH.getParentFile().exists()) {
             if (!filTilDVH.getParentFile().mkdirs()) {
