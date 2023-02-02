@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -30,8 +31,8 @@ import java.util.zip.GZIPInputStream;
 # og beregner ny MD5 sum. Produserer CSV fil med to kolloner,
 # forrige og neste MD5 sum.
 #
-# Leser: $SPK_DATA/panda/arkiv/reserveberegning/pa_res_ba_01/panda-testdata-rettighet-ytelser/2023.02.01/TODO mangler grunnlagsdatamappe
-# Skriver: $SPK_DATA/dvh/panda_datalevering/rettighet_ytelse/oppdaterteMD5Verdier.csv
+# Leser: $SPK_DATA/panda/arkiv/reserveberegning/pa_res_ba_01/panda-testdata-rettighet-ytelser/2023.02.01/grunnlagsdata_2023-02-01_15-40-15-18
+# Skriver: $SPK_DATA/dvh/panda_datalevering/rettighet_ytelse_md5_oppdatering/rettighet_ytelse_md5_oppdatering.csv
 #===========================================================
 
 #===========================================================
@@ -153,7 +154,7 @@ class DVHRettighetNyeFelterOgMd5Oversetter {
 
     public static void main(String[] args) {
 
-        final File målkatalog = new File(System.getenv("SPK_DATA"), "panda/arkiv/reserveberegning/pa_res_ba_01/panda-testdata-rettighet-ytelser/2023.02.01/TODO mangler grunnlagsdatamappe");
+        final File målkatalog = new File(System.getenv("SPK_DATA"), "panda/arkiv/reserveberegning/pa_res_ba_01/panda-testdata-rettighet-ytelser/2023.02.01/grunnlagsdata_2023-02-01_15-40-15-18");
 
         System.out.println(målkatalog);
         final List<File> rettighet_ytelser_for_dvh = Arrays.stream(målkatalog.listFiles())
@@ -169,7 +170,7 @@ class DVHRettighetNyeFelterOgMd5Oversetter {
 
         try {
 
-            final PrintWriter printWriter = new PrintWriter(midlertidigFilTilDVH, Charset.forName("utf-16le"));
+            final PrintWriter printWriter = new PrintWriter(midlertidigFilTilDVH, StandardCharsets.UTF_16LE);
             printWriter.println("Forrige_MD5;Neste_MD5;AntattPensjonsalder;Opphoersalder");
 
             rettighet_ytelser_for_dvh
@@ -195,6 +196,11 @@ class DVHRettighetNyeFelterOgMd5Oversetter {
         if (!filTilDVH.getParentFile().exists()) {
             if (!filTilDVH.getParentFile().mkdirs()) {
                 throw new RuntimeException(String.format("Klarte ikke å flytte midlertidig fil %s til DVH %s. Klarte ikke opprette mapper hos DVH", midlertidigFilTilDVH, filTilDVH));
+            }
+        }
+        if (filTilDVH.exists()) {
+            if (!filTilDVH.delete()) {
+                System.err.println("Klarte ikke å flytte midlertidig fil %s til DVH %s. Klarte ikke å slette eksisterende fil hos DVH; " + filTilDVH.getAbsolutePath());
             }
         }
         if(midlertidigFilTilDVH.renameTo(filTilDVH)) {
