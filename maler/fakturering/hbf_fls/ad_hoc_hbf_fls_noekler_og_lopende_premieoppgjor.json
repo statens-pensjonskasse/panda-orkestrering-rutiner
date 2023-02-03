@@ -406,24 +406,8 @@
       "nøkkel": "${fordelingsnøkkelSti}/premiefellesskap_utjevning_aggregert_prognosepremie/${periode}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "totalreserver",
-      "batchFra": "pa_fak_ba_02",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "administrasjonspremieunderlag",
-      "batchFra": "pa_res_ba_01",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
-    },
-    {
       "handling": "pa_fak_ba_09",
-      "modus": "loepende_premieoppgjoer_dataunderlag",
+      "modus": "generer_loepende_premieoppgjoer_dataunderlag",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "kjøringsId": "#{genererUUID}",
       "validerFeilendeMedlemmer": true
@@ -432,7 +416,7 @@
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/loepende_premieoppgjoer_dataunderlag/${periode}"
+      "nøkkel": "${fordelingsnøkkelSti}/generer_loepende_premieoppgjoer_dataunderlag/${periode}"
     },
     {
       "handling": "send_batch_output_til_dvh",
