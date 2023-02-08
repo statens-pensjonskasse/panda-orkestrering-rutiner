@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
 
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2023-02-08_09-30-08-22",
 
     "termin" : "2023-01",
     "førstePeriodeLPO" : "202212",
@@ -728,7 +728,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_rapport_avtale",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "44acc8eb-d80e-46ca-9bcd-a48babcc8ba2",
       "premiemodell": "HBF_FLS",
       "termin": "${termin}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -751,7 +751,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_rapport_medlem",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "4a4b4855-9205-42db-9727-101b366d6183",
       "premiemodell": "HBF_FLS",
       "termin": "${termin}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -871,7 +871,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "loepende_premieoppgjoer_dataunderlag",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "c0e6360c-56ac-49ea-8612-a3bf1293dd90",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -980,7 +980,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "loepende_premieoppgjoer_dataunderlag",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "a6da89a7-e881-4c07-9296-df5c094a6c75",
       "validerFeilendeMedlemmer": true
     },
     {
