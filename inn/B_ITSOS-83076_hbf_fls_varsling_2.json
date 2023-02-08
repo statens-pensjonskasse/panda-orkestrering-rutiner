@@ -5,13 +5,13 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "år" : "<år>",
+    "år" : "2023",
     "prognoseVersjonVarsling" : "<prognoseVersjonVarsling>",
-    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
-    "fordelingsnøkkelSti": "<fordelingsnøkkelSti>",
+    "fordelingsnøkkelPeriode" : "202301",
+    "fordelingsnøkkelSti": "",
 
-    "paFakBa06Versjon" : "<X.Y.Z>",
-    "paFakBa09Versjon" : "<X.Y.Z>"
+    "paFakBa06Versjon" : "1.0.0",
+    "paFakBa09Versjon" : "2.0.1"
   },
   "operasjoner": [
     {
