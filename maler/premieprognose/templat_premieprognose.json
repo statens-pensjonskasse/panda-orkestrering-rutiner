@@ -1,0 +1,76 @@
+{
+  "navn": "Rutinefil for premieprognose",
+  "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "premieprognoseKonvertingsår": "2023",
+    "fremskrivingsDato": "2025.01.01"
+  },
+  "operasjoner": [
+    {
+      "navn": "manipuler prognosedata",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_03"
+        },
+        {
+          "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+          "fraGrunnlagsdataMappe": "grunnlagsdata_2023-02-07_13-46-35-83",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_res_ba_03",
+          "manipulatorer": [
+            {
+              "navn": "manipuler_grunnbeloep",
+              "fraAar": 2023,
+              "utviklingProsent": "3%"
+            }
+          ]
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_res_ba_03",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "2023"
+        }
+      ]
+    },
+    {
+      "navn": "produser kontorføringer for premieprognoser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_01"
+        },
+
+        {
+          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+          "versjon": "5",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+
+        {
+          "handling": "kopier_arkivert_pa_res_ba_03_til_pa_res_ba_01",
+          "fraGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_res_ba_01",
+          "modus": "panda_reserveberegning",
+          "sisteFremskrivingsdato": "${fremskrivingsDato}",
+          "konverteringsår": "${premieprognoseKonvertingsår}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose"
+        }
+      ]
+    }
+  ]
+}
