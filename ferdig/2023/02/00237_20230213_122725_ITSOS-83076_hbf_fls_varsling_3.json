@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.53",
 
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2023-02-13_12-25-08-13",
 
     "år" : "2023",
     "prognoseVersjonVarsling" : "1092",
