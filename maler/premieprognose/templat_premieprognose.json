@@ -61,9 +61,12 @@
           "handling": "pa_res_ba_01",
           "modus": "panda_reserveberegning",
           "sisteFremskrivingsdato": "${fremskrivingsDato}",
-          "konverteringsår": "${premieprognoseKonvertingsår}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premieprognose": {
+            "konverteringsår": "${premieprognoseKonvertingsår}",
+            "fremskrivingsfrekvens": "År"
+            }
+          },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_res_ba_01",
