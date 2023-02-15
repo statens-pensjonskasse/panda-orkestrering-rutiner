@@ -3,7 +3,8 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
     "premieprognoseKonvertingsår": "2023",
-    "fremskrivingsDato": "2025.01.01"
+    "fremskrivingsDato": "2025.01.01",
+    "arkiveringsnøkkelPaResBa03": "2023"
   },
   "operasjoner": [
     {
@@ -30,7 +31,7 @@
           ]
         },
         {
-          "handling": "arkiver_all_batch_output",
+          "handling": "arkiver_pa_res_ba_03_output",
           "batch": "pa_res_ba_03",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "2023"
@@ -45,16 +46,15 @@
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_res_ba_01"
         },
-
-        {
-          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-          "versjon": "5",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-
         {
           "handling": "kopier_arkivert_pa_res_ba_03_til_pa_res_ba_01",
           "fraGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "${arkiveringsnøkkelPaResBa03}"
+        },
+        {
+          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+          "versjon": "5",
           "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
