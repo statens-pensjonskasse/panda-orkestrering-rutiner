@@ -31,7 +31,7 @@
           ]
         },
         {
-          "handling": "arkiver_pa_res_ba_03_output",
+          "handling": "arkiver_utdata_pa_res_ba_03",
           "batch": "pa_res_ba_03",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "2023"
