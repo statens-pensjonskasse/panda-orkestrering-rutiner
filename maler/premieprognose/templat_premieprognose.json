@@ -2,6 +2,7 @@
   "navn": "Rutinefil for premieprognose",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "fraGrunnlagsdataMappe" : "grunnlagsdata_2023-02-07_13-46-35-83",
     "premieprognoseKonvertingsår": "2023",
     "fremskrivingsDato": "2025.01.01",
     "arkiveringsnøkkelPaResBa03": "2023"
@@ -16,9 +17,11 @@
           "batch": "pa_res_ba_03"
         },
         {
-          "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
-          "fraGrunnlagsdataMappe": "grunnlagsdata_2023-02-07_13-46-35-83",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
+          "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "fraBatch": "pa_res_ba_02",
+          "tilBatch": "pa_res_ba_03"
         },
         {
           "handling": "pa_res_ba_03",
@@ -47,9 +50,11 @@
           "batch": "pa_res_ba_01"
         },
         {
-          "handling": "kopier_arkivert_pa_res_ba_03_til_pa_res_ba_01",
+          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
           "fraGrunnlagsdataMappe": "${grunnlagsdataMappe}",
           "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "fraBatch": "pa_res_ba_03",
+          "tilBatch": "pa_res_ba_01",
           "nøkkel": "${arkiveringsnøkkelPaResBa03}"
         },
         {
