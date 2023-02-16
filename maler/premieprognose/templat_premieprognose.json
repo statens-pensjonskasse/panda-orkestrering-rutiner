@@ -1,8 +1,8 @@
 {
   "navn": "Rutinefil for premieprognose",
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "fraGrunnlagsdataMappe" : "grunnlagsdata_2023-02-07_13-46-35-83",
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "fraGrunnlagsdataMappe": "grunnlagsdata_2023-02-07_13-46-35-83",
     "premieprognoseKonvertingsår": "2023",
     "fremskrivingsDato": "2025.01.01",
     "arkiveringsnøkkelPaResBa03": "2023"
@@ -37,7 +37,7 @@
           "handling": "arkiver_utdata_pa_res_ba_03",
           "batch": "pa_res_ba_03",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "2023"
+          "nøkkel": "${arkiveringsnøkkelPaResBa03}"
         }
       ]
     },
@@ -70,13 +70,40 @@
           "premieprognose": {
             "konverteringsår": "${premieprognoseKonvertingsår}",
             "fremskrivingsfrekvens": "År"
-            }
-          },
+          }
+        },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_res_ba_01",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose"
+          "nøkkel": "premieprognose/${arkiveringsnøkkelPaResBa03}"
+        }
+      ]
+    },
+    {
+      "navn": "Produser fakturerbare prognosepremier",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "kontofoering",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_13",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/${arkiveringsnøkkelPaResBa03}"
+        },
+        {
+          "handling": "pa_fak_ba_13",
+          "modus": "generer_premiedifferanser_fra_kontofoeringer",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_13",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_premiedifferanser_fra_kontofoeringer/${arkiveringsnøkkelPaResBa03}"
         }
       ]
     }
