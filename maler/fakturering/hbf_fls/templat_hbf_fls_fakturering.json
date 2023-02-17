@@ -852,22 +852,6 @@
       "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${førstePeriodeLPO}"
     },
     {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "totalreserver",
-      "batchFra": "pa_fak_ba_02",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato1}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "administrasjonspremieunderlag",
-      "batchFra": "pa_res_ba_01",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}"
-    },
-    {
       "handling": "pa_fak_ba_09",
       "modus": "loepende_premieoppgjoer_dataunderlag",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -959,22 +943,6 @@
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${andrePeriodeLPO}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "totalreserver",
-      "batchFra": "pa_fak_ba_02",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato2}"
-    },
-    {
-      "handling": "kopier_fra_arkiv_til_batch",
-      "filnavn": "administrasjonspremieunderlag",
-      "batchFra": "pa_res_ba_01",
-      "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}"
     },
     {
       "handling": "pa_fak_ba_09",
