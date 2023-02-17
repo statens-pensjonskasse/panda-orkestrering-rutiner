@@ -2,7 +2,7 @@
   "navn": "Rutinefil for premieprognose",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "fraGrunnlagsdataMappe": "grunnlagsdata_2023-02-07_13-46-35-83",
+    "fraGrunnlagsdataMappe": "grunnlagsdata_2023-02-07_13-46-35-83", // TODO: Fjern hardkoding i det templatet er fullstedig ferdigstilt
     "premieprognoseKonvertingsår": "2023",
     "fremskrivingsDato": "2025.01.01",
     "arkiveringsnøkkelPaResBa03": "2023"
