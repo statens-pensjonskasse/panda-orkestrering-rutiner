@@ -81,7 +81,7 @@
       ]
     },
     {
-      "navn": "Produser fakturerbare prognosepremier",
+      "navn": "Produser fakturerbare premiedifferanser",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -104,30 +104,76 @@
           "batch": "pa_fak_ba_13",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "premieprognose/generer_premiedifferanser_fra_kontofoeringer/${arkiveringsnøkkelPaResBa03}"
+        }
+      ]
+    },
+    {
+      "navn": "Produser fakturerbare premiedifferanser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "xxxx",
+          "periode": "xxxx",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "fakturerbare_premiedifferanser",
           "batchFra": "pa_fak_ba_13",
-          "batchTil": "pa_fak_ba_12",
+          "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "premieprognose/generer_premiedifferanser_fra_kontofoeringer/${arkiveringsnøkkelPaResBa03}"
         },
         {
+          "handling": "pa_fak_ba_14",
+          "modus": "premiefiltrering_for_hbf_fls",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/premiefiltrering_for_hbf_fls/${arkiveringsnøkkelPaResBa03}"
+        }
+      ]
+    },
+    {
+      "navn": "Aggreger premie",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_12",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/premiefiltrering_for_hbf_fls/${arkiveringsnøkkelPaResBa03}"
+        },
+        {
           "handling": "pa_fak_ba_12",
           "modus": "duckdb",
-          "filnavn": "totalreserver",
-          "utFilnavn": "totalpremie",
+          "filnavn": "filler",
+          "utFilnavn": "filler",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "resultatfelter": "1",
-          "spørring": "SELECT Avtale, 'TOTALPREMIE', CAST(Bokføringsperiode AS VARCHAR)[:4] AS Aar, sum(Beløp) as Beløp FROM minnet GROUP BY Avtale, Aar;"
+          "sqlfil": "totalpremie_fra_reservetransaksjonsdifferanser"
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_12",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/${arkiveringsnøkkelPaResBa03}"
+          "nøkkel": "premieprognose/totalpremie_fra_reservetransaksjonsdifferanser/${arkiveringsnøkkelPaResBa03}"
         }
       ]
     }
