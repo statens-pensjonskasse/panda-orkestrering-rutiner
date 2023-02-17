@@ -2,10 +2,13 @@
   "navn": "Rutinefil for premieprognose",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "fraGrunnlagsdataMappe": "grunnlagsdata_2023-02-07_13-46-35-83", // TODO: Fjern hardkoding i det templatet er fullstedig ferdigstilt
-    "premieprognoseKonvertingsår": "2023",
-    "fremskrivingsDato": "2025.01.01",
-    "arkiveringsnøkkelPaResBa03": "2023"
+    "fraGrunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
+    "fremskrivingsDato": "<YYYY.MM.dd>",
+    "premiefilterModus": "<modus>",
+    "premiemodell": "premiemodell",
+    "premieprognoseKonvertingsår": "<YYYY>",
+    "arkiveringsnøkkelPaResBa03": "<YYYY>",
+    "avtalelistePeriode": "<YYYY12>"
   },
   "operasjoner": [
     {
@@ -25,13 +28,7 @@
         },
         {
           "handling": "pa_res_ba_03",
-          "manipulatorer": [
-            {
-              "navn": "manipuler_grunnbeloep",
-              "fraAar": 2023,
-              "utviklingProsent": "3%"
-            }
-          ]
+          "manipulatorer": []
         },
         {
           "handling": "arkiver_utdata_pa_res_ba_03",
@@ -118,8 +115,8 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "xxxx",
-          "periode": "xxxx",
+          "premiemodell": "${premiemodell}",
+          "periode": "${avtalelistePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -135,7 +132,7 @@
         },
         {
           "handling": "pa_fak_ba_14",
-          "modus": "premiefiltrering_for_hbf_fls",
+          "modus": "${premiefilterModus}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
@@ -143,7 +140,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefiltrering_for_hbf_fls/${arkiveringsnøkkelPaResBa03}"
+          "nøkkel": "premieprognose/${premiefilterModus}/${arkiveringsnøkkelPaResBa03}"
         }
       ]
     },
@@ -152,15 +149,17 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
+          "ignorertInstruksjon": true,
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "reservetransaksjonsdifferanser_medlem",
           "batchFra": "pa_fak_ba_14",
           "batchTil": "pa_fak_ba_12",
           "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefiltrering_for_hbf_fls/${arkiveringsnøkkelPaResBa03}"
+          "nøkkel": "premieprognose/${premiefilterModus}/${arkiveringsnøkkelPaResBa03}"
         },
         {
+          "ignorertInstruksjon": true,
           "handling": "pa_fak_ba_12",
           "modus": "duckdb",
           "filnavn": "filler",
@@ -170,6 +169,7 @@
           "sqlfil": "totalpremie_fra_reservetransaksjonsdifferanser"
         },
         {
+          "ignorertInstruksjon": true,
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_12",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
