@@ -1,0 +1,181 @@
+{
+  "navn": "Rutinefil for premieprognose",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "fraGrunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
+    "fremskrivingsDato": "<YYYY.MM.dd>",
+    "premiefilterModus": "<modus>",
+    "premiemodell": "premiemodell",
+    "premieprognoseKonvertingsår": "<YYYY>",
+    "arkiveringsnøkkelPaResBa03": "<YYYY>",
+    "avtalelistePeriode": "<YYYY12>"
+  },
+  "operasjoner": [
+    {
+      "navn": "manipuler prognosedata",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_03"
+        },
+        {
+          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
+          "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "fraBatch": "pa_res_ba_02",
+          "tilBatch": "pa_res_ba_03"
+        },
+        {
+          "handling": "pa_res_ba_03",
+          "manipulatorer": []
+        },
+        {
+          "handling": "arkiver_utdata_pa_res_ba_03",
+          "batch": "pa_res_ba_03",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "${arkiveringsnøkkelPaResBa03}"
+        }
+      ]
+    },
+    {
+      "navn": "produser kontorføringer for premieprognoser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_01"
+        },
+        {
+          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
+          "fraGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "fraBatch": "pa_res_ba_03",
+          "tilBatch": "pa_res_ba_01",
+          "nøkkel": "${arkiveringsnøkkelPaResBa03}"
+        },
+        {
+          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+          "versjon": "5",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_res_ba_01",
+          "modus": "panda_reserveberegning",
+          "sisteFremskrivingsdato": "${fremskrivingsDato}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premieprognose": {
+            "konverteringsår": "${premieprognoseKonvertingsår}",
+            "fremskrivingsfrekvens": "År"
+          }
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/${arkiveringsnøkkelPaResBa03}"
+        }
+      ]
+    },
+    {
+      "navn": "Produser fakturerbare premiedifferanser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "kontofoering",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_13",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/${arkiveringsnøkkelPaResBa03}"
+        },
+        {
+          "handling": "pa_fak_ba_13",
+          "modus": "generer_premiedifferanser_fra_kontofoeringer",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_13",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_premiedifferanser_fra_kontofoeringer/${arkiveringsnøkkelPaResBa03}"
+        }
+      ]
+    },
+    {
+      "navn": "Produser fakturerbare premiedifferanser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "${premiemodell}",
+          "periode": "${avtalelistePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premiedifferanser",
+          "batchFra": "pa_fak_ba_13",
+          "batchTil": "pa_fak_ba_14",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_premiedifferanser_fra_kontofoeringer/${arkiveringsnøkkelPaResBa03}"
+        },
+        {
+          "handling": "pa_fak_ba_14",
+          "modus": "${premiefilterModus}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/${premiefilterModus}/${arkiveringsnøkkelPaResBa03}"
+        }
+      ]
+    },
+    {
+      "navn": "Aggreger premie",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "ignorertInstruksjon": true,
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_12",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/${premiefilterModus}/${arkiveringsnøkkelPaResBa03}"
+        },
+        {
+          "ignorertInstruksjon": true,
+          "handling": "pa_fak_ba_12",
+          "modus": "duckdb",
+          "filnavn": "filler",
+          "utFilnavn": "filler",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "resultatfelter": "1",
+          "sqlfil": "totalpremie_fra_reservetransaksjonsdifferanser"
+        },
+        {
+          "ignorertInstruksjon": true,
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_12",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/totalpremie_fra_reservetransaksjonsdifferanser/${arkiveringsnøkkelPaResBa03}"
+        }
+      ]
+    }
+  ]
+}
