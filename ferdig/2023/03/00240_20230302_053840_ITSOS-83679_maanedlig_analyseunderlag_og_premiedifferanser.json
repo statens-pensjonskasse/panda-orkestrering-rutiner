@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periode ${periode}",
   "gyldigVersjon": "0.0.60",
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2023-03-01_14-55-07-53",
     "grunnlagsdataFremskriving": "grunnlagsdata_2023-02-28_21-35-19-60",
     "reserveberegningGrunnlagsdataAktuarVersjon": "5",
     "fremskrivingsDato" : "2023.03.01",
@@ -169,7 +169,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "generer_administrasjonspremieunderlag_dataunderlag",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "ab44ddfd-fdfa-4a24-a445-c656c84b6e82",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${periode}",
       "validerFeilendeMedlemmer": true
@@ -204,7 +204,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "feilmelding_dataunderlag",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "66dc3521-ad40-45a5-99c6-ffc6d83ee92b",
       "uttrekksdato": "${uttrekksdato}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode":"${periode}",
@@ -351,7 +351,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "generer_reserveoppbygging_dataunderlag",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "c7154905-aa7f-4947-9c09-c6945b7707ee",
       "uttrekksdato": "${uttrekksdato}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
@@ -390,7 +390,7 @@
       "modus": "generer_kontofoeringunderlag",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "uttrekksdato": "${uttrekksdato}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "a91a91ae-870b-4ff8-a0cf-015cceab1dbd",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -548,7 +548,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "generer_administrasjonspremie_dataunderlag",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "3f6c1a4d-e023-4ed7-9508-f052acedc687",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
