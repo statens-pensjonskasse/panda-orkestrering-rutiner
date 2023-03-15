@@ -5,19 +5,19 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
-    "termin": "<terminår>-01",
+    "termin": "2023-01",
     "førstePeriode": "<førstePeriodeÅr>11",
-    "andrePeriode": "<andrePeriodeÅr>12",
-    "tredjePeriode": "<tredjePeriodeÅr>01",
-    "fjerdePeriode": "<fjerdePeriodeÅr>02",
-    "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
+    "andrePeriode": "202212",
+    "tredjePeriode": "202301",
+    "fjerdePeriode": "202302",
+    "sisteFremskrivingsdato": "2023.03.01",
 
-    "termininfoVersjon" : "<termininfoVersjon>",
-    "premiejusteringVersjon": "<premiejusteringVersjon>",
+    "termininfoVersjon" : "2023/v2",
+    "premiejusteringVersjon": "10016_10017_10018_10019",
 
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "paFakBa04Versjon": "2.0.0",
+    "paFakBa09Versjon": "2.0.1",
+    "paFakBa14Versjon": "1.0.2"
   },
 
   "operasjoner": [
