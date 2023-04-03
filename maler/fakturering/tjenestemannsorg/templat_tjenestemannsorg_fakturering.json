@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for tjenestemannsorganisasjoner for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for tjenestemannsorganisasjoner termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
@@ -46,7 +46,7 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "tjenestemannsorg",
+          "premiemodell": "TJENESTEMANNSORG",
           "periode": "${førstePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
@@ -90,7 +90,7 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "tjenestemannsorg",
+          "premiemodell": "TJENESTEMANNSORG",
           "periode": "${andrePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
@@ -124,7 +124,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_05 generer medlemsandel ${førstePeriode}",
+      "navn": "pa_fak_ba_05 generer medlemsandel for ${førstePeriode}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -169,7 +169,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_05 generer medlemsandel ${andrePeriode}",
+      "navn": "pa_fak_ba_05 generer medlemsandel for ${andrePeriode}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -214,7 +214,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 generer fakturaunderlag for tjenestemannsorganisasjoner for termin ${termin}",
+      "navn": "pa_fak_ba_04 generer fakturaunderlag for tjenestemannsorganisasjoner termin ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -262,7 +262,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 generer agressofil for tjenestemannsorganisasjoner for termin ${termin}",
+      "navn": "pa_fak_ba_04 generer agressofil for tjenestemannsorganisasjoner termin ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -275,7 +275,7 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "tjenestemannsorg",
+          "premiemodell": "TJENESTEMANNSORG",
           "periode": "${andrePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_04",
@@ -304,20 +304,117 @@
       ]
     },
     {
-      "navn": "Dataunderlag til DVH",
+      "navn": "pa_fak_ba_09 tjenestemannsorg dataunderlag for avtale og medlem",
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "navn": "pa_fak_ba_09 xxx for ${førstePeriode}",
-          "handling": "gruppe",
-          "gruppeAv": [
-          ]
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "navn": "pa_fak_ba_09 xxx for ${andrePeriode}",
-          "handling": "gruppe",
-          "gruppeAv": [
-          ]
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "medlemsandel",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_medlemsandel_tjenestemannsorg/${førstePeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "medlemsandel",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag_faktura",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${førstePeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag_faktura",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${andrePeriode}"
+        },
+        {
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_09",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "TJENESTEMANNSORG",
+          "periode": "${førstePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "TJENESTEMANNSORG",
+          "periode": "${andrePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "tjenestemannsorg_dataunderlag_for_medlem",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premiemodell": "TJENESTEMANNSORG",
+          "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "tjenestemannsorg_dataunderlag_for_medlem/${termin}"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "tjenestemannsorg_dataunderlag_medlem",
+          "filListe": "TJENESTEMANNSORG_FILLISTE_MEDLEM.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/tjenestemannsorg/fakturering/medlem"
+        },
+
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "tjenestemannsorg_dataunderlag_for_avtale",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premiemodell": "TJENESTEMANNSORG",
+          "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "tjenestemannsorg_dataunderlag_for_avtale/${termin}"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "tjenestemannsorg_dataunderlag_avtale",
+          "filListe": "TJENESTEMANNSORG_FILLISTE_AVTALE.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/tjenestemannsorg/fakturering/avtale"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     }
