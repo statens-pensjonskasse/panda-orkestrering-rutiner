@@ -3,11 +3,14 @@
   "gyldigVersjon": "0.0.78",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+
     "termin": "<termin>",
     "førstePeriode": "<førstePeriode>",
     "andrePeriode": "<andrePeriode>",
     "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
+
     "termininfoVersjon": "<termininfoVersjon>",
+
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa05Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
