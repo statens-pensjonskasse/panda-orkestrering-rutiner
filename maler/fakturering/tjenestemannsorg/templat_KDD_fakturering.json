@@ -1,12 +1,10 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for KDD for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.78",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
     "termin": "<termin>",
     "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
-
     "førstePeriode": "<førstePeriode>",
     "andrePeriode": "<andrePeriode>",
     "tredjePeriode": "<tredjePeriode>",
@@ -35,7 +33,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 generer fakturaunderlag for KDD termin ${termin}",
+      "navn": "pa_fak_ba_04 generer fakturaunderlag og agressofil for KDD termin ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -271,13 +269,7 @@
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "generer_fakturaunderlag_for_KDD/${termin}"
-        }
-      ]
-    },
-    {
-      "navn": "pa_fak_ba_04 generer agressofil for KDD termin ${termin}",
-      "handling": "gruppe",
-      "gruppeAv": [
+        },
         {
           "handling": "pa_fak_ba_04",
           "modus": "generer_agressofil_for_KDD",
@@ -301,7 +293,7 @@
       ]
     },
     {
-      "navn": "Dataunderlag til DVH",
+      "navn": "pa_fak_ba_09 tjenestemannsorg dataunderlag for avtale og medlem",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -571,7 +563,6 @@
             }
           ]
         },
-
         {
           "handling": "pa_fak_ba_09",
           "modus": "KDD_dataunderlag_for_medlem",
