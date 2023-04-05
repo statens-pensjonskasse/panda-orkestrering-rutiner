@@ -216,7 +216,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 tjenestemannsorg fakturaunderlag og agressofil",
+      "navn": "pa_fak_ba_04 tjenestemannsorg fakturaunderlag og agressofil termin ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -306,7 +306,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_09 tjenestemannsorg dataunderlag for avtale og medlem",
+      "navn": "pa_fak_ba_09 tjenestemannsorg dataunderlag for avtale og medlem termin ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
