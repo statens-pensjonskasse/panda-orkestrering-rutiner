@@ -5,26 +5,26 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "termin" : "<termin>",
-    "førstePeriodeLPO" : "<førstePeriodeLPO>",
-    "andrePeriodeLPO" : "<andrePeriodeLPO>",
-    "førstePeriode" : "<førstePeriode>",
-    "andrePeriode" : "<andrePeriode>",
+    "termin" : "2023-02",
+    "førstePeriodeLPO" : "202302",
+    "andrePeriodeLPO" : "202303",
+    "førstePeriode" : "202303",
+    "andrePeriode" : "202304",
 
-    "fremskrivingsDato1": "<fremskrivingsDato1>",
-    "fremskrivingsDato2": "<fremskrivingsDato2>",
+    "fremskrivingsDato1": "2023.03.01",
+    "fremskrivingsDato2": "2023.04.01",
 
-    "termininfoVersjon" : "<termininfoVersjon>",
-    "prognoseVersjon": "<prognoseVersjon>",
-    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
+    "termininfoVersjon" : "2023/v2",
+    "prognoseVersjon": "1100",
+    "fordelingsnøkkelPeriode" : "202301",
 
-    "paFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa06Versjon": "<X.Y.Z>",
-    "paFakBa07Versjon": "<X.Y.Z>",
-    "paFakBa08Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "paFakBa02Versjon": "1.0.1",
+    "paFakBa04Versjon": "2.0.0",
+    "paFakBa06Versjon": "1.0.0",
+    "paFakBa07Versjon": "1.0.0",
+    "paFakBa08Versjon": "1.0.0",
+    "paFakBa09Versjon": "2.0.1",
+    "paFakBa14Versjon": "1.0.2"
   },
 
   "operasjoner": [
