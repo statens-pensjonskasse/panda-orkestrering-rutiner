@@ -1,0 +1,618 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for KDD for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+
+    "termin": "<termin>",
+    "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
+    "førstePeriode": "<førstePeriode>",
+    "andrePeriode": "<andrePeriode>",
+    "tredjePeriode": "<tredjePeriode>",
+    "fjerdePeriode": "<fjerdePeriode>",
+    "femtePeriode": "<femtePeriode>",
+    "sjettePeriode": "<sjettePeriode>",
+
+    "termininfoVersjon": "<termininfoVersjon>",
+    "premiejusteringsVersjon": "<premiejusteringsVersjon>",
+
+    "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_04 generer fakturaunderlag og agressofil for KDD termin ${termin}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "navn": "kopier filer inn til pa_fak_ba_04",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${tredjePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${fjerdePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${femtePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${sjettePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${tredjePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${fjerdePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${femtePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${sjettePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${femtePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${sjettePeriode}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${førstePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${andrePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${tredjePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${fjerdePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${femtePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${sjettePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${termin}",
+              "prognoseVersjon": "${premiejusteringsVersjon}",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "premiejustering_tjenestemannsorg",
+              "tillatTomFil": true
+            },
+            {
+              "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+              "batchTil": "pa_fak_ba_04",
+              "termininfoVersjon": "${termininfoVersjon}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_fakturaunderlag_for_KDD",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${termin}",
+          "premiemodell": "KDD",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_batch_output",
+          "filnavn": "fakturaunderlag",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fakturaunderlag_for_KDD/${termin}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_agressofil_for_KDD",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${termin}",
+          "premiemodell": "KDD",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_agressofil_for_KDD/${termin}",
+          "filter": "Agressofil"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 tjenestemannsorg dataunderlag for avtale og medlem",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "navn": "kopier filer inn til pa_fak_ba_09",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${tredjePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${fjerdePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${femtePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${sjettePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${tredjePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${fjerdePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${femtePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_tjenestemannsorg/${sjettePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${femtePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${sjettePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag_faktura",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag_faktura",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag_faktura",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${tredjePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag_faktura",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${fjerdePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag_faktura",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${femtePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag_faktura",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${sjettePeriode}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${førstePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${andrePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${tredjePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${fjerdePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${femtePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${sjettePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "TJENESTEMANNSORG",
+              "periode": "${termin}",
+              "prognoseVersjon": "${premiejusteringsVersjon}",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "premiejustering_tjenestemannsorg",
+              "tillatTomFil": true
+            },
+            {
+              "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+              "batchTil": "pa_fak_ba_04",
+              "termininfoVersjon": "${termininfoVersjon}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "KDD_dataunderlag_for_medlem",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premiemodell": "KDD",
+          "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "KDD_dataunderlag_for_medlem/${termin}"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "KDD_dataunderlag_medlem",
+          "filListe": "KDD_FILLISTE_MEDLEM.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/tjenestemannsorg/KDD/fakturering/medlem"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "KDD_dataunderlag_for_avtale",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premiemodell": "KDD",
+          "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "KDD_dataunderlag_for_avtale/${termin}"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "KDD_dataunderlag_avtale",
+          "filListe": "KDD_FILLISTE_AVTALE.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/tjenestemannsorg/KDD/fakturering/avtale"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        }
+      ]
+    }
+  ]
+}
