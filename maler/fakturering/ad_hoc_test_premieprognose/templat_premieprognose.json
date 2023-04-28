@@ -10,6 +10,8 @@
     "arkiveringsnøkkelPaResBa03": "<YYYY>",
     "avtalelistePeriode": "<YYYY12>",
 
+    "tilbakestillFraOgMed": "<YYYY.MM.dd>",
+
     "lønnFraOgMed": "<YYYY.MM.dd>",
     "lønnUtviklingsprosent": "<%>",
 
@@ -35,6 +37,10 @@
         {
           "handling": "pa_res_ba_03",
           "manipulatorer": [
+            {
+              "navn": "manipuler_tilbakestill_stillingshistorikk",
+              "fraOgMed": "${tilbakestillFraOgMed}"
+            },
             {
               "navn": "manipuler_erstatt_medlem"
             },
