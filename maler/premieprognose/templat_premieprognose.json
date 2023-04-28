@@ -11,7 +11,10 @@
     "avtalelistePeriode": "<YYYY12>",
 
     "lønnFraOgMed": "<YYYY.MM.dd>",
-    "lønnUtviklingsprosent": "<%>"
+    "lønnUtviklingsprosent": "<%>",
+
+    "fraAar": "<YYYY>",
+    "gUtviklingsprosent": "<%>"
   },
   "operasjoner": [
     {
@@ -39,6 +42,16 @@
               "navn": "manipuler_loennsvekst_medlemsdata",
               "fraOgMed": "${lønnFraOgMed}",
               "utviklingProsent": "${lønnUtviklingsprosent}"
+            },
+            {
+              "navn": "manipuler_loennsvekst_loennstrinn",
+              "fraOgMed": "${lønnFraOgMed}",
+              "utviklingProsent": "${lønnUtviklingsprosent}"
+            },
+            {
+              "navn": "manipuler_grunnbeloep",
+              "fraAar": "${fraAar}",
+              "utviklingProsent": "${gUtviklingsprosent}"
             }
           ]
         },
