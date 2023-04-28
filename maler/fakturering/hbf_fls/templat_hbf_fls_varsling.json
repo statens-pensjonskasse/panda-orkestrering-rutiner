@@ -29,8 +29,7 @@
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "batch": "pa_fak_ba_06"
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -70,8 +69,7 @@
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_06",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "batch": "pa_fak_ba_06"
     },
 
 
@@ -80,7 +78,7 @@
       "filnavn": "aars_prognosepremieuttrekk",
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
-      "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie_varsling/${år}"
     },
     {
@@ -134,8 +132,7 @@
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
-      "batch": "pa_fak_ba_09",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "batch": "pa_fak_ba_09"
     }
   ]
 }
