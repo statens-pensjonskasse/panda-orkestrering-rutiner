@@ -8,7 +8,10 @@
     "premiemodell": "premiemodell",
     "premieprognoseKonvertingsår": "<YYYY>",
     "arkiveringsnøkkelPaResBa03": "<YYYY>",
-    "avtalelistePeriode": "<YYYY12>"
+    "avtalelistePeriode": "<YYYY12>",
+
+    "lønnFraOgMed": "<YYYY.MM.dd>",
+    "lønnUtviklingsprosent": "<%>"
   },
   "operasjoner": [
     {
@@ -28,7 +31,16 @@
         },
         {
           "handling": "pa_res_ba_03",
-          "manipulatorer": []
+          "manipulatorer": [
+            {
+              "navn": "manipuler_erstatt_medlem"
+            },
+            {
+              "navn": "manipuler_loennsvekst_medlemsdata",
+              "fraOgMed": "${lønnFraOgMed}",
+              "utviklingProsent": "${lønnUtviklingsprosent}"
+            }
+          ]
         },
         {
           "handling": "arkiver_utdata_pa_res_ba_03",
@@ -86,7 +98,6 @@
           "filnavn": "kontofoering",
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_13",
-          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "premieprognose/${arkiveringsnøkkelPaResBa03}"
         },
@@ -126,7 +137,6 @@
           "filnavn": "fakturerbare_premiedifferanser",
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
-          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "premieprognose/generer_premiedifferanser_fra_kontofoeringer/${arkiveringsnøkkelPaResBa03}"
         },
@@ -141,39 +151,6 @@
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "premieprognose/${premiefilterModus}/${arkiveringsnøkkelPaResBa03}"
-        }
-      ]
-    },
-    {
-      "navn": "Aggreger premie",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "ignorertInstruksjon": true,
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "reservetransaksjonsdifferanser_medlem",
-          "batchFra": "pa_fak_ba_14",
-          "batchTil": "pa_fak_ba_12",
-          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/${premiefilterModus}/${arkiveringsnøkkelPaResBa03}"
-        },
-        {
-          "ignorertInstruksjon": true,
-          "handling": "pa_fak_ba_12",
-          "modus": "duckdb",
-          "filnavn": "filler",
-          "utFilnavn": "filler",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "resultatfelter": "1",
-          "sqlfil": "totalpremie_fra_reservetransaksjonsdifferanser"
-        },
-        {
-          "ignorertInstruksjon": true,
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_12",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/totalpremie_fra_reservetransaksjonsdifferanser/${arkiveringsnøkkelPaResBa03}"
         }
       ]
     }
