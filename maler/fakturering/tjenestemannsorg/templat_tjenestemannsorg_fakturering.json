@@ -1,0 +1,492 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for tjenestemannsorganisasjoner termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+
+    "termin": "<termin>",
+    "førstePeriode": "<førstePeriode>",
+    "andrePeriode": "<andrePeriode>",
+
+    "førsteFremskrivingsdato": "<YYYY.MM.dd>",
+    "andreFremskrivingsdato": "<YYYY.MM.dd>",
+
+    "termininfoVersjon": "<termininfoVersjon>",
+
+    "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa05Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa14Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_05",
+          "versjon": "${paFakBa05Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "${paFakBa14Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_14 premiefiltrering for tjenestemannsorganisasjoner ${førstePeriode}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "tjenestemannsorg",
+          "periode": "${førstePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premiedifferanser",
+          "batchFra": "pa_fak_ba_13",
+          "batchTil": "pa_fak_ba_14",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
+        },
+        {
+          "handling": "pa_fak_ba_14",
+          "modus": "premiefiltrering_for_tjenestemannsorg",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_tjenestemannsorg/${førstePeriode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_14 premiefiltrering for tjenestemannsorganisasjoner ${andrePeriode}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "tjenestemannsorg",
+          "periode": "${andrePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premiedifferanser",
+          "batchFra": "pa_fak_ba_13",
+          "batchTil": "pa_fak_ba_14",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+        },
+        {
+          "handling": "pa_fak_ba_14",
+          "modus": "premiefiltrering_for_tjenestemannsorg",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_tjenestemannsorg/${andrePeriode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generer administrasjonspremieunderlag for faktura for ${førstePeriode}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskrivingsdato}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_administrasjonspremieunderlag_for_fakturering",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "bokføringsperiode": "${førstePeriode}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${førstePeriode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generer administrasjonspremieunderlag for faktura for ${andrePeriode}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsdato}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_administrasjonspremieunderlag_for_fakturering",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "bokføringsperiode": "${andrePeriode}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${andrePeriode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generer medlemsandel for ${førstePeriode}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_tjenestemannsorg/${førstePeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag_faktura",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${førstePeriode}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_medlemsandel_tjenestemannsorg",
+          "bokføringsperiode": "${førstePeriode}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_medlemsandel_tjenestemannsorg/${førstePeriode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generer medlemsandel for ${andrePeriode}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_tjenestemannsorg/${andrePeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag_faktura",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${andrePeriode}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_medlemsandel_tjenestemannsorg",
+          "bokføringsperiode": "${andrePeriode}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_04 generer fakturaunderlag og agressofil for tjenestemannsorganisasjoner termin ${termin}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        },
+        {
+          "navn": "kopier filer inn til pa_fak_ba_04",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+              "batchTil": "pa_fak_ba_04",
+              "termininfoVersjon": "${termininfoVersjon}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
+              "periode": "${førstePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
+            },
+            {
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
+              "periode": "${andrePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
+            }
+          ]
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_fakturaunderlag_for_tjenestemannsorg",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${termin}",
+          "premiemodell": "TJENESTEMANNSORG",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_batch_output",
+          "filnavn": "fakturaunderlag",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fakturaunderlag_for_tjenestemannsorg/${termin}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_agressofil_for_tjenestemannsorg",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${termin}",
+          "premiemodell": "TJENESTEMANNSORG",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_agressofil_for_tjenestemannsorg/${termin}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 dataunderlag for tjenestemannsorganisasjoner avtale og medlem termin ${termin}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        },
+        {
+          "navn": "kopier filer inn til pa_fak_ba_09",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag_faktura",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag_faktura",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+              "batchTil": "pa_fak_ba_09",
+              "termininfoVersjon": "${termininfoVersjon}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
+              "periode": "${førstePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
+            },
+            {
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
+              "periode": "${andrePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
+            }
+          ]
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "tjenestemannsorg_dataunderlag_for_medlem",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premiemodell": "TJENESTEMANNSORG",
+          "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "tjenestemannsorg_dataunderlag_for_medlem/${termin}"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "tjenestemannsorg_dataunderlag_medlem",
+          "filListe": "TJENESTEMANNSORG_FILLISTE_MEDLEM.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/tjenestemannsorg/fakturering/medlem"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "tjenestemannsorg_dataunderlag_for_avtale",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premiemodell": "TJENESTEMANNSORG",
+          "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "tjenestemannsorg_dataunderlag_for_avtale/${termin}"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "tjenestemannsorg_dataunderlag_avtale",
+          "filListe": "TJENESTEMANNSORG_FILLISTE_AVTALE.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/tjenestemannsorg/fakturering/avtale"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        }
+      ]
+    }
+  ]
+}
