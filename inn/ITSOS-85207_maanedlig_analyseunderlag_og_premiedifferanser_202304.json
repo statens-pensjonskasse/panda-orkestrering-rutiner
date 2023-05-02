@@ -3,18 +3,18 @@
   "gyldigVersjon": "0.1.0",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataFremskriving": "grunnlagsdata_2023-03-31_21-35-40-82",
+    "grunnlagsdataFremskriving": "grunnlagsdata_2023-04-30_17-06-33-33",
     "reserveberegningGrunnlagsdataAktuarVersjon": "5",
-    "fremskrivingsDato": "2023.04.01",
-    "forrigeFremskrivingsDato": "2023.03.01",
-    "periode": "202303",
+    "fremskrivingsDato": "2023.05.01",
+    "forrigeFremskrivingsDato": "2023.04.01",
+    "periode": "202304",
     "rettighet": "panda_veldig_forenkla_rettighet",
-    "uttrekksdato": "31.03.2023",
-    "paResBa01Versjon": "1.2.83",
+    "uttrekksdato": "30.04.2023",
+    "paResBa01Versjon": "1.2.86",
     "paFakBa02Versjon": "1.0.1",
     "paFakBa03Versjon": "1.0.1",
-    "paFakBa05Versjon": "1.0.1",
-    "paFakBa09Versjon": "2.0.1",
+    "paFakBa05Versjon": "1.0.2",
+    "paFakBa09Versjon": "2.0.4",
     "paFakBa11Versjon": "1.0.4",
     "paFakBa12Versjon": "1.0.0",
     "paFakBa13Versjon": "1.0.3"
@@ -63,8 +63,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_01",
-          "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+          "batch": "pa_res_ba_01"
         },
         {
           "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
@@ -169,8 +168,7 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_01",
-          "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+          "batch": "pa_res_ba_01"
         }
       ]
     },
@@ -180,8 +178,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_11",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_11"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -233,8 +230,7 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_11",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_11"
         }
       ]
     },
@@ -244,8 +240,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_03",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_03"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -282,8 +277,7 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_03",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_03"
         }
       ]
     },
@@ -293,8 +287,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_13",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_13"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -324,8 +317,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_02",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_02"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -356,8 +348,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_02",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_02"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -389,8 +380,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_05"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -416,8 +406,7 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_05"
         }
       ]
     },
@@ -431,8 +420,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_09"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -472,8 +460,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_09"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -508,8 +495,7 @@
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_09"
             }
           ]
         },
@@ -519,8 +505,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_09"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -554,8 +539,7 @@
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_09"
             }
           ]
         },
@@ -565,8 +549,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_09"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -605,8 +588,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_09"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -638,8 +620,7 @@
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_09"
             }
           ]
         }

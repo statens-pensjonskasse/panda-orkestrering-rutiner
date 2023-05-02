@@ -2,22 +2,22 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periode ${periode}",
   "gyldigVersjon": "0.1.0",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "fremskrivingsDato": "<YYYY.MM.dd>",
-    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode": "<periode>",
-    "rettighet": "<rettighet>",
-    "uttrekksdato": "<dd.MM.YYYY>",
-    "paResBa01Versjon": "<X.Y.Z>",
-    "paFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa03Versjon": "<X.Y.Z>",
-    "paFakBa05Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa11Versjon": "<X.Y.Z>",
-    "paFakBa12Versjon": "<X.Y.Z>",
-    "paFakBa13Versjon": "<X.Y.Z>"
+    "grunnlagsdataMappe": "grunnlagsdata_2023-04-03_12-35-08-54",
+    "grunnlagsdataFremskriving": "grunnlagsdata_2023-03-31_21-35-40-82",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "5",
+    "fremskrivingsDato": "2023.04.01",
+    "forrigeFremskrivingsDato": "2023.03.01",
+    "periode": "202303",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+    "uttrekksdato": "31.03.2023",
+    "paResBa01Versjon": "1.2.83",
+    "paFakBa02Versjon": "1.0.1",
+    "paFakBa03Versjon": "1.0.1",
+    "paFakBa05Versjon": "1.0.1",
+    "paFakBa09Versjon": "2.0.1",
+    "paFakBa11Versjon": "1.0.4",
+    "paFakBa12Versjon": "1.0.0",
+    "paFakBa13Versjon": "1.0.3"
   },
   "operasjoner": [
     {
@@ -63,7 +63,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_01"
+          "batch": "pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
         },
         {
           "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
@@ -168,7 +169,8 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_01"
+          "batch": "pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
         }
       ]
     },
@@ -178,7 +180,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_11"
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -230,7 +233,8 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_11"
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
@@ -240,7 +244,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_03"
+          "batch": "pa_fak_ba_03",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -277,7 +282,8 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_03"
+          "batch": "pa_fak_ba_03",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
@@ -287,7 +293,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_13"
+          "batch": "pa_fak_ba_13",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -317,7 +324,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_02"
+          "batch": "pa_fak_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -348,7 +356,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_02"
+          "batch": "pa_fak_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -380,7 +389,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05"
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -406,7 +416,8 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05"
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
@@ -420,7 +431,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09"
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -433,7 +445,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "generer_reserveoppbygging_dataunderlag",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "0d51cbbb-2060-46e2-9562-4a69c68a88b3",
               "uttrekksdato": "${uttrekksdato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "validerFeilendeMedlemmer": true
@@ -460,7 +472,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09"
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -476,7 +489,7 @@
               "modus": "generer_kontofoeringunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "uttrekksdato": "${uttrekksdato}",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "110a51f7-05f9-4570-a511-a64988a9ba38",
               "validerFeilendeMedlemmer": true
             },
             {
@@ -495,7 +508,8 @@
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09"
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             }
           ]
         },
@@ -505,7 +519,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09"
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -518,7 +533,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "feilmelding_dataunderlag",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "3ec1d862-48bd-432e-9727-0ffde578827c",
               "uttrekksdato": "${uttrekksdato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "bokføringsperiode": "${periode}",
@@ -539,7 +554,8 @@
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09"
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             }
           ]
         },
@@ -549,7 +565,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09"
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -562,7 +579,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "generer_administrasjonspremieunderlag_dataunderlag",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "3f794828-edd1-48b2-86ad-8e3424ac6aa4",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "bokføringsperiode": "${periode}",
               "validerFeilendeMedlemmer": true
@@ -588,7 +605,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09"
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -601,7 +619,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "generer_administrasjonspremie_dataunderlag",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "53569cd9-fa4c-420c-ac73-eb66d5ab65ee",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "validerFeilendeMedlemmer": true
             },
@@ -620,7 +638,8 @@
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09"
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             }
           ]
         }
