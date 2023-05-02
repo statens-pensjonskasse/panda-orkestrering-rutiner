@@ -6,7 +6,9 @@
     "termin": "<termin>",
     "førstePeriode": "<førstePeriode>",
     "andrePeriode": "<andrePeriode>",
-    "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
+
+    "førsteFremskrivingsdato": "<YYYY.MM.dd>",
+    "andreFremskrivingsdato": "<YYYY.MM.dd>",
 
     "termininfoVersjon": "<termininfoVersjon>",
 
@@ -43,12 +45,11 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_14"
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "TJENESTEMANNSORG",
+          "premiemodell": "tjenestemannsorg",
           "periode": "${førstePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
@@ -76,8 +77,7 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_14"
         }
       ]
     },
@@ -87,12 +87,11 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_14"
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "TJENESTEMANNSORG",
+          "premiemodell": "tjenestemannsorg",
           "periode": "${andrePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
@@ -120,8 +119,77 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_14"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generer administrasjonspremieunderlag for faktura for ${førstePeriode}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskrivingsdato}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_administrasjonspremieunderlag_for_fakturering",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "bokføringsperiode": "${førstePeriode}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${førstePeriode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generer administrasjonspremieunderlag for faktura for ${andrePeriode}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsdato}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_administrasjonspremieunderlag_for_fakturering",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "bokføringsperiode": "${andrePeriode}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${andrePeriode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
         }
       ]
     },
@@ -131,8 +199,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_05"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -165,8 +232,7 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_05"
         }
       ]
     },
@@ -176,8 +242,7 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_05"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -210,19 +275,17 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_05"
         }
       ]
     },
     {
-      "navn": "pa_fak_ba_04 tjenestemannsorg fakturaunderlag og agressofil termin ${termin}",
+      "navn": "pa_fak_ba_04 generer fakturaunderlag og agressofil for tjenestemannsorganisasjoner termin ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_04",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_04"
         },
         {
           "navn": "kopier filer inn til pa_fak_ba_04",
@@ -251,20 +314,22 @@
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
-              "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "TJENESTEMANNSORG",
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
               "periode": "${førstePeriode}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_04",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
             },
             {
-              "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "TJENESTEMANNSORG",
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
               "periode": "${andrePeriode}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_04",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
             }
           ]
         },
@@ -295,24 +360,21 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_agressofil_for_tjenestemannsorg/${termin}",
-          "filter": "Agressofil"
+          "nøkkel": "generer_agressofil_for_tjenestemannsorg/${termin}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_04",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_04"
         }
       ]
     },
     {
-      "navn": "pa_fak_ba_09 tjenestemannsorg dataunderlag for avtale og medlem termin ${termin}",
+      "navn": "pa_fak_ba_09 dataunderlag for tjenestemannsorganisasjoner avtale og medlem termin ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_09"
         },
         {
           "navn": "kopier filer inn til pa_fak_ba_09",
@@ -357,20 +419,22 @@
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
-              "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "TJENESTEMANNSORG",
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
               "periode": "${førstePeriode}",
               "prognoseVersjon": "avtaleliste",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
             },
             {
-              "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "TJENESTEMANNSORG",
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
               "periode": "${andrePeriode}",
               "prognoseVersjon": "avtaleliste",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
             }
           ]
         },
@@ -420,8 +484,7 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "batch": "pa_fak_ba_09"
         }
       ]
     }
