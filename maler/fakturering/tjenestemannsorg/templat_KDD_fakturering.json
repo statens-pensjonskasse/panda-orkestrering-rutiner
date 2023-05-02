@@ -592,9 +592,9 @@
         {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "hbf_kdd_dataunderlag_medlem",
-          "filListe": "KDD_FILLISTE_MEDLEM.txt",
+          "filListe": "HBFKDD_FILLISTE_MEDLEM.txt",
           "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/kdd/medlem"
+          "filstiHosDVH": "/hbf_kdd/medlem"
         },
         {
           "handling": "pa_fak_ba_09",
@@ -614,9 +614,9 @@
         {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "hbf_kdd_dataunderlag_avtale",
-          "filListe": "KDD_FILLISTE_AVTALE.txt",
+          "filListe": "HBFKDD_FILLISTE_AVTALE.txt",
           "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/kdd/avtale"
+          "filstiHosDVH": "/hbf_kdd/avtale"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
