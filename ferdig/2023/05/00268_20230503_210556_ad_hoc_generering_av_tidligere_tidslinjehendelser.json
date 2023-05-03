@@ -1,7 +1,7 @@
 {
   "navn": "Ad-hoc rutine for generering av tidligere tidslinjehendelser",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2023-05-03_09-30-08-88",
 
     "paResBa01VersjonDesember": "1.2.55",
     "grunnlagsdataFremskrivingDesember": "grunnlagsdata_2022-12-31_17-08-07-50",
