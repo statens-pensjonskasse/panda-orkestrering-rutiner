@@ -1,5 +1,5 @@
 {
-  "navn": "Ad-hoc rutine for generering av berikede tidslinjehendelser til DVH ${uttreksdato}",
+  "navn": "Ad-hoc rutine for generering av berikede tidslinjehendelser til DVH ${uttrekksdato}",
   "variabler": {
     "paFakBa09Versjon": "2.0.3",
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
