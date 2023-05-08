@@ -423,7 +423,7 @@
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
       "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/verdikjedetest"
     }
   ]
 }
