@@ -50,11 +50,6 @@
     },
 
     {
-      "handling": "rydd_filområde_hos_dvh",
-      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
-    },
-
-    {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -423,7 +418,7 @@
       "filPrefix": "loepende_premieoppgjoer_dataunderlag",
       "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+      "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/verdikjedetest"
     }
   ]
 }
