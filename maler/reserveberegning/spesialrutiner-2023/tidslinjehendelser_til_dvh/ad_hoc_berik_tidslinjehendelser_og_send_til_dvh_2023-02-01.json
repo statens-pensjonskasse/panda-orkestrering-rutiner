@@ -1,5 +1,5 @@
 {
-  "navn": "Ad-hoc rutine for generering av berikede tidslinjehendelser til DVH ${uttreksdato}",
+  "navn": "Ad-hoc rutine for generering av berikede tidslinjehendelser til DVH ${uttrekksdato}",
   "variabler": {
     "paFakBa09Versjon": "2.0.3",
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
@@ -35,7 +35,8 @@
       "kjøringsId": "#{genererUUID}",
       "uttrekksdato": "${uttrekksdato}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "sisteFremskrivingsdato": "${sisteFremskrivingsdato}"
+      "sisteFremskrivingsdato": "${sisteFremskrivingsdato}",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_all_batch_output",

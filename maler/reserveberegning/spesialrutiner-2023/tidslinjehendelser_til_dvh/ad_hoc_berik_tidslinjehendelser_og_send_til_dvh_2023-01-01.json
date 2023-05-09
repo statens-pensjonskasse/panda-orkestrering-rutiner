@@ -35,7 +35,8 @@
       "kjøringsId": "#{genererUUID}",
       "uttrekksdato": "${uttrekksdato}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "sisteFremskrivingsdato": "${sisteFremskrivingsdato}"
+      "sisteFremskrivingsdato": "${sisteFremskrivingsdato}",
+      "validerFeilendeMedlemmer": true
     },
     {
       "handling": "arkiver_all_batch_output",
