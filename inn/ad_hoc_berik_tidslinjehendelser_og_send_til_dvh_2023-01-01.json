@@ -1,0 +1,60 @@
+{
+  "navn": "Ad-hoc rutine for generering av berikede tidslinjehendelser til DVH ${uttrekksdato}",
+  "variabler": {
+    "paFakBa09Versjon": "2.0.5",
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "sisteFremskrivingsdato": "2023.01.01",
+    "uttrekksdato": "31.12.2022"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        }
+      ]
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "tidslinjehendelser",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_tidslinjehendelser/${sisteFremskrivingsdato}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_beriket_tidslinjehendelser",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "sisteFremskrivingsdato": "${sisteFremskrivingsdato}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_beriket_tidslinjehendelser/${sisteFremskrivingsdato}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "tidslinjehendelser_dataunderlag",
+      "filListe": "TIDSLINJEHENDELSER_FILLISTE.txt",
+      "batch": "pa_fak_ba_09",
+      "encoding": "utf-16le",
+      "filstiHosDVH": "/tidslinjehendelser"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09"
+    }
+  ]
+}
