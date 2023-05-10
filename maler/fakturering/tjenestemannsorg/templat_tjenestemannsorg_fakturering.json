@@ -144,7 +144,8 @@
           "modus": "generer_administrasjonspremieunderlag_for_fakturering",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${førstePeriode}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -179,7 +180,8 @@
           "modus": "generer_administrasjonspremieunderlag_for_fakturering",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${andrePeriode}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -222,7 +224,8 @@
           "modus": "generer_medlemsandel_tjenestemannsorg",
           "bokføringsperiode": "${førstePeriode}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -265,7 +268,8 @@
           "modus": "generer_medlemsandel_tjenestemannsorg",
           "bokføringsperiode": "${andrePeriode}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
