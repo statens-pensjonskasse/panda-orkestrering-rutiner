@@ -239,7 +239,8 @@
       "handling": "pa_fak_ba_10",
       "modus": "sammenstill_sluttfaktura",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "debugger": "lagreDebug"
     },
     {
       "handling": "arkiver_all_batch_output",
