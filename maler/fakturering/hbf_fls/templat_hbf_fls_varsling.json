@@ -59,7 +59,8 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_aggregert_prognosepremie_varsling",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "debugger": "lagreDebug"
     },
     {
       "handling": "arkiver_all_batch_output",
