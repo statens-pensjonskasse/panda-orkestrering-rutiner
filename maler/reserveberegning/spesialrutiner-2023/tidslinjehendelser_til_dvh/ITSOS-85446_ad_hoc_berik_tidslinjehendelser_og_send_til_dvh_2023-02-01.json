@@ -1,10 +1,10 @@
 {
   "navn": "Ad-hoc rutine for generering av berikede tidslinjehendelser til DVH ${uttrekksdato}",
   "variabler": {
-    "paFakBa09Versjon": "2.0.3",
+    "paFakBa09Versjon": "2.0.5",
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "sisteFremskrivingsdato": "2023.04.01",
-    "uttrekksdato": "31.03.2023"
+    "sisteFremskrivingsdato": "2023.02.01",
+    "uttrekksdato": "31.01.2023"
   },
   "operasjoner": [
     {
