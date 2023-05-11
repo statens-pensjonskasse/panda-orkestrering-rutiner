@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
 
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2023-05-11_14-05-07-31",
 
     "periode": "202304",
     "fremskrivingsDato": "2023.05.01",
@@ -404,7 +404,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "generer_loepende_premieoppgjoer_dataunderlag",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "e00ee390-f4f5-4f24-aaa7-a803e0932f29",
       "validerFeilendeMedlemmer": true
     },
     {
