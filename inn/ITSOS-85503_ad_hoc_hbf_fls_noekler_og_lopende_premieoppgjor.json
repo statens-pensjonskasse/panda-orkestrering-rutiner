@@ -5,17 +5,17 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "periode": "<periode>",
-    "fremskrivingsDato": "<fremskrivingsDato>",
-    "fordelingsnøkkelSti": "<fordelingsnøkkelSti>",
-    "prognoseVersjon": "<prognoseVersjon>",
+    "periode": "202304",
+    "fremskrivingsDato": "2023.05.01",
+    "fordelingsnøkkelSti": "april_noekler_2023",
+    "prognoseVersjon": "11002024",
 
-    "paFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa06Versjon": "<X.Y.Z>",
-    "paFakBa07Versjon": "<X.Y.Z>",
-    "paFakBa08Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "paFakBa02Versjon": "2.0.0",
+    "paFakBa06Versjon": "3.0.1",
+    "paFakBa07Versjon": "2.0.2",
+    "paFakBa08Versjon": "2.0.0",
+    "paFakBa09Versjon": "2.0.5",
+    "paFakBa14Versjon": "1.0.6"
   },
 
   "operasjoner": [
