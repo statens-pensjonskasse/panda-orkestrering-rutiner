@@ -59,7 +59,8 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_aggregert_prognosepremie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "debugger": "lagreDebug"
     },
     {
       "handling": "arkiver_all_batch_output",
@@ -102,7 +103,8 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_aggregert_prognosepremie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "debugger": "lagreDebug"
     },
     {
       "handling": "arkiver_all_batch_output",
@@ -282,7 +284,8 @@
       "handling": "pa_fak_ba_07",
       "modus": "beregn_lopende_premieoppgjoer",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "debugger": "lagreDebug"
     },
     {
       "handling": "arkiver_all_batch_output",
@@ -598,7 +601,8 @@
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_faktisk_premie",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "debugger": "lagreDebug"
     },
     {
       "handling": "arkiver_all_batch_output",
@@ -642,7 +646,8 @@
       "handling": "pa_fak_ba_07",
       "modus": "beregn_lopende_premieoppgjoer",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "debugger": "lagreDebug"
     },
     {
       "handling": "arkiver_all_batch_output",

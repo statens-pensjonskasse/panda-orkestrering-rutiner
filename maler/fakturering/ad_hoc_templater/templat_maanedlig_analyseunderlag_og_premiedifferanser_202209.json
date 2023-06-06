@@ -451,7 +451,8 @@
       "modus": "generer_administrasjonspremier",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "bokføringsperiode": "${periode}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "debugger": "lagreDebug"
     },
     {
       "handling": "arkiver_all_batch_output",

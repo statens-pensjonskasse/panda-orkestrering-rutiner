@@ -258,7 +258,8 @@
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode1}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -271,7 +272,8 @@
           "modus": "generer_administrasjonspremieunderlag_for_fakturering",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode1}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -360,7 +362,8 @@
           "modus": "generer_medlemsandel_tjenestemannsorg",
           "bokføringsperiode": "${periode1}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -579,7 +582,8 @@
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode2}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -592,7 +596,8 @@
           "modus": "generer_administrasjonspremieunderlag_for_fakturering",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode2}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -681,7 +686,8 @@
           "modus": "generer_medlemsandel_tjenestemannsorg",
           "bokføringsperiode": "${periode2}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -900,7 +906,8 @@
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode3}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -913,7 +920,8 @@
           "modus": "generer_administrasjonspremieunderlag_for_fakturering",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode3}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1002,7 +1010,8 @@
           "modus": "generer_medlemsandel_tjenestemannsorg",
           "bokføringsperiode": "${periode3}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1221,7 +1230,8 @@
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode4}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1234,7 +1244,8 @@
           "modus": "generer_administrasjonspremieunderlag_for_fakturering",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode4}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1323,7 +1334,8 @@
           "modus": "generer_medlemsandel_tjenestemannsorg",
           "bokføringsperiode": "${periode4}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1542,7 +1554,8 @@
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode5}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1555,7 +1568,8 @@
           "modus": "generer_administrasjonspremieunderlag_for_fakturering",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode5}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1644,7 +1658,8 @@
           "modus": "generer_medlemsandel_tjenestemannsorg",
           "bokføringsperiode": "${periode5}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1863,7 +1878,8 @@
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode6}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1876,7 +1892,8 @@
           "modus": "generer_administrasjonspremieunderlag_for_fakturering",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${periode6}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -1965,7 +1982,8 @@
           "modus": "generer_medlemsandel_tjenestemannsorg",
           "bokføringsperiode": "${periode6}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "debugger": "lagreDebug"
         },
         {
           "handling": "arkiver_all_batch_output",
