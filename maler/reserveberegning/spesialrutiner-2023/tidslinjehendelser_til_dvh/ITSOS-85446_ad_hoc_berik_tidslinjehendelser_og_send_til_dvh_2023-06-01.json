@@ -1,0 +1,118 @@
+{
+  "navn": "Ad-hoc rutine for generering av berikede tidslinjehendelser til DVH ${uttrekksdato}",
+  "variabler": {
+    "paFakBa09Versjon": "2.0.5",
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "sisteFremskrivingsdato": "2023.06.01",
+    "uttrekksdato": "31.05.2023",
+
+    "paResBa01Versjon": "1.2.92",
+    "grunnlagsdataFremskrivingMai": "grunnlagsdata_2023-05-31_21-35-47-68",
+  },
+  "operasjoner": [
+    {
+      "navn": "pa_res_ba_01 mai",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "deploy_batch",
+          "batcher": [
+            {
+              "navn": "pa_res_ba_01",
+              "versjon": "${paResBa01Versjon}"
+            }
+          ]
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataFremskrivingMai}"
+        },
+        {
+          "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+          "fraGrunnlagsdataMappe": "${grunnlagsdataFremskrivingMai}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataFremskrivingMai}"
+        },
+        {
+          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+          "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataFremskrivingMai}"
+        },
+        {
+          "navn": "panda_reserveberegning",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_res_ba_01",
+              "modus": "panda_tidslinjehendelser",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdato}",
+              "grunnlagsdataMappe": "${grunnlagsdataFremskrivingMai}",
+              "rettighet": "${rettighet}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_tidslinjehendelser/${sisteFremskrivingsdato}"
+            }
+          ]
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataFremskrivingMai}"
+        }
+      ]
+    },
+
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        }
+      ]
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "tidslinjehendelser",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_09",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+      "nøkkel": "panda_tidslinjehendelser/${sisteFremskrivingsdato}",
+      "kommentar": "Henter fra siste grunnlagsdatamappe"
+    },
+    {
+      "handling": "pa_fak_ba_09",
+      "modus": "generer_beriket_tidslinjehendelser",
+      "kjøringsId": "#{genererUUID}",
+      "uttrekksdato": "${uttrekksdato}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "sisteFremskrivingsdato": "${sisteFremskrivingsdato}",
+      "validerFeilendeMedlemmer": true
+    },
+    {
+      "handling": "arkiver_all_batch_output",
+      "batch": "pa_fak_ba_09",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "nøkkel": "generer_beriket_tidslinjehendelser/${sisteFremskrivingsdato}"
+    },
+    {
+      "handling": "send_batch_output_til_dvh",
+      "filPrefix": "tidslinjehendelser_dataunderlag",
+      "filListe": "TIDSLINJEHENDELSER_FILLISTE.txt",
+      "batch": "pa_fak_ba_09",
+      "encoding": "utf-16le",
+      "filstiHosDVH": "/tidslinjehendelser"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_09"
+    }
+  ]
+}
