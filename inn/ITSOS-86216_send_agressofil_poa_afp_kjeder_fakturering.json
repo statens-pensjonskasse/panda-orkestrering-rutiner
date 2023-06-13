@@ -2,8 +2,8 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP kjeder fakturering til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
   "gyldigVersjon": "0.0.22",
   "variabler": {
-    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "termin" : "<termin>"
+    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_2023-06-08_10-50-06-18",
+    "termin" : "2023-02"
   },
   "operasjoner": [
     {
