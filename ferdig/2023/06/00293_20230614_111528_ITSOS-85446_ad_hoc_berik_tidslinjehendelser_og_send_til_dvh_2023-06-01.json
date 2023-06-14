@@ -2,7 +2,7 @@
   "navn": "Ad-hoc rutine for generering av berikede tidslinjehendelser til DVH ${uttrekksdato}",
   "variabler": {
     "paFakBa09Versjon": "2.0.5",
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2023-06-14_09-20-08-53",
     "sisteFremskrivingsdato": "2023.06.01",
     "uttrekksdato": "31.05.2023",
 
@@ -93,7 +93,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "generer_beriket_tidslinjehendelser",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "0bed023f-df3a-4431-8acb-a385b80f6c14",
       "uttrekksdato": "${uttrekksdato}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "sisteFremskrivingsdato": "${sisteFremskrivingsdato}",
