@@ -7,7 +7,10 @@
     "uttrekksdato": "31.05.2023",
 
     "paResBa01Versjon": "1.2.92",
-    "grunnlagsdataFremskrivingMai": "grunnlagsdata_2023-05-31_21-35-47-68"
+    "grunnlagsdataFremskrivingMai": "grunnlagsdata_2023-05-31_21-35-47-68",
+
+    "rettighet": "panda_veldig_forenkla_rettighet",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "5"
   },
   "operasjoner": [
     {
