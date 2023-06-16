@@ -114,6 +114,25 @@
           ]
         },
         {
+          "navn": "panda_tidslinjehendelser",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_res_ba_01",
+              "modus": "panda_tidslinjehendelser",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "rettighet": "${rettighet}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_tidslinjehendelser/${fremskrivingsDato}"
+            }
+          ]
+        },
+        {
           "navn": "panda-testdata-rettighet-ytelser",
           "handling": "gruppe",
           "gruppeAv": [
@@ -618,6 +637,52 @@
               "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.txt",
               "batch": "pa_fak_ba_09",
               "filstiHosDVH": "/administrasjonspremie"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_09 (tidslinjehendelser)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "tidslinjehendelser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_tidslinjehendelser/${fremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "generer_beriket_tidslinjehendelser",
+              "kjøringsId": "#{genererUUID}",
+              "uttrekksdato": "${uttrekksdato}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_beriket_tidslinjehendelser/${fremskrivingsDato}"
+            },
+            {
+              "handling": "send_batch_output_til_dvh",
+              "filPrefix": "tidslinjehendelser_dataunderlag",
+              "filListe": "TIDSLINJEHENDELSER_FILLISTE.txt",
+              "batch": "pa_fak_ba_09",
+              "encoding": "utf-16le",
+              "filstiHosDVH": "/tidslinjehendelser"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
