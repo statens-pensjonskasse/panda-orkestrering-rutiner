@@ -1,0 +1,1035 @@
+{
+  "navn": "Rutine som genererer første periode diffet mot eksisterende periode med testdata for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periodene ${førsteFullePeriode}",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon,trengerIkkeEndresHvisIgnorert>",
+    "skalIgnorereGrunnlagsdataFraAktuar": "true",
+    "førsteFremskrivingsDato": "<nulteFremskrivingsperiodeSomErBaselineForNestePeriode>",
+    "andreFremskrivingsDato": "<YYYY.MM.dd>",
+    "nultePeriode": "<nultePeriodeSomErBaselineForNestePeriode>",
+    "førsteFullePeriode": "<førsteFullePeriode>",
+    "rettighet": "<rettighet>",
+    "uttrekksdato": "<dd.MM.YYYY>",
+    "skalIgnorereTidslinjegenerering": "true",
+    "skalIgnorereTestdataRettighetYtelser": "true",
+    "skalIgnorerePandaPoliser": "true",
+    "skalIgnorereDataunderlag": "true",
+
+    "paResBa01Versjon": "<X.Y.Z>",
+    "paFakBa02Versjon": "<X.Y.Z>",
+    "paFakBa03Versjon": "<X.Y.Z>",
+    "paFakBa05Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa11Versjon": "<X.Y.Z>",
+    "paFakBa12Versjon": "<X.Y.Z>",
+    "paFakBa13Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_res_ba_01",
+          "versjon": "${paResBa01Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${paFakBa02Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_03",
+          "versjon": "${paFakBa03Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_05",
+          "versjon": "${paFakBa05Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_11",
+          "versjon": "${paFakBa11Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_12",
+          "versjon": "${paFakBa12Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "${paFakBa13Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "første kjøring",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_res_ba_01",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_01"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+              "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "ignorertInstruksjon": "${skalIgnorereGrunnlagsdataFraAktuar}"
+            },
+            {
+              "navn": "panda_reserveberegning",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "pa_res_ba_01",
+                  "modus": "panda_reserveberegning",
+                  "sisteFremskrivingsdato": "${førsteFremskrivingsDato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+                  "rettighet": "${rettighet}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_res_ba_01",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_reserveberegning/${førsteFremskrivingsDato}"
+                }
+              ]
+            },
+            {
+              "navn": "panda_administrasjonspremieunderlag",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "pa_res_ba_01",
+                  "modus": "panda_administrasjonspremieunderlag",
+                  "sisteFremskrivingsdato": "${førsteFremskrivingsDato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+                  "rettighet": "${rettighet}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_res_ba_01",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskrivingsDato}"
+                }
+              ]
+            },
+        {
+          "navn": "pa_fak_ba_11 (flette_feilende_medlemmer_med_filtrering)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_11"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "kontofoering",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_fak_ba_11",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_reserveberegning/${førsteFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_fak_ba_11",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_reserveberegning/${førsteFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "hent_spesifisert_del_av_medlemsdata",
+              "batchTil": "pa_fak_ba_11",
+              "filnavnTil": "etterlatte",
+              "typeindikator": "ETTERLATT",
+              "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "pa_fak_ba_11",
+              "modus": "flette_feilende_medlemmer_med_filtrering",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "reserveberegningVersjon": "${paResBa01Versjon}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_11",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_11"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_03 (reserveoppbygging)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_03"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "flettede_kontofoeringer",
+              "batchFra": "pa_fak_ba_11",
+              "batchTil": "pa_fak_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "pa_fak_ba_03",
+              "modus": "reserveoppbygging",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "andreKjøring": "${førsteFremskrivingsDato}",
+              "bokføringsperiode": "${nultePeriode}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveoppbygging/${nultePeriode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_13 (generer_fakturerbare_premiedifferanser)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_13"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reserveoppbygging",
+              "batchFra": "pa_fak_ba_03",
+              "batchTil": "pa_fak_ba_13",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveoppbygging/${nultePeriode}"
+            },
+            {
+              "handling": "pa_fak_ba_13",
+              "modus": "generer_fakturerbare_premiedifferanser",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_13",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${nultePeriode}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_02 (reserveaggregering_for_medlem)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "flettede_kontofoeringer",
+              "batchFra": "pa_fak_ba_11",
+              "batchTil": "pa_fak_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "pa_fak_ba_02",
+              "modus": "reserveaggregering_for_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_02",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveaggregering_for_medlem/${førsteFremskrivingsDato}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_12 (aggreger totalreserve)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "totalreserver",
+              "batchFra": "pa_fak_ba_02",
+              "batchTil": "pa_fak_ba_12",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveaggregering_for_medlem/${førsteFremskrivingsDato}"
+            },
+            {
+              "handling": "pa_fak_ba_12",
+              "modus": "aggreger_csv",
+              "filnavn": "totalreserver",
+              "utFilnavn": "totalreserve",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "resultatfelter": "5"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_12",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "pa_fak_ba_02/reserveaggregering_for_medlem/${førsteFremskrivingsDato}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_05 (generer_administrasjonspremier)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_administrasjonspremier",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "bokføringsperiode": "${nultePeriode}",
+              "validerFeilendeMedlemmer": true,
+              "debugger": "lagreDebug"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${nultePeriode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Andre kjøring",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_res_ba_01",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_01"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+              "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "ignorertInstruksjon":  "${skalIgnorereGrunnlagsdataFraAktuar}"
+            },
+            {
+              "navn": "panda_reserveberegning",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "pa_res_ba_01",
+                  "modus": "panda_reserveberegning",
+                  "sisteFremskrivingsdato": "${andreFremskrivingsDato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+                  "rettighet": "${rettighet}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_res_ba_01",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_reserveberegning/${andreFremskrivingsDato}"
+                }
+              ]
+            },
+            {
+              "navn": "panda_administrasjonspremieunderlag",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "pa_res_ba_01",
+                  "modus": "panda_administrasjonspremieunderlag",
+                  "sisteFremskrivingsdato": "${andreFremskrivingsDato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+                  "rettighet": "${rettighet}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_res_ba_01",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsDato}"
+                }
+              ]
+            },
+            {
+              "navn": "panda_tidslinjehendelser",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "pa_res_ba_01",
+                  "modus": "panda_tidslinjehendelser",
+                  "sisteFremskrivingsdato": "${andreFremskrivingsDato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+                  "rettighet": "${rettighet}",
+                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_res_ba_01",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_tidslinjehendelser/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                }
+              ]
+            },
+            {
+              "navn": "panda-testdata-rettighet-ytelser",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "pa_res_ba_01",
+                  "modus": "panda-testdata-rettighet-ytelser",
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+                  "sisteFremskrivingsdato": "${andreFremskrivingsDato}",
+                  "rettighet": "${rettighet}",
+                  "ignorertInstruksjon": "${skalIgnorereTestdataRettighetYtelser}"
+                },
+                {
+                  "handling": "send_batch_output_til_dvh",
+                  "filPrefix": "rettighet_ytelser_for_dvh",
+                  "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
+                  "batch": "pa_res_ba_01",
+                  "encoding": "utf-16le",
+                  "filstiHosDVH": "/rettighet_ytelse",
+                  "ignorertInstruksjon": "${skalIgnorereTestdataRettighetYtelser}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_res_ba_01",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda-testdata-rettighet-ytelser/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorereTestdataRettighetYtelser}"
+                }
+              ]
+            },
+            {
+              "navn": "panda-poliser",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "pa_res_ba_01",
+                  "modus": "panda-poliser",
+                  "sisteFremskrivingsdato": "${andreFremskrivingsDato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+                  "ignorertInstruksjon": "${skalIgnorerePandaPoliser}"
+                },
+                {
+                  "handling": "send_batch_output_til_dvh",
+                  "filPrefix": "poliser",
+                  "filListe": "POLISE_FILLISTE.txt",
+                  "batch": "pa_res_ba_01",
+                  "encoding": "utf-16le",
+                  "filstiHosDVH": "/polise",
+                  "ignorertInstruksjon": "${skalIgnorerePandaPoliser}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_res_ba_01",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda-poliser/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorerePandaPoliser}"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_01"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_11 (flette_feilende_medlemmer_med_filtrering)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_11"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "kontofoering",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_fak_ba_11",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_reserveberegning/${andreFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_fak_ba_11",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_reserveberegning/${andreFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "flettede_kontofoeringer",
+              "batchFra": "pa_fak_ba_11",
+              "batchTil": "pa_fak_ba_11",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "hent_spesifisert_del_av_medlemsdata",
+              "batchTil": "pa_fak_ba_11",
+              "filnavnTil": "etterlatte",
+              "typeindikator": "ETTERLATT",
+              "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "pa_fak_ba_11",
+              "modus": "flette_feilende_medlemmer_med_filtrering",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "reserveberegningVersjon": "${paResBa01Versjon}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_11",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "flette_feilende_medlemmer/${andreFremskrivingsDato}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_11"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_03 (reserveoppbygging)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_03"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "flettede_kontofoeringer",
+              "batchFra": "pa_fak_ba_11",
+              "batchTil": "pa_fak_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "flettede_kontofoeringer",
+              "batchFra": "pa_fak_ba_11",
+              "batchTil": "pa_fak_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "flette_feilende_medlemmer/${andreFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "pa_fak_ba_03",
+              "modus": "reserveoppbygging",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "førsteKjøring": "${førsteFremskrivingsDato}",
+              "andreKjøring": "${andreFremskrivingsDato}",
+              "bokføringsperiode": "${førsteFullePeriode}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveoppbygging/${førsteFullePeriode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_13 (generer_fakturerbare_premiedifferanser)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_13"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reserveoppbygging",
+              "batchFra": "pa_fak_ba_03",
+              "batchTil": "pa_fak_ba_13",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveoppbygging/${førsteFullePeriode}"
+            },
+            {
+              "handling": "pa_fak_ba_13",
+              "modus": "generer_fakturerbare_premiedifferanser",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_13",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${førsteFullePeriode}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_02 (reserveaggregering_for_medlem)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "flettede_kontofoeringer",
+              "batchFra": "pa_fak_ba_11",
+              "batchTil": "pa_fak_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "flette_feilende_medlemmer/${andreFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "pa_fak_ba_02",
+              "modus": "reserveaggregering_for_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_02",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveaggregering_for_medlem/${andreFremskrivingsDato}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_12 (aggreger totalreserve)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "totalreserver",
+              "batchFra": "pa_fak_ba_02",
+              "batchTil": "pa_fak_ba_12",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveaggregering_for_medlem/${andreFremskrivingsDato}"
+            },
+            {
+              "handling": "pa_fak_ba_12",
+              "modus": "aggreger_csv",
+              "filnavn": "totalreserver",
+              "utFilnavn": "totalreserve",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "resultatfelter": "5"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_12",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "pa_fak_ba_02/reserveaggregering_for_medlem/${andreFremskrivingsDato}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_05 (generer_administrasjonspremier)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsDato}",
+              "kommentar": "Henter fra siste grunnlagsdatamappe"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_administrasjonspremier",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "bokføringsperiode": "${førsteFullePeriode}",
+              "validerFeilendeMedlemmer": true,
+              "debugger": "lagreDebug"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${førsteFullePeriode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        },
+        {
+          "navn": "Underlag til DVH",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "navn": "pa_fak_ba_09 (reserveoppbygging)",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "kopier_fra_arkiv_til_batch",
+                  "filnavn": "reserveoppbygging",
+                  "batchFra": "pa_fak_ba_03",
+                  "batchTil": "pa_fak_ba_09",
+                  "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+                  "nøkkel": "reserveoppbygging/${førsteFullePeriode}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "pa_fak_ba_09",
+                  "modus": "generer_reserveoppbygging_dataunderlag",
+                  "kjøringsId": "#{genererUUID}",
+                  "uttrekksdato": "${uttrekksdato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "validerFeilendeMedlemmer": true,
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_fak_ba_09",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${førsteFullePeriode}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "send_batch_output_til_dvh",
+                  "filPrefix": "reserveoppbygging_dataunderlag",
+                  "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
+                  "batch": "pa_fak_ba_09",
+                  "filstiHosDVH": "/reserveoppbygging",
+                  "encoding": "UTF-16LE",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                }
+              ]
+            },
+            {
+              "navn": "pa_fak_ba_09 (flettede_kontofoeringer)",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "kopier_fra_arkiv_til_batch",
+                  "filnavn": "flettede_kontofoeringer",
+                  "batchFra": "pa_fak_ba_11",
+                  "batchTil": "pa_fak_ba_09",
+                  "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+                  "nøkkel": "flette_feilende_medlemmer/${andreFremskrivingsDato}",
+                  "kommentar": "Henter fra siste grunnlagsdatamappe",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "pa_fak_ba_09",
+                  "modus": "generer_kontofoeringunderlag",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "uttrekksdato": "${uttrekksdato}",
+                  "kjøringsId": "#{genererUUID}",
+                  "validerFeilendeMedlemmer": true,
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_fak_ba_09",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "generer_kontofoeringunderlag/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "send_batch_output_til_dvh",
+                  "filPrefix": "kontofoeringunderlag",
+                  "filListe": "KONTOFOERING_FILLISTE.txt",
+                  "batch": "pa_fak_ba_09",
+                  "filstiHosDVH": "/kontofoering",
+                  "encoding": "UTF-16LE",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                }
+              ]
+            },
+            {
+              "navn": "pa_fak_ba_09 (feilmeldinger)",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "kopier_fra_arkiv_til_batch",
+                  "filnavn": "feilmeldinger",
+                  "batchFra": "pa_res_ba_01",
+                  "batchTil": "pa_fak_ba_09",
+                  "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_reserveberegning/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "pa_fak_ba_09",
+                  "modus": "feilmelding_dataunderlag",
+                  "kjøringsId": "#{genererUUID}",
+                  "uttrekksdato": "${uttrekksdato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "bokføringsperiode": "${førsteFullePeriode}",
+                  "validerFeilendeMedlemmer": true,
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_fak_ba_09",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "feilmelding_dataunderlag/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "send_batch_output_til_dvh",
+                  "filPrefix": "feilmelding_dataunderlag",
+                  "filListe": "FEILENDE_MEDLEM_FILLISTE.txt",
+                  "batch": "pa_fak_ba_09",
+                  "filstiHosDVH": "/feilende_medlemmer",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                }
+              ]
+            },
+            {
+              "navn": "pa_fak_ba_09 (administrasjonspremieunderlag)",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "kopier_fra_arkiv_til_batch",
+                  "filnavn": "administrasjonspremieunderlag",
+                  "batchFra": "pa_res_ba_01",
+                  "batchTil": "pa_fak_ba_09",
+                  "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "pa_fak_ba_09",
+                  "modus": "generer_administrasjonspremieunderlag_dataunderlag",
+                  "kjøringsId": "#{genererUUID}",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "bokføringsperiode": "${førsteFullePeriode}",
+                  "validerFeilendeMedlemmer": true,
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_fak_ba_09",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "send_batch_output_til_dvh",
+                  "filPrefix": "administrasjonspremieunderlag_dataunderlag",
+                  "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
+                  "batch": "pa_fak_ba_09",
+                  "filstiHosDVH": "/administrasjonspremieunderlag",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                }
+              ]
+            },
+            {
+              "navn": "pa_fak_ba_09 (administrasjonspremie)",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "kopier_fra_arkiv_til_batch",
+                  "filnavn": "administrasjonspremie",
+                  "batchFra": "pa_fak_ba_05",
+                  "batchTil": "pa_fak_ba_09",
+                  "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+                  "nøkkel": "generer_administrasjonspremier/${førsteFullePeriode}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "pa_fak_ba_09",
+                  "modus": "generer_administrasjonspremie_dataunderlag",
+                  "kjøringsId": "#{genererUUID}",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "validerFeilendeMedlemmer": true,
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_fak_ba_09",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "generer_administrasjonspremie_dataunderlag/${førsteFullePeriode}",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "send_batch_output_til_dvh",
+                  "filPrefix": "administrasjonspremie_dataunderlag",
+                  "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.txt",
+                  "batch": "pa_fak_ba_09",
+                  "filstiHosDVH": "/administrasjonspremie",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                },
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                }
+              ]
+            },
+            {
+              "navn": "pa_fak_ba_09 (tidslinjehendelser)",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                },
+                {
+                  "handling": "kopier_fra_arkiv_til_batch",
+                  "filnavn": "tidslinjehendelser",
+                  "batchFra": "pa_res_ba_01",
+                  "batchTil": "pa_fak_ba_09",
+                  "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_tidslinjehendelser/${andreFremskrivingsDato}",
+                  "kommentar": "Henter fra siste grunnlagsdatamappe",
+                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                },
+                {
+                  "handling": "pa_fak_ba_09",
+                  "modus": "generer_beriket_tidslinjehendelser",
+                  "kjøringsId": "#{genererUUID}",
+                  "uttrekksdato": "${uttrekksdato}",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "sisteFremskrivingsdato": "${andreFremskrivingsDato}",
+                  "validerFeilendeMedlemmer": true,
+                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                },
+                {
+                  "handling": "arkiver_all_batch_output",
+                  "batch": "pa_fak_ba_09",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "nøkkel": "generer_beriket_tidslinjehendelser/${andreFremskrivingsDato}",
+                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                },
+                {
+                  "handling": "send_batch_output_til_dvh",
+                  "filPrefix": "tidslinjehendelser_dataunderlag",
+                  "filListe": "TIDSLINJEHENDELSER_FILLISTE.txt",
+                  "batch": "pa_fak_ba_09",
+                  "encoding": "utf-16le",
+                  "filstiHosDVH": "/tidslinjehendelser",
+                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                },
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_09",
+                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                }
+              ]
+            }
+          ],
+          "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+        }
+      ]
+    }
+  ]
+}
