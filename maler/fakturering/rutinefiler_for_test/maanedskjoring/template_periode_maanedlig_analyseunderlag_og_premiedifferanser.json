@@ -3,17 +3,17 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "sisteEksisterendeFremskrivingsDato": "<YYYY.MM.dd>",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon,trengerIkkeEndresHvisIgnorert>",
+    "skalIgnorereGrunnlagsdataFraAktuar": "true",
+    "eksisterendeFremskrivingsDato": "<YYYY.MM.dd>",
     "nyFremskrivingsDato": "<YYYY.MM.dd>",
     "nyPeriode": "<periode>",
     "rettighet": "<rettighet>",
     "uttrekksdato": "<dd.MM.YYYY>",
-    "skalIgnorereGrunnlagsdataFraAktuar": "true",
     "skalIgnorereTidslinjegenerering": "true",
     "skalIgnorereTestdataRettighetYtelser": "true",
     "skalIgnorerePandaPoliser": "true",
-    "skalIgnorereDataunderlag": "true",
+    "skalIgnorereFakturaDataunderlag": "true",
 
     "paResBa01Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "navn": "Andre kjøring",
+      "navn": "Periode diffet mot eksisterende data",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -241,7 +241,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${sisteEksisterendeFremskrivingsDato}",
+              "nøkkel": "flette_feilende_medlemmer/${eksisterendeFremskrivingsDato}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -285,7 +285,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${sisteEksisterendeFremskrivingsDato}",
+              "nøkkel": "flette_feilende_medlemmer/${eksisterendeFremskrivingsDato}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -301,7 +301,7 @@
               "handling": "pa_fak_ba_03",
               "modus": "reserveoppbygging",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "førsteKjøring": "${sisteEksisterendeFremskrivingsDato}",
+              "førsteKjøring": "${eksisterendeFremskrivingsDato}",
               "andreKjøring": "${nyFremskrivingsDato}",
               "bokføringsperiode": "${nyPeriode}",
               "validerFeilendeMedlemmer": true
@@ -459,7 +459,7 @@
                 {
                   "handling": "rydd_grunnlagsdata_for_batch",
                   "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "kopier_fra_arkiv_til_batch",
@@ -468,7 +468,7 @@
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
                   "nøkkel": "reserveoppbygging/${nyPeriode}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -477,14 +477,14 @@
                   "uttrekksdato": "${uttrekksdato}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "validerFeilendeMedlemmer": true,
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_fak_ba_09",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "nøkkel": "generer_reserveoppbygging_dataunderlag/${nyPeriode}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "send_batch_output_til_dvh",
@@ -493,7 +493,7 @@
                   "batch": "pa_fak_ba_09",
                   "filstiHosDVH": "/reserveoppbygging",
                   "encoding": "UTF-16LE",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 }
               ]
             },
@@ -504,7 +504,7 @@
                 {
                   "handling": "rydd_grunnlagsdata_for_batch",
                   "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "kopier_fra_arkiv_til_batch",
@@ -514,7 +514,7 @@
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
                   "nøkkel": "flette_feilende_medlemmer/${nyFremskrivingsDato}",
                   "kommentar": "Henter fra siste grunnlagsdatamappe",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -523,14 +523,14 @@
                   "uttrekksdato": "${uttrekksdato}",
                   "kjøringsId": "#{genererUUID}",
                   "validerFeilendeMedlemmer": true,
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_fak_ba_09",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "nøkkel": "generer_kontofoeringunderlag/${nyFremskrivingsDato}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "send_batch_output_til_dvh",
@@ -539,12 +539,12 @@
                   "batch": "pa_fak_ba_09",
                   "filstiHosDVH": "/kontofoering",
                   "encoding": "UTF-16LE",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "rydd_grunnlagsdata_for_batch",
                   "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 }
               ]
             },
@@ -555,7 +555,7 @@
                 {
                   "handling": "rydd_grunnlagsdata_for_batch",
                   "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "kopier_fra_arkiv_til_batch",
@@ -564,7 +564,7 @@
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
                   "nøkkel": "panda_reserveberegning/${nyFremskrivingsDato}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -574,14 +574,14 @@
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "bokføringsperiode": "${nyPeriode}",
                   "validerFeilendeMedlemmer": true,
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_fak_ba_09",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "nøkkel": "feilmelding_dataunderlag/${nyFremskrivingsDato}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "send_batch_output_til_dvh",
@@ -589,12 +589,12 @@
                   "filListe": "FEILENDE_MEDLEM_FILLISTE.txt",
                   "batch": "pa_fak_ba_09",
                   "filstiHosDVH": "/feilende_medlemmer",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "rydd_grunnlagsdata_for_batch",
                   "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 }
               ]
             },
@@ -605,7 +605,7 @@
                 {
                   "handling": "rydd_grunnlagsdata_for_batch",
                   "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "kopier_fra_arkiv_til_batch",
@@ -614,7 +614,7 @@
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
                   "nøkkel": "panda_administrasjonspremieunderlag/${nyFremskrivingsDato}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -623,14 +623,14 @@
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "bokføringsperiode": "${nyPeriode}",
                   "validerFeilendeMedlemmer": true,
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_fak_ba_09",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${nyFremskrivingsDato}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "send_batch_output_til_dvh",
@@ -638,7 +638,7 @@
                   "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
                   "batch": "pa_fak_ba_09",
                   "filstiHosDVH": "/administrasjonspremieunderlag",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 }
               ]
             },
@@ -649,7 +649,7 @@
                 {
                   "handling": "rydd_grunnlagsdata_for_batch",
                   "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "kopier_fra_arkiv_til_batch",
@@ -658,7 +658,7 @@
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
                   "nøkkel": "generer_administrasjonspremier/${nyPeriode}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -666,14 +666,14 @@
                   "kjøringsId": "#{genererUUID}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "validerFeilendeMedlemmer": true,
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_fak_ba_09",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "nøkkel": "generer_administrasjonspremie_dataunderlag/${nyPeriode}",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "send_batch_output_til_dvh",
@@ -681,12 +681,12 @@
                   "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.txt",
                   "batch": "pa_fak_ba_09",
                   "filstiHosDVH": "/administrasjonspremie",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
                 {
                   "handling": "rydd_grunnlagsdata_for_batch",
                   "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereDataunderlag}"
+                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 }
               ]
             },
