@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine som genererer en periode med testdata for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periodene ${nyPeriode}",
+  "navn": "Rutine som genererer en periode med testdata for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for perioden ${nyPeriode}",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
