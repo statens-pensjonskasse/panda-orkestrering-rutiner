@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine som genererer første periode diffet mot eksisterende periode med testdata for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periodene ${førsteFullePeriode}",
+  "navn": "Rutine som genererer første periode som er diffet mot en initiell-periode for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for perioden ${førsteFullePeriode}",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
@@ -15,6 +15,7 @@
     "skalIgnorereTestdataRettighetYtelser": "true",
     "skalIgnorerePandaPoliser": "true",
     "skalIgnorereFakturaDataunderlag": "true",
+
     "paResBa01Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa03Versjon": "<X.Y.Z>",
