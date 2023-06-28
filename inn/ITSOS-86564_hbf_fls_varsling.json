@@ -5,13 +5,12 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "år" : "<år>",
-    "prognoseVersjonVarsling" : "<prognoseVersjonVarsling>",
-    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
-    "fordelingsnøkkelSti": "<fordelingsnøkkelSti>",
+    "år" : "2023",
+    "prognoseVersjonVarsling" : "1092",
+    "fordelingsnøkkelPeriode" : "202305",
 
-    "paFakBa06Versjon" : "<X.Y.Z>",
-    "paFakBa09Versjon" : "<X.Y.Z>"
+    "paFakBa06Versjon" : "1.0.0",
+    "paFakBa09Versjon" : "2.0.6"
   },
   "operasjoner": [
     {
@@ -45,7 +44,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+      "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -53,7 +52,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
+      "nøkkel": "aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "pa_fak_ba_06",
@@ -88,7 +87,7 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "${fordelingsnøkkelSti}/generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+      "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
     },
     {
       "handling": "pa_fak_ba_09",
