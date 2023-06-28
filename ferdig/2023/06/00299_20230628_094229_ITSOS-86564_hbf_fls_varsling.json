@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.53",
 
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2023-06-28_09-40-13-39",
 
     "år" : "2023",
     "prognoseVersjonVarsling" : "1092",
@@ -92,7 +92,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_varsling_avtale",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "2d317665-7c05-4042-9491-af63e572534a",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -113,7 +113,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_varsling_medlem",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "ca20b175-208a-45b2-ad2c-d1534e37d35b",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
