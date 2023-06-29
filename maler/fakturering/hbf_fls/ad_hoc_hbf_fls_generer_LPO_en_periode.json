@@ -3,7 +3,7 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "førstePeriodeLPO": "<førstePeriodeLPO>",
-    "fremskrivingsDato1": "<fremskrivingsDato1>",
+    "fremskrivingsDato": "<fremskrivingsDato>",
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa06Versjon": "<X.Y.Z>",
     "paFakBa07Versjon": "<X.Y.Z>",
@@ -155,7 +155,7 @@
           "batchFra": "pa_fak_ba_02",
           "batchTil": "pa_fak_ba_08",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato1}"
+          "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -187,7 +187,7 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_08",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}"
+          "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
         },
         {
           "handling": "pa_fak_ba_08",
