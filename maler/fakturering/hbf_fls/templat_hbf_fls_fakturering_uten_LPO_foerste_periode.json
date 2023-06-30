@@ -3,11 +3,9 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "termin": "<termin>",
-    "førstePeriodeLPO": "<førstePeriodeLPO>",
     "andrePeriodeLPO": "<andrePeriodeLPO>",
     "førstePeriode": "<førstePeriode>",
     "andrePeriode": "<andrePeriode>",
-    "fremskrivingsDato1": "<fremskrivingsDato1>",
     "fremskrivingsDato2": "<fremskrivingsDato2>",
     "termininfoVersjon": "<termininfoVersjon>",
     "prognoseVersjon": "<prognoseVersjon>",
