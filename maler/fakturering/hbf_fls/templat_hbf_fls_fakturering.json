@@ -98,8 +98,7 @@
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_14"
             }
-          ],
-          "ignorertInstruksjon": "${ignorerFørstePeriodeLPO}"
+          ]
         },
         {
           "navn": "pa_fak_ba_14 (andrePeriodeLPO)",
@@ -197,8 +196,7 @@
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_02"
             }
-          ],
-          "ignorertInstruksjon": "${ignorerFørstePeriodeLPO}"
+          ]
         },
         {
           "navn": "pa_fak_ba_02 (andrePeriodeLPO)",
@@ -324,8 +322,7 @@
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}"
             }
-          ],
-          "ignorertInstruksjon": "${ignorerFørstePeriodeLPO}"
+          ]
         },
         {
           "navn": "pa_fak_ba_08 (andrePeriodeLPO)",
@@ -435,8 +432,7 @@
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_08"
             }
-          ],
-          "ignorertInstruksjon": "${ignorerFørstePeriodeLPO}"
+          ]
         },
         {
           "navn": "pa_fak_ba_08 (andrePeriodeLPO)",
@@ -527,8 +523,7 @@
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_06"
             }
-          ],
-          "ignorertInstruksjon": "${ignorerFørstePeriodeLPO}"
+          ]
         },
         {
           "navn": "pa_fak_ba_06 (andrePeriodeLPO)",
@@ -794,8 +789,7 @@
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_07"
             }
-          ],
-          "ignorertInstruksjon": "${ignorerFørstePeriodeLPO}"
+          ]
         },
         {
           "navn": "pa_fak_ba_07 (andrePeriodeLPO)",
@@ -981,8 +975,7 @@
               "batch": "pa_fak_ba_09",
               "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
             }
-          ],
-          "ignorertInstruksjon": "${ignorerFørstePeriodeLPO}"
+          ]
         },
         {
           "navn": "pa_fak_ba_09 (loepende_premieoppgjoer_dataunderlag andrePeriodeLPO)",
