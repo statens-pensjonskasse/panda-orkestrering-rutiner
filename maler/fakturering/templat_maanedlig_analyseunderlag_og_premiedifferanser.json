@@ -148,7 +148,6 @@
               "filPrefix": "rettighet_ytelser_for_dvh",
               "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
               "batch": "pa_res_ba_01",
-              "encoding": "utf-16le",
               "filstiHosDVH": "/rettighet_ytelse"
             },
             {
@@ -174,7 +173,6 @@
               "filPrefix": "poliser",
               "filListe": "POLISE_FILLISTE.txt",
               "batch": "pa_res_ba_01",
-              "encoding": "utf-16le",
               "filstiHosDVH": "/polise"
             },
             {
@@ -469,8 +467,7 @@
               "filPrefix": "reserveoppbygging_dataunderlag",
               "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
               "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/reserveoppbygging",
-              "encoding": "UTF-16LE"
+              "filstiHosDVH": "/reserveoppbygging"
             }
           ]
         },
@@ -510,8 +507,7 @@
               "filPrefix": "kontofoeringunderlag",
               "filListe": "KONTOFOERING_FILLISTE.txt",
               "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/kontofoering",
-              "encoding": "UTF-16LE"
+              "filstiHosDVH": "/kontofoering"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -681,7 +677,6 @@
               "filPrefix": "tidslinjehendelser_dataunderlag",
               "filListe": "TIDSLINJEHENDELSER_FILLISTE.txt",
               "batch": "pa_fak_ba_09",
-              "encoding": "utf-16le",
               "filstiHosDVH": "/tidslinjehendelser"
             },
             {

@@ -341,8 +341,7 @@
       "filPrefix": "systemkorreksjon_dataunderlag",
       "filListe": "SYSTEMKORREKSJON_FILLISTE.txt",
       "batch": "pa_fak_ba_09",
-      "filstiHosDVH": "/systemkorreksjon",
-      "encoding": "UTF_16LE"
+      "filstiHosDVH": "/systemkorreksjon"
     }
   ]
 }
