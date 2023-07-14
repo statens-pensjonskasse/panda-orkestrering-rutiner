@@ -10,11 +10,11 @@
     "termininfoVersjon": "<termininfoVersjon>",
     "prognoseVersjon": "<prognoseVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
-    "paFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa06Versjon": "<X.Y.Z>",
-    "paFakBa07Versjon": "<X.Y.Z>",
-    "paFakBa08Versjon": "<X.Y.Z>",
+    "paFakBa02Versjon": "<2.Y.Z>",
+    "paFakBa04Versjon": "<2.Y.Z>",
+    "paFakBa06Versjon": "<3.Y.Z>",
+    "paFakBa07Versjon": "<2.Y.Z>",
+    "paFakBa08Versjon": "<2.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa14Versjon": "<X.Y.Z>"
   },
@@ -430,7 +430,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 (generer_fakturaunderlag_for_utjevnet_prognose_fra_avtale)",
+      "navn": "pa_fak_ba_04 (generer_fakturaunderlag_for_hbf_fls)",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -461,7 +461,7 @@
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "generer_fakturaunderlag_for_utjevnet_prognose_fra_avtale",
+          "modus": "generer_fakturaunderlag_for_hbf_fls",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
           "premiemodell": "HBF_FLS",
@@ -472,11 +472,11 @@
           "filnavn": "fakturaunderlag",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturaunderlag_for_utjevnet_prognose_fra_avtale/${termin}"
+          "nøkkel": "generer_fakturaunderlag_for_hbf_fls/${termin}"
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "generer_agressofil_for_hbf_fls_prognose",
+          "modus": "generer_agressofil_for_hbf_fls",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
           "premiemodell": "HBF_FLS",
@@ -486,7 +486,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_agressofil_for_hbf_fls_prognose/${termin}",
+          "nøkkel": "generer_agressofil_for_hbf_fls/${termin}",
           "filter": "Agressofil"
         },
         {
