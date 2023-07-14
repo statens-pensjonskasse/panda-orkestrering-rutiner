@@ -685,7 +685,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 (generer_fakturaunderlag_for_utjevnet_prognose_fra_avtale)",
+      "navn": "pa_fak_ba_04 (generer_fakturaunderlag_for_hbf_fls)",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -716,7 +716,7 @@
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "generer_fakturaunderlag_for_utjevnet_prognose_fra_avtale",
+          "modus": "generer_fakturaunderlag_for_hbf_fls",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
           "premiemodell": "HBF_FLS",
@@ -727,11 +727,11 @@
           "filnavn": "fakturaunderlag",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturaunderlag_for_utjevnet_prognose_fra_avtale/${termin}"
+          "nøkkel": "generer_fakturaunderlag_for_hbf_fls/${termin}"
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "generer_agressofil_for_hbf_fls_prognose",
+          "modus": "generer_agressofil_for_hbf_fls",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
           "premiemodell": "HBF_FLS",
@@ -741,7 +741,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_agressofil_for_hbf_fls_prognose/${termin}",
+          "nøkkel": "generer_agressofil_for_hbf_fls/${termin}",
           "filter": "Agressofil"
         },
         {
@@ -931,7 +931,7 @@
           ]
         },
         {
-          "navn": "pa_fak_ba_09 (loepende_premieoppgjoer_dataunderlag førstePeriodeLPO)",
+          "navn": "pa_fak_ba_09 (generer_loepende_premieoppgjoer_dataunderlag førstePeriodeLPO)",
           "handling": "gruppe",
           "gruppeAv": [
             {
@@ -964,7 +964,7 @@
             },
             {
               "handling": "pa_fak_ba_09",
-              "modus": "loepende_premieoppgjoer_dataunderlag",
+              "modus": "generer_loepende_premieoppgjoer_dataunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "kjøringsId": "#{genererUUID}",
               "validerFeilendeMedlemmer": true
@@ -973,7 +973,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "loepende_premieoppgjoer_dataunderlag/${førstePeriodeLPO}"
+              "nøkkel": "generer_loepende_premieoppgjoer_dataunderlag/${førstePeriodeLPO}"
             },
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
@@ -984,7 +984,7 @@
           ]
         },
         {
-          "navn": "pa_fak_ba_09 (loepende_premieoppgjoer_dataunderlag andrePeriodeLPO)",
+          "navn": "pa_fak_ba_09 (generer_loepende_premieoppgjoer_dataunderlag andrePeriodeLPO)",
           "handling": "gruppe",
           "gruppeAv": [
             {
@@ -1017,7 +1017,7 @@
             },
             {
               "handling": "pa_fak_ba_09",
-              "modus": "loepende_premieoppgjoer_dataunderlag",
+              "modus": "generer_loepende_premieoppgjoer_dataunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "kjøringsId": "#{genererUUID}",
               "validerFeilendeMedlemmer": true
@@ -1026,7 +1026,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "loepende_premieoppgjoer_dataunderlag/${andrePeriodeLPO}"
+              "nøkkel": "generer_loepende_premieoppgjoer_dataunderlag/${andrePeriodeLPO}"
             },
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
