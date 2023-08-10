@@ -2,23 +2,23 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF FLS fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "termin": "<termin>",
-    "førstePeriodeLPO": "<førstePeriodeLPO>",
-    "andrePeriodeLPO": "<andrePeriodeLPO>",
-    "førstePeriode": "<førstePeriode>",
-    "andrePeriode": "<andrePeriode>",
-    "fremskrivingsDato1": "<fremskrivingsDato1>",
-    "fremskrivingsDato2": "<fremskrivingsDato2>",
-    "termininfoVersjon": "<termininfoVersjon>",
-    "prognoseVersjon": "<prognoseVersjon>",
-    "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
-    "paFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa06Versjon": "<X.Y.Z>",
-    "paFakBa07Versjon": "<X.Y.Z>",
-    "paFakBa08Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "termin": "2023-04",
+    "førstePeriodeLPO": "202306",
+    "andrePeriodeLPO": "202307",
+    "førstePeriode": "202307",
+    "andrePeriode": "202308",
+    "fremskrivingsDato1": "2023.07.01",
+    "fremskrivingsDato2": "2023.08.01",
+    "termininfoVersjon": "2023/v2",
+    "prognoseVersjon": "1110",
+    "fordelingsnøkkelPeriode": "202305",
+    "paFakBa02Versjon": "1.0.3",
+    "paFakBa04Versjon": "2.0.7",
+    "paFakBa06Versjon": "1.0.0",
+    "paFakBa07Versjon": "1.0.0",
+    "paFakBa08Versjon": "1.0.0",
+    "paFakBa09Versjon": "2.0.7",
+    "paFakBa14Versjon": "1.0.7"
   },
   "operasjoner": [
     {
@@ -64,7 +64,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_14"
+              "batch": "pa_fak_ba_14",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -72,7 +73,8 @@
               "periode": "${førstePeriodeLPO}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_14",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -80,23 +82,27 @@
               "batchFra": "pa_fak_ba_13",
               "batchTil": "pa_fak_ba_14",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriodeLPO}"
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_14",
               "modus": "premiefiltrering_for_hbf_fls",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_14",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}"
+              "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_14"
+              "batch": "pa_fak_ba_14",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -106,7 +112,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_14"
+              "batch": "pa_fak_ba_14",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -114,7 +121,8 @@
               "periode": "${andrePeriodeLPO}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_14",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -122,23 +130,27 @@
               "batchFra": "pa_fak_ba_13",
               "batchTil": "pa_fak_ba_14",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriodeLPO}"
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_14",
               "modus": "premiefiltrering_for_hbf_fls",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_14",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}"
+              "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_14"
+              "batch": "pa_fak_ba_14",
+              "ignorertInstruksjon": true
             }
           ]
         }
@@ -154,7 +166,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_02"
+              "batch": "pa_fak_ba_02",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -162,7 +175,8 @@
               "periode": "${førstePeriodeLPO}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_02",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -170,7 +184,8 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}"
+              "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -178,23 +193,27 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}"
+              "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_02",
               "modus": "aggreger_reservetransaksjonsdifferanser_hbf_fls",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_02",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}"
+              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_02"
+              "batch": "pa_fak_ba_02",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -204,7 +223,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_02"
+              "batch": "pa_fak_ba_02",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -212,7 +232,8 @@
               "periode": "${andrePeriodeLPO}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_02",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -220,7 +241,8 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}"
+              "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -228,23 +250,27 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}"
+              "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_02",
               "modus": "aggreger_reservetransaksjonsdifferanser_hbf_fls",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_02",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}"
+              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_02"
+              "batch": "pa_fak_ba_02",
+              "ignorertInstruksjon": true
             }
           ]
         }
@@ -260,7 +286,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
+              "batch": "pa_fak_ba_08",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -268,7 +295,8 @@
               "periode": "${førstePeriodeLPO}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_08",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -276,7 +304,8 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato1}"
+              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato1}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -284,7 +313,8 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}"
+              "nøkkel": "premiefiltrering_for_hbf_fls/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -292,7 +322,8 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}"
+              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -300,7 +331,8 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}"
+              "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -308,19 +340,22 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}"
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_08",
               "modus": "generer_noekkelunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_08",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}"
+              "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -330,7 +365,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
+              "batch": "pa_fak_ba_08",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -338,7 +374,8 @@
               "periode": "${andrePeriodeLPO}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_08",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -346,7 +383,8 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato2}"
+              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato2}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -354,7 +392,8 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}"
+              "nøkkel": "premiefiltrering_for_hbf_fls/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -362,7 +401,8 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}"
+              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -370,7 +410,8 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}"
+              "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -378,19 +419,22 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}"
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_08",
               "modus": "generer_noekkelunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_08",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}"
+              "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             }
           ]
         }
@@ -406,7 +450,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
+              "batch": "pa_fak_ba_08",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -414,23 +459,27 @@
               "batchFra": "pa_fak_ba_08",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}"
+              "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_08",
               "modus": "aggreger_faktiske_premier",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_08",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_faktiske_premier/${førstePeriodeLPO}"
+              "nøkkel": "aggreger_faktiske_premier/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
+              "batch": "pa_fak_ba_08",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -440,7 +489,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
+              "batch": "pa_fak_ba_08",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -448,23 +498,27 @@
               "batchFra": "pa_fak_ba_08",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}"
+              "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_08",
               "modus": "aggreger_faktiske_premier",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_08",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_faktiske_premier/${andrePeriodeLPO}"
+              "nøkkel": "aggreger_faktiske_premier/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
+              "batch": "pa_fak_ba_08",
+              "ignorertInstruksjon": true
             }
           ]
         }
@@ -480,7 +534,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_06"
+              "batch": "pa_fak_ba_06",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -488,7 +543,8 @@
               "batchFra": "pa_fak_ba_08",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}"
+              "nøkkel": "generer_noekkelunderlag/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -496,7 +552,8 @@
               "batchFra": "pa_fak_ba_08",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_faktiske_premier/${førstePeriodeLPO}"
+              "nøkkel": "aggreger_faktiske_premier/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -504,24 +561,28 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}"
+              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_06",
               "modus": "premiefellesskap_utjevning_faktisk_premie",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "validerFeilendeMedlemmer": true,
-              "debugger": "lagreDebug"
+              "debugger": "lagreDebug",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_06",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${førstePeriodeLPO}"
+              "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${førstePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_06"
+              "batch": "pa_fak_ba_06",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -531,7 +592,8 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_06"
+              "batch": "pa_fak_ba_06",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -539,7 +601,8 @@
               "batchFra": "pa_fak_ba_08",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}"
+              "nøkkel": "generer_noekkelunderlag/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -547,7 +610,8 @@
               "batchFra": "pa_fak_ba_08",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_faktiske_premier/${andrePeriodeLPO}"
+              "nøkkel": "aggreger_faktiske_premier/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -555,24 +619,28 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}"
+              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "pa_fak_ba_06",
               "modus": "premiefellesskap_utjevning_faktisk_premie",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "validerFeilendeMedlemmer": true,
-              "debugger": "lagreDebug"
+              "debugger": "lagreDebug",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_06",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${andrePeriodeLPO}"
+              "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${andrePeriodeLPO}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_06"
+              "batch": "pa_fak_ba_06",
+              "ignorertInstruksjon": true
             }
           ]
         }
