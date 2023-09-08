@@ -5,17 +5,17 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
-    "termin": "<termin>",
-    "førstePeriode": "<førstePeriode>",
-    "andrePeriode": "<andrePeriode>",
-    "sisteFremskrivingsdato": "<sisteFremskrivingsdato>",
+    "termin": "2023-04",
+    "førstePeriode": "202307",
+    "andrePeriode": "202308",
+    "sisteFremskrivingsdato": "2023.09.01",
 
-    "termininfoVersjon" : "<termininfoVersjon>",
-    "premiejusteringVersjon": "<premiejusteringVersjon>",
+    "termininfoVersjon" : "2023/v2",
+    "premiejusteringVersjon": "10029",
 
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "paFakBa04Versjon": "2.0.7",
+    "paFakBa09Versjon": "2.0.7",
+    "paFakBa14Versjon": "1.0.8"
   },
 
   "operasjoner": [
@@ -38,10 +38,12 @@
     },
 
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_14"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${førstePeriode}",
@@ -51,6 +53,7 @@
       "filnavn": "avtaleliste_hbf_stat"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "fakturerbare_premiedifferanser",
       "batchFra": "pa_fak_ba_13",
@@ -59,22 +62,26 @@
       "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_fak_ba_14",
       "modus": "premiefiltrering_for_hbf_stat",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefiltrering_for_hbf_stat/${førstePeriode}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_14"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_filer_fra_aktuar_til_batch",
       "premiemodell": "hbf_stat",
       "periode": "${andrePeriode}",
@@ -84,6 +91,7 @@
       "filnavn": "avtaleliste_hbf_stat"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "kopier_fra_arkiv_til_batch",
       "filnavn": "fakturerbare_premiedifferanser",
       "batchFra": "pa_fak_ba_13",
@@ -92,18 +100,21 @@
       "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "pa_fak_ba_14",
       "modus": "premiefiltrering_for_hbf_stat",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "nøkkel": "premiefiltrering_for_hbf_stat/${andrePeriode}"
     },
     {
+      "ignorertInstruksjon": true,
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_14"
     },
