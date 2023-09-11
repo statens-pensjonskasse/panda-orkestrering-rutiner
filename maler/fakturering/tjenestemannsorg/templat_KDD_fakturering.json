@@ -594,7 +594,7 @@
           "filPrefix": "hbf_kdd_dataunderlag_medlem",
           "filListe": "HBFKDD_FILLISTE_MEDLEM.txt",
           "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_kdd/medlem"
+          "filstiHosDVH": "/hbf_kdd/fakturering/medlem"
         },
         {
           "handling": "pa_fak_ba_09",
@@ -616,7 +616,7 @@
           "filPrefix": "hbf_kdd_dataunderlag_avtale",
           "filListe": "HBFKDD_FILLISTE_AVTALE.txt",
           "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_kdd/avtale"
+          "filstiHosDVH": "/hbf_kdd/fakturering/avtale"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
