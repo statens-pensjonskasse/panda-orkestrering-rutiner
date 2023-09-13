@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
 
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2023-09-13_09-25-09-11",
 
     "termin": "2023-04",
     "førstePeriode": "202307",
@@ -299,7 +299,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "premiemodell": "HBF_ØVRIGE",
       "termin": "${termin}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "733f3027-4f13-478f-9c10-48e03f88d69b",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -322,7 +322,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "premiemodell": "HBF_ØVRIGE",
       "termin": "${termin}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "ebb2de69-3f23-4702-a6a1-b576ba976b42",
       "validerFeilendeMedlemmer": true
     },
     {
