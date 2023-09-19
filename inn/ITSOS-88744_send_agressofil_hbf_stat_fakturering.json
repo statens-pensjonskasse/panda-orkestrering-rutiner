@@ -2,8 +2,8 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF STAT fakturering til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
   "gyldigVersjon": "0.0.22",
   "variabler": {
-    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "termin" : "<termin>"
+    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_2023-09-08_10-30-11-87",
+    "termin" : "2023-04"
   },
   "operasjoner": [
     {
