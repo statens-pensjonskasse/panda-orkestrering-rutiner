@@ -292,7 +292,13 @@
           "batch": "pa_fak_ba_04"
         },
         {
-          "navn": "kopier filer inn til pa_fak_ba_04",
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_04",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "navn": "pa_fak_ba_04 ${førstePeriode}",
           "handling": "gruppe",
           "gruppeAv": [
             {
@@ -304,20 +310,6 @@
               "nøkkel": "generer_medlemsandel_tjenestemannsorg/${førstePeriode}"
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "medlemsandel",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_04",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
-            },
-            {
-              "handling": "kopier_termininfofil_fra_arkiv_til_batch",
-              "batchTil": "pa_fak_ba_04",
-              "termininfoVersjon": "${termininfoVersjon}",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
               "premiemodell": "tjenestemannsorg",
               "periode": "${førstePeriode}",
@@ -325,6 +317,20 @@
               "batch": "pa_fak_ba_04",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "filnavn": "avtaleliste_tjenestemannsorg"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_04 ${andrePeriode}",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "medlemsandel",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
             },
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
@@ -381,7 +387,13 @@
           "batch": "pa_fak_ba_09"
         },
         {
-          "navn": "kopier filer inn til pa_fak_ba_09",
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_09",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "navn": "pa_fak_ba_09 ${førstePeriode}",
           "handling": "gruppe",
           "gruppeAv": [
             {
@@ -393,6 +405,21 @@
               "nøkkel": "generer_medlemsandel_tjenestemannsorg/${førstePeriode}"
             },
             {
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "tjenestemannsorg",
+              "periode": "${førstePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_tjenestemannsorg"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_09 ${andrePeriode}",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
               "handling": "kopier_fra_arkiv_til_batch",
               "filnavn": "medlemsandel",
               "batchFra": "pa_fak_ba_05",
@@ -401,42 +428,11 @@
               "nøkkel": "generer_medlemsandel_tjenestemannsorg/${andrePeriode}"
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremieunderlag_faktura",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_09",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${førstePeriode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremieunderlag_faktura",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_09",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremieunderlag_for_fakturering/${andrePeriode}"
-            },
-            {
-              "handling": "kopier_termininfofil_fra_arkiv_til_batch",
-              "batchTil": "pa_fak_ba_09",
-              "termininfoVersjon": "${termininfoVersjon}",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-              "premiemodell": "tjenestemannsorg",
-              "periode": "${førstePeriode}",
-              "prognoseVersjon": "avtaleliste",
-              "batch": "pa_fak_ba_04",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "filnavn": "avtaleliste_tjenestemannsorg"
-            },
-            {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
               "premiemodell": "tjenestemannsorg",
               "periode": "${andrePeriode}",
               "prognoseVersjon": "avtaleliste",
-              "batch": "pa_fak_ba_04",
+              "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "filnavn": "avtaleliste_tjenestemannsorg"
             }
