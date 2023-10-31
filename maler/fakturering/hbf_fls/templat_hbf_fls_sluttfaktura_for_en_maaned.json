@@ -3,7 +3,6 @@
   "gyldigVersjon": "0.0.29",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "kjøringsId": "#{genererUUID}",
     "bokføringsperiode": "<bokføringsperiode>",
     "fremskrivingsDato": "<fremskrivingsDato>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
