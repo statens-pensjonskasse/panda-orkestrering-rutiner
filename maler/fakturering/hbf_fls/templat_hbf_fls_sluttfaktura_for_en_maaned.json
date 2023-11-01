@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS sluttfaktura for måned ${måned} og oppgjørsVersjon ${oppgjørsVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS sluttfaktura for måned ${bokføringsperiode} og oppgjørsVersjon ${oppgjørsVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.29",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
@@ -425,55 +425,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 (agressofil)",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "navn": "pa_fak_ba_04",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_04"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "lopende_premieoppgjoer",
-              "batchFra": "pa_fak_ba_07",
-              "batchTil": "pa_fak_ba_10",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
-            },
-            {
-              "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "hbf_fls",
-              "prognoseVersjon": "${oppgjørsVersjon}",
-              "periode": "${bokføringsperiode}",
-              "batch": "pa_fak_ba_10",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "pa_fak_ba_10",
-              "modus": "sammenstill_sluttfaktura",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
-            },
-            {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_10",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "sammenstill_sluttfaktura/${bokføringsperiode}"
-            },
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_10"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "navn": "pa_fak_ba_04 (agressofil)",
+      "navn": "pa_fak_ba_04 (fakturaunderlag)",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -504,7 +456,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_04",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_fakturaunderlag_hbf_fls_for_sluttfaktura/${bokføringsperiode}"
+              "nøkkel": "generer_fakturaunderlag_hbf_fls_for_sluttfaktura/${termin}"
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -526,7 +478,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_04",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_agressofil_hbf_fls_for_sluttfaktura/${bokføringsperiode}",
+              "nøkkel": "generer_agressofil_hbf_fls_for_sluttfaktura/${termin}",
               "filter": "Agressofil"
             },
             {
@@ -583,15 +535,16 @@
           "nøkkel": "loepende_premieoppgjoer_dataunderlag/${bokføringsperiode}"
         },
         {
-          "handling": "send_bare_filer_fra_batch_output_til_dvh",
+          "handling": "send_batch_output_til_dvh",
           "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+          "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
           "batch": "pa_fak_ba_09",
           "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
         }
       ]
     },
     {
-      "navn": "pa_fak_ba_09 (sluttfaktura)",
+      "navn": "pa_fak_ba_09 (sammenstill sluttfaktura dataunderlag)",
       "handling": "gruppe",
       "gruppeAv": [
         {
