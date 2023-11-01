@@ -538,7 +538,60 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_09",
+      "navn": "pa_fak_ba_09 (loepende_premieoppgjoer_dataunderlag)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "utjevnet_faktisk_premie",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "prognosepremieuttrekk",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${bokføringsperiode}"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "loepende_premieoppgjoer_dataunderlag",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "loepende_premieoppgjoer_dataunderlag/${bokføringsperiode}"
+        },
+        {
+          "handling": "send_bare_filer_fra_batch_output_til_dvh",
+          "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 (sluttfaktura)",
       "handling": "gruppe",
       "gruppeAv": [
         {
