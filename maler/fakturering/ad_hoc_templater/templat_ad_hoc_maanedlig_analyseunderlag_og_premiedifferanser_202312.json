@@ -711,7 +711,8 @@
         },
         {
           "handling": "pa_ork_ba_02",
-          "modus": "oversett_personid_til_spkid"
+          "modus": "oversett_personid_til_spkid",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "arkiver_all_batch_output",
