@@ -17,7 +17,10 @@
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa11Versjon": "<X.Y.Z>",
     "paFakBa12Versjon": "<X.Y.Z>",
-    "paFakBa13Versjon": "<X.Y.Z>"
+    "paFakBa13Versjon": "<X.Y.Z>",
+    "paOrkBa02Versjon": "<X.Y.Z>",
+    "arkivStiSPKID": "SPKID"
+
   },
   "operasjoner": [
     {
@@ -54,6 +57,10 @@
         {
           "navn": "pa_fak_ba_13",
           "versjon": "${paFakBa13Versjon}"
+        },
+        {
+          "navn": "pa_ork_ba_02",
+          "versjon": "${paOrkBa02Versjon}"
         }
       ]
     },
@@ -221,7 +228,7 @@
           "batchFra": "pa_fak_ba_11",
           "batchTil": "pa_fak_ba_11",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
+          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/${arkivStiSPKID}",
           "kommentar": "Henter fra siste grunnlagsdatamappe"
         },
         {
@@ -265,7 +272,7 @@
           "batchFra": "pa_fak_ba_11",
           "batchTil": "pa_fak_ba_03",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
+          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/${arkivStiSPKID}",
           "kommentar": "Henter fra siste grunnlagsdatamappe"
         },
         {
@@ -682,6 +689,70 @@
             {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "pa_ork_ba_02 (Generer MD5 hash filer)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Kontoføringsunderlag MD5",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "kontofoeringsunderlag",
+              "batchFra": "pa_fak_ba_09",
+              "batchTil": "pa_ork_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_ork_ba_02",
+              "modus": "UTLED_MD5HASH_FOR_KONTOFOERINGSUNDERLAG",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "send_batch_output_til_dvh",
+              "filPrefix": "md5_kontofoeringsunderlag",
+              "batch": "pa_fak_ba_09",
+              "filstiHosDVH": "/kontofoering/md5"
+            }
+          ]
+        },
+        {
+          "navn": "Tidslinjehendelser MD5",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "tidslinjehendelser",
+              "batchFra": "pa_fak_ba_09",
+              "batchTil": "pa_ork_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_beriket_tidslinjehendelser/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_ork_ba_02",
+              "modus": "UTLED_MD5HASH_FOR_TIDSLINJEHENDELSER",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "send_batch_output_til_dvh",
+              "filPrefix": "md5_tidslinjehendelser",
+              "batch": "pa_fak_ba_09",
+              "filstiHosDVH": "/tidslinjehendelser/md5"
             }
           ]
         }
