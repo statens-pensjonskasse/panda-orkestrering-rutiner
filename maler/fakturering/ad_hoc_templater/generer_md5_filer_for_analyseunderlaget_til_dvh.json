@@ -1,0 +1,162 @@
+{
+  "navn": "Genererer MD5 filer for januar for analyseunderlaget til DVH",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "fremskrivingsDato": "<YYYY.MM.dd>",
+    "paOrkBa02Versjon": "<X.Y.Z>",
+    "arkivStiSPKID": "SPKID"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_ork_ba_02",
+          "versjon": "${paOrkBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_ork_ba_02 (Generer MD5 hash filer)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Kontoføringsunderlag MD5",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "rydd_utmappe_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "kontofoeringsunderlag",
+              "batchFra": "pa_fak_ba_09",
+              "batchTil": "pa_ork_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_ork_ba_02",
+              "modus": "UTLED_MD5HASH_FOR_KONTOFOERINGSUNDERLAG",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "send_bare_filer_fra_batch_output_til_dvh",
+              "filPrefix": "md5_kontofoeringsunderlag",
+              "batch": "pa_fak_ba_02",
+              "filstiHosDVH": "/kontofoering/md5"
+            }
+          ]
+        },
+        {
+          "navn": "Tidslinjehendelser MD5",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "rydd_utmappe_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "tidslinjehendelser",
+              "batchFra": "pa_fak_ba_09",
+              "batchTil": "pa_ork_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_beriket_tidslinjehendelser/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_ork_ba_02",
+              "modus": "UTLED_MD5HASH_FOR_TIDSLINJEHENDELSER",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "send_bare_filer_fra_batch_output_til_dvh",
+              "filPrefix": "md5_tidslinjehendelser",
+              "batch": "pa_fak_ba_02",
+              "filstiHosDVH": "/tidslinjehendelser/md5"
+            }
+          ]
+        },
+        {
+          "navn": "Poliser MD5",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "rydd_utmappe_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_fak_ba_09",
+              "batchTil": "pa_ork_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_ork_ba_02",
+              "modus": "UTLED_MD5HASH_FOR_POLISER",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "send_bare_filer_fra_batch_output_til_dvh",
+              "filPrefix": "md5_poliser",
+              "batch": "pa_fak_ba_02",
+              "filstiHosDVH": "/polise/md5"
+            }
+          ]
+        },
+        {
+          "navn": "Rettighet og ytelse MD5",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "rydd_utmappe_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "rettighet_ytelser_for_dvh",
+              "batchFra": "pa_fak_ba_09",
+              "batchTil": "pa_ork_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_ork_ba_02",
+              "modus": "UTLED_MD5HASH_FOR_RETTIGHET_OG_YTELSE",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "send_bare_filer_fra_batch_output_til_dvh",
+              "filPrefix": "md5_rettighet_ytelser",
+              "batch": "pa_fak_ba_02",
+              "filstiHosDVH": "/rettighet_ytelse/md5"
+            },
+            {
+              "handling": "rydd_utmappe_for_batch",
+              "batch": "pa_ork_ba_02"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
