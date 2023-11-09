@@ -3,8 +3,7 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fremskrivingsDato": "<YYYY.MM.dd>",
-    "paOrkBa02Versjon": "<X.Y.Z>",
-    "arkivStiSPKID": "SPKID"
+    "paOrkBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
