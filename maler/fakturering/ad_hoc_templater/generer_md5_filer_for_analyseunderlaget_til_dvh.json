@@ -48,7 +48,7 @@
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
               "filPrefix": "md5_kontofoeringsunderlag",
-              "batch": "pa_fak_ba_02",
+              "batch": "pa_ork_ba_02",
               "filstiHosDVH": "/kontofoering/md5"
             }
           ]
@@ -81,7 +81,7 @@
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
               "filPrefix": "md5_tidslinjehendelser",
-              "batch": "pa_fak_ba_02",
+              "batch": "pa_ork_ba_02",
               "filstiHosDVH": "/tidslinjehendelser/md5"
             }
           ]
@@ -114,7 +114,7 @@
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
               "filPrefix": "md5_poliser",
-              "batch": "pa_fak_ba_02",
+              "batch": "pa_ork_ba_02",
               "filstiHosDVH": "/polise/md5"
             }
           ]
@@ -147,7 +147,7 @@
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
               "filPrefix": "md5_rettighet_ytelser",
-              "batch": "pa_fak_ba_02",
+              "batch": "pa_ork_ba_02",
               "filstiHosDVH": "/rettighet_ytelse/md5"
             },
             {
