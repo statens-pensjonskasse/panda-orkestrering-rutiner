@@ -263,10 +263,10 @@
         {
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "flettede_kontofoeringer",
-          "batchFra": "pa_fak_ba_11",
+          "batchFra": "pa_ork_ba_02",
           "batchTil": "pa_fak_ba_03",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
+          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/${arkivStiSPKID}",
           "kommentar": "Henter fra siste grunnlagsdatamappe"
         },
         {
