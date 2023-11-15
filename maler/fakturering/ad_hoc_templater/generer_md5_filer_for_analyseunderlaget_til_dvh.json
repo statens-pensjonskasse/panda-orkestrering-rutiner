@@ -33,7 +33,7 @@
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "kontofoeringsunderlag",
+              "filnavn": "kontofoeringunderlag",
               "batchFra": "pa_fak_ba_09",
               "batchTil": "pa_ork_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
