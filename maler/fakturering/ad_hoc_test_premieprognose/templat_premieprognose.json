@@ -15,10 +15,35 @@
     "lønnFraOgMed": "<YYYY.MM.dd>",
     "lønnUtviklingsprosent": "<%>",
 
-    "fraAar": "<YYYY>",
-    "gUtviklingsprosent": "<%>"
+    "grunnbeløpFraOgMed": "<YYYY>",
+    "gUtviklingsprosent": "<%>",
+    "paResBa01Versjon": "<X.Y.Z>",
+    "paResBa03Versjon": "<X.Y.Z>",
+    "paFakBa13Versjon": "<X.Y.Z>",
+    "paFakBa14Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_res_ba_01",
+          "versjon": "${paResBa01Versjon}"
+        },
+        {
+          "navn": "pa_res_ba_03",
+          "versjon": "${paResBa03Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "${paFakBa13Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "${paFakBa14Versjon}"
+        }
+      ]
+    },
     {
       "navn": "manipuler prognosedata",
       "handling": "gruppe",
@@ -38,25 +63,22 @@
           "handling": "pa_res_ba_03",
           "manipulatorer": [
             {
-              "navn": "manipuler_tilbakestill_stillingshistorikk",
+              "navn": "tilbakestill_medlemsdata",
               "fraOgMed": "${tilbakestillFraOgMed}"
             },
             {
-              "navn": "manipuler_erstatt_medlem"
-            },
-            {
-              "navn": "manipuler_loennsvekst_medlemsdata",
+              "navn": "lønnsvekst_medlemsdata",
               "fraOgMed": "${lønnFraOgMed}",
               "utviklingProsent": "${lønnUtviklingsprosent}"
             },
             {
-              "navn": "manipuler_loennsvekst_loennstrinn",
+              "navn": "lønnsvekst_lønnstrinn_spk",
               "fraOgMed": "${lønnFraOgMed}",
               "utviklingProsent": "${lønnUtviklingsprosent}"
             },
             {
-              "navn": "manipuler_grunnbeloep",
-              "fraAar": "${fraAar}",
+              "navn": "reguler_grunnbeløp",
+              "fraOgMed": "${grunnbeløpFraOgMed}",
               "utviklingProsent": "${gUtviklingsprosent}"
             }
           ]
