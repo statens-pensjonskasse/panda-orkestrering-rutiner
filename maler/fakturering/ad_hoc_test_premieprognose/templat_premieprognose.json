@@ -15,8 +15,9 @@
     "lønnFraOgMed": "<YYYY.MM.dd>",
     "lønnUtviklingsprosent": "<%>",
 
-    "grunnbeløpFraOgMed": "<YYYY>",
+    "grunnbeløpFraOgMed": "<YYYY.MM.dd>",
     "gUtviklingsprosent": "<%>",
+
     "paResBa01Versjon": "<X.Y.Z>",
     "paResBa03Versjon": "<X.Y.Z>",
     "paFakBa13Versjon": "<X.Y.Z>",
