@@ -5,20 +5,48 @@
     "fraGrunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "fremskrivingsDato": "<YYYY.MM.dd>",
     "premiefilterModus": "<modus>",
-    "premiemodell": "premiemodell",
+    "premiemodell": "<premiemodell>",
     "premieprognoseKonvertingsår": "<YYYY>",
     "arkiveringsnøkkelPaResBa03": "<YYYY>",
-    "avtalelistePeriode": "<YYYY12>",
+    "avtalelistePeriode": "<YYYYMM>",
 
     "tilbakestillFraOgMed": "<YYYY.MM.dd>",
+    "tilbakestillÅr": "<YYYY>",
 
+    "forskyvÅrskull": "Y",
     "lønnFraOgMed": "<YYYY.MM.dd>",
     "lønnUtviklingsprosent": "<%>",
 
-    "fraAar": "<YYYY>",
-    "gUtviklingsprosent": "<%>"
+    "grunnbeløpFraOgMed": "<YYYY.MM.dd>",
+    "gUtviklingsprosent": "<%>",
+
+    "paResBa01Versjon": "<X.Y.Z>",
+    "paResBa03Versjon": "<X.Y.Z>",
+    "paFakBa13Versjon": "<X.Y.Z>",
+    "paFakBa14Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_res_ba_01",
+          "versjon": "${paResBa01Versjon}"
+        },
+        {
+          "navn": "pa_res_ba_03",
+          "versjon": "${paResBa03Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "${paFakBa13Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "${paFakBa14Versjon}"
+        }
+      ]
+    },
     {
       "navn": "manipuler prognosedata",
       "handling": "gruppe",
@@ -38,25 +66,46 @@
           "handling": "pa_res_ba_03",
           "manipulatorer": [
             {
-              "navn": "manipuler_tilbakestill_stillingshistorikk",
+              "navn": "tilbakestill_medlemsdata",
               "fraOgMed": "${tilbakestillFraOgMed}"
             },
             {
-              "navn": "manipuler_erstatt_medlem"
+              "navn": "tilbakestill_avtaleperiode",
+              "fraOgMed": "${tilbakestillFraOgMed}"
             },
             {
-              "navn": "manipuler_loennsvekst_medlemsdata",
+              "navn": "tilbakestill_avtaleprodukt",
+              "fraOgMed": "${tilbakestillFraOgMed}"
+            },
+            {
+              "navn": "tilbakestill_avtaleversjon",
+              "fraOgMed": "${tilbakestillFraOgMed}"
+            },
+            {
+              "navn": "tilbakestill_grunnbeløp",
+              "år": "${tilbakestillÅr}"
+            },
+            {
+              "navn": "tilbakestill_lønnstrinn_spk",
+              "år": "${tilbakestillÅr}"
+            },
+            {
+              "navn": "forskyv_årskull",
+              "forskyvning": "${forskyvÅrskull}"
+            },
+            {
+              "navn": "lønnsvekst_medlemsdata",
               "fraOgMed": "${lønnFraOgMed}",
               "utviklingProsent": "${lønnUtviklingsprosent}"
             },
             {
-              "navn": "manipuler_loennsvekst_loennstrinn",
+              "navn": "lønnsvekst_lønnstrinn_spk",
               "fraOgMed": "${lønnFraOgMed}",
               "utviklingProsent": "${lønnUtviklingsprosent}"
             },
             {
-              "navn": "manipuler_grunnbeloep",
-              "fraAar": "${fraAar}",
+              "navn": "reguler_grunnbeløp",
+              "fraOgMed": "${grunnbeløpFraOgMed}",
               "utviklingProsent": "${gUtviklingsprosent}"
             }
           ]
