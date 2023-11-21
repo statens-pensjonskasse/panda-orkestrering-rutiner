@@ -8,7 +8,7 @@
     "premiemodell": "<premiemodell>",
     "premieprognoseKonvertingsår": "<YYYY>",
     "arkiveringsnøkkelPaResBa03": "<YYYY>",
-    "avtalelistePeriode": "<YYYY12>",
+    "avtalelistePeriode": "<YYYYMM>",
 
     "tilbakestillFraOgMed": "<YYYY.MM.dd>",
     "tilbakestillÅr": "<YYYY>",
