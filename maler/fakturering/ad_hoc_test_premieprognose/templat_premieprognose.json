@@ -5,13 +5,13 @@
     "fraGrunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "fremskrivingsDato": "<YYYY.MM.dd>",
     "premiefilterModus": "<modus>",
-    "premiemodell": "premiemodell",
+    "premiemodell": "<premiemodell>",
     "premieprognoseKonvertingsår": "<YYYY>",
     "arkiveringsnøkkelPaResBa03": "<YYYY>",
     "avtalelistePeriode": "<YYYY12>",
 
     "tilbakestillFraOgMed": "<YYYY.MM.dd>",
-    "tilbakestillGrunnbeløp": "<YYYY>",
+    "tilbakestillÅr": "<YYYY>",
 
     "forskyvÅrskull": "Y",
     "lønnFraOgMed": "<YYYY.MM.dd>",
@@ -83,11 +83,11 @@
             },
             {
               "navn": "tilbakestill_grunnbeløp",
-              "år": "${tilbakestillGrunnbeløp}"
+              "år": "${tilbakestillÅr}"
             },
             {
               "navn": "tilbakestill_lønnstrinn_spk",
-              "år": "${tilbakestillGrunnbeløp}"
+              "år": "${tilbakestillÅr}"
             },
             {
               "navn": "forskyv_årskull",
