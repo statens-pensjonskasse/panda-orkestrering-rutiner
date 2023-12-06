@@ -88,7 +88,7 @@
             {
               "handling": "kopier_fra_arkiv_til_batch",
               "filnavn": "poliser",
-              "batchFra": "pa_fak_ba_09",
+              "batchFra": "pa_res_ba_01",
               "batchTil": "pa_ork_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "panda-poliser/${fremskrivingsDato}"
@@ -117,7 +117,7 @@
             {
               "handling": "kopier_fra_arkiv_til_batch",
               "filnavn": "rettighet_ytelser_for_dvh",
-              "batchFra": "pa_fak_ba_09",
+              "batchFra": "pa_res_ba_01",
               "batchTil": "pa_ork_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}"
@@ -129,7 +129,7 @@
             },
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
-              "filPrefix": "md5_rettighet_ytelser",
+              "filPrefix": "md5_rettighet_og_ytelse",
               "batch": "pa_ork_ba_02",
               "filstiHosDVH": "/md5_rettighet_ytelser"
             },
