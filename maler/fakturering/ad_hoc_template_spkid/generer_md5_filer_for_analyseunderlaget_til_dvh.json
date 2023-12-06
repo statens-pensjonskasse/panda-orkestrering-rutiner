@@ -129,7 +129,7 @@
             },
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
-              "filPrefix": "md5_rettighet_ytelser",
+              "filPrefix": "md5_rettighet_og_ytelse",
               "batch": "pa_ork_ba_02",
               "filstiHosDVH": "/md5_rettighet_ytelser"
             },
