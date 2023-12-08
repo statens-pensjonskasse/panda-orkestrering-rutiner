@@ -190,7 +190,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_11 (flette_feilende_medlemmer_med_filtrering)",
+      "navn": "pa_fak_ba_11 (flette_feilende_medlemmer)",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -234,7 +234,7 @@
         },
         {
           "handling": "pa_fak_ba_11",
-          "modus": "flette_feilende_medlemmer_med_filtrering",
+          "modus": "flette_feilende_medlemmer",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "reserveberegningVersjon": "${paResBa01Versjon}",
           "validerFeilendeMedlemmer": true
