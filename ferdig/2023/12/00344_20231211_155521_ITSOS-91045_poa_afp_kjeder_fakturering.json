@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
 
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2023-12-11_15-50-07-47",
 
     "termin" : "2023-04",
     "førstePeriode" : "202309",
@@ -342,7 +342,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "premiemodell": "POA_AFP",
       "termin": "${termin}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "4d662d12-3028-444d-b7b9-92e7447f8bf2",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -365,7 +365,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "premiemodell": "POA_AFP",
       "termin": "${termin}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "747bb958-9b3f-44ed-88c9-fef4e8956330",
       "validerFeilendeMedlemmer": true
     },
     {
