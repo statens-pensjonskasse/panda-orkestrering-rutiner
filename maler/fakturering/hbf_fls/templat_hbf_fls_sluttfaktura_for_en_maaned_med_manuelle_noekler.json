@@ -6,6 +6,7 @@
     "bokføringsperiode": "<bokføringsperiode>",
     "fremskrivingsDato": "<fremskrivingsDato>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
+    "prognoseVersjon": "<prognoseVersjon>",
     "termin": "<termin>",
     "paFakBa02Versjon": "<versjon>",
     "paFakBa14Versjon": "<versjon>",
@@ -155,122 +156,6 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_08 (generer_noekkelunderlag)",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "navn": "pa_fak_ba_08",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
-            },
-            {
-              "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "hbf_fls",
-              "periode": "${bokføringsperiode}",
-              "prognoseVersjon": "avtaleliste",
-              "batch": "pa_fak_ba_08",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "totalreserver",
-              "batchFra": "pa_fak_ba_02",
-              "batchTil": "pa_fak_ba_08",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "reservetransaksjonsdifferanser_medlem",
-              "batchFra": "pa_fak_ba_14",
-              "batchTil": "pa_fak_ba_08",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_fls/${bokføringsperiode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "aggregerte_reservetransaksjonsdifferanser",
-              "batchFra": "pa_fak_ba_02",
-              "batchTil": "pa_fak_ba_08",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${bokføringsperiode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremie",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_08",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${bokføringsperiode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremieunderlag",
-              "batchFra": "pa_res_ba_01",
-              "batchTil": "pa_fak_ba_08",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
-            },
-            {
-              "handling": "pa_fak_ba_08",
-              "modus": "generer_noekkelunderlag",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
-            },
-            {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_08",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${bokføringsperiode}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "navn": "pa_fak_ba_08 (aggreger_faktiske_premier)",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "navn": "pa_fak_ba_08",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "noekkelunderlag_faktiske_premier",
-              "batchFra": "pa_fak_ba_08",
-              "batchTil": "pa_fak_ba_08",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${bokføringsperiode}"
-            },
-            {
-              "handling": "pa_fak_ba_08",
-              "modus": "aggreger_faktiske_premier",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true
-            },
-            {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_08",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode}"
-            },
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_08"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "navn": "pa_fak_ba_06 (premiefellesskap_utjevning_faktisk_premie)",
       "handling": "gruppe",
       "gruppeAv": [
@@ -283,20 +168,12 @@
               "batch": "pa_fak_ba_06"
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "noekkelunderlag_faktiske_premier",
-              "batchFra": "pa_fak_ba_08",
-              "batchTil": "pa_fak_ba_06",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${bokføringsperiode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "aggregerte_noekler_faktiske_premier",
-              "batchFra": "pa_fak_ba_08",
-              "batchTil": "pa_fak_ba_06",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "aggreger_faktiske_premier/${bokføringsperiode}"
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "periode": "${bokføringsperiode}",
+              "prognoseVersjon": "${prognoseVersjon}",
+              "batch": "pa_fak_ba_06",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
