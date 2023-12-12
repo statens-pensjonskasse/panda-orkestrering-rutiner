@@ -6,7 +6,6 @@
     "bokføringsperiode": "<bokføringsperiode>",
     "fremskrivingsDato": "<fremskrivingsDato>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
-    "prognoseVersjon": "<prognoseVersjon>",
     "termin": "<termin>",
     "paFakBa02Versjon": "<versjon>",
     "paFakBa14Versjon": "<versjon>",
@@ -171,7 +170,7 @@
               "handling": "kopier_filer_fra_aktuar_til_batch",
               "premiemodell": "hbf_fls",
               "periode": "${bokføringsperiode}",
-              "prognoseVersjon": "${prognoseVersjon}",
+              "prognoseVersjon": "${oppgjørsVersjon}",
               "batch": "pa_fak_ba_06",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
