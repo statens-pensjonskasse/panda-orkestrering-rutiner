@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.1.0",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
+    "grunnlagsdataFremskriving": "grunnlagsdata_2023-12-26_21-34-25-78",
     "reserveberegningGrunnlagsdataAktuarVersjon": "6",
     "fremskrivingsDato": "2024.01.01",
     "forrigeFremskrivingsDato": "2023.12.01",
