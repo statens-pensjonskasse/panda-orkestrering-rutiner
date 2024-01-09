@@ -3,16 +3,16 @@
   "gyldigVersjon": "0.0.29",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "bokføringsperiode": "<bokføringsperiode>",
-    "fremskrivingsDato": "<fremskrivingsDato>",
-    "oppgjørsVersjon": "<oppgjørsVersjon>",
-    "termin": "<termin>",
-    "paFakBa02Versjon": "<versjon>",
-    "paFakBa14Versjon": "<versjon>",
-    "paFakBa08Versjon": "<versjon>",
-    "paFakBa06Versjon": "<versjon>",
-    "paFakBa10Versjon": "<versjon>",
-    "paFakBa04Versjon": "<versjon>"
+    "bokføringsperiode": "202312",
+    "oppgjørsVersjon": "60005",
+    "termin": "2023-06",
+    "paFakBa02Versjon": "1.0.3",
+    "paFakBa14Versjon": "1.0.12",
+    "paFakBa08Versjon": "1.0.0",
+    "paFakBa06Versjon": "1.0.0",
+    "paFakBa10Versjon": "1.0.4",
+    "paFakBa04Versjon": "2.0.7",
+    "paFakBa09Versjon": "2.0.9"
   },
   "operasjoner": [
     {
