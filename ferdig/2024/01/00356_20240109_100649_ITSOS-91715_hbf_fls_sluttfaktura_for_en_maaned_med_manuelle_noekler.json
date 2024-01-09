@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS sluttfaktura for måned ${bokføringsperiode} og oppgjørsVersjon ${oppgjørsVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.29",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2024-01-09_09-55-09-80",
     "bokføringsperiode": "202312",
     "oppgjørsVersjon": "60005",
     "termin": "2023-06",
@@ -399,7 +399,7 @@
           "handling": "pa_fak_ba_09",
           "modus": "loepende_premieoppgjoer_dataunderlag",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "6953b0c8-53c3-405a-b011-cc70ad69f754",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -449,7 +449,7 @@
               "handling": "pa_fak_ba_09",
               "modus": "sluttfaktura_dataunderlag_for_medlem",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "7fda7a1e-a94b-4041-994b-2c4775243f39",
               "validerFeilendeMedlemmer": true
             },
             {
@@ -481,7 +481,7 @@
               "handling": "pa_fak_ba_09",
               "modus": "sluttfaktura_dataunderlag_for_avtale",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "0f9c4648-9223-44ba-a00b-3295b8bfd930",
               "validerFeilendeMedlemmer": true
             },
             {
