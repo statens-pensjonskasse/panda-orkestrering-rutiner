@@ -1,0 +1,509 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS sluttfaktura for måned ${bokføringsperiode} og oppgjørsVersjon ${oppgjørsVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.29",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "bokføringsperiode": "202312",
+    "oppgjørsVersjon": "60005",
+    "termin": "2023-06",
+    "paFakBa02Versjon": "1.0.3",
+    "paFakBa14Versjon": "1.0.12",
+    "paFakBa08Versjon": "1.0.0",
+    "paFakBa06Versjon": "1.0.0",
+    "paFakBa10Versjon": "1.0.4",
+    "paFakBa04Versjon": "2.0.7",
+    "paFakBa09Versjon": "2.0.9"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${paFakBa02Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "${paFakBa14Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_08",
+          "versjon": "${paFakBa08Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_06",
+          "versjon": "${paFakBa06Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_10",
+          "versjon": "${paFakBa10Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_14 (premiefiltrering_for_hbf_fls)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_fak_ba_14",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_14"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "periode": "${bokføringsperiode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_14",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "fakturerbare_premiedifferanser",
+              "batchFra": "pa_fak_ba_13",
+              "batchTil": "pa_fak_ba_14",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${bokføringsperiode}"
+            },
+            {
+              "handling": "pa_fak_ba_14",
+              "modus": "premiefiltrering_for_hbf_fls",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_14",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_hbf_fls/${bokføringsperiode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_02 (aggreger_reservetransaksjonsdifferanser_hbf_fls)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_fak_ba_02",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_02"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "periode": "${bokføringsperiode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_02",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefiltrering_for_hbf_fls/${bokføringsperiode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${bokføringsperiode}"
+            },
+            {
+              "handling": "pa_fak_ba_02",
+              "modus": "aggreger_reservetransaksjonsdifferanser_hbf_fls",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_02",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${bokføringsperiode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_06 (premiefellesskap_utjevning_faktisk_premie)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_fak_ba_06 (bokføringsperiode)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_06"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "periode": "${bokføringsperiode}",
+              "prognoseVersjon": "${oppgjørsVersjon}",
+              "batch": "pa_fak_ba_06",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+              "batchFra": "pa_fak_ba_02",
+              "batchTil": "pa_fak_ba_06",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${bokføringsperiode}"
+            },
+            {
+              "handling": "pa_fak_ba_06",
+              "modus": "premiefellesskap_utjevning_faktisk_premie",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true,
+              "debugger": "lagreDebug"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_06",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_06"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_07 (beregn_lopende_premieoppgjoer)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_fak_ba_07",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_07"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "utjevnet_faktisk_premie",
+              "batchFra": "pa_fak_ba_06",
+              "batchTil": "pa_fak_ba_07",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "prognosepremieuttrekk",
+              "batchFra": "pa_fak_ba_06",
+              "batchTil": "pa_fak_ba_07",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${bokføringsperiode}"
+            },
+            {
+              "handling": "pa_fak_ba_07",
+              "modus": "beregn_lopende_premieoppgjoer",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true,
+              "debugger": "lagreDebug"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_07",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_07"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_10 (sammenstill sluttfaktura)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_fak_ba_10",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_10"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "lopende_premieoppgjoer",
+              "batchFra": "pa_fak_ba_07",
+              "batchTil": "pa_fak_ba_10",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "prognoseVersjon": "${oppgjørsVersjon}",
+              "periode": "${bokføringsperiode}",
+              "batch": "pa_fak_ba_10",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "pa_fak_ba_10",
+              "modus": "sammenstill_sluttfaktura",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_10",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "sammenstill_sluttfaktura/${bokføringsperiode}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_04 (fakturaunderlag)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_fak_ba_04",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_04"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "sluttfaktura",
+              "batchFra": "pa_fak_ba_10",
+              "batchTil": "pa_fak_ba_04",
+              "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+              "nøkkel": "sammenstill_sluttfaktura/${bokføringsperiode}"
+            },
+            {
+              "handling": "pa_fak_ba_04",
+              "modus": "generer_fakturaunderlag_hbf_fls_for_sluttfaktura",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "termin": "${termin}",
+              "premiemodell": "HBF_FLS",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_fakturaunderlag_hbf_fls_for_sluttfaktura/${termin}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "prognoseVersjon": "${oppgjørsVersjon}",
+              "periode": "${bokføringsperiode}",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "pa_fak_ba_04",
+              "modus": "generer_agressofil_hbf_fls_for_sluttfaktura",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "termin": "${termin}",
+              "premiemodell": "HBF_FLS",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_04",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_agressofil_hbf_fls_for_sluttfaktura/${termin}",
+              "filter": "Agressofil"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_04"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 (loepende_premieoppgjoer_dataunderlag)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${bokføringsperiode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "utjevnet_faktisk_premie",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${bokføringsperiode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "prognosepremieuttrekk",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${bokføringsperiode}"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "loepende_premieoppgjoer_dataunderlag",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "loepende_premieoppgjoer_dataunderlag/${bokføringsperiode}"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+          "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 (sammenstill sluttfaktura dataunderlag)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "pa_fak_ba_09",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "sluttfaktura",
+              "batchFra": "pa_fak_ba_10",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+              "nøkkel": "sammenstill_sluttfaktura/${bokføringsperiode}"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "prognoseVersjon": "${oppgjørsVersjon}",
+              "periode": "${bokføringsperiode}",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "sluttfaktura_dataunderlag_for_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "sluttfaktura_dataunderlag_for_medlem/${bokføringsperiode}"
+            },
+            {
+              "handling": "send_batch_output_til_dvh",
+              "filPrefix": "sluttfaktura_dataunderlag_medlem",
+              "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
+              "batch": "pa_fak_ba_09",
+              "filstiHosDVH": "/hbf_fls/sluttfaktura/medlem"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "sluttfaktura_dataunderlag_medlem",
+              "batchFra": "pa_fak_ba_09",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil":"${grunnlagsdataMappe}",
+              "nøkkel": "sluttfaktura_dataunderlag_for_medlem/${bokføringsperiode}"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "sluttfaktura_dataunderlag_for_avtale",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "sluttfaktura_dataunderlag_for_avtale/${bokføringsperiode}"
+            },
+            {
+              "handling": "send_batch_output_til_dvh",
+              "filPrefix": "sluttfaktura_dataunderlag_avtale",
+              "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
+              "batch": "pa_fak_ba_09",
+              "filstiHosDVH": "/hbf_fls/sluttfaktura/avtale"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
