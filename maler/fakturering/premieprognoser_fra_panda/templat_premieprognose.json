@@ -2,39 +2,39 @@
   "navn": "Rutinefil for premieprognose",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "fraGrunnlagsdataMappe": "grunnlagsdata_2024-01-19_07-32-03-55",
+    "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
 
-    "tilbakestillFraOgMed": "2023.01.02",
+    "tilbakestillFraOgMed": "<yyyy.MM.dd>",
 
-    "GfraOgMed2023": "2022.12.30",
-    "gUtviklingsprosent2023": "6.4",
+    "GfraOgMed2023": "<yyyy.MM.dd>",
+    "gUtviklingsprosent2023": "<X.X>",
 
-    "lønnFraOgMed2023": "2022.12.30",
-    "lønnUtviklingsprosent2023": "4.7",
+    "lønnFraOgMed2023": "<yyyy.MM.dd>",
+    "lønnUtviklingsprosent2023": "<X.X>",
 
-    "lønnFraOgMed2024": "2023.07.01",
-    "lønnUtviklingsprosent2024": "4.7",
+    "lønnFraOgMed2024": "<yyyy.MM.dd>",
+    "lønnUtviklingsprosent2024": "<X.X>",
 
-    "GfraOgMed2024": "2023.05.01",
-    "gUtviklingsprosent2024": "5.2",
+    "GfraOgMed2024": "<yyyy.MM.dd>",
+    "gUtviklingsprosent2024": "<X.X>",
 
-    "arkiveringsnøkkelPaResBa03": "2024",
+    "arkiveringsnøkkelPaResBa03": "<yyyy>",
 
-    "premieprognoseKonvertingsår": "2022",
-    "fremskrivingsDato": "2024.01.01",
+    "premieprognoseKonvertingsår": "<yyyy>",
+    "fremskrivingsDato": "<yyyy.MM.dd>",
     "rettighet": "panda_veldig_forenkla_rettighet",
 
-    "administrasjonspremieForSisteBokføringsperiode": "202312",
+    "administrasjonspremieForSisteBokføringsperiode": "<periode>",
 
-    "premiemodell": "hbf_as_asa",
-    "avtalelistePeriode": "202401",
-    "premiefilterModus": "premie_for_hbf_as_asa",
+    "premiemodell": "<premiemodell>",
+    "avtalelistePeriode": "<periode>",
+    "premiefilterModus": "<premiefilterModus>",
 
-    "paResBa01Versjon": "1.2.139",
-    "paResBa03Versjon": "0.0.22",
-    "paFakBa05Versjon": "1.0.4",
-    "paFakBa13Versjon": "1.0.7",
-    "paFakBa14Versjon": "1.0.12"
+    "paResBa01Versjon": "<X.Y.Z>",
+    "paResBa03Versjon": "<X.Y.Z>",
+    "paFakBa05Versjon": "<X.Y.Z>",
+    "paFakBa13Versjon": "<X.Y.Z>",
+    "paFakBa14Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
