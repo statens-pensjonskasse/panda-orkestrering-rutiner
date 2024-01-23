@@ -1,0 +1,16 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF ØVRIGE fakturering til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
+  "gyldigVersjon": "0.0.65",
+  "variabler": {
+    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_2024-01-15_16-55-09-08",
+    "termin" : "2023-06"
+  },
+  "operasjoner": [
+    {
+      "handling": "send_til_agresso",
+      "filnavn": "agressofil_hbf_ovrige",
+      "arkivFilsti": "generer_agressofil_for_hbf_ovrige/${termin}",
+      "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
+    }
+  ]
+}
