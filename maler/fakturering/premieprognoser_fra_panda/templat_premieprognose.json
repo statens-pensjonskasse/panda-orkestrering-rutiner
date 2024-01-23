@@ -12,6 +12,8 @@
     "lønnFraOgMed2023": "<yyyy.MM.dd>",
     "lønnUtviklingsprosent2023": "<X.X>",
 
+    "forskyvÅrskull": "<X>",
+
     "lønnFraOgMed2024": "<yyyy.MM.dd>",
     "lønnUtviklingsprosent2024": "<X.X>",
 
@@ -101,7 +103,7 @@
             },
             {
               "navn": "forskyv_årskull",
-              "forskyvning": "1"
+              "forskyvning": "${forskyvÅrskull}"
             },
             {
               "navn": "lønnsvekst_medlemsdata",
@@ -210,8 +212,7 @@
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${administrasjonspremieForSisteBokføringsperiode}",
-          "validerFeilendeMedlemmer": true,
-          "debugger": "lagreDebug"
+          "validerFeilendeMedlemmer": true
         },
         {
           "handling": "arkiver_all_batch_output",
