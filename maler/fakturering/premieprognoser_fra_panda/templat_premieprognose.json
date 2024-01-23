@@ -6,6 +6,10 @@
 
     "tilbakestillFraOgMed": "<yyyy.MM.dd>",
 
+    "tilbakestillTilÅr": "<yyyy>",
+    "ignorerTilbakestillGrunnbeløp": "<true/false>",
+    "ignorerTilbakestillLønnstrinnSPK": "<true/false>",
+
     "GfraOgMed2023": "<yyyy.MM.dd>",
     "gUtviklingsprosent2023": "<X.X>",
 
@@ -83,8 +87,30 @@
           "handling": "pa_res_ba_03",
           "manipulatorer": [
             {
-              "navn": "tilbakestill_stillingshistorikk",
+              "navn": "tilbakestill_medlemsdata",
               "fraOgMed": "${tilbakestillFraOgMed}"
+            },
+            {
+              "navn": "tilbakestill_avtaleperiode",
+              "fraOgMed": "${tilbakestillFraOgMed}"
+            },
+            {
+              "navn": "tilbakestill_avtaleprodukt",
+              "fraOgMed": "${tilbakestillFraOgMed}"
+            },
+            {
+              "navn": "tilbakestill_avtaleversjon",
+              "fraOgMed": "${tilbakestillFraOgMed}"
+            },
+            {
+              "navn": "tilbakestill_grunnbeløp",
+              "år": "${tilbakestillTilÅr}",
+              "ignorertInstruksjon": "${ignorerTilbakestillGrunnbeløp}"
+            },
+            {
+              "navn": "tilbakestill_lønnstrinn_spk",
+              "år": "${tilbakestillTilÅr}",
+              "ignorertInstruksjon": "${ignorerTilbakestillLønnstrinnSPK}"
             },
             {
               "navn": "reguler_grunnbeløp",
