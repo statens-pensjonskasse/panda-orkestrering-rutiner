@@ -2,26 +2,43 @@
   "navn": "Rutinefil for premieprognose",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "fraGrunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "fremskrivingsDato": "<YYYY.MM.dd>",
-    "premiefilterModus": "<modus>",
+    "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
+
+    "tilbakestillFraOgMed": "<yyyy.MM.dd>",
+
+    "tilbakestillTilÅr": "<yyyy>",
+    "ignorerTilbakestillGrunnbeløp": "<true/false>",
+    "ignorerTilbakestillLønnstrinnSPK": "<true/false>",
+
+    "GfraOgMed2023": "<yyyy.MM.dd>",
+    "gUtviklingsprosent2023": "<X.X>",
+
+    "lønnFraOgMed2023": "<yyyy.MM.dd>",
+    "lønnUtviklingsprosent2023": "<X.X>",
+
+    "forskyvÅrskull": "<X>",
+
+    "lønnFraOgMed2024": "<yyyy.MM.dd>",
+    "lønnUtviklingsprosent2024": "<X.X>",
+
+    "GfraOgMed2024": "<yyyy.MM.dd>",
+    "gUtviklingsprosent2024": "<X.X>",
+
+    "arkiveringsnøkkelPaResBa03": "<yyyy>",
+
+    "premieprognoseKonvertingsår": "<yyyy>",
+    "fremskrivingsDato": "<yyyy.MM.dd>",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+
+    "administrasjonspremieForSisteBokføringsperiode": "<periode>",
+
     "premiemodell": "<premiemodell>",
-    "premieprognoseKonvertingsår": "<YYYY>",
-    "arkiveringsnøkkelPaResBa03": "<YYYY>",
-    "avtalelistePeriode": "<YYYYMM>",
-
-    "tilbakestillFraOgMed": "<YYYY.MM.dd>",
-    "tilbakestillÅr": "<YYYY>",
-
-    "forskyvÅrskull": "Y",
-    "lønnFraOgMed": "<YYYY.MM.dd>",
-    "lønnUtviklingsprosent": "<%>",
-
-    "grunnbeløpFraOgMed": "<YYYY.MM.dd>",
-    "gUtviklingsprosent": "<%>",
+    "avtalelistePeriode": "<periode>",
+    "premiefilterModus": "<premiefilterModus>",
 
     "paResBa01Versjon": "<X.Y.Z>",
     "paResBa03Versjon": "<X.Y.Z>",
+    "paFakBa05Versjon": "<X.Y.Z>",
     "paFakBa13Versjon": "<X.Y.Z>",
     "paFakBa14Versjon": "<X.Y.Z>"
   },
@@ -40,6 +57,10 @@
         {
           "navn": "pa_fak_ba_13",
           "versjon": "${paFakBa13Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_05",
+          "versjon": "${paFakBa05Versjon}"
         },
         {
           "navn": "pa_fak_ba_14",
@@ -83,11 +104,28 @@
             },
             {
               "navn": "tilbakestill_grunnbeløp",
-              "år": "${tilbakestillÅr}"
+              "år": "${tilbakestillTilÅr}",
+              "ignorertInstruksjon": "${ignorerTilbakestillGrunnbeløp}"
             },
             {
               "navn": "tilbakestill_lønnstrinn_spk",
-              "år": "${tilbakestillÅr}"
+              "år": "${tilbakestillTilÅr}",
+              "ignorertInstruksjon": "${ignorerTilbakestillLønnstrinnSPK}"
+            },
+            {
+              "navn": "reguler_grunnbeløp",
+              "fraOgMed": "${GfraOgMed2023}",
+              "utviklingProsent": "${gUtviklingsprosent2023}"
+            },
+            {
+              "navn": "lønnsvekst_medlemsdata",
+              "fraOgMed": "${lønnFraOgMed2023}",
+              "utviklingProsent": "${lønnUtviklingsprosent2023}"
+            },
+            {
+              "navn": "lønnsvekst_lønnstrinn_spk",
+              "fraOgMed": "${lønnFraOgMed2023}",
+              "utviklingProsent": "${lønnUtviklingsprosent2023}"
             },
             {
               "navn": "forskyv_årskull",
@@ -95,18 +133,18 @@
             },
             {
               "navn": "lønnsvekst_medlemsdata",
-              "fraOgMed": "${lønnFraOgMed}",
-              "utviklingProsent": "${lønnUtviklingsprosent}"
+              "fraOgMed": "${lønnFraOgMed2024}",
+              "utviklingProsent": "${lønnUtviklingsprosent2024}"
             },
             {
               "navn": "lønnsvekst_lønnstrinn_spk",
-              "fraOgMed": "${lønnFraOgMed}",
-              "utviklingProsent": "${lønnUtviklingsprosent}"
+              "fraOgMed": "${lønnFraOgMed2024}",
+              "utviklingProsent": "${lønnUtviklingsprosent2024}"
             },
             {
               "navn": "reguler_grunnbeløp",
-              "fraOgMed": "${grunnbeløpFraOgMed}",
-              "utviklingProsent": "${gUtviklingsprosent}"
+              "fraOgMed": "${GfraOgMed2024}",
+              "utviklingProsent": "${gUtviklingsprosent2024}"
             }
           ]
         },
@@ -119,7 +157,7 @@
       ]
     },
     {
-      "navn": "produser kontorføringer for premieprognoser",
+      "navn": "pa_res_ba_01 produser kontoføringer og administrasjonspremieunderlag",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -135,30 +173,87 @@
           "nøkkel": "${arkiveringsnøkkelPaResBa03}"
         },
         {
-          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-          "versjon": "5",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "navn": "panda_reserveberegning",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_res_ba_01",
+              "modus": "panda_reserveberegning",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "rettighet": "${rettighet}",
+              "premieprognose": {
+                "konverteringsår": "${premieprognoseKonvertingsår}",
+                "fremskrivingsfrekvens": "År"
+              }
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/panda_reserveberegning/${arkiveringsnøkkelPaResBa03}/${fremskrivingsDato}"
+            }
+          ]
         },
         {
-          "handling": "pa_res_ba_01",
-          "modus": "panda_reserveberegning",
-          "sisteFremskrivingsdato": "${fremskrivingsDato}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premieprognose": {
-            "konverteringsår": "${premieprognoseKonvertingsår}",
-            "fremskrivingsfrekvens": "År"
-          }
-        },
-        {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_res_ba_01",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/${arkiveringsnøkkelPaResBa03}"
+          "navn": "panda_administrasjonspremieunderlag",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_res_ba_01",
+              "modus": "panda_administrasjonspremieunderlag",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "rettighet": "${rettighet}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${arkiveringsnøkkelPaResBa03}/${fremskrivingsDato}"
+            }
+          ]
         }
       ]
     },
     {
-      "navn": "Produser fakturerbare premiedifferanser",
+      "navn": "pa_fak_ba_05 generere administrasjonspremier",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${arkiveringsnøkkelPaResBa03}/${fremskrivingsDato}",
+          "kommentar": "Henter fra siste grunnlagsdatamappe"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_administrasjonspremier",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "bokføringsperiode": "${administrasjonspremieForSisteBokføringsperiode}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_administrasjonspremier/${arkiveringsnøkkelPaResBa03}/${administrasjonspremieForSisteBokføringsperiode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_13 generere premiedifferanser fra kontoføringer",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -167,7 +262,7 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_13",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/${arkiveringsnøkkelPaResBa03}"
+          "nøkkel": "premieprognose/panda_reserveberegning/${arkiveringsnøkkelPaResBa03}/${fremskrivingsDato}"
         },
         {
           "handling": "pa_fak_ba_13",
@@ -184,7 +279,7 @@
       ]
     },
     {
-      "navn": "Produser fakturerbare premiedifferanser",
+      "navn": "pa_fak_ba_14 generere fakturerbare premiedifferanser",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -211,6 +306,7 @@
         {
           "handling": "pa_fak_ba_14",
           "modus": "${premiefilterModus}",
+          "grupperMedDekning": "true",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
