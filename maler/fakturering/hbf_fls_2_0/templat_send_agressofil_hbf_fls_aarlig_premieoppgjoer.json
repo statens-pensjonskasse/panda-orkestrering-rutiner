@@ -1,0 +1,16 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS årlig premieoppgjør til Agresso for år ${år} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
+  "gyldigVersjon": "0.0.9",
+  "variabler": {
+    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "år" : "<YYYY>"
+  },
+  "operasjoner": [
+    {
+      "handling": "send_til_agresso",
+      "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
+      "arkivFilsti": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${år}",
+      "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
+    }
+  ]
+}
