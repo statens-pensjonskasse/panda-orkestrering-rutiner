@@ -7,13 +7,12 @@
     "forrigeÅr": "<YYYY>",
     "inneværendeÅr": "<YYYY>",
 
-    "termininfoVersjon": "<termininfoVersjon>",
-    "prognoseVersjon": "<prognoseVersjon>",
-    "oppgjørsVersjon": "<oppgjørsVersjon>",
-
     "fremskrivingsDato1": "<fremskrivingsDato1>",
     "fremskrivingsDato2": "<fremskrivingsDato2>",
 
+    "termininfoVersjon": "<termininfoVersjon>",
+    "prognoseVersjon": "<prognoseVersjon>",
+    "oppgjørsVersjon": "<oppgjørsVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
 
     "paFakBa02Versjon": "<X.Y.Z>",

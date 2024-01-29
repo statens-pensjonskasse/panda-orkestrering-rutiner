@@ -2,14 +2,19 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF FLS 2.0 fakturering uten generering av første periode LPO for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+
     "termin": "<termin>",
+
     "andrePeriodeLPO": "<andrePeriodeLPO>",
+    "fremskrivingsDato2": "<fremskrivingsDato2>",
+
     "førstePeriode": "<førstePeriode>",
     "andrePeriode": "<andrePeriode>",
-    "fremskrivingsDato2": "<fremskrivingsDato2>",
+
     "termininfoVersjon": "<termininfoVersjon>",
     "prognoseVersjon": "<prognoseVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
+
     "paFakBa02Versjon": "<2.Y.Z>",
     "paFakBa04Versjon": "<2.Y.Z>",
     "paFakBa06Versjon": "<3.Y.Z>",
