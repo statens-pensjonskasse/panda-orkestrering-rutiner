@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periode ${periode}",
   "gyldigVersjon": "0.1.0",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2024-02-01_15-00-10-04",
     "grunnlagsdataFremskriving": "grunnlagsdata_2024-01-31_21-34-13-95",
     "reserveberegningGrunnlagsdataAktuarVersjon": "6",
     "fremskrivingsDato": "2024.02.01",
@@ -451,7 +451,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "generer_reserveoppbygging_dataunderlag",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "8aa01b15-c9a9-42b7-a7d4-cec2d86f88b0",
               "uttrekksdato": "${uttrekksdato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "validerFeilendeMedlemmer": true
@@ -493,7 +493,7 @@
               "modus": "generer_kontofoeringunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "uttrekksdato": "${uttrekksdato}",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "cb6d1888-17d1-4753-af29-974f22e8705d",
               "validerFeilendeMedlemmer": true
             },
             {
@@ -534,7 +534,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "feilmelding_dataunderlag",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "1eec972b-b191-43b6-a019-795e799fbe99",
               "uttrekksdato": "${uttrekksdato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "bokføringsperiode": "${periode}",
@@ -578,7 +578,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "generer_administrasjonspremieunderlag_dataunderlag",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "7cbf3b50-d780-4774-bff1-d65fbe48f7e0",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "bokføringsperiode": "${periode}",
               "validerFeilendeMedlemmer": true
@@ -617,7 +617,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "generer_administrasjonspremie_dataunderlag",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "b0a99c0f-8b89-4446-8d93-9dfc31d05b90",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "validerFeilendeMedlemmer": true
             },
@@ -660,7 +660,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "generer_beriket_tidslinjehendelser",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "44fd2e5b-2f96-4c14-b0f5-868fb027b756",
               "uttrekksdato": "${uttrekksdato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
