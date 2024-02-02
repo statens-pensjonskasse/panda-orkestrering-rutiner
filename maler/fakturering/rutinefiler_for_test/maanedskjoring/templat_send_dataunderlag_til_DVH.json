@@ -1,0 +1,192 @@
+{
+  "navn": "Rutine som sender analyseunderlagfiler til DVH for termin ${termin} og bokføringsperiode ${periode}",
+  "variabler": {
+    "termin": "<yyyy.MM.dd>",
+    "periode": "<periode>",
+
+    "skalIgnorereRettighetYtelse": "false",
+    "skalIgnorerePoliser": "false",
+    "skalIgnorereReserveoppbygging": "false",
+    "skalIgnorereKontofoeringsunderlag": "false",
+    "skalIgnorereFeilmeldinger": "false",
+    "skalIgnorereAdministrasjonspremieunderlag": "false",
+    "skalIgnorereAdministrasjonspremie": "false",
+    "skalIgnorereTidslinjehendelser": "false"
+  },
+  "operasjoner": [
+    {
+      "navn": "Flytt filer",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Flytt filer for rettighet ytelser",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "send_bare_filer_fra_arkiv_til_dvh",
+              "filPrefix": "rettighet_ytelser_for_dvh",
+              "batch": "pa_res_ba_01",
+              "nøkkel": "panda-testdata-rettighet-ytelser/${termin}",
+              "filstiHosDVH": "/rettighet_ytelse",
+              "ignorertInstruksjon": "${skalIgnorereRettighetYtelse}"
+            },
+            {
+              "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+              "filPrefix": "rettighet_ytelser_for_dvh",
+              "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
+              "filstiHosDVH": "/rettighet_ytelse",
+              "ignorertInstruksjon": "${skalIgnorereRettighetYtelse}"
+            }
+          ]
+        },
+        {
+          "navn": "Flytt filer for poliser",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "send_bare_filer_fra_arkiv_til_dvh",
+              "filPrefix": "poliser",
+              "batch": "pa_res_ba_01",
+              "nøkkel": "panda-poliser/${termin}",
+              "filstiHosDVH": "/polise",
+              "ignorertInstruksjon": "${skalIgnorerePoliser}"
+            },
+            {
+              "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+              "filPrefix": "poliser",
+              "filListe": "POLISE_FILLISTE.txt",
+              "filstiHosDVH": "/polise",
+              "ignorertInstruksjon": "${skalIgnorerePoliser}"
+            }
+          ]
+        },
+        {
+          "navn": "Flytt filer for reserveoppbygging",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "send_bare_filer_fra_arkiv_til_dvh",
+              "filPrefix": "reserveoppbygging_dataunderlag",
+              "batch": "pa_fak_ba_09",
+              "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}",
+              "filstiHosDVH": "/reserveoppbygging",
+              "ignorertInstruksjon": "${skalIgnorereReserveoppbygging}"
+            },
+            {
+              "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+              "filPrefix": "reserveoppbygging_dataunderlag",
+              "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
+              "filstiHosDVH": "/reserveoppbygging",
+              "ignorertInstruksjon": "${skalIgnorereReserveoppbygging}"
+            }
+          ]
+        },
+        {
+          "navn": "Flytt filer for kontoføringsunderlag",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "send_bare_filer_fra_arkiv_til_dvh",
+              "filPrefix": "kontofoeringunderlag",
+              "batch": "pa_fak_ba_09",
+              "nøkkel": "generer_kontofoeringunderlag/${termin}",
+              "filstiHosDVH": "/kontofoering",
+              "ignorertInstruksjon": "${skalIgnorereKontofoeringsunderlag}"
+            },
+            {
+              "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+              "filPrefix": "kontofoeringunderlag",
+              "filListe": "KONTOFOERING_FILLISTE.txt",
+              "filstiHosDVH": "/kontofoering",
+              "ignorertInstruksjon": "${skalIgnorereKontofoeringsunderlag}"
+            }
+          ]
+        },
+        {
+          "navn": "Flytt filer for feilmeldinger",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "send_bare_filer_fra_arkiv_til_dvh",
+              "filPrefix": "feilmelding_dataunderlag",
+              "batch": "pa_fak_ba_09",
+              "nøkkel": "feilmelding_dataunderlag/${termin}",
+              "filstiHosDVH": "/feilende_medlemmer",
+              "ignorertInstruksjon": "${skalIgnorereFeilmeldinger}"
+            },
+            {
+              "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+              "filPrefix": "feilmelding_dataunderlag",
+              "filListe": "FEILENDE_MEDLEM_FILLISTE.txt",
+              "filstiHosDVH": "/feilende_medlemmer",
+              "ignorertInstruksjon": "${skalIgnorereFeilmeldinger}"
+            }
+          ]
+        },
+        {
+          "navn": "Flytt filer for administrasjonspremieunderlag",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "send_bare_filer_fra_arkiv_til_dvh",
+              "filPrefix": "administrasjonspremieunderlag_dataunderlag",
+              "batch": "pa_fak_ba_09",
+              "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${termin}",
+              "filstiHosDVH": "/administrasjonspremieunderlag",
+              "ignorertInstruksjon": "${skalIgnorereAdministrasjonspremieunderlag}"
+            },
+            {
+              "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+              "filPrefix": "administrasjonspremieunderlag_dataunderlag",
+              "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
+              "filstiHosDVH": "/administrasjonspremieunderlag",
+              "ignorertInstruksjon": "${skalIgnorereAdministrasjonspremieunderlag}"
+            }
+          ]
+        },
+        {
+          "navn": "Flytt filer for administrasjonspremie",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "send_bare_filer_fra_arkiv_til_dvh",
+              "filPrefix": "administrasjonspremie_dataunderlag",
+              "batch": "pa_fak_ba_09",
+              "nøkkel": "generer_administrasjonspremie_dataunderlag/${periode}",
+              "filstiHosDVH": "/administrasjonspremie",
+              "ignorertInstruksjon": "${skalIgnorereAdministrasjonspremie}"
+            },
+            {
+              "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+              "filPrefix": "administrasjonspremie_dataunderlag",
+              "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.txt",
+              "filstiHosDVH": "/administrasjonspremie",
+              "ignorertInstruksjon": "${skalIgnorereAdministrasjonspremie}"
+            }
+          ]
+        },
+        {
+          "navn": "Flytt filer for tidslinjehendelser",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "send_bare_filer_fra_arkiv_til_dvh",
+              "filPrefix": "tidslinjehendelser_dataunderlag",
+              "batch": "pa_fak_ba_09",
+              "nøkkel": "generer_beriket_tidslinjehendelser/${termin}",
+              "filstiHosDVH": "/tidslinjehendelser",
+              "ignorertInstruksjon": "${skalIgnorereTidslinjehendelser}"
+            },
+            {
+              "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+              "filPrefix": "tidslinjehendelser_dataunderlag",
+              "filListe": "TIDSLINJEHENDELSER_FILLISTE.txt",
+              "filstiHosDVH": "/tidslinjehendelser",
+              "ignorertInstruksjon": "${skalIgnorereTidslinjehendelser}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

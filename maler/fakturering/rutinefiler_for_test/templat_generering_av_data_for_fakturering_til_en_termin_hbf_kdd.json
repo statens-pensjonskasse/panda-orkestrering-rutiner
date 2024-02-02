@@ -152,7 +152,7 @@
         },
         {
           "handling": "pa_fak_ba_11",
-          "modus": "flette_feilende_medlemmer_med_filtrering",
+          "modus": "flette_feilende_medlemmer",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "reserveberegningVersjon": "${paResBa01Versjon}",
           "validerFeilendeMedlemmer": true
@@ -467,7 +467,7 @@
         },
         {
           "handling": "pa_fak_ba_11",
-          "modus": "flette_feilende_medlemmer_med_filtrering",
+          "modus": "flette_feilende_medlemmer",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "reserveberegningVersjon": "${paResBa01Versjon}",
           "validerFeilendeMedlemmer": true
@@ -791,7 +791,7 @@
         },
         {
           "handling": "pa_fak_ba_11",
-          "modus": "flette_feilende_medlemmer_med_filtrering",
+          "modus": "flette_feilende_medlemmer",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "reserveberegningVersjon": "${paResBa01Versjon}",
           "validerFeilendeMedlemmer": true
@@ -1115,7 +1115,7 @@
         },
         {
           "handling": "pa_fak_ba_11",
-          "modus": "flette_feilende_medlemmer_med_filtrering",
+          "modus": "flette_feilende_medlemmer",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "reserveberegningVersjon": "${paResBa01Versjon}",
           "validerFeilendeMedlemmer": true
@@ -1439,7 +1439,7 @@
         },
         {
           "handling": "pa_fak_ba_11",
-          "modus": "flette_feilende_medlemmer_med_filtrering",
+          "modus": "flette_feilende_medlemmer",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "reserveberegningVersjon": "${paResBa01Versjon}",
           "validerFeilendeMedlemmer": true
@@ -1763,7 +1763,7 @@
         },
         {
           "handling": "pa_fak_ba_11",
-          "modus": "flette_feilende_medlemmer_med_filtrering",
+          "modus": "flette_feilende_medlemmer",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "reserveberegningVersjon": "${paResBa01Versjon}",
           "validerFeilendeMedlemmer": true
