@@ -1,7 +1,7 @@
 {
-  "navn": "Rutine som sender analyseunderlagfiler til DVH for termin ${termin} og bokføringsperiode ${periode}",
+  "navn": "Rutine som sender analyseunderlagfiler til DVH for fremskrivingsDato ${fremskrivingsDato} og bokføringsperiode ${periode}",
   "variabler": {
-    "termin": "<yyyy.MM.dd>",
+    "fremskrivingsDato": "<yyyy.MM.dd>",
     "periode": "<periode>",
 
     "skalIgnorereRettighetYtelse": "false",
@@ -26,7 +26,7 @@
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "rettighet_ytelser_for_dvh",
               "batch": "pa_res_ba_01",
-              "nøkkel": "panda-testdata-rettighet-ytelser/${termin}",
+              "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
               "filstiHosDVH": "/rettighet_ytelse",
               "ignorertInstruksjon": "${skalIgnorereRettighetYtelse}"
             },
@@ -47,7 +47,7 @@
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "poliser",
               "batch": "pa_res_ba_01",
-              "nøkkel": "panda-poliser/${termin}",
+              "nøkkel": "panda-poliser/${fremskrivingsDato}",
               "filstiHosDVH": "/polise",
               "ignorertInstruksjon": "${skalIgnorerePoliser}"
             },
@@ -89,7 +89,7 @@
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "kontofoeringunderlag",
               "batch": "pa_fak_ba_09",
-              "nøkkel": "generer_kontofoeringunderlag/${termin}",
+              "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato}",
               "filstiHosDVH": "/kontofoering",
               "ignorertInstruksjon": "${skalIgnorereKontofoeringsunderlag}"
             },
@@ -110,7 +110,7 @@
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "feilmelding_dataunderlag",
               "batch": "pa_fak_ba_09",
-              "nøkkel": "feilmelding_dataunderlag/${termin}",
+              "nøkkel": "feilmelding_dataunderlag/${fremskrivingsDato}",
               "filstiHosDVH": "/feilende_medlemmer",
               "ignorertInstruksjon": "${skalIgnorereFeilmeldinger}"
             },
@@ -131,7 +131,7 @@
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "administrasjonspremieunderlag_dataunderlag",
               "batch": "pa_fak_ba_09",
-              "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${termin}",
+              "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDato}",
               "filstiHosDVH": "/administrasjonspremieunderlag",
               "ignorertInstruksjon": "${skalIgnorereAdministrasjonspremieunderlag}"
             },
@@ -173,7 +173,7 @@
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "tidslinjehendelser_dataunderlag",
               "batch": "pa_fak_ba_09",
-              "nøkkel": "generer_beriket_tidslinjehendelser/${termin}",
+              "nøkkel": "generer_beriket_tidslinjehendelser/${fremskrivingsDato}",
               "filstiHosDVH": "/tidslinjehendelser",
               "ignorertInstruksjon": "${skalIgnorereTidslinjehendelser}"
             },
