@@ -10,7 +10,8 @@
     "nøkkel": "<nøkkel>",
     "eksisterendeMd5": "<md5-kolonne>",
     "kolonner": "<kolonner>",
-    "filter": "<filter>"
+    "filter": "<filter>",
+    "gammelInput": "true"
   },
   "operasjoner": [
     {
@@ -47,7 +48,7 @@
               "modus": "UTLED_MD5HASH_FOR_ENDRET_ANTALL_GJELDENDE_KOLONNER",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "filnavnOutput": "${filnavnHosDvh}",
-              "gammelInput": "true",
+              "gammelInput": "${gammelInput}",
               "eksisterendeMd5": "${eksisterendeMd5}",
               "kolonner": "${kolonner}",
               "filter": "${filter}"
