@@ -7,7 +7,10 @@
     "filnavnHosDvh": "<filnavnHosDVH>",
     "fraBatch": "<fraBatch>",
     "inputFiler": "<inputFiler>",
-    "nøkkel": "<nøkkel>"
+    "nøkkel": "<nøkkel>",
+    "eksisterendeMd5": "<md5-kolonne>",
+    "kolonner": "<kolonner>",
+    "filter": "<filter>"
   },
   "operasjoner": [
     {
@@ -45,9 +48,9 @@
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "filnavnOutput": "${filnavnHosDvh}",
               "gammelInput": "true",
-              "eksisterendeMd5": "<md5-kolonne>",
-              "kolonner": "<kolonner>",
-              "filter": "<filter>"
+              "eksisterendeMd5": "${eksisterendeMd5}",
+              "kolonner": "${kolonner}",
+              "filter": "${filter}"
             },
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
