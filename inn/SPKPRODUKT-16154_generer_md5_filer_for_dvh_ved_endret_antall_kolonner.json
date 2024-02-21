@@ -1,0 +1,67 @@
+{
+  "navn": "Genererer MD5 filer for DVH ved endret antall kolonner",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "fremskrivingsDato": "<YYYY.MM.dd>",
+    "paOrkBa02Versjon": "<X.Y.Z>",
+    "filnavnHosDvh": "<filnavnHosDVH>",
+    "fraBatch": "<fraBatch>",
+    "inputFiler": "<inputFiler>",
+    "nøkkel": "<nøkkel>",
+    "eksisterendeMd5": "<md5-kolonne>",
+    "kolonner": "<kolonner>",
+    "filter": "<filter>",
+    "gammelInput": "true"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_ork_ba_02",
+          "versjon": "${paOrkBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_ork_ba_02 (Generer MD5 hash filer)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "${inputFiler} MD5",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "${inputFiler}",
+              "batchFra": "${fraBatch}",
+              "batchTil": "pa_ork_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "${nøkkel}/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_ork_ba_02",
+              "modus": "UTLED_MD5HASH_FOR_ENDRET_ANTALL_GJELDENDE_KOLONNER",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavnOutput": "${filnavnHosDvh}",
+              "gammelInput": "${gammelInput}",
+              "eksisterendeMd5": "${eksisterendeMd5}",
+              "kolonner": "${kolonner}",
+              "filter": "${filter}"
+            },
+            {
+              "handling": "send_bare_filer_fra_batch_output_til_dvh",
+              "filPrefix": "MD5_",
+              "batch": "pa_ork_ba_02",
+              "filstiHosDVH": "/md5_${filnavnHosDvh}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
