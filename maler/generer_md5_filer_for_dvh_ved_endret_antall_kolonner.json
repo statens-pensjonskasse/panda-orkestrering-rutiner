@@ -11,7 +11,7 @@
     "eksisterendeMd5": "<md5-kolonne>",
     "kolonner": "<kolonner>",
     "filter": "<filter>",
-    "gammelInput": "true"
+    "gammelInput": "ja"
   },
   "operasjoner": [
     {
@@ -55,7 +55,7 @@
             },
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
-              "filPrefix": "MD5_",
+              "filPrefix": "md5_",
               "batch": "pa_ork_ba_02",
               "filstiHosDVH": "/md5_${filnavnHosDvh}"
             }
