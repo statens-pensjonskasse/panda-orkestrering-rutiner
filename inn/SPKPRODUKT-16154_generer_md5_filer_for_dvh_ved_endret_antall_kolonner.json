@@ -3,7 +3,7 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fremskrivingsDato": "2024.02.01",
-    "paOrkBa02Versjon": "0.1.10",
+    "paOrkBa02Versjon": "0.0.10",
     "filnavnHosDvh": "rettighet_ytelser",
     "fraBatch": "pa_res_ba_01",
     "inputFiler": "rettighet_ytelser",
