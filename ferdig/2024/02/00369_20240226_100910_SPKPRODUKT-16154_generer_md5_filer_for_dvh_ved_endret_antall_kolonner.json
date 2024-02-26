@@ -1,7 +1,7 @@
 {
   "navn": "Genererer MD5 filer for DVH ved endret antall kolonner",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2024-02-26_09-55-30-92",
     "fremskrivingsDato": "2024.02.01",
     "paOrkBa02Versjon": "0.0.9",
     "filnavnHosDvh": "rettighet_ytelser",
