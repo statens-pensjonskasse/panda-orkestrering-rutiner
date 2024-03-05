@@ -189,7 +189,7 @@
         },
         {
           "handling": "pa_fak_ba_13",
-          "modus": "generer_premiedifferanser_fra_kontofoeringer",
+          "modus": "generer_premiedifferanser_for_premieprognoser",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
@@ -197,7 +197,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_13",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_premiedifferanser_fra_kontofoeringer/${prognoseAar}"
+          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser/${prognoseAar}"
         }
       ]
     },
@@ -224,7 +224,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_premiedifferanser_fra_kontofoeringer/${prognoseAar}"
+          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser/${prognoseAar}"
         },
         {
           "handling": "pa_fak_ba_14",
