@@ -349,7 +349,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
           "premiemodell": "HBF_STAT",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": false
         },
         {
           "handling": "arkiver_batch_output",
@@ -364,7 +364,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
           "premiemodell": "HBF_STAT",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": false
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -533,7 +533,7 @@
           "premiemodell": "HBF_STAT",
           "termin": "${termin}",
           "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": false
         },
         {
           "handling": "arkiver_all_batch_output",
@@ -555,7 +555,7 @@
           "premiemodell": "HBF_STAT",
           "termin": "${termin}",
           "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": false
         },
         {
           "handling": "arkiver_all_batch_output",
