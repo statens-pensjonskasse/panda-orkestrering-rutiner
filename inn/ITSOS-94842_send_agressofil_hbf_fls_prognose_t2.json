@@ -2,8 +2,8 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS 2.0 prognose til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
   "gyldigVersjon": "0.0.9",
   "variabler": {
-    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "termin" : "<termin>"
+    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_2024-04-15_12-20-17-83",
+    "termin" : "2024-02"
   },
   "operasjoner": [
     {
