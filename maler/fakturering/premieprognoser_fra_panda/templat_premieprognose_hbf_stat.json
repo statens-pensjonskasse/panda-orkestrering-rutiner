@@ -2,6 +2,8 @@
   "navn": "Rutinefil for premieprognose hbf-stat",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "kjøringsId": "#{genererUUID}",
+
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
     "manipulatorer": ["Defineres nede i pa-res-ba-03"],
 
@@ -14,7 +16,6 @@
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
 
     "avtalelistePeriode": "<periode>",
-    "kjøringsId": "#{genererUUID}",
 
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
@@ -330,7 +331,7 @@
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "premieprognose",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
           "batchFra": "pa_fak_ba_14",
           "batchTil": "pa_pre_ba_02",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
@@ -340,7 +341,7 @@
           "handling": "pa_pre_ba_02",
           "modus": "PrognoserPrMedlem",
           "kjøringsId": "${kjøringsId}",
-          "filnavn": "premieprognose",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
