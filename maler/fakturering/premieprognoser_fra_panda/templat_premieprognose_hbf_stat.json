@@ -14,7 +14,9 @@
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
 
     "avtalelistePeriode": "<periode>",
+    "kjøringsId": "#{genererUUID}",
 
+    "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
     "paResBa03Versjon": "<X.Y.Z>",
     "paFakBa05Versjon": "<X.Y.Z>",
@@ -26,6 +28,10 @@
     {
       "handling": "deploy_batch",
       "batcher": [
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
+        },
         {
           "navn": "pa_res_ba_01",
           "versjon": "${paResBa01Versjon}"
@@ -286,6 +292,56 @@
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "premieprognose/premieprognoser_for_hbf_stat/${prognoseAar}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp premieprognoser pr avtale",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "premieprognose",
+          "batchFra": "pa_fak_ba_04",
+          "batchTil": "pa_pre_ba_02",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/premieprognoser_for_hbf_stat/${prognoseAar}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "PrognoserPrAvtale",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "premieprognose",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp premieprognoser pr medlem",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "premieprognose",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_pre_ba_02",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/premiefiltrering_for_hbf_stat/${prognoseAar}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "PrognoserPrMedlem",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "premieprognose",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     }
