@@ -1,7 +1,7 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for tjenestemannsorganisasjoner termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2024-05-08_14-30-08-83",
 
     "termin": "2024-02",
     "førstePeriode": "202403",
@@ -190,7 +190,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "TJENESTEMANNSORG",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "9e01d856-8dcc-4945-83eb-aa870035c536",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -212,7 +212,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "TJENESTEMANNSORG",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "f55dae5c-e4a1-42c9-8396-4f8b86bd2d84",
           "validerFeilendeMedlemmer": true
         },
         {
