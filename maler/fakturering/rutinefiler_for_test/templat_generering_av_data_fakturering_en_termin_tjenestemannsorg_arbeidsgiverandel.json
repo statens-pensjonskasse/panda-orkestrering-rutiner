@@ -1,5 +1,5 @@
 {
-  "navn": "Generering av data for seks perioder for testing av en termin, for hbf kdd fakturering rutinefil",
+  "navn": "Generering av data for seks perioder for testing av en termin, for TJENESTEMANNSORG ARBEIDSGIVERANDEL fakturering rutinefil",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_0000-00-00_00-00-00-00>",
