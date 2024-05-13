@@ -1,7 +1,7 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2024-05-13_21-10-07-31",
     "termin": "2024-02",
     "førstePeriode": "202403",
     "andrePeriode": "202404",
@@ -353,7 +353,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "HBF_AS/ASA",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "b911c2bb-1967-43dd-93b2-82975e205a5a",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -375,7 +375,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "HBF_AS/ASA",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "368922d9-26c6-4ee9-85a4-ab65c8d9140b",
           "validerFeilendeMedlemmer": true
         },
         {
