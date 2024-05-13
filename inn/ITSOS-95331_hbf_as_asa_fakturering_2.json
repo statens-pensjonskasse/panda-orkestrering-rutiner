@@ -1,17 +1,13 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
-  "gyldigVersjon": "0.0.78",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-
     "termin": "2024-02",
     "førstePeriode": "202403",
     "andrePeriode": "202404",
-
     "termininfoVersjon": "2024/v1",
     "solvensVersjon": "1",
     "premiejusteringVersjon": "10053_10054_10055",
-
     "paFakBa04Versjon": "3.0.1",
     "paFakBa09Versjon": "3.0.1",
     "paFakBa14Versjon": "1.0.14"
@@ -40,7 +36,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "batch": "pa_fak_ba_14",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -49,7 +46,8 @@
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "filnavn": "avtaleliste_hbf_as_asa"
+          "filnavn": "avtaleliste_hbf_as_asa",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -57,25 +55,30 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "pa_fak_ba_14",
           "modus": "premie_for_hbf_as_asa",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "ignorertInstruksjon": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premie_for_hbf_as_asa/${førstePeriode}"
+          "nøkkel": "premie_for_hbf_as_asa/${førstePeriode}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "batch": "pa_fak_ba_14",
+          "ignorertInstruksjon": true
         }
-      ]
+      ],
+      "ignorertInstruksjon": true
     },
     {
       "navn": "pa_fak_ba_14 premiefiltrering for hbf as asa ${andrePeriode}",
@@ -88,7 +91,8 @@
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "filnavn": "avtaleliste_hbf_as_asa"
+          "filnavn": "avtaleliste_hbf_as_asa",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -96,25 +100,30 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "pa_fak_ba_14",
           "modus": "premie_for_hbf_as_asa",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "ignorertInstruksjon": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premie_for_hbf_as_asa/${andrePeriode}"
+          "nøkkel": "premie_for_hbf_as_asa/${andrePeriode}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "batch": "pa_fak_ba_14",
+          "ignorertInstruksjon": true
         }
-      ]
+      ],
+      "ignorertInstruksjon": true
     },
     {
       "navn": "pa_fak_ba_04 generer hbf as asa fakturaunderlag og agressofil for ${termin}",
