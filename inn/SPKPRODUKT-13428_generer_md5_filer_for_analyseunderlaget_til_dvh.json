@@ -2,8 +2,8 @@
   "navn": "Genererer MD5 filer for mai for analyseunderlaget til DVH",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "fremskrivingsDato": "<YYYY.MM.dd>",
-    "paOrkBa02Versjon": "<X.Y.Z>"
+    "fremskrivingsDato": "2024.05.01",
+    "paOrkBa02Versjon": "0.0.10"
   },
   "operasjoner": [
     {
@@ -19,93 +19,6 @@
       "navn": "pa_ork_ba_02 (Generer MD5 hash filer)",
       "handling": "gruppe",
       "gruppeAv": [
-        {
-          "navn": "Kontoføringsunderlag MD5",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_ork_ba_02"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "kontofoeringunderlag",
-              "batchFra": "pa_fak_ba_09",
-              "batchTil": "pa_ork_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato}"
-            },
-            {
-              "handling": "pa_ork_ba_02",
-              "modus": "UTLED_MD5HASH_FOR_KONTOFOERINGSUNDERLAG",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "send_bare_filer_fra_batch_output_til_dvh",
-              "filPrefix": "md5_kontofoeringsunderlag",
-              "batch": "pa_ork_ba_02",
-              "filstiHosDVH": "/md5_kontofoeringsunderlag"
-            }
-          ]
-        },
-        {
-          "navn": "Tidslinjehendelser MD5",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_ork_ba_02"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "tidslinjehendelser_dataunderlag",
-              "batchFra": "pa_fak_ba_09",
-              "batchTil": "pa_ork_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_beriket_tidslinjehendelser/${fremskrivingsDato}"
-            },
-            {
-              "handling": "pa_ork_ba_02",
-              "modus": "UTLED_MD5HASH_FOR_TIDSLINJEHENDELSER",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "send_bare_filer_fra_batch_output_til_dvh",
-              "filPrefix": "md5_tidslinjehendelser",
-              "batch": "pa_ork_ba_02",
-              "filstiHosDVH": "/md5_tidslinjehendelser"
-            }
-          ]
-        },
-        {
-          "navn": "Poliser MD5",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_ork_ba_02"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "poliser",
-              "batchFra": "pa_res_ba_01",
-              "batchTil": "pa_ork_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda-poliser/${fremskrivingsDato}"
-            },
-            {
-              "handling": "pa_ork_ba_02",
-              "modus": "UTLED_MD5HASH_FOR_POLISER",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "send_bare_filer_fra_batch_output_til_dvh",
-              "filPrefix": "md5_poliser",
-              "batch": "pa_ork_ba_02",
-              "filstiHosDVH": "/md5_poliser"
-            }
-          ]
-        },
         {
           "navn": "Rettighet og ytelse MD5",
           "handling": "gruppe",
@@ -126,6 +39,10 @@
               "handling": "pa_ork_ba_02",
               "modus": "UTLED_MD5HASH_FOR_RETTIGHET_OG_YTELSE",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/md5_rettighet_ytelser"
             },
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
