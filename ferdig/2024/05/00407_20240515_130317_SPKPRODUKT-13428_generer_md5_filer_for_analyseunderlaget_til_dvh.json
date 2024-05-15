@@ -1,7 +1,7 @@
 {
   "navn": "Genererer MD5 filer for mai for analyseunderlaget til DVH",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2024-05-15_12-50-11-77",
     "fremskrivingsDato": "2024.05.01",
     "paOrkBa02Versjon": "0.0.10"
   },
