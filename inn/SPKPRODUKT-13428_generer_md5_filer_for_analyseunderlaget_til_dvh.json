@@ -1,0 +1,62 @@
+{
+  "navn": "Genererer MD5 filer for mai for analyseunderlaget til DVH",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "fremskrivingsDato": "2024.05.01",
+    "paOrkBa02Versjon": "0.0.10"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_ork_ba_02",
+          "versjon": "${paOrkBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_ork_ba_02 (Generer MD5 hash filer)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Rettighet og ytelse MD5",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_ork_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "rettighet_ytelser_for_dvh",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_ork_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_ork_ba_02",
+              "modus": "UTLED_MD5HASH_FOR_RETTIGHET_OG_YTELSE",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/md5_rettighet_ytelser"
+            },
+            {
+              "handling": "send_bare_filer_fra_batch_output_til_dvh",
+              "filPrefix": "md5_rettighet_ytelser",
+              "batch": "pa_ork_ba_02",
+              "filstiHosDVH": "/md5_rettighet_ytelser"
+            },
+            {
+              "handling": "rydd_utmappe_for_batch",
+              "batch": "pa_ork_ba_02"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
