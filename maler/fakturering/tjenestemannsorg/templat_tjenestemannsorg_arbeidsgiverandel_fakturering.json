@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for KDD for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for TJENESTEMANNSORG ARBEIDSGIVERANDEL for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 generer fakturaunderlag og agressofil for KDD termin ${termin}",
+      "navn": "pa_fak_ba_04 generer fakturaunderlag og agressofil for TJENESTEMANNSORG ARBEIDSGIVERANDEL termin ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -292,10 +292,10 @@
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "generer_fakturaunderlag_hbf_kdd",
+          "modus": "generer_fakturaunderlag_for_tjenestemannsorg_arbeidsgiverandel",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
-          "premiemodell": "HBF_KDD",
+          "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -303,21 +303,21 @@
           "filnavn": "fakturaunderlag",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturaunderlag_hbf_kdd/${termin}"
+          "nøkkel": "generer_fakturaunderlag_for_tjenestemannsorg_arbeidsgiverandel/${termin}"
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "generer_agressofil_hbf_kdd",
+          "modus": "generer_agressofil_for_tjenestemannsorg_arbeidsgiverandel",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
-          "premiemodell": "HBF_KDD",
+          "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
           "validerFeilendeMedlemmer": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_agressofil_hbf_kdd/${termin}"
+          "nøkkel": "generer_agressofil_for_tjenestemannsorg_arbeidsgiverandel/${termin}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -587,9 +587,9 @@
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "hbf_kdd_dataunderlag_for_medlem",
+          "modus": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_for_medlem",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "HBF_KDD",
+          "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
           "termin": "${termin}",
           "kjøringsId": "#{genererUUID}",
           "validerFeilendeMedlemmer": true
@@ -598,20 +598,20 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_kdd_dataunderlag_for_medlem/${termin}"
+          "nøkkel": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_for_medlem/${termin}"
         },
         {
           "handling": "send_batch_output_til_dvh",
-          "filPrefix": "hbf_kdd_dataunderlag_medlem",
-          "filListe": "HBFKDD_FILLISTE_MEDLEM.txt",
+          "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem",
+          "filListe": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL_FILLISTE_MEDLEM.txt",
           "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_kdd/fakturering/medlem"
+          "filstiHosDVH": "/tjenestemannsorg_arbeidsgiverandel/fakturering/medlem"
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "hbf_kdd_dataunderlag_for_avtale",
+          "modus": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_for_avtale",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "HBF_KDD",
+          "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
           "termin": "${termin}",
           "kjøringsId": "#{genererUUID}",
           "validerFeilendeMedlemmer": true
@@ -620,14 +620,14 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_kdd_dataunderlag_for_avtale/${termin}"
+          "nøkkel": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_for_avtale/${termin}"
         },
         {
           "handling": "send_batch_output_til_dvh",
-          "filPrefix": "hbf_kdd_dataunderlag_avtale",
-          "filListe": "HBFKDD_FILLISTE_AVTALE.txt",
+          "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale",
+          "filListe": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL_FILLISTE_AVTALE.txt",
           "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_kdd/fakturering/avtale"
+          "filstiHosDVH": "/tjenestemannsorg_arbeidsgiverandel/fakturering/avtale"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
