@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS 2.0 varsling for år ${år} og prognoseVersjonVarsling ${prognoseVersjonVarsling} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.53",
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2024-05-23_14-40-10-31",
 
     "år" : "2025",
     "prognoseVersjonVarsling" : "1129",
@@ -90,7 +90,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_varsling_avtale",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "b25ca3d1-0c35-47e6-a535-cce14480d527",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
@@ -111,7 +111,7 @@
     {
       "handling": "pa_fak_ba_09",
       "modus": "utjevnet_premier_varsling_medlem",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "cb30b769-162c-4238-a5f2-b639a845854f",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true
     },
