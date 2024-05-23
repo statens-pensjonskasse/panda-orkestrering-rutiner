@@ -4,12 +4,12 @@
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 
-    "år" : "<år>",
-    "prognoseVersjonVarsling" : "<prognoseVersjonVarsling>",
-    "fordelingsnøkkelPeriode" : "<fordelingsnøkkelPeriode>",
+    "år" : "2025",
+    "prognoseVersjonVarsling" : "1129",
+    "fordelingsnøkkelPeriode" : "202401",
 
-    "paFakBa06Versjon" : "<X.Y.Z>",
-    "paFakBa09Versjon" : "<X.Y.Z>"
+    "paFakBa06Versjon" : "3.0.5",
+    "paFakBa09Versjon" : "3.0.3"
   },
   "operasjoner": [
     {
