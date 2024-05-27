@@ -1,9 +1,9 @@
 {
-  "navn": "Oversetter flettede kontoføringer for desember fra PersonId til SPKId",
+  "navn": "Oversetter fls januar nøkler fra PersonId til SPKId",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "fremskrivingsDato": "<YYYY.MM.dd>",
     "paOrkBa02Versjon": "<X.Y.Z>",
+    "fordelingsnøkkelPeriode": "<periode>",
     "arkivStiSPKID": "SPKID"
   },
   "operasjoner": [
@@ -26,11 +26,11 @@
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "flettede_kontofoeringer",
-          "batchFra": "pa_fak_ba_11",
+          "filnavn": "noekkelunderlag_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
           "batchTil": "pa_ork_ba_02",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}"
+          "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
         },
         {
           "handling": "pa_ork_ba_02",
@@ -41,7 +41,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_ork_ba_02",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/${arkivStiSPKID}"
+          "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}/${arkivStiSPKID}"
         }
       ]
     }
