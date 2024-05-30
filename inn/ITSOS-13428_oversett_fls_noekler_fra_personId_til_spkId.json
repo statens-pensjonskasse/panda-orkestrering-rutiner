@@ -1,0 +1,49 @@
+{
+  "navn": "Oversetter fls januar nøkler fra PersonId til SPKId",
+  "variabler": {
+    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "paOrkBa02Versjon": "0.0.10",
+    "fordelingsnøkkelPeriode": "202401",
+    "arkivStiSPKID": "SPKID"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_ork_ba_02",
+          "versjon": "${paOrkBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_ork_ba_02 (oversett fra PersonId til SPKId)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_ork_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "noekkelunderlag_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_ork_ba_02",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+        },
+        {
+          "handling": "pa_ork_ba_02",
+          "modus": "oversett_personid_til_spkid",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_ork_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}/${arkivStiSPKID}"
+        }
+      ]
+    }
+  ]
+}
