@@ -3,20 +3,14 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "#{genererUUID}",
-
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
     "manipulatorer": ["Defineres nede i pa-res-ba-03"],
-
     "prognoseAar": "<yyyy>",
-
     "premieprognoseKonvertingsår": "<yyyy>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
     "rettighet": "panda_veldig_forenkla_rettighet",
-
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
-
     "avtalelistePeriode": "<periode>",
-
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
     "paResBa03Versjon": "<X.Y.Z>",
@@ -305,44 +299,50 @@
           "batch": "pa_pre_ba_02"
         },
         {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "premieprognose",
-          "batchFra": "pa_fak_ba_04",
-          "batchTil": "pa_pre_ba_02",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premieprognoser_for_hbf_stat/${prognoseAar}"
+          "navn": "pa_pre_ba_02 (premieprognoser_avtale)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "premieprognoser",
+              "batchFra": "pa_fak_ba_04",
+              "batchTil": "pa_pre_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/premieprognoser_for_hbf_stat/${prognoseAar}"
+            },
+            {
+              "handling": "pa_pre_ba_02",
+              "modus": "premieprognoser_avtale",
+              "kjøringsId": "${kjøringsId}",
+              "filnavn": "premieprognoser",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
         },
         {
-          "handling": "pa_pre_ba_02",
-          "modus": "PrognoserPrAvtale",
-          "kjøringsId": "${kjøringsId}",
-          "filnavn": "premieprognose",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        }
-      ]
-    },
-    {
-      "navn": "pa_pre_ba_02 last opp premieprognoser pr medlem",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_pre_ba_02"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "reservetransaksjonsdifferanser_medlem",
-          "batchFra": "pa_fak_ba_14",
-          "batchTil": "pa_pre_ba_02",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefiltrering_for_hbf_stat/${prognoseAar}"
-        },
-        {
-          "handling": "pa_pre_ba_02",
-          "modus": "PrognoserPrMedlem",
-          "kjøringsId": "${kjøringsId}",
-          "filnavn": "reservetransaksjonsdifferanser_medlem",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "navn": "pa_pre_ba_02 (premieprognoser_medlem)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_pre_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_pre_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/premiefiltrering_for_hbf_stat/${prognoseAar}"
+            },
+            {
+              "handling": "pa_pre_ba_02",
+              "modus": "premieprognoser_medlem",
+              "kjøringsId": "${kjøringsId}",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
         }
       ]
     }
