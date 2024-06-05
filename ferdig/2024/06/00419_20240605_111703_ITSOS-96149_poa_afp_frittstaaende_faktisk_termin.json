@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
 
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2024-06-05_11-10-11-30",
 
     "termin": "2024-02",
     "førsteFremskrivingsdato": "2024.04.01",
@@ -745,7 +745,7 @@
       "modus": "poa_afp_frittstaaende_dataunderlag_for_medlem",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "c4518d81-cc05-427d-8c2d-e762e517b4d5",
       "premiemodell": "POA_AFP",
       "validerFeilendeMedlemmer": true
     },
@@ -767,7 +767,7 @@
       "modus": "poa_afp_frittstaaende_dataunderlag_for_avtale",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
-      "kjøringsId": "#{genererUUID}",
+      "kjøringsId": "08daaeec-9b83-4ea6-aaae-dee6b8acd538",
       "premiemodell": "POA_AFP",
       "validerFeilendeMedlemmer": true
     },
