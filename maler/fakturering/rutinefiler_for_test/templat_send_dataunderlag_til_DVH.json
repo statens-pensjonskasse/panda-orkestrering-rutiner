@@ -23,6 +23,11 @@
           "handling": "gruppe",
           "gruppeAv": [
             {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/rettighet_ytelse",
+              "ignorertInstruksjon": "${skalIgnorereRettighetYtelse}"
+            },
+            {
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "rettighet_ytelser_for_dvh",
               "batch": "pa_res_ba_01",
@@ -43,6 +48,11 @@
           "navn": "Flytt filer for poliser",
           "handling": "gruppe",
           "gruppeAv": [
+            {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/polise",
+              "ignorertInstruksjon": "${skalIgnorerePoliser}"
+            },
             {
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "poliser",
@@ -65,6 +75,11 @@
           "handling": "gruppe",
           "gruppeAv": [
             {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/reserveoppbygging",
+              "ignorertInstruksjon": "${skalIgnorereReserveoppbygging}"
+            },
+            {
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "reserveoppbygging_dataunderlag",
               "batch": "pa_fak_ba_09",
@@ -85,6 +100,11 @@
           "navn": "Flytt filer for kontoføringsunderlag",
           "handling": "gruppe",
           "gruppeAv": [
+            {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/kontofoering",
+              "ignorertInstruksjon": "${skalIgnorereKontofoeringsunderlag}"
+            },
             {
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "kontofoeringunderlag",
@@ -107,6 +127,11 @@
           "handling": "gruppe",
           "gruppeAv": [
             {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/feilende_medlemmer",
+              "ignorertInstruksjon": "${skalIgnorereFeilmeldinger}"
+            },
+            {
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "feilmelding_dataunderlag",
               "batch": "pa_fak_ba_09",
@@ -127,6 +152,11 @@
           "navn": "Flytt filer for administrasjonspremieunderlag",
           "handling": "gruppe",
           "gruppeAv": [
+            {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/administrasjonspremieunderlag",
+              "ignorertInstruksjon": "${skalIgnorereAdministrasjonspremieunderlag}"
+            },
             {
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "administrasjonspremieunderlag_dataunderlag",
@@ -149,6 +179,11 @@
           "handling": "gruppe",
           "gruppeAv": [
             {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/administrasjonspremie",
+              "ignorertInstruksjon": "${skalIgnorereAdministrasjonspremie}"
+            },
+            {
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "administrasjonspremie_dataunderlag",
               "batch": "pa_fak_ba_09",
@@ -169,6 +204,11 @@
           "navn": "Flytt filer for tidslinjehendelser",
           "handling": "gruppe",
           "gruppeAv": [
+            {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/tidslinjehendelser",
+              "ignorertInstruksjon": "${skalIgnorereTidslinjehendelser}"
+            },
             {
               "handling": "send_bare_filer_fra_arkiv_til_dvh",
               "filPrefix": "tidslinjehendelser_dataunderlag",
