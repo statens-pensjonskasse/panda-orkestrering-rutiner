@@ -42,7 +42,7 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "tjenestemannsorg",
+          "premiemodell": "tjenestemannsorg_arbeidsgiverandel",
           "periode": "${termin}",
           "prognoseVersjon": "${premiejusteringsVersjon}",
           "batch": "pa_fak_ba_04",
@@ -338,7 +338,7 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "batch": "pa_fak_ba_09",
-          "premiemodell": "tjenestemannsorg",
+          "premiemodell": "tjenestemannsorg_arbeidsgiverandel",
           "periode": "${termin}",
           "prognoseVersjon": "${premiejusteringsVersjon}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
