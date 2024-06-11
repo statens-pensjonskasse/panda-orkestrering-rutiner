@@ -1,7 +1,7 @@
 {
   "navn": "Oversetter flettede kontoføringer for April fra PersonId til SPKId",
   "variabler": {
-    "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe" : "grunnlagsdata_2024-06-11_09-40-08-37",
     "fremskrivingsDato": "2024.05.01",
     "paOrkBa02Versjon": "0.0.11",
     "arkivStiSPKID": "SPKID"
