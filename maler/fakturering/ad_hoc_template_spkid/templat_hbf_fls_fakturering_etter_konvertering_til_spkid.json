@@ -605,7 +605,7 @@
             {
               "handling": "kopier_fra_arkiv_til_batch",
               "filnavn": "noekkelunderlag_faktiske_premier",
-              "batchFra": "pa_fak_ba_08",
+              "batchFra": "pa_ork_ba_02",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
@@ -651,7 +651,7 @@
             {
               "handling": "kopier_fra_arkiv_til_batch",
               "filnavn": "noekkelunderlag_faktiske_premier",
-              "batchFra": "pa_fak_ba_08",
+              "batchFra": "pa_ork_ba_02",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
