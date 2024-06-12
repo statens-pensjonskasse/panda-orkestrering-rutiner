@@ -2,8 +2,8 @@
   "navn": "Oversetter fls januar nøkler fra PersonId til SPKId",
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
-    "paOrkBa02Versjon": "<X.Y.Z>",
-    "fordelingsnøkkelPeriode": "<periode>",
+    "paOrkBa02Versjon": "0.0.12",
+    "fordelingsnøkkelPeriode": "202401",
     "arkivStiSPKID": "SPKID"
   },
   "operasjoner": [
