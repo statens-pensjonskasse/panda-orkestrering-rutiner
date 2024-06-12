@@ -17,6 +17,7 @@
     "termininfoVersjon": "<termininfoVersjon>",
     "prognoseVersjon": "<prognoseVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
+    "arkivStiSPKID": "SPKID",
 
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
@@ -608,7 +609,7 @@
               "batchFra": "pa_ork_ba_02",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+              "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}/${arkivStiSPKID}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -654,7 +655,7 @@
               "batchFra": "pa_ork_ba_02",
               "batchTil": "pa_fak_ba_06",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+              "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}/${arkivStiSPKID}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
