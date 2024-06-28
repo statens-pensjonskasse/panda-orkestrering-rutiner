@@ -4,16 +4,16 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
-    "termin": "<termin>",
-    "førstePeriode": "<førstePeriode>",
-    "andrePeriode": "<andrePeriode>",
+    "termin": "2024-03",
+    "førstePeriode": "202405",
+    "andrePeriode": "202406",
 
-    "termininfoVersjon": "<termininfoVersjon>",
-    "premiejusteringsVersjon": "<premiejusteringsVersjon>",
+    "termininfoVersjon": "2024/v2",
+    "premiejusteringsVersjon": "10058",
 
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "paFakBa04Versjon": "3.0.6",
+    "paFakBa09Versjon": "3.1.0",
+    "paFakBa14Versjon": "1.0.14"
   },
   "operasjoner": [
     {
