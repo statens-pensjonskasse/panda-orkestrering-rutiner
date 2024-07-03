@@ -5,7 +5,7 @@
     "kjøringsId": "#{genererUUID}",
 
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
-    "manipulatorer": ["Defineres nede i pa-res-ba-03"],
+    "manipulatorer": ["Defineres nede i pa-pre-ba-01"],
     "prognoseAar": "<yyyy>",
 
     "rettighet": "panda_veldig_forenkla_rettighet",
@@ -19,7 +19,7 @@
 
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
-    "paResBa03Versjon": "<X.Y.Z>",
+    "paPreBa01Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa06Versjon": "<X.Y.Z>",
@@ -41,8 +41,8 @@
           "versjon": "${paResBa01Versjon}"
         },
         {
-          "navn": "pa_res_ba_03",
-          "versjon": "${paResBa03Versjon}"
+          "navn": "pa_pre_ba_01",
+          "versjon": "${paPreBa01Versjon}"
         },
         {
           "navn": "pa_fak_ba_02",
@@ -76,29 +76,29 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_03"
+          "batch": "pa_pre_ba_01"
         },
         {
           "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
           "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
           "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
           "fraBatch": "pa_res_ba_02",
-          "tilBatch": "pa_res_ba_03"
+          "tilBatch": "pa_pre_ba_01"
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "hbf_fls",
           "periode": "${avtalelistePeriode}",
           "prognoseVersjon": "avtaleliste",
-          "batch": "pa_res_ba_03"
+          "batch": "pa_pre_ba_01"
         },
         {
-          "handling": "pa_res_ba_03",
+          "handling": "pa_pre_ba_01",
           "manipulatorer": "${manipulatorer}"
         },
         {
-          "handling": "arkiver_utdata_pa_res_ba_03",
-          "batch": "pa_res_ba_03",
+          "handling": "arkiver_utdata_pa_pre_ba_01",
+          "batch": "pa_pre_ba_01",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "${prognoseAar}"
         }
@@ -116,7 +116,7 @@
           "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
           "fraGrunnlagsdataMappe": "${grunnlagsdataMappe}",
           "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "fraBatch": "pa_res_ba_03",
+          "fraBatch": "pa_pre_ba_01",
           "tilBatch": "pa_res_ba_01",
           "nøkkel": "${prognoseAar}"
         },
