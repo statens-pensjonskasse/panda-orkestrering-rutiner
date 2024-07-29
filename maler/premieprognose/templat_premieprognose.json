@@ -16,8 +16,6 @@
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
 
     "premiemodell": "<premiemodell>",
-    "premiefiltrering": "<premiefiltreringsmodus>",
-    "premieprognosermodus": "<premieprognosermodus>",
 
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
@@ -242,7 +240,7 @@
         },
         {
           "handling": "pa_fak_ba_14",
-          "modus": "${premiefiltrering}",
+          "modus": "premiefiltrering_for_${premiemodell}",
           "grupperMedDekning": "true",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
@@ -251,7 +249,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/${premiefiltrering}/${prognoseAar}"
+          "nøkkel": "premieprognose/premiefiltrering_for_${premiemodell}/${prognoseAar}"
         }
       ]
     },
@@ -277,7 +275,7 @@
           "batchFra": "pa_fak_ba_14",
           "batchTil": "pa_fak_ba_04",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/${premiefiltrering}/${prognoseAar}"
+          "nøkkel": "premieprognose/premiefiltrering_for_${premiemodell}/${prognoseAar}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -289,7 +287,7 @@
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "${premieprognosermodus}",
+          "modus": "premieprognoser_for_${premiemodell}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "prognoseAar": "${prognoseAar}",
           "premiemodell": "${premiemodell}",
@@ -299,7 +297,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/${premieprognosermodus}/${prognoseAar}"
+          "nøkkel": "premieprognose/premieprognoser_for_${premiemodell}/${prognoseAar}"
         }
       ]
     },
@@ -321,7 +319,7 @@
               "batchFra": "pa_fak_ba_04",
               "batchTil": "pa_pre_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/${premieprognosermodus}/${prognoseAar}"
+              "nøkkel": "premieprognose/premieprognoser_for_${premiemodell}/${prognoseAar}"
             },
             {
               "handling": "pa_pre_ba_02",
@@ -346,7 +344,7 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_pre_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/${premiefiltrering}/${prognoseAar}"
+              "nøkkel": "premieprognose/premiefiltrering_for_${premiemodell}/${prognoseAar}"
             },
             {
               "handling": "pa_pre_ba_02",
