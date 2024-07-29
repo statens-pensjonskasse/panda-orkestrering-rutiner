@@ -3,23 +3,21 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "#{genererUUID}",
-
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
+
     "manipulatorer": ["Defineres nede i pa-pre-ba-01"],
     "prognoseAar": "<yyyy>",
 
-    "rettighet": "panda_veldig_forenkla_rettighet",
-
     "premieprognoseKonvertingsår": "<yyyy>",
-    "administrasjonspremieForSisteBokføringsperiode": "<periode>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
-
     "fremskrivingsDato": "<fremskrivingsDato>",
-    "avtalelistePeriode": "<periode>",
 
+    "avtalelistePeriode": "<periode>",
+    "administrasjonspremieForSisteBokføringsperiode": "<periode>",
+
+    "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
-    "paPreBa01Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa06Versjon": "<X.Y.Z>",
@@ -134,7 +132,7 @@
               "modus": "panda_reserveberegning",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "rettighet": "${rettighet}",
+              "rettighet": "panda_veldig_forenkla_rettighet",
               "premieprognose": {
                 "konverteringsår": "${premieprognoseKonvertingsår}",
                 "fremskrivingsfrekvens": "År"
@@ -157,7 +155,7 @@
               "modus": "panda_administrasjonspremieunderlag",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "rettighet": "${rettighet}"
+              "rettighet": "panda_veldig_forenkla_rettighet"
             },
             {
               "handling": "arkiver_all_batch_output",
