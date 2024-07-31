@@ -1,0 +1,446 @@
+{
+  "navn": "Rutinefil for premieprognose hbf-stat",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "kjøringsId": "#{genererUUID}",
+    "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
+
+    "manipulatorer": ["Defineres nede i pa-pre-ba-01"],
+    "prognoseAar": "<yyyy>",
+
+    "premieprognoseKonvertingsår": "<yyyy>",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
+    "fremskrivingsDato": "<yyyy.MM.dd>",
+
+    "avtalelistePeriode": "<periode>",
+    "administrasjonspremieForSisteBokføringsperiode": "<periode>",
+    "bokføringsperioderEndringspremier": "<perioder>",
+
+    "paPreBa01Versjon": "<X.Y.Z>",
+    "paPreBa02Versjon": "<X.Y.Z>",
+    "paResBa01Versjon": "<X.Y.Z>",
+    "paFakBa05Versjon": "<X.Y.Z>",
+    "paFakBa13Versjon": "<X.Y.Z>",
+    "paFakBa14Versjon": "<X.Y.Z>",
+    "paFakBa04Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
+        },
+        {
+          "navn": "pa_res_ba_01",
+          "versjon": "${paResBa01Versjon}"
+        },
+        {
+          "navn": "pa_pre_ba_01",
+          "versjon": "${paPreBa01Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "${paFakBa13Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_05",
+          "versjon": "${paFakBa05Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "${paFakBa14Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "manipuler prognosedata",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_01"
+        },
+        {
+          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
+          "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "fraBatch": "pa_res_ba_02",
+          "tilBatch": "pa_pre_ba_01"
+        },
+        {
+          "handling": "pa_pre_ba_01",
+          "manipulatorer": "${manipulatorer}"
+        },
+        {
+          "handling": "arkiver_utdata_pa_pre_ba_01",
+          "batch": "pa_pre_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "${prognoseAar}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_res_ba_01 produser kontoføringer og administrasjonspremieunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_01"
+        },
+        {
+          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
+          "fraGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "fraBatch": "pa_pre_ba_01",
+          "tilBatch": "pa_res_ba_01",
+          "nøkkel": "${prognoseAar}"
+        },
+        {
+          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+          "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "navn": "panda_reserveberegning",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_res_ba_01",
+              "modus": "panda_reserveberegning",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "rettighet": "panda_veldig_forenkla_rettighet",
+              "premieprognose": {
+                "konverteringsår": "${premieprognoseKonvertingsår}",
+                "fremskrivingsfrekvens": "År"
+              }
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/panda_reserveberegning/${prognoseAar}/${fremskrivingsDato}"
+            }
+          ]
+        },
+        {
+          "navn": "panda_administrasjonspremieunderlag",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_res_ba_01",
+              "modus": "panda_administrasjonspremieunderlag",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "rettighet": "panda_veldig_forenkla_rettighet"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${prognoseAar}/${fremskrivingsDato}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_13 generere fakturerbare premiedifferanser fra kontoføringer",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "kontofoering",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_13",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/panda_reserveberegning/${prognoseAar}/${fremskrivingsDato}"
+        },
+        {
+          "handling": "pa_fak_ba_13",
+          "modus": "generer_premiedifferanser_for_premieprognoser",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true,
+          "bokføringsperioder": "${bokføringsperioderEndringspremier}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_13",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser/${prognoseAar}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_14 generere reservetransaksjonsdifferanser for tjenestemannsorg",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "tjenestemannsorg",
+          "periode": "${avtalelistePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premiedifferanser",
+          "batchFra": "pa_fak_ba_13",
+          "batchTil": "pa_fak_ba_14",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser/${prognoseAar}"
+        },
+        {
+          "handling": "pa_fak_ba_14",
+          "modus": "premiefiltrering_for_tjenestemannsorg",
+          "grupperMedDekning": "true",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/premiefiltrering_for_tjenestemannsorg/${prognoseAar}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generer administrasjonspremieunderlag for faktura",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${prognoseAar}/${fremskrivingsDato}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_administrasjonspremieunderlag_for_fakturering",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "bokføringsperiode": "${administrasjonspremieForSisteBokføringsperiode}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_administrasjonspremieunderlag_for_fakturering/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generere administrasjonspremier",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${prognoseAar}/${fremskrivingsDato}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_administrasjonspremier",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "bokføringsperiode": "${administrasjonspremieForSisteBokføringsperiode}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_administrasjonspremier/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generer medlemsandel",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/premiefiltrering_for_tjenestemannsorg/${prognoseAar}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag_faktura",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_administrasjonspremieunderlag_for_fakturering/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_medlemsandel_tjenestemannsorg",
+          "bokføringsperiode": "${administrasjonspremieForSisteBokføringsperiode}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_medlemsandel_tjenestemannsorg/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_04 premieprognoser for tjenestemannsorg arbeidsgiverandel",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "tjenestemannsorg",
+          "periode": "${avtalelistePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "medlemsandel",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_04",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_medlemsandel_tjenestemannsorg/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_04",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/premiefiltrering_for_tjenestemannsorg/${prognoseAar}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_04",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/generer_administrasjonspremier/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "premieprognoser_for_tjenestemannsorg_arbeidsgiverandel",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "prognoseAar": "${prognoseAar}",
+          "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/premieprognoser_for_tjenestemannsorg_arbeidsgiverandel/${prognoseAar}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp premieprognoser pr avtale",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "navn": "pa_pre_ba_02 (premieprognoser_avtale)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "premieprognoser",
+              "batchFra": "pa_fak_ba_04",
+              "batchTil": "pa_pre_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/premieprognoser_for_tjenestemannsorg_arbeidsgiverandel/${prognoseAar}"
+            },
+            {
+              "handling": "pa_pre_ba_02",
+              "modus": "premieprognoser_avtale",
+              "kjøringsId": "${kjøringsId}",
+              "filnavn": "premieprognoser",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_pre_ba_02 (premieprognoser_medlem)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_pre_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_pre_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/premiefiltrering_for_tjenestemannsorg/${prognoseAar}"
+            },
+            {
+              "handling": "pa_pre_ba_02",
+              "modus": "premieprognoser_medlem",
+              "kjøringsId": "${kjøringsId}",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
