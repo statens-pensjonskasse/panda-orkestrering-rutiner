@@ -313,7 +313,7 @@
         },
         {
           "handling": "pa_fak_ba_05",
-          "modus": "generer_medlemsandel_tjenestemannsorg",
+          "modus": "generer_medlemsandel_tjenestemannsorg_for_premieprognoser",
           "bokføringsperiode": "${administrasjonspremieForSisteBokføringsperiode}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
@@ -322,7 +322,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_05",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_medlemsandel_tjenestemannsorg/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
+          "nøkkel": "premieprognose/generer_medlemsandel_tjenestemannsorg_for_premieprognoser/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -352,7 +352,7 @@
           "batchFra": "pa_fak_ba_05",
           "batchTil": "pa_fak_ba_04",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_medlemsandel_tjenestemannsorg/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
+          "nøkkel": "premieprognose/generer_medlemsandel_tjenestemannsorg_for_premieprognoser/${prognoseAar}/${administrasjonspremieForSisteBokføringsperiode}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
