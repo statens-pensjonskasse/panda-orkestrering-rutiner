@@ -1,5 +1,5 @@
 {
-  "navn": "Rutinefil for premieprognose hbf-stat",
+  "navn": "Rutinefil for premieprognose hbf-tjenestemannsorg-arbeidsgiverandel",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "#{genererUUID}",
