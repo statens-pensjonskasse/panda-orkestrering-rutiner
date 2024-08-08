@@ -267,14 +267,6 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "hbf_as_asa",
-          "periode": "${avtalelistePeriode}",
-          "prognoseVersjon": "avtaleliste",
-          "batch": "pa_fak_ba_04",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
-          "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
           "periode": "${termin}",
           "prognoseVersjon": "${solvensVersjon}",
           "batch": "pa_fak_ba_04",

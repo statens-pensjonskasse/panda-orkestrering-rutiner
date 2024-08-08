@@ -339,14 +339,6 @@
           "batch": "pa_fak_ba_04"
         },
         {
-          "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "tjenestemannsorg",
-          "periode": "${avtalelistePeriode}",
-          "prognoseVersjon": "avtaleliste",
-          "batch": "pa_fak_ba_04",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "medlemsandel",
           "batchFra": "pa_fak_ba_05",
