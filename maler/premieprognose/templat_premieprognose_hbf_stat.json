@@ -1,5 +1,5 @@
 {
-  "navn": "Rutinefil for premieprognose hbf-stat",
+  "navn": "Rutinefil for premieprognose HBF Stat",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "#{genererUUID}",
@@ -15,8 +15,6 @@
     "avtalelistePeriode": "<periode>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
     "bokføringsperioderEndringspremier": "<perioder>",
-
-    "premiemodell": "<premiemodell>",
 
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
@@ -216,7 +214,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_14 generere reservetransaksjonsdifferanser for ${premiemodell}",
+      "navn": "pa_fak_ba_14 generere reservetransaksjonsdifferanser for hbf-stat",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -226,7 +224,7 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "${premiemodell}",
+          "premiemodell": "hbf_stat",
           "periode": "${avtalelistePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
@@ -242,7 +240,7 @@
         },
         {
           "handling": "pa_fak_ba_14",
-          "modus": "premiefiltrering_for_${premiemodell}",
+          "modus": "premiefiltrering_for_hbf_stat",
           "grupperMedDekning": "true",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
@@ -251,12 +249,12 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefiltrering_for_${premiemodell}/${prognoseAar}"
+          "nøkkel": "premieprognose/premiefiltrering_for_hbf_stat/${prognoseAar}"
         }
       ]
     },
     {
-      "navn": "pa_fak_ba_04 premieprognoser for ${premiemodell}",
+      "navn": "pa_fak_ba_04 premieprognoser for HBF Stat",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -265,7 +263,7 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "${premiemodell}",
+          "premiemodell": "hbf_stat",
           "periode": "${avtalelistePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_04",
@@ -277,7 +275,7 @@
           "batchFra": "pa_fak_ba_14",
           "batchTil": "pa_fak_ba_04",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefiltrering_for_${premiemodell}/${prognoseAar}"
+          "nøkkel": "premieprognose/premiefiltrering_for_hbf_stat/${prognoseAar}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -289,17 +287,17 @@
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "premieprognoser_for_${premiemodell}",
+          "modus": "premieprognoser_for_hbf_stat",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "prognoseAar": "${prognoseAar}",
-          "premiemodell": "${premiemodell}",
+          "premiemodell": "HBF_STAT",
           "validerFeilendeMedlemmer": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premieprognoser_for_${premiemodell}/${prognoseAar}"
+          "nøkkel": "premieprognose/premieprognoser_for_hbf_stat/${prognoseAar}"
         }
       ]
     },
@@ -321,7 +319,7 @@
               "batchFra": "pa_fak_ba_04",
               "batchTil": "pa_pre_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/premieprognoser_for_${premiemodell}/${prognoseAar}"
+              "nøkkel": "premieprognose/premieprognoser_for_hbf_stat/${prognoseAar}"
             },
             {
               "handling": "pa_pre_ba_02",
@@ -346,7 +344,7 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_pre_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/premiefiltrering_for_${premiemodell}/${prognoseAar}"
+              "nøkkel": "premieprognose/premiefiltrering_for_hbf_stat/${prognoseAar}"
             },
             {
               "handling": "pa_pre_ba_02",
