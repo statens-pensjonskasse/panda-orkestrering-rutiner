@@ -2,10 +2,9 @@
   "navn": "Rutinefil for premieprognose hbf-fls prognoseår ${prognoseAar}",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "kjøringsId": "#{genererUUID}",
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
+    "kjøringsId": "#{genererUUID}",
 
-    "manipulatorer": ["Defineres nede i pa-pre-ba-01"],
     "prognoseAar": "<yyyy>",
 
     "premieprognoseKonvertingsår": "<yyyy>",
