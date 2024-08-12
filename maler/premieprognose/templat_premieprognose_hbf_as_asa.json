@@ -377,7 +377,7 @@
               "premiemodell": "hbf_as_asa",
               "periode": "${avtalelistePeriode}",
               "prognoseVersjon": "avtaleliste",
-              "batch": "pa_pre_ba_01",
+              "batch": "pa_pre_ba_02",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
