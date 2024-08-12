@@ -352,6 +352,31 @@
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             }
           ]
+        },
+        {
+          "navn": "pa_pre_ba_02 (premieprognoser_avtaleliste)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_pre_ba_02"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_stat",
+              "periode": "${avtalelistePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_pre_ba_01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "pa_pre_ba_02",
+              "modus": "premieprognoser_avtaleliste",
+              "kjøringsId": "${kjøringsId}",
+              "filnavn": "avtaleliste_hbf_stat",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
         }
       ]
     }
