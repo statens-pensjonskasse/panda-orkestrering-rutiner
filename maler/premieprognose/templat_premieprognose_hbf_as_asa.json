@@ -15,16 +15,15 @@
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
     "bokføringsperioderEndringspremier": "<perioder>",
 
-    "termin": "<termin>",
     "solvensVersjon": "<solvensVersjon>",
 
+    "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
-    "paPreBa01Versjon": "<X.Y.Z>",
+    "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa05Versjon": "<X.Y.Z>",
     "paFakBa13Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>",
-    "paFakBa04Versjon": "<X.Y.Z>"
+    "paFakBa14Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -273,7 +272,7 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "hbf_as_asa",
-          "periode": "${termin}",
+          "periode": "${prognoseAar}",
           "prognoseVersjon": "${solvensVersjon}",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -311,7 +310,7 @@
       ]
     },
     {
-      "navn": "pa_pre_ba_02 last opp premieprognoser pr avtale",
+      "navn": "pa_pre_ba_02 last opp premieprognoser",
       "handling": "gruppe",
       "gruppeAv": [
         {
