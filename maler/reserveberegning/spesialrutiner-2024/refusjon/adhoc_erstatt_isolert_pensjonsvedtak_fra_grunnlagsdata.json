@@ -1,0 +1,11 @@
+{
+  "navn": "Adhoc erstatt isolert pensjonsvedtak fra grunnlagsdata",
+  "operasjoner": [
+    {
+      "handling": "erstatt_isolert_pensjonsvedtak",
+      "forrigeArkivertGrunnlagsdatakatalog": "grunnlagsdata_2024-08-08_08-32-05-15",
+      "nesteArkivertGrunnlagsdatakatalog": "grunnlagsdata_2024-08-08_08-32-05-02",
+      "nyArkivertGrunnlagsdatakatalog": "#{grunnlagsdatamappeNå}"
+    }
+  ]
+}
