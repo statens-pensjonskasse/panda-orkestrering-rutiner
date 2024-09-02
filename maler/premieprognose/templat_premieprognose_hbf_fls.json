@@ -168,6 +168,49 @@
       ]
     },
     {
+      "navn": "pa_fak_ba_05 filtrer administrasjonspremieunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${avtalelistePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${prognoseAar}/${fremskrivingsDato}",
+          "kommentar": "Henter fra siste grunnlagsdatamappe"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "filtrer_administrasjonspremieunderlag",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieprognose/filtrer_administrasjonspremieunderlag/${prognoseAar}/${fremskrivingsDato}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
       "navn": "pa_fak_ba_05 generere administrasjonspremier",
       "handling": "gruppe",
       "gruppeAv": [
@@ -178,10 +221,10 @@
         {
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "administrasjonspremieunderlag",
-          "batchFra": "pa_res_ba_01",
+          "batchFra": "pa_fak_ba_05",
           "batchTil": "pa_fak_ba_05",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${prognoseAar}/${fremskrivingsDato}",
+          "nøkkel": "premieprognose/filtrer_administrasjonspremieunderlag/${prognoseAar}/${fremskrivingsDato}",
           "kommentar": "Henter fra siste grunnlagsdatamappe"
         },
         {
