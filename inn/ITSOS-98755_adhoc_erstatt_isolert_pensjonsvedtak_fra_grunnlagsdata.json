@@ -2,8 +2,8 @@
   "navn": "Adhoc erstatt isolert pensjonsvedtak fra grunnlagsdata",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "forrigeGrunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "nesteGrunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>"
+    "forrigeGrunnlagsdataMappe": "grunnlagsdata_2024-07-31_21-33-37-71",
+    "nesteGrunnlagsdataMappe": "grunnlagsdata_2024-08-31_17-04-20-97"
   },
 
   "operasjoner": [
