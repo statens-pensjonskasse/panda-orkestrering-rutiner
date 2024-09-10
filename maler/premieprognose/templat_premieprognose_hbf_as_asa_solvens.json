@@ -9,7 +9,6 @@
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
     "avtalelistePeriode": "<periode>",
-    "bokføringsperioderEndringspremier": "<perioder>",
 
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
@@ -139,8 +138,7 @@
           "handling": "pa_fak_ba_13",
           "modus": "generer_premiedifferanser_for_premieprognoser",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true,
-          "bokføringsperioder": "${bokføringsperioderEndringspremier}"
+          "validerFeilendeMedlemmer": true
         },
         {
           "handling": "arkiver_all_batch_output",
