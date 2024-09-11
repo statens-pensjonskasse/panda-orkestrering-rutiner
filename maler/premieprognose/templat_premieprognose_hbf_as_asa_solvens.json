@@ -8,7 +8,7 @@
     "premieprognoseKonvertingsår": "<yyyy>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
-    "avtalelistePeriode": "<periode>",
+    "avtalelisteChecksum": "<avtalelisteChecksum>",
 
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
@@ -59,8 +59,8 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
-          "periode": "${avtalelistePeriode}",
+          "premiemodell": "premieprognose",
+          "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_pre_ba_01"
         },
@@ -159,8 +159,8 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
-          "periode": "${avtalelistePeriode}",
+          "premiemodell": "premieprognose",
+          "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"

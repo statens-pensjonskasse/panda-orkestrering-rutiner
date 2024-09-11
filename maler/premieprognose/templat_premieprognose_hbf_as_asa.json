@@ -11,10 +11,10 @@
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
 
-    "avtalelistePeriode": "<periode>",
+    "avtalelisteChecksum": "<avtalelisteChecksum>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
 
-    "solvensVersjon": "<solvensVersjon>",
+    "solvenspremieChecksum": "<solvenspremieChecksum>",
 
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
@@ -75,8 +75,8 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
-          "periode": "${avtalelistePeriode}",
+          "premiemodell": "premieprognose",
+          "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_pre_ba_01"
         },
@@ -273,8 +273,8 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
-          "periode": "${avtalelistePeriode}",
+          "premiemodell": "premieprognose",
+          "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -312,9 +312,9 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
-          "periode": "${prognoseAar}",
-          "prognoseVersjon": "${solvensVersjon}",
+          "premiemodell": "premieprognose",
+          "periode": "${solvenspremieChecksum}",
+          "prognoseVersjon": "solvenspremie",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -414,8 +414,8 @@
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "hbf_as_asa",
-              "periode": "${avtalelistePeriode}",
+              "premiemodell": "premieprognose",
+              "periode": "${avtalelisteChecksum}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_pre_ba_02",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
