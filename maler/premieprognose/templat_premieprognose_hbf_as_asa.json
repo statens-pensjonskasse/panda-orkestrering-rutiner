@@ -13,7 +13,6 @@
 
     "avtalelistePeriode": "<periode>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
-    "bokføringsperioderEndringspremier": "<perioder>",
 
     "solvensVersjon": "<solvensVersjon>",
 
@@ -253,8 +252,7 @@
           "handling": "pa_fak_ba_13",
           "modus": "generer_premiedifferanser_for_premieprognoser",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true,
-          "bokføringsperioder": "${bokføringsperioderEndringspremier}"
+          "validerFeilendeMedlemmer": true
         },
         {
           "handling": "arkiver_all_batch_output",
