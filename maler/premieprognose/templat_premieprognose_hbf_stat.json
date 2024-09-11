@@ -11,7 +11,7 @@
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
 
-    "avtalelistePeriode": "<periode>",
+    "avtalelisteChecksum": "<avtalelisteChecksum>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
     "bokføringsperioderEndringspremier": "<perioder>",
 
@@ -74,8 +74,8 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_stat",
-          "periode": "${avtalelistePeriode}",
+          "premiemodell": "premieprognose",
+          "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_pre_ba_01"
         },
@@ -273,8 +273,8 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_stat",
-          "periode": "${avtalelistePeriode}",
+          "premiemodell": "premieprognose",
+          "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -406,8 +406,8 @@
             },
             {
               "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "hbf_stat",
-              "periode": "${avtalelistePeriode}",
+              "premiemodell": "premieprognose",
+              "periode": "${avtalelisteChecksum}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_pre_ba_02",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
