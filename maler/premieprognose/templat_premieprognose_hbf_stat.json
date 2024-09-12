@@ -329,7 +329,7 @@
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "premieprognoser_for_hbf_stat",
+          "modus": "premieprognoser",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "prognoseAar": "${prognoseAar}",
           "premiemodell": "HBF_STAT",
