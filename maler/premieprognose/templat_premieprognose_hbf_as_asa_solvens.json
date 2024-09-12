@@ -4,10 +4,14 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
     "kjøringsId": "#{genererUUID}",
+
     "prognoseAar": "<yyyy>",
+    "premiemodell": "hbf_as_asa",
+
     "premieprognoseKonvertingsår": "<yyyy>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
+
     "avtalelisteChecksum": "<avtalelisteChecksum>",
 
     "paPreBa01Versjon": "<X.Y.Z>",
@@ -72,7 +76,7 @@
           "handling": "arkiver_utdata_pa_pre_ba_01",
           "batch": "pa_pre_ba_01",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "${prognoseAar}"
+          "nøkkel": "${premiemodell}"
         }
       ]
     },
@@ -90,7 +94,7 @@
           "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
           "fraBatch": "pa_pre_ba_01",
           "tilBatch": "pa_res_ba_01",
-          "nøkkel": "${prognoseAar}"
+          "nøkkel": "${premiemodell}"
         },
         {
           "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
@@ -116,7 +120,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/panda_reserveberegning/${prognoseAar}/${fremskrivingsDato}"
+              "nøkkel": "premieprognose/panda_reserveberegning/${fremskrivingsDato}"
             }
           ]
         }
@@ -132,7 +136,7 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_13",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/panda_reserveberegning/${prognoseAar}/${fremskrivingsDato}"
+          "nøkkel": "premieprognose/panda_reserveberegning/${fremskrivingsDato}"
         },
         {
           "handling": "pa_fak_ba_13",
@@ -144,7 +148,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_13",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser/${prognoseAar}"
+          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser"
         }
       ]
     },
@@ -171,7 +175,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser/${prognoseAar}"
+          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -184,7 +188,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premie_for_hbf_as_asa/${prognoseAar}"
+          "nøkkel": "premieprognose/premie_for_hbf_as_asa"
         }
       ]
     },
@@ -202,7 +206,7 @@
           "batchFra": "pa_fak_ba_14",
           "batchTil": "pa_pre_ba_02",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premie_for_hbf_as_asa/${prognoseAar}"
+          "nøkkel": "premieprognose/premie_for_hbf_as_asa"
         },
         {
           "handling": "pa_pre_ba_02",
