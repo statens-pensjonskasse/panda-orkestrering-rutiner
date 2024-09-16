@@ -429,6 +429,31 @@
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             }
           ]
+        },
+        {
+          "navn": "pa_pre_ba_02 (administrasjonsunderlag)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_pre_ba_02"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremieunderlag",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_pre_ba_02",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premieprognose/filtrer_administrasjonspremieunderlag/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_pre_ba_02",
+              "modus": "administrasjonspremieunderlag",
+              "kjøringsId": "${kjøringsId}",
+              "filnavn": "administrasjonspremieunderlag",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
         }
       ]
     }
