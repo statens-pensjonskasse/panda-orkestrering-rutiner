@@ -70,6 +70,21 @@
       ]
     },
     {
+      "navn": "pa_pre_ba_02 (status startet)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "premieprognose_kjoering_startet",
+          "kjøringsId": "${kjøringsId}"
+        }
+      ]
+    },
+    {
       "navn": "manipuler prognosedata",
       "handling": "gruppe",
       "gruppeAv": [
@@ -721,6 +736,21 @@
               "kjøringsId": "${kjøringsId}",
               "filnavn": "administrasjonspremieunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_pre_ba_02 (status ferdig)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_pre_ba_02"
+            },
+            {
+              "handling": "pa_pre_ba_02",
+              "modus": "premieprognose_kjoering_ferdig",
+              "kjøringsId": "${kjøringsId}"
             }
           ]
         }
