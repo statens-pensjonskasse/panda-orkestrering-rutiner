@@ -16,6 +16,7 @@
 
     "termininfoVersjon": "<termininfoVersjon>",
     "prognoseVersjon": "<prognoseVersjon>",
+    "premiejusteringVersjon": "<premiejusteringVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
 
     "paFakBa02Versjon": "<X.Y.Z>",
@@ -489,6 +490,15 @@
               "batch": "pa_fak_ba_06"
             },
             {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "periode": "${termin}",
+              "prognoseVersjon": "${premiejusteringVersjon}",
+              "batch": "pa_fak_ba_06",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "tillatTomFil": true
+            },
+            {
               "handling": "kopier_fra_arkiv_til_batch",
               "filnavn": "noekkelunderlag_faktiske_premier",
               "batchFra": "pa_fak_ba_08",
@@ -537,6 +547,15 @@
             {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_06"
+            },
+            {
+              "handling": "kopier_filer_fra_aktuar_til_batch",
+              "premiemodell": "hbf_fls",
+              "periode": "${termin}",
+              "prognoseVersjon": "${premiejusteringVersjon}",
+              "batch": "pa_fak_ba_06",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "tillatTomFil": true
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
