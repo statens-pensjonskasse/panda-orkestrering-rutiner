@@ -1,0 +1,62 @@
+{
+  "navn": "filtrere medlemsbestand",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
+    "premiemodell": "premiemodel",
+    "periode": "yyyymm",
+    "aktivPåDato": "yyyy.mm.dd",
+    "paPreBa01Versjon": "<x.y.z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_pre_ba_01",
+          "versjon": "${paPreBa01Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "filtrer medlemsbestand",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_01"
+        },
+        {
+          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
+          "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "fraBatch": "pa_res_ba_02",
+          "tilBatch": "pa_pre_ba_01"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "${premiemodell}",
+          "periode": "${periode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_pre_ba_01"
+        },
+        {
+          "handling": "pa_pre_ba_01",
+          "manipulatorer": [
+            {
+              "navn": "filtrer_aktiv_medlemsbestand",
+              "fraFil": "avtaleliste_${premiemodell}.csv",
+              "aktivPåDato": "${aktivPåDato}"
+            }
+          ]
+        },
+        {
+          "handling": "arkiver_utdata_pa_pre_ba_01",
+          "batch": "pa_pre_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "${premiemodell}"
+        }
+      ]
+    }
+  ]
+}
