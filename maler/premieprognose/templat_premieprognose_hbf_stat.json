@@ -4,18 +4,14 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
     "kjøringsId": "#{genererUUID}",
-
     "prognoseAar": "<yyyy>",
     "premiemodell": "hbf_stat",
-
     "premieprognoseKonvertingsår": "<yyyy>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
-
     "avtalelisteChecksum": "<avtalelisteChecksum>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
     "bokføringsperioderEndringspremier": "<perioder>",
-
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
@@ -78,9 +74,9 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-        "handling": "rydd_grunnlagsdata_for_batch",
-        "batch": "pa_res_ba_01"
-      },
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_01"
+        },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_pre_ba_01"
@@ -130,10 +126,8 @@
           "manipulatorer": "${manipulatorer}"
         },
         {
-          "handling": "arkiver_utdata_pa_pre_ba_01",
-          "batch": "pa_pre_ba_01",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "${premiemodell}"
+          "handling": "kopier_filer_fra_pa_pre_ba_01_til_pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
@@ -337,71 +331,62 @@
       "navn": "pa_pre_ba_02 last opp data for premieprognoser",
       "handling": "gruppe",
       "gruppeAv": [
-
-            {
-              "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "premieprognose",
-              "periode": "${avtalelisteChecksum}",
-              "prognoseVersjon": "avtaleliste",
-              "batch": "pa_pre_ba_02",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "premieprognoser_avtale",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "premieprognoser",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "premieprognoser_medlem",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "reservetransaksjonsdifferanser_medlem",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "premieprognoser_avtaleliste",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "avtaleliste_hbf_stat",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "administrasjonspremieunderlag",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "administrasjonspremieunderlag",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "premieprognoser_avtaleliste",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "avtaleliste_hbf_stat",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_pre_ba_02"
-            }
-          ]
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "premieprognose",
+          "periode": "${avtalelisteChecksum}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "navn": "pa_pre_ba_02 (status ferdig)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_pre_ba_02"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "premieprognose_kjoering_ferdig",
-              "kjøringsId": "${kjøringsId}"
-            }
-          ]
-
+          "handling": "pa_pre_ba_02",
+          "modus": "premieprognoser_avtale",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "premieprognoser",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "premieprognoser_medlem",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "premieprognoser_avtaleliste",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "avtaleliste_hbf_stat",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "administrasjonspremieunderlag",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "administrasjonspremieunderlag",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 (status ferdig)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "premieprognose_kjoering_ferdig",
+          "kjøringsId": "${kjøringsId}"
+        }
+      ]
     }
   ]
 }
