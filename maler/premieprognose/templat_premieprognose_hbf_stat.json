@@ -104,10 +104,6 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_pre_ba_01"
-        },
-        {
           "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
           "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
           "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -135,6 +131,11 @@
       "navn": "pa_res_ba_01 produser kontoføringer og administrasjonspremieunderlag",
       "handling": "gruppe",
       "gruppeAv": [
+        {
+          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+          "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
         {
           "navn": "panda_reserveberegning",
           "handling": "gruppe",
