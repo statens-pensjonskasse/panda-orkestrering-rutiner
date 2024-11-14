@@ -296,7 +296,7 @@
         },
         {
           "handling": "kopier_filer_fra_batch_til_batch",
-          "filPrefix": "administrasjonspremieunderlag",
+          "filPrefix": "administrasjonspremieunderlag_faktura",
           "fraBatch": "pa_fak_ba_05",
           "tilBatch": "pa_fak_ba_05",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
