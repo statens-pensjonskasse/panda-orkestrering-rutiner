@@ -136,6 +136,11 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
+          "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+          "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
           "navn": "panda_reserveberegning",
           "handling": "gruppe",
           "gruppeAv": [
