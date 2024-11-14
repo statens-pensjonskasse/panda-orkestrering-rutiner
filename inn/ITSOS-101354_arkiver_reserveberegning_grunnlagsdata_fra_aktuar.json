@@ -1,0 +1,9 @@
+{
+  "navn": "Arkivere grunnlagsdata fra aktuar for reserveberegning",
+  "operasjoner": [
+    {
+      "handling": "arkiver_reserveberegning_grunnlagsdata_fra_aktuar",
+      "beskrivelse": "Oppdatert fremskrivingsplan frem til 2030 og 3 nye dekninger (AFPLivL, APPaaL, BTPL)"
+    }
+  ]
+}
