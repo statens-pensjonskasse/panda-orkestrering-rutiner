@@ -184,6 +184,13 @@
               "fraBatch": "pa_res_ba_01",
               "tilBatch": "pa_fak_ba_05",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_batch",
+              "filPrefix": "administrasjonspremieunderlag",
+              "fraBatch": "pa_res_ba_01",
+              "tilBatch": "pa_pre_ba_02",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             }
           ]
         }
