@@ -12,6 +12,7 @@
 
     "termininfoVersjon": "<termininfoVersjon>",
     "prognoseVersjon": "<prognoseVersjon>",
+    "aggregertPremiejusteringVersjon": "<aggregertPremiejusteringVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
 
@@ -369,6 +370,15 @@
         {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_06"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${termin}",
+          "prognoseVersjon": "${aggregertPremiejusteringVersjon}",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tillatTomFil": true
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -738,6 +748,15 @@
         {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_06"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${termin}",
+          "prognoseVersjon": "${aggregertPremiejusteringVersjon}",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tillatTomFil": true
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",

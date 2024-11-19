@@ -12,6 +12,7 @@
 
     "termininfoVersjon": "<termininfoVersjon>",
     "prognoseVersjon": "<prognoseVersjon>",
+    "aggregertPremiejusteringVersjon": "<aggregertPremiejusteringVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
     "arkivStiSPKID": "SPKID",
@@ -90,7 +91,7 @@
         {
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "noekkelunderlag_faktiske_premier",
-          "batchFra": "pa_fak_ba_08",
+          "batchFra": "pa_ork_ba_02",
           "batchTil": "pa_fak_ba_06",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}/${arkivStiSPKID}"
@@ -140,7 +141,7 @@
         {
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "noekkelunderlag_faktiske_premier",
-          "batchFra": "pa_fak_ba_08",
+          "batchFra": "pa_ork_ba_02",
           "batchTil": "pa_fak_ba_06",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}/${arkivStiSPKID}"
@@ -371,7 +372,15 @@
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_06"
         },
-        TODO termin 2024-05
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${termin}",
+          "prognoseVersjon": "${aggregertPremiejusteringVersjon}",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tillatTomFil": true
+        },
         {
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "noekkelunderlag_faktiske_premier",
@@ -741,7 +750,15 @@
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_06"
         },
-        TODO termin 2024-06
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${termin}",
+          "prognoseVersjon": "${aggregertPremiejusteringVersjon}",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tillatTomFil": true
+        },
         {
           "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "noekkelunderlag_faktiske_premier",

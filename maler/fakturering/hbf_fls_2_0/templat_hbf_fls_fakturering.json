@@ -16,7 +16,7 @@
 
     "termininfoVersjon": "<termininfoVersjon>",
     "prognoseVersjon": "<prognoseVersjon>",
-    "premiejusteringVersjon": "<premiejusteringVersjon>",
+    "aggregertPremiejusteringVersjon": "<aggregertPremiejusteringVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
 
     "paFakBa02Versjon": "<X.Y.Z>",
@@ -493,7 +493,7 @@
               "handling": "kopier_filer_fra_aktuar_til_batch",
               "premiemodell": "hbf_fls",
               "periode": "${termin}",
-              "prognoseVersjon": "${premiejusteringVersjon}",
+              "prognoseVersjon": "${aggregertPremiejusteringVersjon}",
               "batch": "pa_fak_ba_06",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "tillatTomFil": true
@@ -552,7 +552,7 @@
               "handling": "kopier_filer_fra_aktuar_til_batch",
               "premiemodell": "hbf_fls",
               "periode": "${termin}",
-              "prognoseVersjon": "${premiejusteringVersjon}",
+              "prognoseVersjon": "${aggregertPremiejusteringVersjon}",
               "batch": "pa_fak_ba_06",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "tillatTomFil": true
