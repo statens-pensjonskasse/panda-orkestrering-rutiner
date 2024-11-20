@@ -4,23 +4,20 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
     "kjøringsId": "#{genererUUID}",
-
     "prognoseAar": "<yyyy>",
     "premiemodell": "hbf_fls",
-
     "premieprognoseKonvertingsår": "<yyyy>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<fremskrivingsDato>",
-
     "avtalelisteChecksum": "<avtalelisteChecksum>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
     "bokføringsperioderEndringspremier": "<perioder>",
-
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa05Versjon": "<X.Y.Z>",
     "paFakBa06Versjon": "<X.Y.Z>",
     "paFakBa07Versjon": "<X.Y.Z>",
     "paFakBa08Versjon": "<X.Y.Z>",
@@ -50,6 +47,10 @@
         {
           "navn": "pa_fak_ba_04",
           "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_05",
+          "versjon": "${paFakBa05Versjon}"
         },
         {
           "navn": "pa_fak_ba_06",
@@ -85,13 +86,51 @@
       ]
     },
     {
-      "navn": "manipuler prognosedata",
+      "navn": "Rydding av innmappper for alle batcher",
       "handling": "gruppe",
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_pre_ba_01"
         },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_13"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_02"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_07"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        }
+      ]
+    },
+    {
+      "navn": "manipuler prognosedata",
+      "handling": "gruppe",
+      "gruppeAv": [
         {
           "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
           "fraGrunnlagsdataMappe": "${fraGrunnlagsdataMappe}",
@@ -111,10 +150,8 @@
           "manipulatorer": "${manipulatorer}"
         },
         {
-          "handling": "arkiver_utdata_pa_pre_ba_01",
-          "batch": "pa_pre_ba_01",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "${premiemodell}"
+          "handling": "kopier_filer_fra_pa_pre_ba_01_til_pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
@@ -122,18 +159,6 @@
       "navn": "pa_res_ba_01 produser kontoføringer og administrasjonspremieunderlag",
       "handling": "gruppe",
       "gruppeAv": [
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_01"
-        },
-        {
-          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
-          "fraGrunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "fraBatch": "pa_pre_ba_01",
-          "tilBatch": "pa_res_ba_01",
-          "nøkkel": "${premiemodell}"
-        },
         {
           "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
           "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
@@ -155,10 +180,17 @@
               }
             },
             {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_res_ba_01",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/panda_reserveberegning/${fremskrivingsDato}"
+              "handling": "kopier_filer_fra_batch_til_batch",
+              "fraBatch": "pa_res_ba_01",
+              "tilBatch": "pa_fak_ba_13",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_batch",
+              "fraBatch": "pa_res_ba_01",
+              "tilBatch": "pa_fak_ba_02",
+              "filPrefix": "kontofoering",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             }
           ]
         },
@@ -174,10 +206,29 @@
               "rettighet": "panda_veldig_forenkla_rettighet"
             },
             {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_res_ba_01",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${fremskrivingsDato}"
+              "handling": "kopier_filer_fra_batch_til_batch",
+              "filPrefix": "administrasjonspremieunderlag",
+              "fraBatch": "pa_res_ba_01",
+              "tilBatch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_batch",
+              "filPrefix": "administrasjonspremieunderlag",
+              "fraBatch": "pa_res_ba_01",
+              "tilBatch": "pa_fak_ba_08",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_batch",
+              "filPrefix": "administrasjonspremieunderlag",
+              "fraBatch": "pa_res_ba_01",
+              "tilBatch": "pa_pre_ba_02",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_01"
             }
           ]
         }
@@ -188,10 +239,6 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05"
-        },
-        {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "premieprognose",
           "periode": "${avtalelisteChecksum}",
@@ -200,29 +247,21 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "administrasjonspremieunderlag",
-          "batchFra": "pa_res_ba_01",
-          "batchTil": "pa_fak_ba_05",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${fremskrivingsDato}",
-          "kommentar": "Henter fra siste grunnlagsdatamappe"
-        },
-        {
           "handling": "pa_fak_ba_05",
           "modus": "filtrer_administrasjonspremieunderlag",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_05",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/filtrer_administrasjonspremieunderlag/${fremskrivingsDato}"
-        },
-        {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "administrasjonspremieunderlag",
+          "fraBatch": "pa_fak_ba_05",
+          "tilBatch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
@@ -231,19 +270,6 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "administrasjonspremieunderlag",
-          "batchFra": "pa_fak_ba_05",
-          "batchTil": "pa_fak_ba_05",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/filtrer_administrasjonspremieunderlag/${fremskrivingsDato}",
-          "kommentar": "Henter fra siste grunnlagsdatamappe"
-        },
-        {
           "handling": "pa_fak_ba_05",
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -251,10 +277,18 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_05",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_administrasjonspremier/${administrasjonspremieForSisteBokføringsperiode}"
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "administrasjonspremie",
+          "fraBatch": "pa_fak_ba_05",
+          "tilBatch": "pa_fak_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "administrasjonspremie",
+          "fraBatch": "pa_fak_ba_05",
+          "tilBatch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -267,18 +301,6 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_13"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "kontofoering",
-          "batchFra": "pa_res_ba_01",
-          "batchTil": "pa_fak_ba_13",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/panda_reserveberegning/${fremskrivingsDato}"
-        },
-        {
           "handling": "pa_fak_ba_13",
           "modus": "generer_premiedifferanser_for_premieprognoser",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -286,10 +308,15 @@
           "bokføringsperioder": "${bokføringsperioderEndringspremier}"
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_13",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser"
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "fakturerbare_premiedifferanser",
+          "fraBatch": "pa_fak_ba_13",
+          "tilBatch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_13"
         }
       ]
     },
@@ -297,10 +324,6 @@
       "navn": "pa_fak_ba_14 (premiefiltrering_for_hbf_fls)",
       "handling": "gruppe",
       "gruppeAv": [
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
-        },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "premieprognose",
@@ -310,14 +333,6 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "fakturerbare_premiedifferanser",
-          "batchFra": "pa_fak_ba_13",
-          "batchTil": "pa_fak_ba_14",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser"
-        },
-        {
           "handling": "pa_fak_ba_14",
           "modus": "premiefiltrering_for_hbf_fls",
           "grupperMedDekning": "true",
@@ -325,10 +340,25 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_14",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefiltrering_for_hbf_fls"
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "reservetransaksjonsdifferanser_medlem",
+          "fraBatch": "pa_fak_ba_14",
+          "tilBatch": "pa_fak_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "reservetransaksjonsdifferanser_medlem",
+          "fraBatch": "pa_fak_ba_14",
+          "tilBatch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "reservetransaksjonsdifferanser_medlem",
+          "fraBatch": "pa_fak_ba_14",
+          "tilBatch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -341,28 +371,17 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_02"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "kontofoering",
-          "batchFra": "pa_res_ba_01",
-          "batchTil": "pa_fak_ba_02",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/panda_reserveberegning/${fremskrivingsDato}"
-        },
-        {
           "handling": "pa_fak_ba_02",
           "modus": "reserveaggregering_for_premieprognose",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_02",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/reserveaggregering_for_premieprognose/${fremskrivingsDato}"
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "totalreserver",
+          "fraBatch": "pa_fak_ba_02",
+          "tilBatch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
@@ -375,32 +394,12 @@
           "handling": "gruppe",
           "gruppeAv": [
             {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_02"
-            },
-            {
               "handling": "kopier_filer_fra_aktuar_til_batch",
               "premiemodell": "premieprognose",
               "periode": "${avtalelisteChecksum}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_02",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "reservetransaksjonsdifferanser_medlem",
-              "batchFra": "pa_fak_ba_14",
-              "batchTil": "pa_fak_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/premiefiltrering_for_hbf_fls"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremie",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/generer_administrasjonspremier/${administrasjonspremieForSisteBokføringsperiode}"
             },
             {
               "handling": "pa_fak_ba_02",
@@ -410,10 +409,18 @@
               "validerFeilendeMedlemmer": true
             },
             {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_02",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/aggreger_reservetransaksjonsdifferanser_premieprognose_hbf_fls"
+              "handling": "kopier_filer_fra_batch_til_batch",
+              "filPrefix": "aggregerte_reservetransaksjonsdifferanser_hbf_fls",
+              "fraBatch": "pa_fak_ba_02",
+              "tilBatch": "pa_fak_ba_08",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_batch",
+              "filPrefix": "aggregerte_reservetransaksjonsdifferanser_hbf_fls",
+              "fraBatch": "pa_fak_ba_02",
+              "tilBatch": "pa_fak_ba_06",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -428,56 +435,12 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_08"
-        },
-        {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "premieprognose",
           "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_08",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "totalreserver",
-          "batchFra": "pa_fak_ba_02",
-          "batchTil": "pa_fak_ba_08",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/reserveaggregering_for_premieprognose/${fremskrivingsDato}"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "reservetransaksjonsdifferanser_medlem",
-          "batchFra": "pa_fak_ba_14",
-          "batchTil": "pa_fak_ba_08",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefiltrering_for_hbf_fls"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "aggregerte_reservetransaksjonsdifferanser_hbf_fls",
-          "batchFra": "pa_fak_ba_02",
-          "batchTil": "pa_fak_ba_08",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/aggreger_reservetransaksjonsdifferanser_premieprognose_hbf_fls"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "administrasjonspremie",
-          "batchFra": "pa_fak_ba_05",
-          "batchTil": "pa_fak_ba_08",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_administrasjonspremier/${administrasjonspremieForSisteBokføringsperiode}"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "administrasjonspremieunderlag",
-          "batchFra": "pa_res_ba_01",
-          "batchTil": "pa_fak_ba_08",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${fremskrivingsDato}"
         },
         {
           "handling": "pa_fak_ba_08",
@@ -487,10 +450,22 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_08",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_noekkelunderlag_premieprognose"
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "noekkelunderlag_faktiske_premier",
+          "fraBatch": "pa_fak_ba_08",
+          "tilBatch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "noekkelunderlag_faktiske_premier",
+          "fraBatch": "pa_fak_ba_08",
+          "tilBatch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
@@ -499,28 +474,17 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_08"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "noekkelunderlag_faktiske_premier",
-          "batchFra": "pa_fak_ba_08",
-          "batchTil": "pa_fak_ba_08",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_noekkelunderlag_premieprognose"
-        },
-        {
           "handling": "pa_fak_ba_08",
           "modus": "aggreger_faktiske_premier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_08",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/aggreger_faktiske_premier"
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "aggregerte_noekler_faktiske_premier",
+          "fraBatch": "pa_fak_ba_08",
+          "tilBatch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -533,44 +497,24 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_06"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "noekkelunderlag_faktiske_premier",
-          "batchFra": "pa_fak_ba_08",
-          "batchTil": "pa_fak_ba_06",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_noekkelunderlag_premieprognose"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "aggregerte_noekler_faktiske_premier",
-          "batchFra": "pa_fak_ba_08",
-          "batchTil": "pa_fak_ba_06",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/aggreger_faktiske_premier"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "aggregerte_reservetransaksjonsdifferanser_hbf_fls",
-          "batchFra": "pa_fak_ba_02",
-          "batchTil": "pa_fak_ba_06",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/aggreger_reservetransaksjonsdifferanser_hbf_fls"
-        },
-        {
           "handling": "pa_fak_ba_06",
           "modus": "premiefellesskap_utjevning_faktisk_premie",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_06",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefellesskap_utjevning_faktisk_premie"
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "utjevnet_faktisk_premie",
+          "fraBatch": "pa_fak_ba_06",
+          "tilBatch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "utjevnet_faktisk_premie",
+          "fraBatch": "pa_fak_ba_06",
+          "tilBatch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -583,18 +527,6 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_04"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "utjevnet_faktisk_premie",
-          "batchFra": "pa_fak_ba_06",
-          "batchTil": "pa_fak_ba_04",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefellesskap_utjevning_faktisk_premie"
-        },
-        {
           "handling": "pa_fak_ba_04",
           "modus": "premieprognoser_for_hbf_fls",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -603,156 +535,15 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_04",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premieprognoser_for_hbf_fls"
-        }
-      ]
-    },
-    {
-      "navn": "pa_pre_ba_02 Opplasting av data til premieprognosedatabasen",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "navn": "pa_pre_ba_02 (premieprognoser_medlem)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_pre_ba_02"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "reservetransaksjonsdifferanser_medlem",
-              "batchFra": "pa_fak_ba_14",
-              "batchTil": "pa_pre_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/premiefiltrering_for_hbf_fls"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "premieprognoser_medlem",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "reservetransaksjonsdifferanser_medlem",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            }
-          ]
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "premieprognose_fls",
+          "fraBatch": "pa_fak_ba_04",
+          "tilBatch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "navn": "pa_pre_ba_02 (utjevnet_premieprognoser_avtale_hbf_fls)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_pre_ba_02"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "premieprognose_fls",
-              "batchFra": "pa_fak_ba_04",
-              "batchTil": "pa_pre_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/premieprognoser_for_hbf_fls"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "utjevnet_premieprognoser_avtale_hbf_fls",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "premieprognose_fls",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            }
-          ]
-        },
-        {
-          "navn": "pa_pre_ba_02 (utjevnet_premieprognoser_medlem_hbf_fls)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_pre_ba_02"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "utjevnet_faktisk_premie",
-              "batchFra": "pa_fak_ba_06",
-              "batchTil": "pa_pre_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/premiefellesskap_utjevning_faktisk_premie"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "utjevnet_premieprognoser_medlem_hbf_fls",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "utjevnet_faktisk_premie",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            }
-          ]
-        },
-        {
-          "navn": "pa_pre_ba_02 (premieprognoser_avtaleliste)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_pre_ba_02"
-            },
-            {
-              "handling": "kopier_filer_fra_aktuar_til_batch",
-              "premiemodell": "premieprognose",
-              "periode": "${avtalelisteChecksum}",
-              "prognoseVersjon": "avtaleliste",
-              "batch": "pa_pre_ba_02",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "premieprognoser_avtaleliste",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "avtaleliste_hbf_fls",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            }
-          ]
-        },
-        {
-          "navn": "pa_pre_ba_02 (administrasjonspremieunderlag)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_pre_ba_02"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremieunderlag",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_pre_ba_02",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premieprognose/filtrer_administrasjonspremieunderlag/${fremskrivingsDato}"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "administrasjonspremieunderlag",
-              "kjøringsId": "${kjøringsId}",
-              "filnavn": "administrasjonspremieunderlag",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-            }
-          ]
-        },
-        {
-          "navn": "pa_pre_ba_02 (status ferdig)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_pre_ba_02"
-            },
-            {
-              "handling": "pa_pre_ba_02",
-              "modus": "premieprognose_kjoering_ferdig",
-              "kjøringsId": "${kjøringsId}"
-            }
-          ]
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
         }
       ]
     }
