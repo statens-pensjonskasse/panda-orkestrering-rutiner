@@ -378,13 +378,6 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "pa_pre_ba_02",
-          "modus": "premieprognoser_avtaleliste",
-          "kjøringsId": "${kjøringsId}",
-          "filnavn": "avtaleliste_hbf_ovrige",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_pre_ba_02"
         }
