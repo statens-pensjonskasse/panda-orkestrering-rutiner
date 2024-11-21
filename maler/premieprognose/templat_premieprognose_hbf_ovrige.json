@@ -201,15 +201,6 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "administrasjonspremieunderlag",
-          "batchFra": "pa_res_ba_01",
-          "batchTil": "pa_fak_ba_05",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/panda_administrasjonspremieunderlag/${fremskrivingsDato}",
-          "kommentar": "Henter fra siste grunnlagsdatamappe"
-        },
-        {
           "handling": "pa_fak_ba_05",
           "modus": "filtrer_administrasjonspremieunderlag",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -239,15 +230,6 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "administrasjonspremieunderlag",
-          "batchFra": "pa_fak_ba_05",
-          "batchTil": "pa_fak_ba_05",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/filtrer_administrasjonspremieunderlag/${fremskrivingsDato}",
-          "kommentar": "Henter fra siste grunnlagsdatamappe"
-        },
-        {
           "handling": "pa_fak_ba_05",
           "modus": "generer_administrasjonspremier",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -271,14 +253,6 @@
       "navn": "pa_fak_ba_13 generere fakturerbare premiedifferanser fra kontoføringer",
       "handling": "gruppe",
       "gruppeAv": [
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "kontofoering",
-          "batchFra": "pa_res_ba_01",
-          "batchTil": "pa_fak_ba_13",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/panda_reserveberegning/${fremskrivingsDato}"
-        },
         {
           "handling": "pa_fak_ba_13",
           "modus": "generer_premiedifferanser_for_premieprognoser",
@@ -312,14 +286,6 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "fakturerbare_premiedifferanser",
-          "batchFra": "pa_fak_ba_13",
-          "batchTil": "pa_fak_ba_14",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_premiedifferanser_for_premieprognoser"
-        },
-        {
           "handling": "pa_fak_ba_14",
           "modus": "premiefiltrering_for_hbf_ovrige",
           "grupperMedDekning": "true",
@@ -350,22 +316,6 @@
       "navn": "pa_fak_ba_04 premieprognoser for hbf_ovrige",
       "handling": "gruppe",
       "gruppeAv": [
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "reservetransaksjonsdifferanser_medlem",
-          "batchFra": "pa_fak_ba_14",
-          "batchTil": "pa_fak_ba_04",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/premiefiltrering_for_hbf_ovrige"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "administrasjonspremie",
-          "batchFra": "pa_fak_ba_05",
-          "batchTil": "pa_fak_ba_04",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieprognose/generer_administrasjonspremier/${administrasjonspremieForSisteBokføringsperiode}"
-        },
         {
           "handling": "pa_fak_ba_04",
           "modus": "premieprognoser",
@@ -425,13 +375,6 @@
           "modus": "administrasjonspremieunderlag",
           "kjøringsId": "${kjøringsId}",
           "filnavn": "administrasjonspremieunderlag",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
-          "handling": "pa_pre_ba_02",
-          "modus": "premieprognoser_avtaleliste",
-          "kjøringsId": "${kjøringsId}",
-          "filnavn": "avtaleliste_hbf_ovrige",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
