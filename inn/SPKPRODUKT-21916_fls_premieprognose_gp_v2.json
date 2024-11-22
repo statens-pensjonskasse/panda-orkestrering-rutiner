@@ -5,7 +5,6 @@
     "fraGrunnlagsdataMappe": "grunnlagsdata_2024-10-31_21-33-47-36",
     "kjøringsId": "14",
     "prognoseAar": "2026",
-    "premiemodell": "hbf_fls",
     "premieprognoseKonvertingsår": "2024",
     "reserveberegningGrunnlagsdataAktuarVersjon": "7",
     "fremskrivingsDato": "2025.01.01",
@@ -22,7 +21,6 @@
     "paFakBa07Versjon": "2.0.6",
     "paFakBa08Versjon": "2.0.4",
     "paFakBa14Versjon": "1.0.15",
-    "rettighet": "panda_veldig_forenkla_rettighet",
     "paFakBa13Versjon": "1.0.12"
   },
   "operasjoner": [
@@ -64,6 +62,10 @@
         {
           "navn": "pa_fak_ba_08",
           "versjon": "${paFakBa08Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "${paFakBa13Versjon}"
         },
         {
           "navn": "pa_fak_ba_14",
