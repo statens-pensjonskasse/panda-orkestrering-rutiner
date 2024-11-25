@@ -4,19 +4,13 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
     "kjøringsId": "#{genererUUID}",
-
     "prognoseAar": "<yyyy>",
-    "premiemodell": "hbf_as_asa",
-
     "premieprognoseKonvertingsår": "<yyyy>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
-
     "avtalelisteChecksum": "<avtalelisteChecksum>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
-
     "solvenspremieChecksum": "<solvenspremieChecksum>",
-
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
@@ -134,7 +128,7 @@
           "handling": "arkiver_utdata_pa_pre_ba_01",
           "batch": "pa_pre_ba_01",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "${premiemodell}"
+          "nøkkel": "hbf_as_asa"
         },
         {
           "handling": "kopier_filer_fra_pa_pre_ba_01_til_pa_res_ba_01",
@@ -152,7 +146,7 @@
           "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
           "fraBatch": "pa_pre_ba_01",
           "tilBatch": "pa_res_ba_01",
-          "nøkkel": "${premiemodell}"
+          "nøkkel": "hbf_as_asa"
         },
         {
           "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
