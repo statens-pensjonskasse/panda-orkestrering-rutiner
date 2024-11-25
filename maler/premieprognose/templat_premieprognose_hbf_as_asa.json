@@ -125,12 +125,6 @@
           "manipulatorer": "${manipulatorer}"
         },
         {
-          "handling": "arkiver_utdata_pa_pre_ba_01",
-          "batch": "pa_pre_ba_01",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_as_asa"
-        },
-        {
           "handling": "kopier_filer_fra_pa_pre_ba_01_til_pa_res_ba_01",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
