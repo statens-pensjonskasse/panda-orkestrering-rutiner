@@ -6,7 +6,6 @@
     "kjøringsId": "#{genererUUID}",
 
     "prognoseAar": "<yyyy>",
-    "premiemodell": "hbf_as_asa",
 
     "premieprognoseKonvertingsår": "<yyyy>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",

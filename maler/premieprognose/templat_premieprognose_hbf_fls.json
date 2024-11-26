@@ -5,7 +5,6 @@
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
     "kjøringsId": "#{genererUUID}",
     "prognoseAar": "<yyyy>",
-    "premiemodell": "hbf_fls",
     "premieprognoseKonvertingsår": "<yyyy>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<N>",
     "fremskrivingsDato": "<fremskrivingsDato>",
@@ -21,7 +20,7 @@
     "paFakBa06Versjon": "<X.Y.Z>",
     "paFakBa07Versjon": "<X.Y.Z>",
     "paFakBa08Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa13Versjon": "<X.Y.Z>",
     "paFakBa14Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
@@ -63,6 +62,10 @@
         {
           "navn": "pa_fak_ba_08",
           "versjon": "${paFakBa08Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_13",
+          "versjon": "${paFakBa13Versjon}"
         },
         {
           "navn": "pa_fak_ba_14",
