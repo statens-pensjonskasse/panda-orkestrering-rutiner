@@ -403,7 +403,7 @@
           "handling": "pa_pre_ba_02",
           "modus": "premieprognoser_avtaleliste",
           "kjøringsId": "${kjøringsId}",
-          "filnavn": "avtaleliste_hbf_stat",
+          "filnavn": "avtaleliste_tjenestemannsorg",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
