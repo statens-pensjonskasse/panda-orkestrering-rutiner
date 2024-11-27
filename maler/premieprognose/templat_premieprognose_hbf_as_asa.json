@@ -135,14 +135,6 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "kopier_grunnlagsdata_fra_arkiv_til_batch",
-          "fraGrunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "fraBatch": "pa_pre_ba_01",
-          "tilBatch": "pa_res_ba_01",
-          "nøkkel": "hbf_as_asa"
-        },
-        {
           "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
           "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
           "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -383,7 +375,7 @@
           "handling": "pa_pre_ba_02",
           "modus": "premieprognoser_avtaleliste",
           "kjøringsId": "${kjøringsId}",
-          "filnavn": "avtaleliste_hbf_stat",
+          "filnavn": "avtaleliste_hbf_as_asa",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
