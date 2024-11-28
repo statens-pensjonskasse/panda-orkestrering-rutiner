@@ -1,0 +1,229 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for POA PEN for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+
+    "forrigeTermin": "<termin - 1>",
+    "termin": "<termin>",
+    "terminår": "<terminår>",
+
+    "tidligstPeriode": "<førstePeriode - 2>",
+    "tidligPeriode": "<førstePeriode - 1>",
+    "førstePeriode": "<førstePeriode>",
+
+    "termininfoVersjon": "<termininfoVersjon>",
+    "premiesatsVersjon": "<premiesatsVersjon>",
+
+    "skalIkkeUtføreSatsendring": "<true/false>",
+
+    "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa15Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_15",
+          "versjon": "${paFakBa15Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_15 (satsendring_poa_pen)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_15",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_poa_pen_premier/${terminår}-01",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_poa_pen_premier/${terminår}-02",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_poa_pen_premier/${terminår}-03",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "premiesats",
+          "prognoseVersjon": "${premiesatsVersjon}",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${førstePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "pa_fak_ba_15",
+          "modus": "satsendring_poa_pen",
+          "termin": "${termin}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true,
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "satsendring_poa_pen/${termin}",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_15",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        }
+      ],
+      "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+    },
+    {
+      "navn": "pa_fak_ba_15 (generer_poa_pen_premier)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_15"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+          "batchFra": "pa_fak_ba_03",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${tidligstPeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+          "batchFra": "pa_fak_ba_03",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${tidligPeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+          "batchFra": "pa_fak_ba_03",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${førstePeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_poa_pen_premier/${forrigeTermin}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "satsendring_poa_pen/${termin}",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_15",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "premiesats",
+          "prognoseVersjon": "${premiesatsVersjon}",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${førstePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_fak_ba_15",
+          "modus": "generer_poa_pen_premier",
+          "termin": "${termin}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_poa_pen_premier/${termin}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_15"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_04 (TODO)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_15"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 (TODO)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        }
+      ]
+    }
+  ]
+}

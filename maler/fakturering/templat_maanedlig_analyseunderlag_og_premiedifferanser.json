@@ -190,6 +190,123 @@
       ]
     },
     {
+      "navn": "pa_res_ba_03 (panda_pensjonsgivende_loenn)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_03"
+        },
+        {
+          "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+          "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "poliser",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_res_ba_03",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda-poliser/${fremskrivingsDato}"
+        },
+        {
+          "handling": "pa_res_ba_03",
+          "modus": "panda_pensjonsgivende_loenn",
+          "sisteFremskrivingsdato": "${fremskrivingsDato}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_res_ba_03",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_res_ba_03"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 (generer_pensjonsgivende_maanedsloenn)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_loenn",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_05",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
+        },
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_pensjonsgivende_maanedsloenn",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "sisteFremskrivingsdato": "${fremskrivingsDato}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_03 (generer_pensjonsgivende_maanedsloenn)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_03"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_03",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/${forrigeFremskrivingsDato}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_03",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}"
+        },
+        {
+          "handling": "pa_fak_ba_03",
+          "modus": "pensjonsgivende_maanedsloenn_differanser",
+          "bokføringsperiode": "${periode}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_03",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_03"
+        }
+      ]
+    },
+    {
       "navn": "pa_fak_ba_11 (flette_feilende_medlemmer)",
       "handling": "gruppe",
       "gruppeAv": [
@@ -682,6 +799,60 @@
             {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_09 (panda_pensjonsgivende_loenn) TODO",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_09 (pensjonsgivende_maanedsloenn_differanser) TODO",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+              "batchFra": "pa_fak_ba_03",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "pensjonsgivende_maanedsloenn_differanser_dataunderlag",
+              "kjøringsId": "#{genererUUID}",
+              "uttrekksdato": "${uttrekksdato}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser_dataunderlag/${periode}"
             }
           ]
         }
