@@ -223,7 +223,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_05 generere administrasjonspremier",
+      "navn": "pa_fak_ba_05 generere administrasjonspremieunderlag for fakturering",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -243,10 +243,34 @@
           "fraBatch": "pa_fak_ba_05",
           "tilBatch": "pa_fak_ba_05",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_05 generere administrasjonspremier",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "pa_fak_ba_05",
+          "modus": "generer_administrasjonspremier",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "bokføringsperiode": "${administrasjonspremieForSisteBokføringsperiode}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_05"
         },
         {
           "handling": "kopier_filer_fra_batch_til_batch",
-          "filPrefix": "administrasjonspremieunderlag_faktura",
+          "filPrefix": "administrasjonspremie",
+          "fraBatch": "pa_fak_ba_05",
+          "tilBatch": "pa_fak_ba_05",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "administrasjonspremie",
           "fraBatch": "pa_fak_ba_05",
           "tilBatch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
