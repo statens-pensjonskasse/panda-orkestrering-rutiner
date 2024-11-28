@@ -234,10 +234,6 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05"
-        },
-        {
           "handling": "kopier_filer_fra_batch_til_batch",
           "filPrefix": "administrasjonspremieunderlag_faktura",
           "fraBatch": "pa_fak_ba_05",
@@ -256,10 +252,6 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "bokføringsperiode": "${administrasjonspremieForSisteBokføringsperiode}",
           "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05"
         },
         {
           "handling": "kopier_filer_fra_batch_til_batch",
