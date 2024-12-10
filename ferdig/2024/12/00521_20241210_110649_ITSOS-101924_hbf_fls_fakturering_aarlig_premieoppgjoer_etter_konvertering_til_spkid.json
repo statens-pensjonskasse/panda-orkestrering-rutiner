@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS 2.0 premieoppgjør for år ${inneværendeÅr} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2024-12-10_11-00-12-00",
 
     "forrigeÅr": "2023",
     "inneværendeÅr": "2024",
@@ -518,7 +518,7 @@
           "handling": "pa_fak_ba_09",
           "modus": "generer_loepende_premieoppgjoer_dataunderlag",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "1987b7ba-a536-4ed8-8a2f-cf25819b378f",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -896,7 +896,7 @@
           "handling": "pa_fak_ba_09",
           "modus": "generer_loepende_premieoppgjoer_dataunderlag",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "ea665c68-fd85-40dc-a6f7-1c4e15d6ea58",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -1159,7 +1159,7 @@
           "handling": "pa_fak_ba_09",
           "modus": "premieoppgjoer_dataunderlag_for_medlem",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "d0f40e6e-7a6e-4136-852a-5850fdcb6849",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -1196,7 +1196,7 @@
           "handling": "pa_fak_ba_09",
           "modus": "premieoppgjoer_dataunderlag_for_avtale",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "ea212bcb-1f6b-48f1-9ebe-80a6f80067e5",
           "validerFeilendeMedlemmer": true
         },
         {
