@@ -151,6 +151,12 @@
               "filstiHosDVH": "/rettighet_ytelse"
             },
             {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_res_ba_01",
+              "filPrefix": "rettighet_ytelser_for_dvh",
+              "filstiHosDVH": "rettighet_ytelse"
+            },
+            {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -174,6 +180,12 @@
               "filListe": "POLISE_FILLISTE.txt",
               "batch": "pa_res_ba_01",
               "filstiHosDVH": "/polise"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_res_ba_01",
+              "filPrefix": "poliser",
+              "filstiHosDVH": "polise"
             },
             {
               "handling": "arkiver_all_batch_output",
@@ -585,6 +597,12 @@
               "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
               "batch": "pa_fak_ba_09",
               "filstiHosDVH": "/reserveoppbygging"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "reserveoppbygging_dataunderlag",
+              "filstiHosDVH": "reserveoppbygging"
             }
           ]
         },
@@ -625,6 +643,12 @@
               "filListe": "KONTOFOERING_FILLISTE.txt",
               "batch": "pa_fak_ba_09",
               "filstiHosDVH": "/kontofoering"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "kontofoeringunderlag",
+              "filstiHosDVH": "kontofoering"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -671,6 +695,12 @@
               "filstiHosDVH": "/feilende_medlemmer"
             },
             {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "feilmelding_dataunderlag",
+              "filstiHosDVH": "feilende_medlemmer"
+            },
+            {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
             }
@@ -712,6 +742,12 @@
               "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
               "batch": "pa_fak_ba_09",
               "filstiHosDVH": "/administrasjonspremieunderlag"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "administrasjonspremieunderlag_dataunderlag",
+              "filstiHosDVH": "administrasjonspremieunderlag"
             }
           ]
         },
@@ -750,6 +786,12 @@
               "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.txt",
               "batch": "pa_fak_ba_09",
               "filstiHosDVH": "/administrasjonspremie"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "administrasjonspremie_dataunderlag",
+              "filstiHosDVH": "administrasjonspremie"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -797,6 +839,12 @@
               "filstiHosDVH": "/tidslinjehendelser"
             },
             {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "tidslinjehendelser_dataunderlag",
+              "filstiHosDVH": "tidslinjehendelser"
+            },
+            {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
             }
@@ -819,13 +867,19 @@
               "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
             },
             {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "pensjonsgivende_loenn_dataunderlag",
+              "filstiHosDVH": "pensjonsgivende_loenn"
+            },
+            {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
             }
           ]
         },
         {
-          "navn": "pa_fak_ba_09 (pensjonsgivende_maanedsloenn_differanser) TODO",
+          "navn": "pa_fak_ba_09 (pensjonsgivende_maanedsloenn_differanser)",
           "handling": "gruppe",
           "gruppeAv": [
             {
@@ -853,6 +907,12 @@
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "pensjonsgivende_maanedsloenn_differanser_dataunderlag/${periode}"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "pensjonsgivende_maanedsloenn_differanser_dataunderlag",
+              "filstiHosDVH": "pensjonsgivende_maanedsloenn_differanser"
             }
           ]
         }
