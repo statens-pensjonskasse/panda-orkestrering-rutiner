@@ -851,7 +851,7 @@
           ]
         },
         {
-          "navn": "pa_fak_ba_09 (panda_pensjonsgivende_loenn) TODO",
+          "navn": "pa_fak_ba_09 (panda_pensjonsgivende_loenn)",
           "handling": "gruppe",
           "gruppeAv": [
             {
@@ -865,6 +865,20 @@
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "pensjonsgivende_loenn_dataunderlag",
+              "kjøringsId": "#{genererUUID}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_loenn_dataunderlag/${fremskrivingsDato}"
             },
             {
               "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
@@ -898,7 +912,6 @@
               "handling": "pa_fak_ba_09",
               "modus": "pensjonsgivende_maanedsloenn_differanser_dataunderlag",
               "kjøringsId": "#{genererUUID}",
-              "uttrekksdato": "${uttrekksdato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "validerFeilendeMedlemmer": true
             },
