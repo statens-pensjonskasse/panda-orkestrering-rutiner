@@ -2,25 +2,13 @@
   "navn": "Rutine som kopierer filer fra batch ut-mappe eller arkiv til blob storage",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "fraBatch": "<fraBatch>",
-    "filPrefix": "<filPrefix>",
-    "filstiHosDVH": "<filsti>",
-    "nøkkel": "<nøkkel>",
-    "grunnlagsdataMappeFraArkiv": "<grunnlagsdataMappeFraArkiv>"
+    "fraBatch": "pa_res_ba_01",
+    "filPrefix": "poliser",
+    "filstiHosDVH": "polise",
+    "nøkkel": "panda-poliser/2024.12.01",
+    "grunnlagsdataMappeFraArkiv": "grunnlagsdata_2024-12-02_14-40-11-12"
   },
   "operasjoner": [
-    {
-      "navn": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
-          "fraBatch": "${fraBatch}",
-          "filPrefix": "${filPrefix}",
-          "filstiHosDVH": "${filstiHosDVH}"
-        }
-      ]
-    },
     {
       "navn": "kopier_filer_fra_arkiv_til_skyopplaster_og_bestill",
       "handling": "gruppe",
