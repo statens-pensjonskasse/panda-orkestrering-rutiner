@@ -7,9 +7,10 @@
     "termin": "<termin>",
     "terminår": "<terminår>",
 
-    "førstePrognosePeriode": "<førstePeriode - 2>",
-    "andrePrognosePeriode": "<førstePeriode - 1>",
-    "førstePeriode": "<førstePeriode>",
+    "førsteAvregningFaktiskPeriode": "<periode - 3>",
+    "førsteAvregningPrognosePeriode": "<periode - 2>",
+    "andreAvregningPrognosePeriode": "<periode - 1>",
+    "periode": "<periode>",
 
     "termininfoVersjon": "<termininfoVersjon>",
     "premiesatsVersjon": "<premiesatsVersjon>",
@@ -86,7 +87,7 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${førstePeriode}",
+          "periode": "${periode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -129,7 +130,7 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${førstePrognosePeriode}"
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${førsteAvregningPrognosePeriode}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -137,7 +138,7 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${andrePrognosePeriode}"
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${andreAvregningPrognosePeriode}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -145,7 +146,7 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${førstePeriode}"
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -168,6 +169,7 @@
           "handling": "kopier_termininfofil_fra_arkiv_til_batch",
           "batchTil": "pa_fak_ba_15",
           "termininfoVersjon": "${termininfoVersjon}",
+          "termininfoType": "termininfo_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
@@ -181,7 +183,7 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${førstePrognosePeriode}",
+          "periode": "${førsteAvregningFaktiskPeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -189,7 +191,7 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${andrePrognosePeriode}",
+          "periode": "${førsteAvregningPrognosePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -197,7 +199,15 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${førstePeriode}",
+          "periode": "${andreAvregningPrognosePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${periode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -222,9 +232,90 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_04 (TODO)",
+      "navn": "pa_fak_ba_04 (generer_fakturaunderlag_for_poa_pen og generer_agressofil_poa_pen)",
       "handling": "gruppe",
       "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_poa_pen_premier/${termin}"
+        },
+        {
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_15",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "termininfoType": "termininfo_poa_pen",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${førsteAvregningFaktiskPeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${førsteAvregningPrognosePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${andreAvregningPrognosePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${periode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_fakturaunderlag_for_poa_pen",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${termin}",
+          "premiemodell": "POA_PEN",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_batch_output",
+          "filnavn": "fakturaunderlag",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fakturaunderlag_for_poa_pen/${termin}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_agressofil_poa_pen",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${termin}",
+          "premiemodell": "POA_PEN",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_agressofil_poa_pen/${termin}",
+          "filter": "Agressofil"
+        },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_04"
@@ -251,12 +342,13 @@
           "handling": "kopier_termininfofil_fra_arkiv_til_batch",
           "batchTil": "pa_fak_ba_15",
           "termininfoVersjon": "${termininfoVersjon}",
+          "termininfoType": "termininfo_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${førstePrognosePeriode}",
+          "periode": "${førsteAvregningFaktiskPeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -264,7 +356,7 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${andrePrognosePeriode}",
+          "periode": "${førsteAvregningPrognosePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -272,7 +364,15 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${førstePeriode}",
+          "periode": "${andreAvregningPrognosePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${periode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
