@@ -8,7 +8,7 @@
   "operasjoner": [
     {
       "handling": "send_til_agresso",
-      "filnavn": "agressofil_poa_afp_frittstaaende",
+      "filnavn": "agressofil_poa_pen",
       "arkivFilsti": "generer_agressofil_poa_pen/${termin}",
       "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     }
