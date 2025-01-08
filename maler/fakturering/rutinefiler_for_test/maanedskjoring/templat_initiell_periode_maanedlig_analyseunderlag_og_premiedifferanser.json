@@ -162,7 +162,7 @@
               "filnavn": "poliser",
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_res_ba_03",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataFremskriving}",
               "nøkkel": "panda-poliser/${initiellFremskrivingsDato}"
             },
             {
@@ -646,14 +646,14 @@
               "filnavn": "poliser",
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_res_ba_03",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataFremskriving}",
               "nøkkel": "panda-poliser/${førsteFremskrivingsDato}"
             },
             {
               "handling": "pa_res_ba_03",
               "modus": "panda_pensjonsgivende_loenn",
               "sisteFremskrivingsdato": "${førsteFremskrivingsDato}",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
             },
             {
               "handling": "arkiver_all_batch_output",
