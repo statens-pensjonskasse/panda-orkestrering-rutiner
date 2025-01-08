@@ -195,6 +195,7 @@
           "periode": "${førsteAvregningFaktiskPeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
+          "filnavn": "avtaleliste_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
@@ -203,6 +204,7 @@
           "periode": "${førsteAvregningPrognosePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
+          "filnavn": "avtaleliste_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
@@ -211,6 +213,7 @@
           "periode": "${andreAvregningPrognosePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
+          "filnavn": "avtaleliste_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
@@ -219,6 +222,7 @@
           "periode": "${periode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_15",
+          "filnavn": "avtaleliste_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
@@ -268,6 +272,7 @@
           "premiemodell": "poa_pen",
           "periode": "${førsteAvregningFaktiskPeriode}",
           "prognoseVersjon": "avtaleliste",
+          "filnavn": "avtaleliste_poa_pen",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -276,6 +281,7 @@
           "premiemodell": "poa_pen",
           "periode": "${førsteAvregningPrognosePeriode}",
           "prognoseVersjon": "avtaleliste",
+          "filnavn": "avtaleliste_poa_pen",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -284,6 +290,7 @@
           "premiemodell": "poa_pen",
           "periode": "${andreAvregningPrognosePeriode}",
           "prognoseVersjon": "avtaleliste",
+          "filnavn": "avtaleliste_poa_pen",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -292,6 +299,7 @@
           "premiemodell": "poa_pen",
           "periode": "${periode}",
           "prognoseVersjon": "avtaleliste",
+          "filnavn": "avtaleliste_poa_pen",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -359,6 +367,7 @@
           "premiemodell": "poa_pen",
           "periode": "${førsteAvregningFaktiskPeriode}",
           "prognoseVersjon": "avtaleliste",
+          "filnavn": "avtaleliste_poa_pen",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -367,6 +376,7 @@
           "premiemodell": "poa_pen",
           "periode": "${førsteAvregningPrognosePeriode}",
           "prognoseVersjon": "avtaleliste",
+          "filnavn": "avtaleliste_poa_pen",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -375,6 +385,7 @@
           "premiemodell": "poa_pen",
           "periode": "${andreAvregningPrognosePeriode}",
           "prognoseVersjon": "avtaleliste",
+          "filnavn": "avtaleliste_poa_pen",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -383,6 +394,7 @@
           "premiemodell": "poa_pen",
           "periode": "${periode}",
           "prognoseVersjon": "avtaleliste",
+          "filnavn": "avtaleliste_poa_pen",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
