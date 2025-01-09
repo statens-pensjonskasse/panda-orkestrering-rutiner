@@ -358,7 +358,7 @@
         {
           "handling": "kopier_termininfofil_fra_arkiv_til_batch",
           "batchTil": "pa_fak_ba_09",
-          "termininfoVersjon": "termininfoVersjon}",
+          "termininfoVersjon": "${termininfoVersjon}",
           "termininfoType": "termininfo_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
