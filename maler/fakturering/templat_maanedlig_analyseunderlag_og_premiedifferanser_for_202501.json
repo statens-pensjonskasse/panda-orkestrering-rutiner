@@ -10,7 +10,9 @@
     "periode": "<periode>",
     "rettighet": "<rettighet>",
     "uttrekksdato": "<dd.MM.YYYY>",
+
     "paResBa01Versjon": "<X.Y.Z>",
+    "paResBa03Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa03Versjon": "<X.Y.Z>",
     "paFakBa05Versjon": "<X.Y.Z>",
@@ -26,6 +28,10 @@
         {
           "navn": "pa_res_ba_01",
           "versjon": "${paResBa01Versjon}"
+        },
+        {
+          "navn": "pa_res_ba_03",
+          "versjon": "${paResBa03Versjon}"
         },
         {
           "navn": "pa_fak_ba_02",
