@@ -13,7 +13,6 @@
 
     "skalIgnorereTidslinjegenerering": "true",
     "skalIgnorereTestdataRettighetYtelser": "true",
-    "skalIgnorerePandaPoliser": "true",
     "skalIgnorerePensjonsgivendeLoenn": "true",
     "skalIgnorerePensjonsgivendeMaanedsloennDifferanser": "true",
     "skalIgnorereFakturaDataunderlag": "true",
@@ -193,8 +192,7 @@
                   "handling": "pa_res_ba_01",
                   "modus": "panda-poliser",
                   "sisteFremskrivingsdato": "${fremskrivingsDato}",
-                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-                  "ignorertInstruksjon": "${skalIgnorerePandaPoliser}"
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
                 },
                 {
                   "handling": "send_batch_output_til_dvh",
@@ -215,8 +213,7 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda-poliser/${fremskrivingsDato}",
-                  "ignorertInstruksjon": "${skalIgnorerePandaPoliser}"
+                  "nøkkel": "panda-poliser/${fremskrivingsDato}"
                 }
               ]
             },
