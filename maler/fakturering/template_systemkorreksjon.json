@@ -11,7 +11,7 @@
     "rettighet": "<rettighet>",
     "uttrekksdato": "<dd.MM.YYYY>",
     "første_versjon_finnes_i_arkiv": "<true/false>",
-    "første_versjon_er_ikke_systemkorreksjon": "<true/false>",
+    "første_versjon_er_systemkorreksjon": "<true/false>",
     "første_versjon_reserveberegning": "<X.Y.Z>",
     "andre_versjon_reserveberegning": "<X.Y.Z>",
     "paFakBa03Versjon": "<X.Y.Z>",
@@ -289,7 +289,7 @@
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}",
               "kommentar": "Henter fra fakturering hvis første versjon ikke er systemkorreksjon",
-              "ignorertInstruksjon": "${første_versjon_er_ikke_systemkorreksjon}"
+              "ignorertInstruksjon": "${første_versjon_er_systemkorreksjon}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
