@@ -12,7 +12,7 @@
     "uttrekksdato": "<dd.MM.YYYY>",
 
     "første_versjon_finnes_i_arkiv": "<true/false>",
-    "første_versjon_er_systemkorreksjon": "<true/false>",
+    "første_versjon_er_ikke_systemkorreksjon": "<true/false>",
 
     "første_versjon_reserveberegning": "<X.Y.Z>",
     "andre_versjon_reserveberegning": "<X.Y.Z>",
@@ -132,7 +132,7 @@
     },
     {
       "handling": "pa_fak_ba_11",
-      "modus": "flette_feilende_medlemmer_med_filtrering",
+      "modus": "flette_feilende_medlemmer",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "reserveberegningVersjon": "${første_versjon_reserveberegning}",
       "validerFeilendeMedlemmer": true,
@@ -235,7 +235,7 @@
     },
     {
       "handling": "pa_fak_ba_11",
-      "modus": "flette_feilende_medlemmer_med_filtrering",
+      "modus": "flette_feilende_medlemmer",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "reserveberegningVersjon": "${andre_versjon_reserveberegning}",
       "validerFeilendeMedlemmer": true
@@ -268,7 +268,7 @@
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
       "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}",
       "kommentar": "Henter fra fakturering hvis første versjon ikke er systemkorreksjon",
-      "ignorertInstruksjon": "${første_versjon_er_systemkorreksjon}"
+      "ignorertInstruksjon": "${første_versjon_er_ikke_systemkorreksjon}"
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
