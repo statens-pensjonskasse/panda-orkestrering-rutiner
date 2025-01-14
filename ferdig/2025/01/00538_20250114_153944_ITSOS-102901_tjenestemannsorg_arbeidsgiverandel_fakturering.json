@@ -1,7 +1,7 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for TJENESTEMANNSORG ARBEIDSGIVERANDEL for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2025-01-14_15-35-10-98",
 
     "termin": "2024-02",
     "førstePeriode": "202407",
@@ -591,7 +591,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "30062f89-909d-4154-a0f9-0ffb94333e5d",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -613,7 +613,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "df7c853d-3cfb-4485-acec-0cdc9b88a3f6",
           "validerFeilendeMedlemmer": true
         },
         {
