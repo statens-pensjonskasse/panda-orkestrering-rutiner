@@ -13,11 +13,15 @@
 
     "skalIgnorereTidslinjegenerering": "true",
     "skalIgnorereTestdataRettighetYtelser": "true",
-    "skalIgnorerePandaPoliser": "true",
+    "skalIgnorerePensjonsgivendeLoenn": "true",
+    "skalIgnorerePensjonsgivendeMaanedsloennDifferanser": "true",
     "skalIgnorereFakturaDataunderlag": "true",
+
     "skalIgnorereSendDataunderlagTilDVH": "true",
+    "skalIgnorereSendDataunderlagTilBlobStorage": "true",
 
     "paResBa01Versjon": "<X.Y.Z>",
+    "paResBa03Versjon": "<X.Y.Z>",
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa03Versjon": "<X.Y.Z>",
     "paFakBa05Versjon": "<X.Y.Z>",
@@ -33,6 +37,10 @@
         {
           "navn": "pa_res_ba_01",
           "versjon": "${paResBa01Versjon}"
+        },
+        {
+          "navn": "pa_res_ba_03",
+          "versjon": "${paResBa03Versjon}"
         },
         {
           "navn": "pa_fak_ba_02",
@@ -161,6 +169,13 @@
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
                 {
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+                  "fraBatch": "pa_res_ba_01",
+                  "filPrefix": "rettighet_ytelser_for_dvh",
+                  "filstiHosDVH": "rettighet_ytelse",
+                  "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
+                },
+                {
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -177,8 +192,7 @@
                   "handling": "pa_res_ba_01",
                   "modus": "panda-poliser",
                   "sisteFremskrivingsdato": "${fremskrivingsDato}",
-                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-                  "ignorertInstruksjon": "${skalIgnorerePandaPoliser}"
+                  "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
                 },
                 {
                   "handling": "send_batch_output_til_dvh",
@@ -189,17 +203,158 @@
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
                 {
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+                  "fraBatch": "pa_res_ba_01",
+                  "filPrefix": "poliser",
+                  "filstiHosDVH": "polise",
+                  "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
+                },
+                {
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda-poliser/${fremskrivingsDato}",
-                  "ignorertInstruksjon": "${skalIgnorerePandaPoliser}"
+                  "nøkkel": "panda-poliser/${fremskrivingsDato}"
                 }
               ]
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_res_ba_01"
+            }
+          ]
+        },
+        {
+          "navn": "pa_res_ba_03 (panda_pensjonsgivende_loenn)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataFremskriving}",
+              "nøkkel": "panda-poliser/${fremskrivingsDato}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_05 (generer_pensjonsgivende_maanedsloenn)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_03 (pensjonsgivende_maanedsloenn_differanser)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_03",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_maanedsloenn",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${forrigeFremskrivingsDato}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_maanedsloenn",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "pa_fak_ba_03",
+              "modus": "pensjonsgivende_maanedsloenn_differanser",
+              "bokføringsperiode": "${periode}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_03",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
             }
           ]
         },
@@ -487,6 +642,13 @@
                   "batch": "pa_fak_ba_09",
                   "filstiHosDVH": "/reserveoppbygging",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
+                },
+                {
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+                  "fraBatch": "pa_fak_ba_09",
+                  "filPrefix": "reserveoppbygging_dataunderlag",
+                  "filstiHosDVH": "reserveoppbygging",
+                  "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
               ]
             },
@@ -534,9 +696,11 @@
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
                 {
-                  "handling": "rydd_grunnlagsdata_for_batch",
-                  "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+                  "fraBatch": "pa_fak_ba_09",
+                  "filPrefix": "kontofoeringunderlag",
+                  "filstiHosDVH": "kontofoering",
+                  "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
               ]
             },
@@ -584,9 +748,11 @@
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
                 {
-                  "handling": "rydd_grunnlagsdata_for_batch",
-                  "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+                  "fraBatch": "pa_fak_ba_09",
+                  "filPrefix": "feilmelding_dataunderlag",
+                  "filstiHosDVH": "feilende_medlemmer",
+                  "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
               ]
             },
@@ -631,6 +797,13 @@
                   "batch": "pa_fak_ba_09",
                   "filstiHosDVH": "/administrasjonspremieunderlag",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
+                },
+                {
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+                  "fraBatch": "pa_fak_ba_09",
+                  "filPrefix": "administrasjonspremieunderlag_dataunderlag",
+                  "filstiHosDVH": "administrasjonspremieunderlag",
+                  "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
               ]
             },
@@ -676,9 +849,11 @@
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
                 {
-                  "handling": "rydd_grunnlagsdata_for_batch",
-                  "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+                  "fraBatch": "pa_fak_ba_09",
+                  "filPrefix": "administrasjonspremie_dataunderlag",
+                  "filstiHosDVH": "administrasjonspremie",
+                  "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
               ]
             },
@@ -727,14 +902,105 @@
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
                 {
-                  "handling": "rydd_grunnlagsdata_for_batch",
-                  "batch": "pa_fak_ba_09",
-                  "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+                  "fraBatch": "pa_fak_ba_09",
+                  "filPrefix": "tidslinjehendelser_dataunderlag",
+                  "filstiHosDVH": "tidslinjehendelser",
+                  "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
               ]
             }
-          ],
-          "ignorertInstruksjon": "${skalIgnorereTidslinjegenerering}"
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_09 (pensjonsgivende_loenn)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "pensjonsgivende_loenn_dataunderlag",
+              "kjøringsId": "#{genererUUID}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${fremskrivingsDato}",
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_loenn_dataunderlag/${fremskrivingsDato}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "pensjonsgivende_loenn_dataunderlag",
+              "filstiHosDVH": "pensjonsgivende_loenn",
+              "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_09 (pensjonsgivende_maanedsloenn_differanser)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+              "batchFra": "pa_fak_ba_03",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "pensjonsgivende_maanedsloenn_differanser_dataunderlag",
+              "kjøringsId": "#{genererUUID}",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "validerFeilendeMedlemmer": true,
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser_dataunderlag/${periode}",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "pensjonsgivende_maanedsloenn_differanser_dataunderlag",
+              "filstiHosDVH": "pensjonsgivende_maanedsloenn_differanser",
+              "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09",
+              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+            }
+          ]
         }
       ]
     }

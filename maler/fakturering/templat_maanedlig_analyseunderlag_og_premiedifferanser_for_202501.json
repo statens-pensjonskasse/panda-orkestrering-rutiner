@@ -295,14 +295,6 @@
           "batchFra": "pa_fak_ba_05",
           "batchTil": "pa_fak_ba_03",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_pensjonsgivende_maanedsloenn/${forrigeFremskrivingsDato}"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "pensjonsgivende_maanedsloenn",
-          "batchFra": "pa_fak_ba_05",
-          "batchTil": "pa_fak_ba_03",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}"
         },
         {
