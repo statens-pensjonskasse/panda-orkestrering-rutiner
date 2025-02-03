@@ -1,33 +1,11 @@
 {
-  "navn": "Lager og arkiverer grunnlagsdata fra pa_res_ba_02 med versjon ${versjonForKjøring}",
-  "gyldigVersjon": "1.0.10",
+  "navn": "Lager og arkiverer grunnlagsdata fra pa_res_ba_02",
   "variabler": {
-    "versjonForKjøring": "1.0.10",
-    "versjonEtterKjøring": "1.0.10",
     "dagsDato": "03.02.2025"
   },
   "operasjoner": [
     {
-      "handling": "deploy_batch",
-      "batcher": [
-        {
-          "navn": "pa_res_ba_02",
-          "versjon": "${versjonForKjøring}"
-        }
-      ]
-    },
-    {
-      "handling": "pa_res_ba_02",
-      "uttrekksdato": "${dato}"
-    },
-    {
-      "handling": "deploy_batch",
-      "batcher": [
-        {
-          "navn": "pa_res_ba_02",
-          "versjon": "${versjonEtterKjøring}"
-        }
-      ]
+      "handling": "pa_res_ba_02"
     },
     {
       "handling": "arkiver_utdata_pa_res_ba_02",
