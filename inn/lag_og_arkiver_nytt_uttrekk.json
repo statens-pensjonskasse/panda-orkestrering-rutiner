@@ -1,10 +1,10 @@
 {
   "navn": "Lager og arkiverer grunnlagsdata fra pa_res_ba_02 med versjon ${versjonForKjøring}",
-  "gyldigVersjon": "0.1.10",
+  "gyldigVersjon": "1.0.10",
   "variabler": {
-    "versjonForKjøring": "0.1.10",
-    "versjonEtterKjøring": "0.1.10",
-    "dagsDato": "03.01.2024"
+    "versjonForKjøring": "1.0.10",
+    "versjonEtterKjøring": "1.0.10",
+    "dagsDato": "03.02.2025"
   },
   "operasjoner": [
     {
