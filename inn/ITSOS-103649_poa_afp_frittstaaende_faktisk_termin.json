@@ -131,7 +131,8 @@
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -139,19 +140,22 @@
       "batchFra": "pa_fak_ba_13",
       "batchTil": "pa_fak_ba_14",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}"
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "pa_fak_ba_14",
       "modus": "premiefiltrering_for_poa_afp_frittstaaende",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "ignorertInstruksjon": true
     },
     {
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "premiefiltrering_for_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
 
 
@@ -233,7 +237,8 @@
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_02",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -241,19 +246,22 @@
       "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_02",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "premiefiltrering_for_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "pa_fak_ba_02",
       "modus": "aggreger_reservetransaksjonsdifferanser_poa_frittstaaende",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "ignorertInstruksjon": true
     },
     {
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_02",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_reservetransaksjonsdifferanser_poa_frittstaaende/${tredjePeriode}"
+      "nøkkel": "aggreger_reservetransaksjonsdifferanser_poa_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
 
 
@@ -489,7 +497,8 @@
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_08",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -497,20 +506,23 @@
       "batchFra": "pa_res_ba_01",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "panda_administrasjonspremieunderlag/${tredjeFremskrivingsdato}"
+      "nøkkel": "panda_administrasjonspremieunderlag/${tredjeFremskrivingsdato}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "pa_fak_ba_08",
       "modus": "generer_noekkelunderlag_poa_afp_frittstaaende",
       "bokføringsperiode": "${tredjePeriode}",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "ignorertInstruksjon": true
     },
     {
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -522,19 +534,22 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_08",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "pa_fak_ba_08",
       "modus": "aggreger_noekler_poa_afp_frittstaaende",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "ignorertInstruksjon": true
     },
     {
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_08",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -550,7 +565,8 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "generer_noekkelunderlag_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -558,7 +574,8 @@
       "batchFra": "pa_fak_ba_08",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "aggreger_noekler_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -566,20 +583,23 @@
       "batchFra": "pa_fak_ba_02",
       "batchTil": "pa_fak_ba_06",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "aggreger_reservetransaksjonsdifferanser_poa_frittstaaende/${tredjePeriode}"
+      "nøkkel": "aggreger_reservetransaksjonsdifferanser_poa_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "pa_fak_ba_06",
       "modus": "premiefellesskap_utjevning_poa_afp_frittstaaende",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "validerFeilendeMedlemmer": true,
-      "debugger": "lagreDebug"
+      "debugger": "lagreDebug",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_06",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "rydd_grunnlagsdata_for_batch",
@@ -620,7 +640,8 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "avtaleliste_poa_frittstaaende"
+      "filnavn": "avtaleliste_poa_frittstaaende",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -644,7 +665,8 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_04",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "pa_fak_ba_04",
@@ -714,7 +736,8 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "avtaleliste_poa_frittstaaende"
+      "filnavn": "avtaleliste_poa_frittstaaende",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -738,7 +761,8 @@
       "batchFra": "pa_fak_ba_06",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${tredjePeriode}"
+      "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "pa_fak_ba_09",

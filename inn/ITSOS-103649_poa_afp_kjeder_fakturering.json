@@ -124,7 +124,8 @@
       "periode": "${tredjePeriode}",
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_14",
-      "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -132,19 +133,22 @@
       "batchFra": "pa_fak_ba_13",
       "batchTil": "pa_fak_ba_14",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}"
+      "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "pa_fak_ba_14",
       "modus": "premiefiltrering_for_poa_afp_kjeder",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "validerFeilendeMedlemmer": true
+      "validerFeilendeMedlemmer": true,
+      "ignorertInstruksjon": true
     },
     {
       "handling": "arkiver_all_batch_output",
       "batch": "pa_fak_ba_14",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${tredjePeriode}"
+      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
 
     {
@@ -189,7 +193,8 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_04",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "avtaleliste_poa_kjeder"
+      "filnavn": "avtaleliste_poa_kjeder",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_fra_arkiv_til_batch",
@@ -213,7 +218,8 @@
       "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_04",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${tredjePeriode}"
+      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -297,7 +303,8 @@
       "prognoseVersjon": "avtaleliste",
       "batch": "pa_fak_ba_09",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "filnavn": "avtaleliste_poa_kjeder"
+      "filnavn": "avtaleliste_poa_kjeder",
+      "ignorertInstruksjon": true
     },
     {
       "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -332,7 +339,8 @@
       "batchFra": "pa_fak_ba_14",
       "batchTil": "pa_fak_ba_09",
       "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${tredjePeriode}"
+      "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${tredjePeriode}",
+      "ignorertInstruksjon": true
     },
 
 
