@@ -103,13 +103,25 @@
           "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_pre_ba_01"
-        }, {
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "premieprognose",
+          "periode": "Prognose_sluttmelding",
+          "prognoseVersjon": "1",
+          "batch": "pa_pre_ba_01"
+        },
+        {
           "handling": "pa_pre_ba_01",
           "manipulatorer": [
             {
               "navn": "filtrer_medlemsbestand",
               "fraFil": "avtaleliste_hbf_as_asa.csv"
-            }, {
+            },
+            {
+              "navn": "opprett_sluttmelding_medlem",
+              "fraFil": "opprett_sluttmelding.csv"
+            },{
               "navn": "tilbakestill_grunnbeløp",
               "år": 2025
             }, {
