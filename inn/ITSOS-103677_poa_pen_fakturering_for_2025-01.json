@@ -2,14 +2,14 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA PEN for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "termin": "<termin>",
-    "periode": "<periode>",
-    "termininfoVersjon": "<termininfoVersjon>",
-    "premiesatsVersjon": "<premiesatsVersjon>",
+    "termin": "2025-01",
+    "periode": "202501",
+    "termininfoVersjon": "2025/v1",
+    "premiesatsVersjon": "1",
 
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa15Versjon": "<X.Y.Z>"
+    "paFakBa04Versjon": "4.0.0",
+    "paFakBa09Versjon": "3.1.10",
+    "paFakBa15Versjon": "0.0.8"
   },
   "operasjoner": [
     {
