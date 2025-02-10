@@ -1,7 +1,7 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA PEN for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2025-02-10_17-05-26-08",
     "termin": "2025-01",
     "periode": "202501",
     "termininfoVersjon": "2025/v1",
@@ -188,7 +188,7 @@
         {
           "handling": "pa_fak_ba_09",
           "modus": "poa_pen_dataunderlag_for_medlem",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "b3ff1808-754d-4e0c-af83-2e02f418a8d0",
           "premiemodell": "POA_PEN",
           "termin": "${termin}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -209,7 +209,7 @@
         {
           "handling": "pa_fak_ba_09",
           "modus": "poa_pen_dataunderlag_for_avtale",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "1b7a9cdc-e77f-42f7-ba2d-2e1db693522d",
           "premiemodell": "POA_PEN",
           "termin": "${termin}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
