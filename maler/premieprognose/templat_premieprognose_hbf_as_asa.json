@@ -11,6 +11,8 @@
     "avtalelisteChecksum": "<avtalelisteChecksum>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
     "solvenspremieChecksum": "<solvenspremieChecksum>",
+    "prognosejusteringChecksum": "<prognosejusteringChecksum>",
+    "ignorerPrognosejusteringInstruksjon": ",<prognosejusteringChecksum>",
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
@@ -358,6 +360,15 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "premieprognose",
+          "periode": "${prognosejusteringChecksum}",
+          "prognoseVersjon": "prognosejustering",
+          "batch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": "${ignorerPrognosejusteringInstruksjon}"
+        },
+        {
           "handling": "pa_pre_ba_02",
           "modus": "premieprognoser_avtale",
           "kjøringsId": "${kjøringsId}",
@@ -384,6 +395,14 @@
           "kjøringsId": "${kjøringsId}",
           "filnavn": "administrasjonspremieunderlag",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "prognosejustering",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "prognosejustering",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": "${ignorerPrognosejusteringInstruksjon}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",

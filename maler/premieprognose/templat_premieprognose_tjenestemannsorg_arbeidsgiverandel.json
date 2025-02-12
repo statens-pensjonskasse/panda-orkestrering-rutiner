@@ -339,7 +339,6 @@
         }
       ]
     },
-
     {
       "navn": "pa_fak_ba_05 generer medlemsandel",
       "handling": "gruppe",
@@ -402,6 +401,15 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "premieprognose",
+          "periode": "${prognosejusteringChecksum}",
+          "prognoseVersjon": "prognosejustering",
+          "batch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": "${ignorerPrognosejusteringInstruksjon}"
+        },
+        {
           "handling": "pa_pre_ba_02",
           "modus": "premieprognoser_avtale",
           "kjøringsId": "${kjøringsId}",
@@ -428,6 +436,14 @@
           "kjøringsId": "${kjøringsId}",
           "filnavn": "administrasjonspremieunderlag",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "prognosejustering",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "prognosejustering",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": "${ignorerPrognosejusteringInstruksjon}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
