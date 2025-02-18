@@ -1,7 +1,7 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF FLS 2.0 fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2025-02-18_10-00-14-81",
 
     "termin": "2025-01",
 
@@ -896,7 +896,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "utjevnet_premier_dataunderlag_avtale",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "91e9f30c-1640-4c62-a616-3b67c2797a65",
               "premiemodell": "HBF_FLS",
               "termin": "${termin}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -918,7 +918,7 @@
             {
               "handling": "pa_fak_ba_09",
               "modus": "utjevnet_premier_dataunderlag_medlem",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "369427c0-c33c-4576-8679-0a6d7f5e6cab",
               "premiemodell": "HBF_FLS",
               "termin": "${termin}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -979,7 +979,7 @@
               "handling": "pa_fak_ba_09",
               "modus": "generer_loepende_premieoppgjoer_dataunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "b4e1a7d3-471f-4dfc-b507-bf277c18daa6",
               "validerFeilendeMedlemmer": true
             },
             {
@@ -1032,7 +1032,7 @@
               "handling": "pa_fak_ba_09",
               "modus": "generer_loepende_premieoppgjoer_dataunderlag",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "kjøringsId": "#{genererUUID}",
+              "kjøringsId": "ae9c7875-b623-463b-a354-a1ae4eb70e67",
               "validerFeilendeMedlemmer": true
             },
             {
