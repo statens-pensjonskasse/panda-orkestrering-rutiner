@@ -578,7 +578,7 @@
         },
         {
           "handling": "pa_pre_ba_02",
-          "modus": "utjevnet_premieprognoser_medlem_hbf_fls",
+          "modus": "utjevnet_premieprognoser_medlem_hbf_fls_admpremie_ganget_med_tolv",
           "kjøringsId": "${kjøringsId}",
           "filnavn": "utjevnet_faktisk_premie",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
