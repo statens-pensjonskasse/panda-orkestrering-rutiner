@@ -310,6 +310,8 @@
           "modus": "pensjonsgivende_maanedsloenn_differanser",
           "bokføringsperiode": "${periode}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "førsteKjøring": "${forrigeFremskrivingsDato}",
+          "andreKjøring": "${fremskrivingsDato}",
           "validerFeilendeMedlemmer": true
         },
         {
