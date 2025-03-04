@@ -1,25 +1,23 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periode ${periode}",
-  "gyldigVersjon": "0.1.0",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "fremskrivingsDato": "<YYYY.MM.dd>",
-    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "periode": "<periode>",
-    "rettighet": "<rettighet>",
-    "uttrekksdato": "<dd.MM.YYYY>",
-
-    "paResBa01Versjon": "<X.Y.Z>",
-    "paResBa03Versjon": "<X.Y.Z>",
-    "paFakBa02Versjon": "<X.Y.Z>",
-    "paFakBa03Versjon": "<X.Y.Z>",
-    "paFakBa05Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa11Versjon": "<X.Y.Z>",
-    "paFakBa12Versjon": "<X.Y.Z>",
-    "paFakBa13Versjon": "<X.Y.Z>"
+    "grunnlagsdataFremskriving": "grunnlagsdata_2025-02-28_21-33-51-73",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "7",
+    "fremskrivingsDato": "2025.03.01",
+    "forrigeFremskrivingsDato": "2025.02.01",
+    "periode": "202502",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+    "uttrekksdato": "28.02.2025",
+    "paResBa01Versjon": "1.2.232",
+    "paResBa03Versjon": "0.0.13",
+    "paFakBa02Versjon": "2.0.6",
+    "paFakBa03Versjon": "1.0.13",
+    "paFakBa05Versjon": "2.0.20",
+    "paFakBa09Versjon": "3.1.10",
+    "paFakBa11Versjon": "2.0.4",
+    "paFakBa12Versjon": "1.0.3",
+    "paFakBa13Versjon": "1.0.14"
   },
   "operasjoner": [
     {
@@ -69,17 +67,20 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_01"
+          "batch": "pa_res_ba_01",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
           "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+          "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
           "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+          "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+          "ignorertInstruksjon": true
         },
         {
           "navn": "panda_reserveberegning",
@@ -90,13 +91,15 @@
               "modus": "panda_reserveberegning",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
               "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "rettighet": "${rettighet}"
+              "rettighet": "${rettighet}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
+              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -109,13 +112,15 @@
               "modus": "panda_administrasjonspremieunderlag",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
               "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "rettighet": "${rettighet}"
+              "rettighet": "${rettighet}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -128,13 +133,15 @@
               "modus": "panda_tidslinjehendelser",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
               "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "rettighet": "${rettighet}"
+              "rettighet": "${rettighet}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_tidslinjehendelser/${fremskrivingsDato}"
+              "nøkkel": "panda_tidslinjehendelser/${fremskrivingsDato}",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -147,26 +154,30 @@
               "modus": "panda-testdata-rettighet-ytelser",
               "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
-              "rettighet": "${rettighet}"
+              "rettighet": "${rettighet}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "send_batch_output_til_dvh",
               "filPrefix": "rettighet_ytelser_for_dvh",
               "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
               "batch": "pa_res_ba_01",
-              "filstiHosDVH": "/rettighet_ytelse"
+              "filstiHosDVH": "/rettighet_ytelse",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
               "fraBatch": "pa_res_ba_01",
               "filPrefix": "rettighet_ytelser_for_dvh",
-              "filstiHosDVH": "rettighet_ytelse"
+              "filstiHosDVH": "rettighet_ytelse",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}"
+              "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -178,34 +189,40 @@
               "handling": "pa_res_ba_01",
               "modus": "panda-poliser",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
-              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "send_batch_output_til_dvh",
               "filPrefix": "poliser",
               "filListe": "POLISE_FILLISTE.txt",
               "batch": "pa_res_ba_01",
-              "filstiHosDVH": "/polise"
+              "filstiHosDVH": "/polise",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
               "fraBatch": "pa_res_ba_01",
               "filPrefix": "poliser",
-              "filstiHosDVH": "polise"
+              "filstiHosDVH": "polise",
+              "ignorertInstruksjon": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "panda-poliser/${fremskrivingsDato}"
+              "nøkkel": "panda-poliser/${fremskrivingsDato}",
+              "ignorertInstruksjon": true
             }
           ]
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_01"
+          "batch": "pa_res_ba_01",
+          "ignorertInstruksjon": true
         }
-      ]
+      ],
+      "ignorertInstruksjon": true
     },
     {
       "navn": "pa_res_ba_03 (panda_pensjonsgivende_loenn)",
@@ -213,12 +230,14 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_03"
+          "batch": "pa_res_ba_03",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
           "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -226,25 +245,30 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_res_ba_03",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda-poliser/${fremskrivingsDato}"
+          "nøkkel": "panda-poliser/${fremskrivingsDato}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "pa_res_ba_03",
           "modus": "panda_pensjonsgivende_loenn",
           "sisteFremskrivingsdato": "${fremskrivingsDato}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_res_ba_03",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
+          "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_res_ba_03"
+          "batch": "pa_res_ba_03",
+          "ignorertInstruksjon": true
         }
-      ]
+      ],
+      "ignorertInstruksjon": true
     },
     {
       "navn": "pa_fak_ba_05 (generer_pensjonsgivende_maanedsloenn)",
@@ -252,7 +276,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05"
+          "batch": "pa_fak_ba_05",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -260,26 +285,31 @@
           "batchFra": "pa_res_ba_03",
           "batchTil": "pa_fak_ba_05",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
+          "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "pa_fak_ba_05",
           "modus": "generer_pensjonsgivende_maanedsloenn",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "sisteFremskrivingsdato": "${fremskrivingsDato}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "ignorertInstruksjon": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_05",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}"
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_05"
+          "batch": "pa_fak_ba_05",
+          "ignorertInstruksjon": true
         }
-      ]
+      ],
+      "ignorertInstruksjon": true
     },
     {
       "navn": "pa_fak_ba_03 (pensjonsgivende_maanedsloenn_differanser)",
