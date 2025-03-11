@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF STAT fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2025-03-11_09-00-08-54",
 
     "termin": "2025-01",
     "førstePeriode": "202411",
@@ -551,7 +551,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "HBF_STAT",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "c052ee04-aaaa-43a7-bb1a-6efa7e567fc7",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -573,7 +573,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "HBF_STAT",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "110ce521-03b9-49af-9c5c-6556a4f78f09",
           "validerFeilendeMedlemmer": true
         },
         {
