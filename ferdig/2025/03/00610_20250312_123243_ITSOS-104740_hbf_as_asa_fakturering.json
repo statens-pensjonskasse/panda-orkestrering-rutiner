@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappe": "grunnlagsdata_2025-03-12_12-30-12-28",
 
     "termin": "2025-01",
     "førstePeriode": "202501",
@@ -344,7 +344,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "HBF_AS/ASA",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "ad2a8a04-b3c9-4703-b00c-ddaad5598df4",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -366,7 +366,7 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "premiemodell": "HBF_AS/ASA",
           "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
+          "kjøringsId": "d6de48a9-b76b-40d2-b6df-4d1a0560a318",
           "validerFeilendeMedlemmer": true
         },
         {
