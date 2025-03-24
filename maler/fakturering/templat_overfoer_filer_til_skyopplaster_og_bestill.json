@@ -1,39 +1,27 @@
 {
   "navn": "Rutine som kopierer filer fra batch ut-mappe eller arkiv til blob storage",
+  "gyldigVersjon": "1.0.11",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fraBatch": "<fraBatch>",
     "filPrefix": "<filPrefix>",
     "filstiHosDVH": "<filsti>",
     "nøkkel": "<nøkkel>",
+    "kjøringsId": "#{genererUUID}",
     "grunnlagsdataMappeFraArkiv": "<grunnlagsdataMappeFraArkiv>"
   },
   "operasjoner": [
     {
-      "navn": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "handling": "kopier_filer_fra_batch_til_skyopplaster_og_bestill",
-          "fraBatch": "${fraBatch}",
-          "filPrefix": "${filPrefix}",
-          "filstiHosDVH": "${filstiHosDVH}"
-        }
-      ]
+      "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
+      "fraBatch": "${fraBatch}",
+      "filPrefix": "${filPrefix}",
+      "nøkkel": "${nøkkel}",
+      "kjøringsId": "${kjøringsId}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappeFraArkiv}"
     },
     {
-      "navn": "kopier_filer_fra_arkiv_til_skyopplaster_og_bestill",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "handling": "kopier_filer_fra_arkiv_til_skyopplaster_og_bestill",
-          "fraBatch": "${fraBatch}",
-          "filPrefix": "${filPrefix}",
-          "nøkkel": "${nøkkel}",
-          "filstiHosDVH": "${filstiHosDVH}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappeFraArkiv}"
-        }
-      ]
+      "handling": "opprett_bestilling_til_skyopplaster",
+      "kjøringsId": "${kjøringsId}",
+      "filstiHosDVH": "${filstiHosDVH}"
     }
   ]
 }
