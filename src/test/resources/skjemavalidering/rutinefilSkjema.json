@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "navn": {
+      "type": "string"
+    },
+    "gyldigVersjon": {
+      "type": "string"
+    },
+    "variabler": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "operasjoner": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "handling": { "type": "string" }
+        },
+        "required": ["handling"],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": ["navn", "variabler",  "operasjoner"],
+  "additionalProperties": false
+}
