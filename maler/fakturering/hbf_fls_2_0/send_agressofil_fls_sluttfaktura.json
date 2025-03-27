@@ -1,0 +1,21 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS sluttfaktura til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
+  "gyldigVersjon": "0.0.9",
+  "metainfo": {
+    "mal": "maler/fakturering/hbf_fls_2_0/send_agressofil_fls_sluttfaktura.json",
+    "kategori": "eksport",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.9"
+  },
+  "variabler": {
+    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "termin" : "<termin>"
+  },
+  "operasjoner": [
+    {
+      "handling": "send_til_agresso",
+      "filnavn": "agressofil_hbf_fls_sluttfaktura",
+      "arkivFilsti": "generer_agressofil_hbf_fls_for_sluttfaktura/${termin}",
+      "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
+    }
+  ]
+}

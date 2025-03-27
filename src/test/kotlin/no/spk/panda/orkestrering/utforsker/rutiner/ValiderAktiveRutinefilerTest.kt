@@ -49,7 +49,7 @@ class ValiderAktiveRutinefilerTest {
     }
 
     private fun hbfØvrigeMaler(): Stream<File> {
-        val katalog = File("maler/fakturering/hbf_overige")
+        val katalog = File("maler/fakturering/hbf_ovrige")
         return hentAlleJsonFiler(katalog).stream()
     }
 
@@ -68,8 +68,21 @@ class ValiderAktiveRutinefilerTest {
     }
 
     @ParameterizedTest
-    @MethodSource("poaPenMaler")
+    @MethodSource("poaAfpMaler")
     fun `skal validere alle maler for POA AFP`(fil: File) {
+        assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
+            .`as`("Ved validering av ${fil.path}")
+            .hasSize(0)
+    }
+
+    private fun poaAfpMaler(): Stream<File> {
+        val katalog = File("maler/fakturering/poa_afp")
+        return hentAlleJsonFiler(katalog).stream()
+    }
+
+    @ParameterizedTest
+    @MethodSource("poaPenMaler")
+    fun `skal validere alle maler for POA PEN`(fil: File) {
         assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
             .`as`("Ved validering av ${fil.path}")
             .hasSize(0)
@@ -80,7 +93,19 @@ class ValiderAktiveRutinefilerTest {
         return hentAlleJsonFiler(katalog).stream()
     }
 
-    @Disabled
+    @ParameterizedTest
+    @MethodSource("adHocMaler")
+    fun `skal validere alle maler for Ad Hoc`(fil: File) {
+        assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
+            .`as`("Ved validering av ${fil.path}")
+            .hasSize(0)
+    }
+
+    private fun adHocMaler(): Stream<File> {
+        val katalog = File("maler/fakturering/ad_hoc")
+        return hentAlleJsonFiler(katalog).stream()
+    }
+
     @ParameterizedTest
     @MethodSource("reserveberegningsMaler")
     fun `skal validere alle maler for reserveberegningen`(fil: File) {
@@ -97,7 +122,7 @@ class ValiderAktiveRutinefilerTest {
 
     @Test
     fun `skal validere månedskjøringen`() {
-        val månedskjøring = File("maler/fakturering/templat_maanedlig_analyseunderlag_og_premiedifferanser.json")
+        val månedskjøring = File("maler/fakturering/maanedlig_analyseunderlag_og_premiedifferanser.json")
 
         assertThat(validerJsonSkjema(rutinefilSkjema, månedskjøring.readText()))
             .`as`("Ved validering av ${månedskjøring.path}")
@@ -106,8 +131,8 @@ class ValiderAktiveRutinefilerTest {
     }
 
     @Test
-    fun `skal validere system korreksjon`() {
-        val månedskjøring = File("maler/fakturering/template_systemkorreksjon.json")
+    fun `skal validere systemkorreksjon`() {
+        val månedskjøring = File("maler/fakturering/systemkorreksjon.json")
 
         assertThat(validerJsonSkjema(rutinefilSkjema, månedskjøring.readText()))
             .`as`("Ved validering av ${månedskjøring.path}")

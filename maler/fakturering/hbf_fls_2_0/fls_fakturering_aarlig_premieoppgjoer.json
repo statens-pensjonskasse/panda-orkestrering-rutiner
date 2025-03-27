@@ -1,0 +1,1232 @@
+{
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS 2.0 premieoppgjør for år ${inneværendeÅr} og prognoseversjon ${prognoseVersjon} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "gyldigVersjon": "0.0.78",
+  "metainfo": {
+    "mal": "maler/fakturering/hbf_fls_2_0/fls_fakturering_aarlig_premieoppgjoer.json",
+    "kategori": "fakturering",
+    "premiemodell": "hbf_fls",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.78"
+  },
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+
+    "forrigeÅr": "<YYYY>",
+    "inneværendeÅr": "<YYYY>",
+    "termin": "<termin>",
+
+    "fremskrivingsDato1": "<fremskrivingsDato1>",
+    "fremskrivingsDato2": "<fremskrivingsDato2>",
+
+    "termininfoVersjon": "<termininfoVersjon>",
+    "prognoseVersjon": "<prognoseVersjon>",
+    "aggregertPremiejusteringVersjon": "<aggregertPremiejusteringVersjon>",
+    "oppgjørsVersjon": "<oppgjørsVersjon>",
+    "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
+
+    "paFakBa02Versjon": "<X.Y.Z>",
+    "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa06Versjon": "<X.Y.Z>",
+    "paFakBa07Versjon": "<X.Y.Z>",
+    "paFakBa08Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa10Versjon": "<X.Y.Z>",
+    "paFakBa14Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_02",
+          "versjon": "${paFakBa02Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_06",
+          "versjon": "${paFakBa06Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_07",
+          "versjon": "${paFakBa07Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_08",
+          "versjon": "${paFakBa08Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_10",
+          "versjon": "${paFakBa10Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_14",
+          "versjon": "${paFakBa14Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_06 (premiefellesskap_utjevning_aggregert_prognosepremie for ${inneværendeÅr}11)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${inneværendeÅr}11",
+          "prognoseVersjon": "${prognoseVersjon}",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "aggregerte_noekler_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "noekkelunderlag_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+        },
+        {
+          "handling": "pa_fak_ba_06",
+          "modus": "premiefellesskap_utjevning_aggregert_prognosepremie",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_06 (premiefellesskap_utjevning_aggregert_prognosepremie for ${inneværendeÅr}12)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${inneværendeÅr}12",
+          "prognoseVersjon": "${prognoseVersjon}",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "aggregerte_noekler_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_faktiske_premier/${fordelingsnøkkelPeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "noekkelunderlag_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${fordelingsnøkkelPeriode}"
+        },
+        {
+          "handling": "pa_fak_ba_06",
+          "modus": "premiefellesskap_utjevning_aggregert_prognosepremie",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}12"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_14 (premiefiltrering_for_hbf_fls for ${inneværendeÅr}10)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${inneværendeÅr}10",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premiedifferanser",
+          "batchFra": "pa_fak_ba_13",
+          "batchTil": "pa_fak_ba_14",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${inneværendeÅr}10"
+        },
+        {
+          "handling": "pa_fak_ba_14",
+          "modus": "premiefiltrering_for_hbf_fls",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}10"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_02 (aggreger_reservetransaksjonsdifferanser_hbf_fls for ${inneværendeÅr}10)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_02"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${inneværendeÅr}10",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_02",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_02",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremier/${inneværendeÅr}10"
+        },
+        {
+          "handling": "pa_fak_ba_02",
+          "modus": "aggreger_reservetransaksjonsdifferanser_hbf_fls",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}10"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_02"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_08 (generer_noekkelunderlag for ${inneværendeÅr}10)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${inneværendeÅr}10",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "totalreserver",
+          "batchFra": "pa_fak_ba_02",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato1}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+          "batchFra": "pa_fak_ba_02",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremier/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}"
+        },
+        {
+          "handling": "pa_fak_ba_08",
+          "modus": "generer_noekkelunderlag",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}10"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_08 (aggreger_faktiske_premier for ${inneværendeÅr}10)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "noekkelunderlag_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}10"
+        },
+        {
+          "handling": "pa_fak_ba_08",
+          "modus": "aggreger_faktiske_premier",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_faktiske_premier/${inneværendeÅr}10"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_06 (premiefellesskap_utjevning_faktisk_premie for ${inneværendeÅr}10)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${termin}",
+          "prognoseVersjon": "${aggregertPremiejusteringVersjon}",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tillatTomFil": true
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "noekkelunderlag_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "aggregerte_noekler_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_faktiske_premier/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+          "batchFra": "pa_fak_ba_02",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}10"
+        },
+        {
+          "handling": "pa_fak_ba_06",
+          "modus": "premiefellesskap_utjevning_faktisk_premie",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}10"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_07 (beregn_lopende_premieoppgjoer for ${inneværendeÅr}10)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_07"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "utjevnet_faktisk_premie",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_07",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "prognosepremieuttrekk",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_07",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}10"
+        },
+        {
+          "handling": "pa_fak_ba_07",
+          "modus": "beregn_lopende_premieoppgjoer",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_07",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}10"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_07"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 (generer_loepende_premieoppgjoer_dataunderlag for ${inneværendeÅr}10)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "utjevnet_faktisk_premie",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "prognosepremieuttrekk",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "totalreserver",
+          "batchFra": "pa_fak_ba_02",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato1}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "generer_loepende_premieoppgjoer_dataunderlag",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_loepende_premieoppgjoer_dataunderlag/${inneværendeÅr}10"
+        },
+        {
+          "handling": "rydd_filområde_hos_dvh",
+          "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+        },
+        {
+          "handling": "send_bare_filer_fra_batch_output_til_dvh",
+          "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_14 (premiefiltrering_for_hbf_fls for ${inneværendeÅr}11)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${inneværendeÅr}11",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premiedifferanser",
+          "batchFra": "pa_fak_ba_13",
+          "batchTil": "pa_fak_ba_14",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${inneværendeÅr}11"
+        },
+        {
+          "handling": "pa_fak_ba_14",
+          "modus": "premiefiltrering_for_hbf_fls",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}11"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_02 (aggreger_reservetransaksjonsdifferanser_hbf_fls for ${inneværendeÅr}11)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_02"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${inneværendeÅr}11",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_02",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_02",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremier/${inneværendeÅr}11"
+        },
+        {
+          "handling": "pa_fak_ba_02",
+          "modus": "aggreger_reservetransaksjonsdifferanser_hbf_fls",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}11"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_02"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_08 (generer_noekkelunderlag for ${inneværendeÅr}11)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${inneværendeÅr}11",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "totalreserver",
+          "batchFra": "pa_fak_ba_02",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato2}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "reservetransaksjonsdifferanser_medlem",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefiltrering_for_hbf_fls/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+          "batchFra": "pa_fak_ba_02",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremier/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}"
+        },
+        {
+          "handling": "pa_fak_ba_08",
+          "modus": "generer_noekkelunderlag",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}11"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_08 (aggreger_faktiske_premier for ${inneværendeÅr}11)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "noekkelunderlag_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_08",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}11"
+        },
+        {
+          "handling": "pa_fak_ba_08",
+          "modus": "aggreger_faktiske_premier",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_08",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_faktiske_premier/${inneværendeÅr}11"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_08"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_06 (premiefellesskap_utjevning_faktisk_premie for ${inneværendeÅr}11)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "periode": "${termin}",
+          "prognoseVersjon": "${aggregertPremiejusteringVersjon}",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "tillatTomFil": true
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "noekkelunderlag_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_noekkelunderlag/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "aggregerte_noekler_faktiske_premier",
+          "batchFra": "pa_fak_ba_08",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_faktiske_premier/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "aggregerte_reservetransaksjonsdifferanser",
+          "batchFra": "pa_fak_ba_02",
+          "batchTil": "pa_fak_ba_06",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "aggreger_reservetransaksjonsdifferanser_hbf_fls/${inneværendeÅr}11"
+        },
+        {
+          "handling": "pa_fak_ba_06",
+          "modus": "premiefellesskap_utjevning_faktisk_premie",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_06",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}11"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_06"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_07 (beregn_lopende_premieoppgjoer for ${inneværendeÅr}11)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_07"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "utjevnet_faktisk_premie",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_07",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "prognosepremieuttrekk",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_07",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
+        },
+        {
+          "handling": "pa_fak_ba_07",
+          "modus": "beregn_lopende_premieoppgjoer",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_07",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_07"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 (generer_loepende_premieoppgjoer_dataunderlag for ${inneværendeÅr}11)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "utjevnet_faktisk_premie",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_faktisk_premie/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "prognosepremieuttrekk",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "totalreserver",
+          "batchFra": "pa_fak_ba_02",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato2}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremieunderlag",
+          "batchFra": "pa_res_ba_01",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "generer_loepende_premieoppgjoer_dataunderlag",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_loepende_premieoppgjoer_dataunderlag/${inneværendeÅr}11"
+        },
+        {
+          "handling": "send_bare_filer_fra_batch_output_til_dvh",
+          "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+        },
+        {
+          "handling": "opprett_filliste_og_triggerfil_hos_dvh",
+          "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+          "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
+          "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_10 (sammenstill_premieoppgjor)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${forrigeÅr}12"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}01"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}03"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}04"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}06"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}07"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}08"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}09"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}10"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "lopende_premieoppgjoer",
+          "batchFra": "pa_fak_ba_07",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "beregn_lopende_premieoppgjoer/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "prognosepremieuttrekk",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "prognosepremieuttrekk",
+          "batchFra": "pa_fak_ba_06",
+          "batchTil": "pa_fak_ba_10",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premiefellesskap_utjevning_aggregert_prognosepremie/${inneværendeÅr}12"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "prognoseVersjon": "${oppgjørsVersjon}",
+          "periode": "${inneværendeÅr}12",
+          "batch": "pa_fak_ba_10",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kommentar": "kopierer oppgjoersfil"
+        },
+        {
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_10",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_fak_ba_10",
+          "modus": "sammenstill_premieoppgjor",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "filnavn": "premieoppgjor",
+          "batch": "pa_fak_ba_10",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "sammenstill_premieoppgjor/${inneværendeÅr}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_10"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_04 (generer fakturaunderlag og agressofil for hbf fls for aarlig premieoppgjoer termin ${inneværendeÅr}-06)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "premieoppgjor",
+          "batchFra": "pa_fak_ba_10",
+          "batchTil": "pa_fak_ba_04",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "sammenstill_premieoppgjor/${inneværendeÅr}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_fakturaunderlag_hbf_fls_for_aarlig_premieoppgjoer",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${inneværendeÅr}-06",
+          "premiemodell": "HBF_FLS",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_batch_output",
+          "filnavn": "fakturaunderlag",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fakturaunderlag_hbf_fls_for_aarlig_premieoppgjoer/${inneværendeÅr}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${inneværendeÅr}-06",
+          "premiemodell": "HBF_FLS",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${inneværendeÅr}",
+          "filter": "Agressofil"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 (premieoppgjoer dataunderlag for medlem og avtale)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "premieoppgjor",
+          "batchFra": "pa_fak_ba_10",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "sammenstill_premieoppgjor/${inneværendeÅr}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_fls",
+          "prognoseVersjon": "${oppgjørsVersjon}",
+          "periode": "${inneværendeÅr}12",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kommentar": "kopierer oppgjoersfil"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "premieoppgjoer_dataunderlag_for_medlem",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "filnavn": "premieoppgjoer_dataunderlag_medlem",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
+        },
+        {
+          "handling": "rydd_filområde_hos_dvh",
+          "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "premieoppgjoer_dataunderlag_medlem",
+          "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "premieoppgjoer_dataunderlag_medlem",
+          "batchFra": "pa_fak_ba_09",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "premieoppgjoer_dataunderlag_for_avtale",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "filnavn": "premieoppgjoer_dataunderlag_avtale",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "premieoppgjoer_dataunderlag_for_avtale/${inneværendeÅr}"
+        },
+        {
+          "handling": "rydd_filområde_hos_dvh",
+          "filstiHosDVH": "/hbf_fls/premieoppgjoer/avtale"
+        },
+        {
+          "handling": "send_batch_output_til_dvh",
+          "filPrefix": "premieoppgjoer_dataunderlag_avtale",
+          "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
+          "batch": "pa_fak_ba_09",
+          "filstiHosDVH": "/hbf_fls/premieoppgjoer/avtale"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        }
+      ]
+    }
+  ]
+}

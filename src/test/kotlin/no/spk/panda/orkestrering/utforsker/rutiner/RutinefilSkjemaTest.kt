@@ -20,9 +20,10 @@ class RutinefilSkjemaTest {
         assertThat(
             validerJsonSkjema(rutinefilSkjema, ingenEgenskaper)
         )
-            .hasSize(3)
+            .hasSize(4)
             .containsExactlyInAnyOrder(
                 SkjemaValidering("required", "$: required property 'navn' not found"),
+                SkjemaValidering("required", "$: required property 'metainfo' not found"),
                 SkjemaValidering("required", "$: required property 'variabler' not found"),
                 SkjemaValidering("required", "$: required property 'operasjoner' not found"),
             )
@@ -35,6 +36,11 @@ class RutinefilSkjemaTest {
         val ingenEgenskaper = """
              {
                 "navn": "En test",
+                "metainfo": {
+                    "mal": "maler/rutinefil.json",
+                    "kategori": "eksport",
+                    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+                 },
                 "variabler": {
                     "enVariabel": "abc"
                 },
@@ -60,7 +66,12 @@ class RutinefilSkjemaTest {
         val ingenEgenskaper = """
              {
                 "navn": "En test",
-                "variabler": {
+                "metainfo": {
+                    "mal": "maler/rutinefil.json",
+                    "kategori": "eksport",
+                    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+                 },
+                 "variabler": {
                     "enVariabel": "abc"
                 },
                 "operasjoner": [
@@ -87,7 +98,12 @@ class RutinefilSkjemaTest {
         val ingenEgenskaper = """
              {
                 "navn": "En gyldig rutinefil",
-                "variabler": {
+                "metainfo": {
+                    "mal": "maler/rutinefil.json",
+                    "kategori": "eksport",
+                    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+                 },
+                 "variabler": {
                     "enVariabel": "abc"
                 },
                 "operasjoner": [
