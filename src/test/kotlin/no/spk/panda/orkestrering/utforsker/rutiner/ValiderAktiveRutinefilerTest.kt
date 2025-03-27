@@ -95,7 +95,7 @@ class ValiderAktiveRutinefilerTest {
     }
 
     @Test
-    fun `skal validere system korrektsjon`() {
+    fun `skal validere system korreksjon`() {
         val månedskjøring = File("maler/fakturering/template_systemkorreksjon.json")
 
         assertThat(validerJsonSkjema(rutinefilSkjema, månedskjøring.readText()))
