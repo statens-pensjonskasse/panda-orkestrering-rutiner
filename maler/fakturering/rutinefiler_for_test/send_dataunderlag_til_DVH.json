@@ -1,5 +1,10 @@
 {
   "navn": "Rutine som sender analyseunderlagfiler til DVH for fremskrivingsDato ${fremskrivingsDato} og bokføringsperiode ${periode}",
+  "metainfo": {
+    "mal": "maler/fakturering/rutinefiler_for_test/send_dataunderlag_til_DVH.json",
+    "kategori": "eksport",
+    "støttetAvPaOrkBa01FraVersjon": "1.0.11"
+  },
   "variabler": {
     "fremskrivingsDato": "<yyyy.MM.dd>",
     "periode": "<periode>",

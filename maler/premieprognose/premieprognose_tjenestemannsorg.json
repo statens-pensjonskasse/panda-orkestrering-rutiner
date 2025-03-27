@@ -1,7 +1,7 @@
 {
   "navn": "Rutinefil for premieprognose hbf-tjenestemannsorg",
   "metainfo": {
-    "mal": "maler/premieprognose/templat_premieprognose_tjenestemannsorg.json",
+    "mal": "maler/premieprognose/premieprognose_tjenestemannsorg.json",
     "kategori": "prognose",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

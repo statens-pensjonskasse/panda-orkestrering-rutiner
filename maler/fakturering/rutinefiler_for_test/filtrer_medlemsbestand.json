@@ -8,6 +8,11 @@
     "aktivPåDato": "yyyy.mm.dd",
     "paPreBa01Versjon": "<x.y.z>"
   },
+  "metainfo": {
+    "mal": "maler/fakturering/rutinefiler_for_test/filtrer_medlemsbestand.json",
+    "kategori": "prognose",
+    "støttetAvPaOrkBa01FraVersjon": "1.0.11"
+  },
   "operasjoner": [
     {
       "handling": "deploy_batch",

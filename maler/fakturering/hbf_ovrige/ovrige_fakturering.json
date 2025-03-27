@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF Øvrige for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
   "metainfo": {
-    "mal": "maler/fakturering/hbf_overige/ovrige_fakturering.json",
+    "mal": "maler/fakturering/hbf_ovrige/ovrige_fakturering.json",
     "kategori": "fakturering",
     "premiemodell": "hbf_ovrige",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
