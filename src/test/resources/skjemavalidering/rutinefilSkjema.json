@@ -5,12 +5,35 @@
     "navn": {
       "type": "string"
     },
+    "metainfo": {
+      "type": "object",
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "required": ["kategori", "mal", "støttetAvPaOrkBa01FraVersjon"]
+        },
+        {
+          "if": {
+            "properties": {
+              "kategori": {
+                "const": "fakturering"
+              }
+            },
+            "then": {
+              "required": ["premiemodell"]
+            }
+          }
+        }
+      ]
+    },
     "gyldigVersjon": {
       "type": "string"
     },
     "variabler": {
       "type": "object",
-      "additionalProperties": { "type": "string" }
+      "additionalProperties": {
+        "type": "string"
+      }
     },
     "operasjoner": {
       "type": "array",
@@ -18,13 +41,15 @@
       "items": {
         "type": "object",
         "properties": {
-          "handling": { "type": "string" }
+          "handling": {
+            "type": "string"
+          }
         },
         "required": ["handling"],
         "additionalProperties": true
       }
     }
   },
-  "required": ["navn", "variabler",  "operasjoner"],
+  "required": ["navn", "variabler", "operasjoner"],
   "additionalProperties": false
 }
