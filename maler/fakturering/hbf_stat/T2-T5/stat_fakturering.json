@@ -1,6 +1,12 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF STAT fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
+  "metainfo": {
+    "mal": "maler/fakturering/hbf_stat/T2-T5/stat_fakturering.json",
+    "kategori": "fakturering",
+    "premiemodell": "hbf_stat",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.78"
+  },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
