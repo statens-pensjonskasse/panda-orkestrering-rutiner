@@ -68,8 +68,21 @@ class ValiderAktiveRutinefilerTest {
     }
 
     @ParameterizedTest
-    @MethodSource("poaPenMaler")
+    @MethodSource("poaAfpMaler")
     fun `skal validere alle maler for POA AFP`(fil: File) {
+        assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
+            .`as`("Ved validering av ${fil.path}")
+            .hasSize(0)
+    }
+
+    private fun poaAfpMaler(): Stream<File> {
+        val katalog = File("maler/fakturering/poa_afp")
+        return hentAlleJsonFiler(katalog).stream()
+    }
+
+    @ParameterizedTest
+    @MethodSource("poaPenMaler")
+    fun `skal validere alle maler for POA PEN`(fil: File) {
         assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
             .`as`("Ved validering av ${fil.path}")
             .hasSize(0)

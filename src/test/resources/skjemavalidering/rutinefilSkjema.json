@@ -10,7 +10,17 @@
       "additionalProperties": true,
       "allOf": [
         {
-          "required": ["kategori", "mal", "støttetAvPaOrkBa01FraVersjon"]
+          "required": ["kategori", "mal", "støttetAvPaOrkBa01FraVersjon"],
+          "properties": {
+            "kategori": {
+              "type": "string",
+              "enum": ["fakturering", "prognose", "arkivering", "eksport", "systemkorreksjon", "månedskjøring"]
+            },
+            "premiemodell": {
+              "type": "string",
+              "enum": ["hbf_fls", "hbf_stat", "hbf_as_asa", "hbf_ovrige", "poa_pen", "poa_afp"]
+            }
+          }
         },
         {
           "if": {

@@ -4,7 +4,7 @@
   "metainfo": {
     "mal": "maler/fakturering/hbf_overige/ovrige_fakturering.json",
     "kategori": "fakturering",
-    "premiemodell": "hbf_ovrig",
+    "premiemodell": "hbf_ovrige",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },
   "variabler": {
