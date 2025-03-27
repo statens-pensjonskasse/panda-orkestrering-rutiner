@@ -50,6 +50,6 @@
       }
     }
   },
-  "required": ["navn", "variabler", "operasjoner"],
+  "required": ["navn", "metainfo", "variabler", "operasjoner"],
   "additionalProperties": false
 }

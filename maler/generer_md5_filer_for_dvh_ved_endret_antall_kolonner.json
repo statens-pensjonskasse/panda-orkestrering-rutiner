@@ -1,5 +1,10 @@
 {
   "navn": "Genererer MD5 filer for DVH ved endret antall kolonner",
+  "metainfo": {
+    "mal": "maler/generer_md5_filer_for_dvh_ved_endret_antall_kolonner.json",
+    "kategori": "eksport",
+    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+  },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fremskrivingsDato": "<YYYY.MM.dd>",

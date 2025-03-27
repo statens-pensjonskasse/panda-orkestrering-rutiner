@@ -1,0 +1,32 @@
+{
+  "navn": "Rutine som kopierer filer fra batch ut-mappe eller arkiv til blob storage",
+  "gyldigVersjon": "1.0.11",
+  "metainfo": {
+    "mal": "maler/fakturering/datavarehus/overfoer_filer_til_skyopplaster_og_bestill.json",
+    "kategori": "eksport",
+    "støttetAvPaOrkBa01FraVersjon": "1.0.11"
+  },
+  "variabler": {
+    "fraBatch": "<fraBatch>",
+    "filPrefix": "<filPrefix>",
+    "filstiHosDVH": "<filsti>",
+    "nøkkel": "<nøkkel>",
+    "kjøringsId": "#{genererUUID}",
+    "grunnlagsdataMappeFraArkiv": "<grunnlagsdataMappeFraArkiv>"
+  },
+  "operasjoner": [
+    {
+      "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
+      "fraBatch": "${fraBatch}",
+      "filPrefix": "${filPrefix}",
+      "nøkkel": "${nøkkel}",
+      "kjøringsId": "${kjøringsId}",
+      "grunnlagsdataMappe": "${grunnlagsdataMappeFraArkiv}"
+    },
+    {
+      "handling": "opprett_bestilling_til_skyopplaster",
+      "kjøringsId": "${kjøringsId}",
+      "filstiHosDVH": "${filstiHosDVH}"
+    }
+  ]
+}

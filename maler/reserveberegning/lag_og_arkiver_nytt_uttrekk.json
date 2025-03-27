@@ -1,6 +1,11 @@
 {
   "navn": "Lager og arkiverer grunnlagsdata fra pa_res_ba_02 med versjon ${versjonForKjøring}",
   "gyldigVersjon": "0.1.8",
+  "metainfo": {
+    "mal": "maler/reserveberegning/lag_og_arkiver_nytt_uttrekk.json",
+    "kategori": "arkivering",
+    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+  },
   "variabler": {
     "versjonForKjøring": "<x.x.x>",
     "versjonEtterKjøring": "<x.x.x>",

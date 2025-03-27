@@ -1,0 +1,22 @@
+{
+  "navn": "Arkivere POA PEN termininfofil for år ${år}, med versjon ${versjon} fra aktuar-arkiv",
+  "metainfo": {
+    "mal": "maler/fakturering/ad_hoc/arkiver_poa_pen_termininfofil_fra_aktuar.json",
+    "kategori": "fakturering",
+    "premiemodell": "poa_pen",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.78"
+  },
+  "variabler": {
+    "år" : "<yyyy>",
+    "versjon": "v<x>"
+  },
+  "operasjoner": [
+    {
+      "handling": "arkiver_termininfofil_fra_aktuar",
+      "beskrivelse": "Ny poa pen termininfofil fra aktuar-arkiv ${år}/${versjon} skal arkiveres ",
+      "år": "${år}",
+      "versjon": "${versjon}",
+      "termininfoType": "termininfo_poa_pen"
+    }
+  ]
+}
