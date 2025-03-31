@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA PEN til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
   "gyldigVersjon": "0.0.9",
   "metainfo": {
-    "mal": "maler/fakturering/poa_pen/send_agressofil_poa_pen.json",
+    "mal": "maler/fakturering/poa_pen/T1-T4/send_agressofil_poa_pen.json",
     "kategori": "eksport",
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"
   },

@@ -1,7 +1,6 @@
 package no.spk.panda.orkestrering.utforsker.rutiner
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.params.ParameterizedTest
@@ -76,8 +75,29 @@ class ValiderAktiveRutinefilerTest {
     }
 
     private fun poaAfpMaler(): Stream<File> {
-        val katalog = File("maler/fakturering/poa_afp")
-        return hentAlleJsonFiler(katalog).stream()
+        val frittstaaende = File("maler/fakturering/poa_frittstaaende")
+        val kjeder = File("maler/fakturering/poa_kjeder")
+        return Stream.concat(
+            hentAlleJsonFiler(frittstaaende).stream(),
+            hentAlleJsonFiler(kjeder).stream()
+        )
+    }
+
+    @ParameterizedTest
+    @MethodSource("tjenestemannsorgMaler")
+    fun `skal validere alle maler for tjenestemannsorg`(fil: File) {
+        assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
+            .`as`("Ved validering av ${fil.path}")
+            .hasSize(0)
+    }
+
+    private fun tjenestemannsorgMaler(): Stream<File> {
+        val tjenestemannsorg = File("maler/fakturering/tjenestemannsorg")
+        val tjenestemannsorgArbeidsgiverandel = File("maler/fakturering/tjenestemannsorg_arbeidsgiverandel")
+        return Stream.concat(
+            hentAlleJsonFiler(tjenestemannsorg).stream(),
+            hentAlleJsonFiler(tjenestemannsorgArbeidsgiverandel).stream()
+        )
     }
 
     @ParameterizedTest

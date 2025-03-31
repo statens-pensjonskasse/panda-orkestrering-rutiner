@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for TJENESTEMANNSORG_ARBEIDSGIVERANDEL fakturering til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
   "gyldigVersjon": "0.0.65",
   "metainfo": {
-    "mal": "maler/fakturering/tjenestemannsorg/send_agressofil_tjenestemannsorg_arbeidsgiverandel.json",
+    "mal": "maler/fakturering/tjenestemannsorg_arbeidsgiverandel/T1-T2/send_agressofil_tjenestemannsorg_arbeidsgiverandel.json",
     "kategori": "eksport",
     "støttetAvPaOrkBa01FraVersjon": "0.0.65"
   },

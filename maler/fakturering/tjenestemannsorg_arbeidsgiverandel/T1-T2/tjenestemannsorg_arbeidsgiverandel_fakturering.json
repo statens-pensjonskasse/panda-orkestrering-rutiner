@@ -1,9 +1,9 @@
 {
   "navn": "Rutine for kjøring av pa_ork_ba_01 for TJENESTEMANNSORG ARBEIDSGIVERANDEL for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "metainfo": {
-    "mal": "maler/fakturering/tjenestemannsorg/tjenestemannsorg_arbeidsgiverandel_fakturering.json",
+    "mal": "maler/fakturering/tjenestemannsorg_arbeidsgiverandel/T1-T2/tjenestemannsorg_arbeidsgiverandel_fakturering.json",
     "kategori": "fakturering",
-    "premiemodell": "tjenestemannsorg",
+    "premiemodell": "tjenestemannsorg_arbeidsgiverandel",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },
   "variabler": {

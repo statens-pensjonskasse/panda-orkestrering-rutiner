@@ -1,8 +1,8 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturering til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP kjeder fakturering til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
   "gyldigVersjon": "0.0.22",
   "metainfo": {
-    "mal": "maler/fakturering/hbf_as_asa/send_agressofil_as_asa_fakturering.json",
+    "mal": "maler/fakturering/poa_kjeder/T1-T4/send_agressofil_poa_afp_kjeder_fakturering.json",
     "kategori": "eksport",
     "støttetAvPaOrkBa01FraVersjon": "0.0.22"
   },
@@ -13,8 +13,8 @@
   "operasjoner": [
     {
       "handling": "send_til_agresso",
-      "filnavn": "agressofil_hbf_as_asa",
-      "arkivFilsti": "generer_agressofil_for_hbf_as_asa/${termin}",
+      "filnavn": "agressofil_poa_afp_kjeder",
+      "arkivFilsti": "generer_agressofil_poa_afp_kjeder/${termin}",
       "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     }
   ]
