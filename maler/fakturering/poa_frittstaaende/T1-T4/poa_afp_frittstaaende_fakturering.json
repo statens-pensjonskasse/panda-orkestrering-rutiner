@@ -2,9 +2,9 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP Frittstående for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
   "metainfo": {
-    "mal": "maler/fakturering/poa_afp/poa_afp_frittstaaende_faktisk_termin.json",
+    "mal": "maler/fakturering/poa_frittstaaende/T1-T4/poa_afp_frittstaaende_fakturering.json",
     "kategori": "fakturering",
-    "premiemodell": "poa_afp",
+    "premiemodell": "poa_frittstaaende",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },
   "variabler": {

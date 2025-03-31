@@ -2,9 +2,9 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP kjeder for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
   "metainfo": {
-    "mal": "maler/fakturering/poa_afp/poa_afp_kjeder_fakturering.json",
+    "mal": "maler/fakturering/poa_kjeder/T1-T4/poa_afp_kjeder_fakturering.json",
     "kategori": "fakturering",
-    "premiemodell": "poa_afp",
+    "premiemodell": "poa_kjeder",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },
   "variabler": {

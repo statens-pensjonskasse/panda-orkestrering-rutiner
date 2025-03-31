@@ -1,10 +1,10 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF Øvrige for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.78",
   "metainfo": {
-    "mal": "maler/fakturering/hbf_as_asa/as_asa_fakturering.json",
+    "mal": "maler/fakturering/hbf_ovrige/T1-T6/ovrige_fakturering.json",
     "kategori": "fakturering",
-    "premiemodell": "hbf_as_asa",
+    "premiemodell": "hbf_ovrige",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },
   "variabler": {
@@ -15,8 +15,7 @@
     "andrePeriode": "<andrePeriode>",
 
     "termininfoVersjon": "<termininfoVersjon>",
-    "solvensVersjon": "<solvensVersjon>",
-    "premiejusteringVersjon": "<premiejusteringVersjon>",
+    "premiejusteringsVersjon": "<premiejusteringsVersjon>",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
@@ -41,7 +40,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_14 premiefiltrering for hbf as asa ${førstePeriode}",
+      "navn": "pa_fak_ba_14 premiefiltrering for hbf øvrige ${førstePeriode}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -50,12 +49,11 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
+          "premiemodell": "hbf_ovrige",
           "periode": "${førstePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "filnavn": "avtaleliste_hbf_as_asa"
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -67,7 +65,7 @@
         },
         {
           "handling": "pa_fak_ba_14",
-          "modus": "premie_for_hbf_as_asa",
+          "modus": "premiefiltrering_for_hbf_ovrige",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
@@ -75,26 +73,25 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premie_for_hbf_as_asa/${førstePeriode}"
-        },
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "nøkkel": "premiefiltrering_for_hbf_ovrige/${førstePeriode}"
         }
       ]
     },
     {
-      "navn": "pa_fak_ba_14 premiefiltrering for hbf as asa ${andrePeriode}",
+      "navn": "pa_fak_ba_14 premiefiltrering for hbf øvrige ${andrePeriode}",
       "handling": "gruppe",
       "gruppeAv": [
         {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        },
+        {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
+          "premiemodell": "hbf_ovrige",
           "periode": "${andrePeriode}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "filnavn": "avtaleliste_hbf_as_asa"
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -106,7 +103,7 @@
         },
         {
           "handling": "pa_fak_ba_14",
-          "modus": "premie_for_hbf_as_asa",
+          "modus": "premiefiltrering_for_hbf_ovrige",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
@@ -114,16 +111,12 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premie_for_hbf_as_asa/${andrePeriode}"
-        },
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "nøkkel": "premiefiltrering_for_hbf_ovrige/${andrePeriode}"
         }
       ]
     },
     {
-      "navn": "pa_fak_ba_04 generer hbf as asa fakturaunderlag og agressofil for ${termin}",
+      "navn": "pa_fak_ba_04 generer hbf øvrige fakturaunderlag og agressofil ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -138,20 +131,13 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
+          "premiemodell": "hbf_ovrige",
           "periode": "${termin}",
-          "prognoseVersjon": "${premiejusteringVersjon}",
+          "prognoseVersjon": "${premiejusteringsVersjon}",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "filnavn": "premiejustering_hbf_ovrige",
           "tillatTomFil": true
-        },
-        {
-          "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
-          "periode": "${termin}",
-          "prognoseVersjon": "${solvensVersjon}",
-          "batch": "pa_fak_ba_04",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "navn": "pa_fak_ba_04 ${førstePeriode}",
@@ -159,12 +145,12 @@
           "gruppeAv": [
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-              "premiemodell": "hbf_as_asa",
+              "premiemodell": "hbf_ovrige",
               "periode": "${førstePeriode}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_04",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "filnavn": "avtaleliste_hbf_as_asa"
+              "filnavn": "avtaleliste_hbf_ovrige"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -172,7 +158,7 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premie_for_hbf_as_asa/${førstePeriode}"
+              "nøkkel": "premiefiltrering_for_hbf_ovrige/${førstePeriode}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -190,12 +176,12 @@
           "gruppeAv": [
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-              "premiemodell": "hbf_as_asa",
+              "premiemodell": "hbf_ovrige",
               "periode": "${andrePeriode}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_04",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "filnavn": "avtaleliste_hbf_as_asa"
+              "filnavn": "avtaleliste_hbf_ovrige"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -203,7 +189,7 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premie_for_hbf_as_asa/${andrePeriode}"
+              "nøkkel": "premiefiltrering_for_hbf_ovrige/${andrePeriode}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -217,10 +203,10 @@
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "generer_fakturaunderlag_fra_avtale",
+          "modus": "generer_fakturaunderlag_for_hbf_ovrige",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
-          "premiemodell": "HBF_AS/ASA",
+          "premiemodell": "HBF_ØVRIGE",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -228,22 +214,21 @@
           "filnavn": "fakturaunderlag",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturaunderlag_fra_avtale/${termin}"
+          "nøkkel": "generer_fakturaunderlag_for_hbf_ovrige/${termin}"
         },
         {
           "handling": "pa_fak_ba_04",
-          "modus": "generer_agressofil_for_hbf_as_asa",
+          "modus": "generer_agressofil_for_hbf_ovrige",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
-          "premiemodell": "HBF_AS/ASA",
+          "premiemodell": "HBF_ØVRIGE",
           "validerFeilendeMedlemmer": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_agressofil_for_hbf_as_asa/${termin}",
-          "filter": "Agressofil"
+          "nøkkel": "generer_agressofil_for_hbf_ovrige/${termin}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -252,7 +237,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_09 generer hbf as asa dataunderlag for medlem og avtale ${termin}",
+      "navn": "pa_fak_ba_09 generer hbf øvrige dataunderlag for medlem og avtale ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -267,19 +252,12 @@
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
+          "premiemodell": "hbf_ovrige",
           "periode": "${termin}",
-          "prognoseVersjon": "${solvensVersjon}",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
-          "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "hbf_as_asa",
-          "periode": "${termin}",
-          "prognoseVersjon": "${premiejusteringVersjon}",
+          "prognoseVersjon": "${premiejusteringsVersjon}",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "filnavn": "premiejustering_hbf_ovrige",
           "tillatTomFil": true
         },
         {
@@ -288,12 +266,12 @@
           "gruppeAv": [
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-              "premiemodell": "hbf_as_asa",
+              "premiemodell": "hbf_ovrige",
               "periode": "${førstePeriode}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "filnavn": "avtaleliste_hbf_as_asa"
+              "filnavn": "avtaleliste_hbf_ovrige"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -301,7 +279,7 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premie_for_hbf_as_asa/${førstePeriode}"
+              "nøkkel": "premiefiltrering_for_hbf_ovrige/${førstePeriode}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -319,12 +297,12 @@
           "gruppeAv": [
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
-              "premiemodell": "hbf_as_asa",
+              "premiemodell": "hbf_ovrige",
               "periode": "${andrePeriode}",
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "filnavn": "avtaleliste_hbf_as_asa"
+              "filnavn": "avtaleliste_hbf_ovrige"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -332,7 +310,7 @@
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premie_for_hbf_as_asa/${andrePeriode}"
+              "nøkkel": "premiefiltrering_for_hbf_ovrige/${andrePeriode}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -346,9 +324,9 @@
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "hbf_as_asa_dataunderlag_for_medlem",
+          "modus": "hbf_ovrige_dataunderlag_for_medlem",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "HBF_AS/ASA",
+          "premiemodell": "HBF_ØVRIGE",
           "termin": "${termin}",
           "kjøringsId": "#{genererUUID}",
           "validerFeilendeMedlemmer": true
@@ -357,20 +335,20 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_as_asa_dataunderlag_for_medlem/${termin}"
+          "nøkkel": "hbf_ovrige_dataunderlag_for_medlem/${termin}"
         },
         {
           "handling": "send_batch_output_til_dvh",
-          "filPrefix": "hbf_as_asa_dataunderlag_medlem",
-          "filListe": "ASASA_FILLISTE_MEDLEM.txt",
+          "filPrefix": "hbf_ovrige_dataunderlag_medlem",
+          "filListe": "HBFOVRIGE_FILLISTE_MEDLEM.txt",
           "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_as_asa/fakturering/medlem"
+          "filstiHosDVH": "/hbf_ovrige/fakturering/medlem"
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "hbf_as_asa_dataunderlag_for_avtale",
+          "modus": "hbf_ovrige_dataunderlag_for_avtale",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "HBF_AS/ASA",
+          "premiemodell": "HBF_ØVRIGE",
           "termin": "${termin}",
           "kjøringsId": "#{genererUUID}",
           "validerFeilendeMedlemmer": true
@@ -379,14 +357,14 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_as_asa_dataunderlag_for_avtale/${termin}"
+          "nøkkel": "hbf_ovrige_dataunderlag_for_avtale/${termin}"
         },
         {
           "handling": "send_batch_output_til_dvh",
-          "filPrefix": "hbf_as_asa_dataunderlag_avtale",
-          "filListe": "ASASA_FILLISTE_AVTALE.txt",
+          "filPrefix": "hbf_ovrige_dataunderlag_avtale",
+          "filListe": "HBFOVRIGE_FILLISTE_AVTALE.txt",
           "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_as_asa/fakturering/avtale"
+          "filstiHosDVH": "/hbf_ovrige/fakturering/avtale"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
