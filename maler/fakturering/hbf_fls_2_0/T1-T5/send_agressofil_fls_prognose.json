@@ -3,7 +3,8 @@
   "gyldigVersjon": "0.0.9",
   "metainfo": {
     "mal": "maler/fakturering/hbf_fls_2_0/T1-T5/send_agressofil_fls_prognose.json",
-    "kategori": "eksport",
+    "tags": ["fakturering", "agresso"],
+    "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"
   },
   "variabler": {

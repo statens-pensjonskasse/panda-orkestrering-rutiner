@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
   "metainfo": {
     "mal": "maler/fakturering/poa_frittstaaende/T1-T4/poa_afp_frittstaaende_fakturering.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering"],
     "premiemodell": "poa_frittstaaende",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },

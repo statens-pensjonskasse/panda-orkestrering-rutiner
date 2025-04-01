@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for systemkorreksjons sammenlikning mellom to versjoner av panda ${første_versjon_reserveberegning} og ${andre_versjon_reserveberegning}",
   "metainfo": {
     "mal": "maler/fakturering/systemkorreksjon.json",
-    "kategori": "systemkorreksjon",
+    "tags": ["systemkorreksjon"],
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "gyldigVersjon": "0.0.60",

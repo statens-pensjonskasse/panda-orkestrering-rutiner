@@ -3,7 +3,7 @@
   "gyldigVersjon": "1.0.11",
   "metainfo": {
     "mal": "maler/fakturering/datavarehus/overfoer_filer_til_skyopplaster_og_bestill.json",
-    "kategori": "eksport",
+    "tags": ["eksport", "dvh"],
     "støttetAvPaOrkBa01FraVersjon": "1.0.11"
   },
   "variabler": {

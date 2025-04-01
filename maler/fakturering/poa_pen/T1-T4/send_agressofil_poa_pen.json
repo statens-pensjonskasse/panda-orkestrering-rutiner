@@ -3,7 +3,8 @@
   "gyldigVersjon": "0.0.9",
   "metainfo": {
     "mal": "maler/fakturering/poa_pen/T1-T4/send_agressofil_poa_pen.json",
-    "kategori": "eksport",
+    "tags": ["fakturering", "agresso"],
+    "premiemodell": "poa_pen",
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"
   },
   "variabler": {

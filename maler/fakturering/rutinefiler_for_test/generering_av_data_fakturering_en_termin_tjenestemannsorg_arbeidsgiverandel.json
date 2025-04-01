@@ -2,7 +2,7 @@
   "navn": "Generering av data for seks perioder for testing av en termin, for TJENESTEMANNSORG ARBEIDSGIVERANDEL fakturering rutinefil",
   "metainfo": {
     "mal": "maler/fakturering/rutinefiler_for_test/generering_av_data_fakturering_en_termin_tjenestemannsorg_arbeidsgiverandel.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering"],
     "premiemodell": "tjenestemannsorg",
     "støttetAvPaOrkBa01FraVersjon": "1.0.11"
   },

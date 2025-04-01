@@ -3,7 +3,8 @@
   "gyldigVersjon": "0.0.9",
   "metainfo": {
     "mal": "maler/fakturering/poa_frittstaaende/T1-T4/send_agressofil_poa_afp_frittstaaende.json",
-    "kategori": "eksport",
+    "tags": ["fakturering", "agresso"],
+    "premiemodell": "poa_frittstaaende",
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"
   },
   "variabler": {

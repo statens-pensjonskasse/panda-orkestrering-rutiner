@@ -2,7 +2,8 @@
   "navn": "Rutinefil for hbf as asa premieprognose grunnlag for å kunne beregne solvenspremie",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_as_asa_solvens.json",
-    "kategori": "prognose",
+    "tags": ["prognose", "solvens"],
+    "premiemodell": "as_asa",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {

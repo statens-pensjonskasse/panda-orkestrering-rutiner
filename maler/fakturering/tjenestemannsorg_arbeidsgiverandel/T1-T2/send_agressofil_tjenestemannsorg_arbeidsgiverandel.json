@@ -3,7 +3,8 @@
   "gyldigVersjon": "0.0.65",
   "metainfo": {
     "mal": "maler/fakturering/tjenestemannsorg_arbeidsgiverandel/T1-T2/send_agressofil_tjenestemannsorg_arbeidsgiverandel.json",
-    "kategori": "eksport",
+    "tags": ["fakturering", "agresso"],
+    "premiemodell": "tjenestemannsorg_arbeidsgiverandel",
     "støttetAvPaOrkBa01FraVersjon": "0.0.65"
   },
   "variabler": {

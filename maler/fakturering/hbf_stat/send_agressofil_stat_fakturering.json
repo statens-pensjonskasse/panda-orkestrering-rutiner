@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.22",
   "metainfo": {
     "mal": "maler/fakturering/hbf_stat/send_agressofil_stat_fakturering.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering", "agresso"],
     "premiemodell": "hbf_stat",
     "støttetAvPaOrkBa01FraVersjon": "0.0.22"
   },

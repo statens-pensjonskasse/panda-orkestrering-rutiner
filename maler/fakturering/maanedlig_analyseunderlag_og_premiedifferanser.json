@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periode ${periode}",
   "metainfo": {
     "mal": "maler/fakturering/maanedlig_analyseunderlag_og_premiedifferanser.json",
-    "kategori": "månedskjøring",
+    "tags": ["månedskjøring"],
     "støttetAvPaOrkBa01FraVersjon": "1.0.11"
   },
   "gyldigVersjon": "1.0.11",

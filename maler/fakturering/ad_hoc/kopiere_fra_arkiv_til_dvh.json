@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.63",
   "metainfo": {
     "mal": "maler/fakturering/ad_hoc/kopiere_fra_arkiv_til_dvh.json",
-    "kategori": "eksport",
+    "tags": ["eksport", "dvh"],
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },
   "variabler": {

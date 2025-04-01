@@ -2,7 +2,8 @@
   "navn": "Rutinefil for premieprognose hbf-fls prognoseår ${prognoseAar}",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_fls.json",
-    "kategori": "prognose",
+    "tags": ["prognose"],
+    "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {
