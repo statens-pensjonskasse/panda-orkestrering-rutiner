@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for tjenestemannsorganisasjoner termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "metainfo": {
     "mal": "maler/fakturering/tjenestemannsorg/T1-T6/tjenestemannsorg_fakturering.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering"],
     "premiemodell": "tjenestemannsorg",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },

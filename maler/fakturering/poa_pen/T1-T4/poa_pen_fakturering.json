@@ -3,7 +3,7 @@
   "gyldigVersjon": "1.0.11",
   "metainfo": {
     "mal": "maler/fakturering/poa_pen/T1-T4/poa_pen_fakturering.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering"],
     "premiemodell": "poa_pen",
     "støttetAvPaOrkBa01FraVersjon": "1.0.11"
   },

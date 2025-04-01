@@ -7,41 +7,70 @@
     },
     "metainfo": {
       "type": "object",
-      "additionalProperties": true,
-      "allOf": [
-        {
-          "required": ["kategori", "mal", "støttetAvPaOrkBa01FraVersjon"],
-          "properties": {
-            "kategori": {
-              "type": "string",
-              "enum": ["fakturering", "prognose", "arkivering", "eksport", "systemkorreksjon", "månedskjøring"]
-            },
-            "premiemodell": {
-              "enum": [
-                "hbf_fls",
-                "hbf_stat",
-                "hbf_as_asa",
-                "hbf_ovrige",
-                "poa_pen",
-                "poa_kjeder",
-                "poa_frittstaaende",
-                "tjenestemannsorg",
-                "tjenestemannsorg_arbeidsgiverandel"
-              ],
-              "type": "string"
-            }
+      "required": [
+        "tags",
+        "mal",
+        "støttetAvPaOrkBa01FraVersjon"
+      ],
+      "properties": {
+        "tags": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "fakturering",
+              "prognose",
+              "arkivering",
+              "eksport",
+              "systemkorreksjon",
+              "månedskjøring",
+              "aktuar",
+              "agresso",
+              "dvh"
+            ]
           }
         },
+        "premiemodell": {
+          "enum": [
+            "hbf_fls",
+            "hbf_stat",
+            "hbf_as_asa",
+            "hbf_ovrige",
+            "poa_pen",
+            "poa_kjeder",
+            "poa_frittstaaende",
+            "tjenestemannsorg",
+            "tjenestemannsorg_arbeidsgiverandel"
+          ],
+          "type": "string"
+        },
+        "mal": {
+          "type": "string"
+        },
+        "støttetAvPaOrkBa01FraVersjon": {
+          "type": "string"
+        }
+      },
+      "allOf": [
         {
           "if": {
             "properties": {
-              "kategori": {
-                "const": "fakturering"
+              "tags": {
+                "contains": {
+                  "enum": [
+                    "fakturering",
+                    "prognose",
+                    "agresso"
+                  ]
+                }
               }
-            },
-            "then": {
-              "required": ["premiemodell"]
             }
+          },
+          "then": {
+            "required": [
+              "premiemodell"
+            ]
           }
         }
       ]
@@ -65,11 +94,18 @@
             "type": "string"
           }
         },
-        "required": ["handling"],
+        "required": [
+          "handling"
+        ],
         "additionalProperties": true
       }
     }
   },
-  "required": ["navn", "metainfo", "variabler", "operasjoner"],
+  "required": [
+    "navn",
+    "metainfo",
+    "variabler",
+    "operasjoner"
+  ],
   "additionalProperties": false
 }

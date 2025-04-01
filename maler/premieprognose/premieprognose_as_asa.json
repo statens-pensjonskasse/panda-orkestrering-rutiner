@@ -2,7 +2,8 @@
   "navn": "Rutinefil for premieprognose hbf-as-asa",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_as_asa.json",
-    "kategori": "prognose",
+    "tags": ["prognose"],
+    "premiemodell": "as_asa",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {

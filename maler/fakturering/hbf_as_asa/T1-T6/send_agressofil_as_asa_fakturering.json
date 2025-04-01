@@ -3,7 +3,8 @@
   "gyldigVersjon": "0.0.22",
   "metainfo": {
     "mal": "maler/fakturering/hbf_as_asa/T1-T6/send_agressofil_as_asa_fakturering.json",
-    "kategori": "eksport",
+    "tags": ["fakturering", "agresso"],
+    "premiemodell": "hbf_as_asa",
     "støttetAvPaOrkBa01FraVersjon": "0.0.22"
   },
   "variabler": {

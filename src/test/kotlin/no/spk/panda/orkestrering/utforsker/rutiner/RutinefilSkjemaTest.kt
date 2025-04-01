@@ -2,7 +2,13 @@ package no.spk.panda.orkestrering.utforsker.rutiner
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.MethodSource
+import java.io.File
+import java.util.stream.Stream
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class RutinefilSkjemaTest {
 
     val rutinefilSkjema = this::class.java.classLoader.getResource("skjemavalidering/rutinefilSkjema.json")?.readText()
@@ -38,7 +44,7 @@ class RutinefilSkjemaTest {
                 "navn": "En test",
                 "metainfo": {
                     "mal": "maler/rutinefil.json",
-                    "kategori": "eksport",
+                    "tags": ["eksport"],
                     "støttetAvPaOrkBa01FraVersjon": "0.1.8"
                  },
                 "variabler": {
@@ -61,6 +67,77 @@ class RutinefilSkjemaTest {
     }
 
     @Test
+    fun `Metainfo har minimum en tag`() {
+
+        val ingenEgenskaper = """
+             {
+                "navn": "En test",
+                "metainfo": {
+                    "mal": "maler/rutinefil.json",
+                    "tags": [],
+                    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+                 },
+                "variabler": {
+                    "enVariabel": "abc"
+                },
+                "operasjoner": [
+                    {
+                      "handling": "pa_res_ba_01"
+                    }
+                ]
+             }
+        """.trimIndent()
+
+        assertThat(
+            validerJsonSkjema(rutinefilSkjema, ingenEgenskaper)
+        )
+            .hasSize(1)
+            .containsExactlyInAnyOrder(
+                SkjemaValidering("minItems", "\$.metainfo.tags: must have at least 1 items but found 0"),
+            )
+
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("tagsSomKreverPremiemodell")
+    fun `Metainfo tagget med fakturering, prognose og agresso skal kreve premiemodell`(tag: String) {
+
+        val ingenEgenskaper = """
+             {
+                "navn": "En test",
+                "metainfo": {
+                    "mal": "maler/rutinefil.json",
+                    "tags": ["$tag"],
+                    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+                 },
+                "variabler": {
+                    "enVariabel": "abc"
+                },
+                "operasjoner": [
+                    {
+                      "handling": "pa_res_ba_01"
+                    }
+                ]
+             }
+        """.trimIndent()
+
+        assertThat(
+            validerJsonSkjema(rutinefilSkjema, ingenEgenskaper)
+        )
+            .hasSize(1)
+            .containsExactlyInAnyOrder(
+                SkjemaValidering("required", "\$.metainfo: required property 'premiemodell' not found"),
+            )
+
+    }
+    private fun tagsSomKreverPremiemodell(): List<String> {
+        return listOf(
+            "fakturering", "prognose", "agresso"
+        )
+    }
+
+    @Test
     fun `En operasjon skal alltid ha egenskapen handling`() {
 
         val ingenEgenskaper = """
@@ -68,7 +145,7 @@ class RutinefilSkjemaTest {
                 "navn": "En test",
                 "metainfo": {
                     "mal": "maler/rutinefil.json",
-                    "kategori": "eksport",
+                    "tags": ["eksport"],
                     "støttetAvPaOrkBa01FraVersjon": "0.1.8"
                  },
                  "variabler": {
@@ -89,7 +166,6 @@ class RutinefilSkjemaTest {
             .containsExactlyInAnyOrder(
                 SkjemaValidering("required", "\$.operasjoner[0]: required property 'handling' not found"),
             )
-
     }
 
     @Test
@@ -100,7 +176,7 @@ class RutinefilSkjemaTest {
                 "navn": "En gyldig rutinefil",
                 "metainfo": {
                     "mal": "maler/rutinefil.json",
-                    "kategori": "eksport",
+                    "tags": ["eksport"],
                     "støttetAvPaOrkBa01FraVersjon": "0.1.8"
                  },
                  "variabler": {

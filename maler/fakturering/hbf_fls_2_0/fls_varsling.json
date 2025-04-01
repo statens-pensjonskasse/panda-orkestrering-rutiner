@@ -2,11 +2,11 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS 2.0 varsling for år ${år} og prognoseVersjonVarsling ${prognoseVersjonVarsling} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "gyldigVersjon": "0.0.53",
   "metainfo": {
-  "mal": "maler/fakturering/hbf_fls_2_0/fls_varsling.json",
-  "kategori": "prognose",
-  "premiemodell": "hbf_fls",
-  "støttetAvPaOrkBa01FraVersjon": "0.0.53"
-},
+    "mal": "maler/fakturering/hbf_fls_2_0/fls_varsling.json",
+    "tags": ["fakturering", "prognose"],
+    "premiemodell": "hbf_fls",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.53"
+  },
   "variabler": {
     "grunnlagsdataMappe" : "#{grunnlagsdatamappeNå}",
 

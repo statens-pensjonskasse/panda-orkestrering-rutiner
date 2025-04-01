@@ -3,7 +3,8 @@
   "gyldigVersjon": "0.0.22",
   "metainfo": {
     "mal": "maler/fakturering/poa_kjeder/T1-T4/send_agressofil_poa_afp_kjeder_fakturering.json",
-    "kategori": "eksport",
+    "tags": ["fakturering", "agresso"],
+    "premiemodell": "poa_kjeder",
     "støttetAvPaOrkBa01FraVersjon": "0.0.22"
   },
   "variabler": {

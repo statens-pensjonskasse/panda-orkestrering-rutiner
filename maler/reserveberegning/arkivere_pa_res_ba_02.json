@@ -2,7 +2,7 @@
   "navn": "Arkivere grunnlagsdata fra pa_res_ba_02 for ${dato}",
   "metainfo": {
     "mal": "maler/reserveberegning/arkivere_pa_res_ba_02.json",
-    "kategori": "arkivering",
+    "tags": ["arkivering"],
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {

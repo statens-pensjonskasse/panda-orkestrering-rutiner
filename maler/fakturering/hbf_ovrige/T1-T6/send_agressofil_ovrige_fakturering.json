@@ -3,7 +3,8 @@
   "gyldigVersjon": "0.0.65",
   "metainfo": {
     "mal": "maler/fakturering/hbf_ovrige/T1-T6/send_agressofil_ovrige_fakturering.json",
-    "kategori": "eksport",
+    "tags": ["fakturering", "agresso"],
+    "premiemodell": "hbf_ovrige",
     "støttetAvPaOrkBa01FraVersjon": "0.0.65"
   },
   "variabler": {

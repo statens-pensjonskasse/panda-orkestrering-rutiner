@@ -2,7 +2,8 @@
   "navn": "Rutinefil for premieprognose HBF Øvrige",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_ovrige.json",
-    "kategori": "prognose",
+    "tags": ["prognose"],
+    "premiemodell": "hbf_ovrige",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {

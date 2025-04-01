@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
   "metainfo": {
     "mal": "maler/fakturering/hbf_stat/T1/stat_fakturering.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering"],
     "premiemodell": "hbf_stat",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },

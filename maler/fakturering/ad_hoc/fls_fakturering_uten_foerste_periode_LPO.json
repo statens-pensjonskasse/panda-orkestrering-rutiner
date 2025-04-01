@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF FLS 2.0 fakturering uten generering av første periode LPO for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "metainfo": {
     "mal": "maler/fakturering/ad_hoc/fls_fakturering_uten_foerste_periode_LPO.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },

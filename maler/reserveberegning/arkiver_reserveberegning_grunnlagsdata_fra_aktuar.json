@@ -2,7 +2,7 @@
   "navn": "Arkivere grunnlagsdata fra aktuar for reserveberegning",
   "metainfo": {
     "mal": "maler/reserveberegning/arkiver_reserveberegning_grunnlagsdata_fra_aktuar.json",
-    "kategori": "arkivering",
+    "tags": ["arkivering", "aktuar"],
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {

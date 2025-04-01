@@ -2,7 +2,7 @@
   "navn": "Arkivere termininfofil for år ${år}, med versjon ${versjon} fra aktuar-arkiv",
   "metainfo": {
     "mal": "maler/fakturering/ad_hoc/arkiver_termininfofil_fra_aktuar.json",
-    "kategori": "arkivering",
+    "tags": ["arkivering", "aktuar"],
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },
   "variabler": {

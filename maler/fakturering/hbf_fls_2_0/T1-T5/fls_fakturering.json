@@ -2,7 +2,7 @@
   "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF FLS 2.0 fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
   "metainfo": {
     "mal": "maler/fakturering/hbf_fls_2_0/T1-T5/fls_fakturering.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },

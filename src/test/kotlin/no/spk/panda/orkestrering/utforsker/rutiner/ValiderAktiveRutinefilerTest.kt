@@ -19,8 +19,8 @@ class ValiderAktiveRutinefilerTest {
     @MethodSource("hbfAsAsaMaler")
     fun `skal validere alle maler for HBF AS ASA`(fil: File) {
         assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
-            .hasSize(0)
             .`as`("Ved validering av ${fil.path}")
+            .hasSize(0)
     }
     private fun hbfAsAsaMaler(): Stream<File> {
         val katalog = File("maler/fakturering/hbf_as_asa")
@@ -31,8 +31,8 @@ class ValiderAktiveRutinefilerTest {
     @MethodSource("hbfFlsMaler")
     fun `skal validere alle maler for HBF FLS`(fil: File) {
         assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
-            .hasSize(0)
             .`as`("Ved validering av ${fil.path}")
+            .hasSize(0)
     }
     private fun hbfFlsMaler(): Stream<File> {
         val katalog = File("maler/fakturering/hbf_fls_2_0")
@@ -147,7 +147,6 @@ class ValiderAktiveRutinefilerTest {
         assertThat(validerJsonSkjema(rutinefilSkjema, månedskjøring.readText()))
             .`as`("Ved validering av ${månedskjøring.path}")
             .hasSize(0)
-
     }
 
     @Test

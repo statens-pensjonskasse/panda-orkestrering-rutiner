@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
   "metainfo": {
     "mal": "maler/fakturering/hbf_ovrige/T1-T6/ovrige_fakturering.json",
-    "kategori": "fakturering",
+    "tags": ["fakturering"],
     "premiemodell": "hbf_ovrige",
     "støttetAvPaOrkBa01FraVersjon": "0.0.78"
   },
