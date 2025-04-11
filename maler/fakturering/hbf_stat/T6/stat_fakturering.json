@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF STAT fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Fakturering HBF Stat termin ${termin}",
   "gyldigVersjon": "0.0.78",
   "metainfo": {
     "mal": "maler/fakturering/hbf_stat/T6/stat_fakturering.json",

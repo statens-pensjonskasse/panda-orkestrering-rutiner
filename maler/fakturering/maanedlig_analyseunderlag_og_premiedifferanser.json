@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for månedlig analyseunderlag og premiedifferanser med grunnlagsdataMappe ${grunnlagsdataMappe} for periode ${periode}",
+  "navn": "Månedskjøring for periode ${periode} med siste fremskrivingsdato ${fremskrivingsDato}",
   "metainfo": {
     "mal": "maler/fakturering/maanedlig_analyseunderlag_og_premiedifferanser.json",
     "tags": ["månedskjøring"],

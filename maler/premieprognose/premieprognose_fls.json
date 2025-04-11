@@ -1,5 +1,5 @@
 {
-  "navn": "Rutinefil for premieprognose hbf-fls prognoseår ${prognoseAar}",
+  "navn": "Premieprognose FLS prognoseår ${prognoseAar}",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_fls.json",
     "tags": ["prognose"],

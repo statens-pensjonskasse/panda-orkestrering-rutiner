@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for POA AFP Frittstående til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
+  "navn": "Agressofil POA AFP Frittstående termin ${termin}",
   "gyldigVersjon": "0.0.9",
   "metainfo": {
     "mal": "maler/fakturering/poa_frittstaaende/T1-T4/send_agressofil_poa_afp_frittstaaende.json",

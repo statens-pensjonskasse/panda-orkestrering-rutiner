@@ -1,5 +1,5 @@
 {
-  "navn": "Rutinefil for premieprognose hbf-tjenestemannsorg-arbeidsgiverandel",
+  "navn": "Premieprognose Tjenestemannsorganisasjon arbeidsgiverandel",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_tjenestemannsorg_arbeidsgiverandel.json",
     "tags": ["prognose"],

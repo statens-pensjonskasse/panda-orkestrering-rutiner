@@ -1,5 +1,5 @@
 {
-  "navn": "Rutinefil for premieprognose HBF Stat",
+  "navn": "Premieprognose Stat",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_stat.json",
     "tags": ["prognose"],

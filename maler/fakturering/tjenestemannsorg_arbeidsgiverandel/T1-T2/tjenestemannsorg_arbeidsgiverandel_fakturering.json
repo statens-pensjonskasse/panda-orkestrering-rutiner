@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for TJENESTEMANNSORG ARBEIDSGIVERANDEL for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Fakturering Tjenestemannsorganisasjon arbeidsgiverandel termin ${termin}",
   "metainfo": {
     "mal": "maler/fakturering/tjenestemannsorg_arbeidsgiverandel/T1-T2/tjenestemannsorg_arbeidsgiverandel_fakturering.json",
     "tags": ["fakturering"],

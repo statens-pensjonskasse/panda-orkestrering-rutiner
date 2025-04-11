@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for tjenestemannsorganisasjoner fakturering til Agresso for termin ${termin} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
+  "navn": "Agresso Tjenestemannsorganisasjon termin ${termin}",
   "gyldigVersjon": "0.0.65",
   "metainfo": {
     "mal": "maler/fakturering/tjenestemannsorg/T1-T6/send_agressofil_tjenestemannsorg_fakturering.json",

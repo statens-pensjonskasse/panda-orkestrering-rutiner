@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF AS/ASA fakturering for termin ${termin} med grunnlagsdataMappe ${grunnlagsdataMappe}",
+  "navn": "Fakturering HBF AS/ASA termin ${termin}",
   "gyldigVersjon": "0.0.78",
   "metainfo": {
     "mal": "maler/fakturering/hbf_as_asa/T1-T6/as_asa_fakturering.json",
