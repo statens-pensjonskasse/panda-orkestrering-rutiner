@@ -1,5 +1,5 @@
 {
-  "navn": "Rutine for kjøring av pa_ork_ba_01 for HBF_FLS årlig premieoppgjør til Agresso for år ${år} med grunnlagsdataMappe i arkivet ${grunnlagsdataMappeForAgressoFil}",
+  "navn": "Agresso HBF FLS årlig premieoppgjør ${år}",
   "gyldigVersjon": "0.0.9",
   "metainfo": {
     "mal": "maler/fakturering/hbf_fls_2_0/T6/send_agressofil_fls_aarlig_premieoppgjoer.json",
