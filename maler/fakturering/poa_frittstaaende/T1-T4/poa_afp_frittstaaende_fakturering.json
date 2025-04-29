@@ -790,6 +790,52 @@
       "filstiHosDVH": "/poa_afp/fakturering/frittstaaende/avtale"
     },
     {
+      "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "dataunderlag_avtale",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premiemodell": "POA_AFP_FRITTSTÅENDE",
+          "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_skyopplaster",
+          "fraBatch": "pa_fak_ba_09",
+          "filPrefix": "poa_afp_frittstaaende_dataunderlag_avtale",
+          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_avtale-${kjøringsId}"
+        },
+        {
+          "handling": "opprett_bestilling_til_skyopplaster",
+          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_avtale-${kjøringsId}",
+          "filstiHosDVH": "poa_afp_frittstaaende/fakturering/avtale"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "dataunderlag_medlem",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "premiemodell": "POA_AFP_FRITTSTÅENDE",
+          "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_skyopplaster",
+          "fraBatch": "pa_fak_ba_09",
+          "filPrefix": "poa_afp_frittstaaende_dataunderlag_medlem",
+          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_medlem-${kjøringsId}"
+        },
+        {
+          "handling": "opprett_bestilling_til_skyopplaster",
+          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_medlem-${kjøringsId}",
+          "filstiHosDVH": "poa_afp_frittstaaende/fakturering/medlem"
+        }
+      ]
+    },
+    {
       "handling": "rydd_grunnlagsdata_for_batch",
       "batch": "pa_fak_ba_09"
     }

@@ -944,6 +944,17 @@
               "nøkkel": "utjevnet_premier_dataunderlag_medlem/${termin}"
             },
             {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "utjevnet_premier_dataunderlag_medlem",
+              "kjøringsId": "utjevnet_premier_dataunderlag_medlem-${kjøringsId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "utjevnet_premier_dataunderlag_medlem-${kjøringsId}",
+              "filstiHosDVH": "hbf_fls/prognosefakturering/medlem"
+            },
+            {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
             }
@@ -999,6 +1010,12 @@
               "filPrefix": "loepende_premieoppgjoer_dataunderlag",
               "batch": "pa_fak_ba_09",
               "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+              "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${kjøringsId}"
             }
           ]
         },
@@ -1054,6 +1071,12 @@
               "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
             },
             {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+              "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${kjøringsId}"
+            },
+            {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
             }
@@ -1064,6 +1087,11 @@
           "filPrefix": "loepende_premieoppgjoer_dataunderlag",
           "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
           "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+        },
+        {
+          "handling": "opprett_bestilling_til_skyopplaster",
+          "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${kjøringsId}",
+          "filstiHosDVH": "hbf_fls/loepende_premieoppgjoer/medlem"
         }
       ]
     }

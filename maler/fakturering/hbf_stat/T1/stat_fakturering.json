@@ -593,6 +593,52 @@
           "filstiHosDVH": "/hbf_stat/fakturering/avtale"
         },
         {
+          "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "dataunderlag_avtale",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "premiemodell": "HBF_STAT",
+              "termin": "${termin}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "hbf_stat_dataunderlag_avtale",
+              "kjøringsId": "hbf_stat_dataunderlag_avtale-${kjøringsId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "hbf_stat_dataunderlag_avtale-${kjøringsId}",
+              "filstiHosDVH": "hbf_stat/fakturering/avtale"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "dataunderlag_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "premiemodell": "HBF_STAT",
+              "termin": "${termin}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "hbf_stat_dataunderlag_medlem",
+              "kjøringsId": "hbf_stat_dataunderlag_medlem-${kjøringsId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "hbf_stat_dataunderlag_medlem-${kjøringsId}",
+              "filstiHosDVH": "hbf_stat/fakturering/medlem"
+            }
+          ]
+        },
+        {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_09"
         }
