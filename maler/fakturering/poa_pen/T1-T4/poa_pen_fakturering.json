@@ -415,18 +415,10 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "poa_pen_dataunderlag_for_medlem/${termin}"
-        },
-        {
-          "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
+          "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
           "filPrefix": "poa_pen_dataunderlag_medlem",
-          "nøkkel": "poa_pen_dataunderlag_for_medlem/${termin}",
-          "kjøringsId": "poa_pen_dataunderlag_medlem",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "kjøringsId": "poa_pen_dataunderlag_medlem"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
@@ -443,18 +435,10 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "poa_pen_dataunderlag_for_avtale/${termin}"
-        },
-        {
-          "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
+          "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
           "filPrefix": "poa_pen_dataunderlag_avtale",
-          "nøkkel": "poa_pen_dataunderlag_for_avtale/${termin}",
-          "kjøringsId": "poa_pen_dataunderlag_avtale",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+          "kjøringsId": "poa_pen_dataunderlag_avtale"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
