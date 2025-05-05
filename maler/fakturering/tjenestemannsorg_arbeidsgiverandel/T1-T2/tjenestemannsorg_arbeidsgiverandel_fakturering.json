@@ -19,6 +19,7 @@
 
     "termininfoVersjon": "<termininfoVersjon>",
     "premiejusteringsVersjon": "<premiejusteringsVersjon>",
+    "kjøringsId": "#{genererUUID}",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>"
