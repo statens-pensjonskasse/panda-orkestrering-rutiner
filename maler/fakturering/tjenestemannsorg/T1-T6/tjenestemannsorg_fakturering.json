@@ -17,6 +17,7 @@
     "andreFremskrivingsdato": "<YYYY.MM.dd>",
 
     "termininfoVersjon": "<termininfoVersjon>",
+    "kjøringsId": "#{genererUUID}",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa05Versjon": "<X.Y.Z>",
