@@ -751,7 +751,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
       "kjøringsId": "#{genererUUID}",
-      "premiemodell": "POA_AFP",
+      "premiemodell": "POA_AFP_FRITTSTÅENDE",
       "validerFeilendeMedlemmer": true
     },
     {
@@ -773,7 +773,7 @@
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
       "termin": "${termin}",
       "kjøringsId": "#{genererUUID}",
-      "premiemodell": "POA_AFP",
+      "premiemodell": "POA_AFP_FRITTSTÅENDE",
       "validerFeilendeMedlemmer": true
     },
     {

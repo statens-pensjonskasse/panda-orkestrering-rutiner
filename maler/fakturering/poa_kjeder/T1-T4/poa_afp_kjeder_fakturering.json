@@ -345,7 +345,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "poa_afp_kjeder_dataunderlag_for_medlem",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "premiemodell": "POA_AFP",
+      "premiemodell": "POA_AFP_KJEDER",
       "termin": "${termin}",
       "kjøringsId": "#{genererUUID}",
       "validerFeilendeMedlemmer": true
@@ -368,7 +368,7 @@
       "handling": "pa_fak_ba_09",
       "modus": "poa_afp_kjeder_dataunderlag_for_avtale",
       "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-      "premiemodell": "POA_AFP",
+      "premiemodell": "POA_AFP_KJEDER",
       "termin": "${termin}",
       "kjøringsId": "#{genererUUID}",
       "validerFeilendeMedlemmer": true
