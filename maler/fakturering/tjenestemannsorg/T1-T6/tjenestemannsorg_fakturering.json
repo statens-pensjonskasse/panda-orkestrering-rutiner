@@ -455,12 +455,6 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "tjenestemannsorg_dataunderlag_for_medlem/${termin}"
-        },
-        {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "tjenestemannsorg_dataunderlag_medlem",
           "filListe": "TJENESTEMANNSORG_FILLISTE_MEDLEM.txt",
@@ -475,12 +469,6 @@
           "termin": "${termin}",
           "kjøringsId": "#{genererUUID}",
           "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "tjenestemannsorg_dataunderlag_for_avtale/${termin}"
         },
         {
           "handling": "send_batch_output_til_dvh",
