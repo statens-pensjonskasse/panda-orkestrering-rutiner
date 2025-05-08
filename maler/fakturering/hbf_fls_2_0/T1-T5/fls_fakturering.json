@@ -24,6 +24,7 @@
     "prognoseVersjon": "<prognoseVersjon>",
     "aggregertPremiejusteringVersjon": "<aggregertPremiejusteringVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
+    "kjøringsId": "#{genererUUID}",
 
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
@@ -916,12 +917,6 @@
               "filstiHosDVH": "/hbf_fls/prognosefakturering/avtale"
             },
             {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "utjevnet_premier_dataunderlag_avtale/${termin}"
-            },
-            {
               "handling": "pa_fak_ba_09",
               "modus": "utjevnet_premier_dataunderlag_medlem",
               "kjøringsId": "#{genererUUID}",
@@ -936,12 +931,6 @@
               "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
               "batch": "pa_fak_ba_09",
               "filstiHosDVH": "/hbf_fls/prognosefakturering/medlem"
-            },
-            {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "utjevnet_premier_dataunderlag_medlem/${termin}"
             },
             {
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
@@ -1000,12 +989,6 @@
               "validerFeilendeMedlemmer": true
             },
             {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_loepende_premieoppgjoer_dataunderlag/${førstePeriodeLPO}"
-            },
-            {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",
               "filPrefix": "loepende_premieoppgjoer_dataunderlag",
               "batch": "pa_fak_ba_09",
@@ -1057,12 +1040,6 @@
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "kjøringsId": "#{genererUUID}",
               "validerFeilendeMedlemmer": true
-            },
-            {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_loepende_premieoppgjoer_dataunderlag/${andrePeriodeLPO}"
             },
             {
               "handling": "send_bare_filer_fra_batch_output_til_dvh",

@@ -22,6 +22,7 @@
     "aggregertPremiejusteringVersjon": "<aggregertPremiejusteringVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
+    "kjøringsId": "#{genererUUID}",
 
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
@@ -911,12 +912,6 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_loepende_premieoppgjoer_dataunderlag/${inneværendeÅr}11"
-        },
-        {
           "handling": "send_bare_filer_fra_batch_output_til_dvh",
           "filPrefix": "loepende_premieoppgjoer_dataunderlag",
           "batch": "pa_fak_ba_09",
@@ -1189,13 +1184,6 @@
               "validerFeilendeMedlemmer": true
             },
             {
-              "handling": "arkiver_all_batch_output",
-              "filnavn": "premieoppgjoer_dataunderlag_medlem",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
-            },
-            {
               "handling": "rydd_filområde_hos_dvh",
               "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
             },
@@ -1241,13 +1229,6 @@
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "kjøringsId": "#{genererUUID}",
               "validerFeilendeMedlemmer": true
-            },
-            {
-              "handling": "arkiver_all_batch_output",
-              "filnavn": "premieoppgjoer_dataunderlag_avtale",
-              "batch": "pa_fak_ba_09",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "premieoppgjoer_dataunderlag_for_avtale/${inneværendeÅr}"
             },
             {
               "handling": "rydd_filområde_hos_dvh",
