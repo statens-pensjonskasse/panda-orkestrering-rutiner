@@ -18,7 +18,7 @@
 
     "rettighet": "panda_veldig_forenkla_rettighet",
     "uttrekksdato": "<dd.MM.YYYY>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "skalIgnorereTidslinjegenerering": "true",
     "skalIgnorereTestdataRettighetYtelser": "true",
@@ -611,13 +611,13 @@
                   "fraBatch": "pa_res_ba_01",
                   "filPrefix": "rettighet_ytelser_for_dvh",
                   "nøkkel": "panda-testdata-rettighet-ytelser/${førsteFremskrivingsDato}",
-                  "kjøringsId": "rettighet_ytelse-${kjøringsId}",
+                  "kjøringsId": "rettighet_ytelse-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "rettighet_ytelse-${kjøringsId}",
+                  "kjøringsId": "rettighet_ytelse-${skyopplasterId}",
                   "filstiHosDVH": "rettighet_ytelse",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
@@ -652,13 +652,13 @@
                   "fraBatch": "pa_res_ba_01",
                   "filPrefix": "poliser",
                   "nøkkel": "panda-poliser/${førsteFremskrivingsDato}",
-                  "kjøringsId": "poliser-${kjøringsId}",
+                  "kjøringsId": "poliser-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "poliser-${kjøringsId}",
+                  "kjøringsId": "poliser-${skyopplasterId}",
                   "filstiHosDVH": "polise",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
@@ -1094,13 +1094,13 @@
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "reserveoppbygging_dataunderlag",
                   "nøkkel": "generer_reserveoppbygging_dataunderlag/${førstePeriode}",
-                  "kjøringsId": "reserveoppbygging-${kjøringsId}",
+                  "kjøringsId": "reserveoppbygging-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "reserveoppbygging-${kjøringsId}",
+                  "kjøringsId": "reserveoppbygging-${skyopplasterId}",
                   "filstiHosDVH": "reserveoppbygging",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
@@ -1154,13 +1154,13 @@
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "kontofoeringunderlag",
                   "nøkkel": "generer_kontofoeringunderlag/${førsteFremskrivingsDato}",
-                  "kjøringsId": "kontofoering-${kjøringsId}",
+                  "kjøringsId": "kontofoering-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "kontofoering-${kjøringsId}",
+                  "kjøringsId": "kontofoering-${skyopplasterId}",
                   "filstiHosDVH": "kontofoering",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
@@ -1219,13 +1219,13 @@
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "feilmelding_dataunderlag",
                   "nøkkel": "feilmelding_dataunderlag/${førsteFremskrivingsDato}",
-                  "kjøringsId": "feilende_medlemmer-${kjøringsId}",
+                  "kjøringsId": "feilende_medlemmer-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "feilende_medlemmer-${kjøringsId}",
+                  "kjøringsId": "feilende_medlemmer-${skyopplasterId}",
                   "filstiHosDVH": "feilende_medlemmer",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
@@ -1283,13 +1283,13 @@
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "administrasjonspremieunderlag_dataunderlag",
                   "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${førsteFremskrivingsDato}",
-                  "kjøringsId": "administrasjonspremieunderlag-${kjøringsId}",
+                  "kjøringsId": "administrasjonspremieunderlag-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "administrasjonspremieunderlag-${kjøringsId}",
+                  "kjøringsId": "administrasjonspremieunderlag-${skyopplasterId}",
                   "filstiHosDVH": "administrasjonspremieunderlag",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }
@@ -1341,13 +1341,13 @@
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "administrasjonspremie_dataunderlag",
                   "nøkkel": "generer_administrasjonspremie_dataunderlag/${førstePeriode}",
-                  "kjøringsId": "administrasjonspremie-${kjøringsId}",
+                  "kjøringsId": "administrasjonspremie-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "administrasjonspremie-${kjøringsId}",
+                  "kjøringsId": "administrasjonspremie-${skyopplasterId}",
                   "filstiHosDVH": "administrasjonspremie",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
@@ -1407,13 +1407,13 @@
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "tidslinjehendelser_dataunderlag",
                   "nøkkel": "generer_beriket_tidslinjehendelser/${førsteFremskrivingsDato}",
-                  "kjøringsId": "tidslinjehendelser-${kjøringsId}",
+                  "kjøringsId": "tidslinjehendelser-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "tidslinjehendelser-${kjøringsId}",
+                  "kjøringsId": "tidslinjehendelser-${skyopplasterId}",
                   "filstiHosDVH": "tidslinjehendelser",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilDVH}"
                 },
@@ -1463,13 +1463,13 @@
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "pensjonsgivende_loenn_dataunderlag",
                   "nøkkel": "pensjonsgivende_loenn_dataunderlag/${førsteFremskrivingsDato}",
-                  "kjøringsId": "pensjonsgivende_loenn-${kjøringsId}",
+                  "kjøringsId": "pensjonsgivende_loenn-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "pensjonsgivende_loenn-${kjøringsId}",
+                  "kjøringsId": "pensjonsgivende_loenn-${skyopplasterId}",
                   "filstiHosDVH": "pensjonsgivende_loenn",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
@@ -1518,13 +1518,13 @@
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "pensjonsgivende_maanedsloenn_differanser_dataunderlag",
                   "nøkkel": "pensjonsgivende_maanedsloenn_differanser_dataunderlag/${førstePeriode}",
-                  "kjøringsId": "pensjonsgivende_maanedsloenn_differanser-${kjøringsId}",
+                  "kjøringsId": "pensjonsgivende_maanedsloenn_differanser-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "pensjonsgivende_maanedsloenn_differanser-${kjøringsId}",
+                  "kjøringsId": "pensjonsgivende_maanedsloenn_differanser-${skyopplasterId}",
                   "filstiHosDVH": "pensjonsgivende_maanedsloenn_differanser",
                   "ignorertInstruksjon": "${skalIgnorereSendDataunderlagTilBlobStorage}"
                 }

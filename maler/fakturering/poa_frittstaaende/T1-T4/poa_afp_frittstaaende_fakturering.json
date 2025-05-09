@@ -20,7 +20,7 @@
     "tredjePeriode": "<tredjePeriode>",
 
     "termininfoVersjon": "<termininfoVersjon>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
@@ -883,11 +883,11 @@
           "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
           "filPrefix": "poa_afp_frittstaaende_dataunderlag_avtale",
-          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_avtale-${kjøringsId}"
+          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_avtale-${skyopplasterId}"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_avtale-${kjøringsId}",
+          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_avtale-${skyopplasterId}",
           "filstiHosDVH": "poa_afp_frittstaaende/fakturering/avtale"
         },
         {
@@ -903,11 +903,11 @@
           "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
           "filPrefix": "poa_afp_frittstaaende_dataunderlag_medlem",
-          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_medlem-${kjøringsId}"
+          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_medlem-${skyopplasterId}"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_medlem-${kjøringsId}",
+          "kjøringsId": "poa_afp_frittstaaende_dataunderlag_medlem-${skyopplasterId}",
           "filstiHosDVH": "poa_afp_frittstaaende/fakturering/medlem"
         }
       ]

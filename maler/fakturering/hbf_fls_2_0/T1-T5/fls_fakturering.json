@@ -24,7 +24,7 @@
     "prognoseVersjon": "<prognoseVersjon>",
     "aggregertPremiejusteringVersjon": "<aggregertPremiejusteringVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
@@ -936,11 +936,11 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "utjevnet_premier_dataunderlag_medlem",
-              "kjøringsId": "utjevnet_premier_dataunderlag_medlem-${kjøringsId}"
+              "kjøringsId": "utjevnet_premier_dataunderlag_medlem-${skyopplasterId}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "utjevnet_premier_dataunderlag_medlem-${kjøringsId}",
+              "kjøringsId": "utjevnet_premier_dataunderlag_medlem-${skyopplasterId}",
               "filstiHosDVH": "hbf_fls/prognosefakturering/medlem"
             },
             {
@@ -998,7 +998,7 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "loepende_premieoppgjoer_dataunderlag",
-              "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${kjøringsId}"
+              "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${skyopplasterId}"
             }
           ]
         },
@@ -1051,7 +1051,7 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "loepende_premieoppgjoer_dataunderlag",
-              "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${kjøringsId}"
+              "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${skyopplasterId}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -1067,7 +1067,7 @@
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${kjøringsId}",
+          "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${skyopplasterId}",
           "filstiHosDVH": "hbf_fls/loepende_premieoppgjoer/medlem"
         }
       ]

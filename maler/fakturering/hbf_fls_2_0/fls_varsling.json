@@ -14,7 +14,7 @@
 
     "prognoseVersjonVarsling": "<prognoseVersjonVarsling>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa06Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>"
@@ -125,11 +125,11 @@
           "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
           "filPrefix": "utjevnet_premier_varsling_avtale",
-          "kjøringsId": "utjevnet_premier_varsling_avtale-${kjøringsId}"
+          "kjøringsId": "utjevnet_premier_varsling_avtale-${skyopplasterId}"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "utjevnet_premier_varsling_avtale-${kjøringsId}",
+          "kjøringsId": "utjevnet_premier_varsling_avtale-${skyopplasterId}",
           "filstiHosDVH": "hbf_fls/varsling/avtale"
         },
         {
@@ -150,11 +150,11 @@
           "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
           "filPrefix": "utjevnet_premier_varsling_medlem",
-          "kjøringsId": "utjevnet_premier_varsling_medlem-${kjøringsId}"
+          "kjøringsId": "utjevnet_premier_varsling_medlem-${skyopplasterId}"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "utjevnet_premier_varsling_medlem-${kjøringsId}",
+          "kjøringsId": "utjevnet_premier_varsling_medlem-${skyopplasterId}",
           "filstiHosDVH": "hbf_fls/varsling/medlem"
         },
         {

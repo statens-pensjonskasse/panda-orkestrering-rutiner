@@ -21,7 +21,7 @@
 
     "termininfoVersjon": "<termininfoVersjon>",
     "premiesatsVersjon": "<premiesatsVersjon>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "skalIkkeUtføreSatsendring": "<true/false>",
 
@@ -419,11 +419,11 @@
           "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
           "filPrefix": "poa_pen_dataunderlag_medlem",
-          "kjøringsId": "poa_pen_dataunderlag_medlem-${kjøringsId}"
+          "kjøringsId": "poa_pen_dataunderlag_medlem-${skyopplasterId}"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "poa_pen_dataunderlag_medlem-${kjøringsId}",
+          "kjøringsId": "poa_pen_dataunderlag_medlem-${skyopplasterId}",
           "filstiHosDVH": "poa_pen/fakturering/medlem"
         },
         {
@@ -439,11 +439,11 @@
           "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
           "filPrefix": "poa_pen_dataunderlag_avtale",
-          "kjøringsId": "poa_pen_dataunderlag_avtale-${kjøringsId}"
+          "kjøringsId": "poa_pen_dataunderlag_avtale-${skyopplasterId}"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "poa_pen_dataunderlag_avtale-${kjøringsId}",
+          "kjøringsId": "poa_pen_dataunderlag_avtale-${skyopplasterId}",
           "filstiHosDVH": "poa_pen/fakturering/avtale"
         },
         {

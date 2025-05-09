@@ -19,7 +19,7 @@
 
     "termininfoVersjon": "<termininfoVersjon>",
     "premiejusteringsVersjon": "<premiejusteringsVersjon>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>"
@@ -641,11 +641,11 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale",
-              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale-${kjøringsId}"
+              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale-${skyopplasterId}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale-${kjøringsId}",
+              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale-${skyopplasterId}",
               "filstiHosDVH": "tjenestemannsorg_arbeidsgiverandel/fakturering/avtale"
             },
             {
@@ -661,11 +661,11 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem",
-              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem-${kjøringsId}"
+              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem-${skyopplasterId}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem-${kjøringsId}",
+              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem-${skyopplasterId}",
               "filstiHosDVH": "tjenestemannsorg_arbeidsgiverandel/fakturering/medlem"
             }
           ]

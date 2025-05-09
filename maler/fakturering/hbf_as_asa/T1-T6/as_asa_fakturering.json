@@ -17,7 +17,7 @@
     "termininfoVersjon": "<termininfoVersjon>",
     "solvensVersjon": "<solvensVersjon>",
     "premiejusteringVersjon": "<premiejusteringVersjon>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
@@ -394,11 +394,11 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "hbf_as_asa_dataunderlag_avtale",
-              "kjøringsId": "hbf_as_asa_dataunderlag_avtale-${kjøringsId}"
+              "kjøringsId": "hbf_as_asa_dataunderlag_avtale-${skyopplasterId}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "hbf_as_asa_dataunderlag_avtale-${kjøringsId}",
+              "kjøringsId": "hbf_as_asa_dataunderlag_avtale-${skyopplasterId}",
               "filstiHosDVH": "hbf_as_asa/fakturering/avtale"
             },
             {
@@ -414,11 +414,11 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "hbf_as_asa_dataunderlag_medlem",
-              "kjøringsId": "hbf_as_asa_dataunderlag_medlem-${kjøringsId}"
+              "kjøringsId": "hbf_as_asa_dataunderlag_medlem-${skyopplasterId}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "hbf_as_asa_dataunderlag_medlem-${kjøringsId}",
+              "kjøringsId": "hbf_as_asa_dataunderlag_medlem-${skyopplasterId}",
               "filstiHosDVH": "hbf_as_asa/fakturering/medlem"
             }
           ]

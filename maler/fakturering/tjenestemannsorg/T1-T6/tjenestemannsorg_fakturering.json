@@ -17,7 +17,7 @@
     "andreFremskrivingsdato": "<YYYY.MM.dd>",
 
     "termininfoVersjon": "<termininfoVersjon>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa05Versjon": "<X.Y.Z>",
@@ -494,11 +494,11 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "tjenestemannsorg_dataunderlag_avtale",
-              "kjøringsId": "tjenestemannsorg_dataunderlag_avtale-${kjøringsId}"
+              "kjøringsId": "tjenestemannsorg_dataunderlag_avtale-${skyopplasterId}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "tjenestemannsorg_dataunderlag_avtale-${kjøringsId}",
+              "kjøringsId": "tjenestemannsorg_dataunderlag_avtale-${skyopplasterId}",
               "filstiHosDVH": "tjenestemannsorg/fakturering/avtale"
             },
             {
@@ -514,11 +514,11 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "tjenestemannsorg_dataunderlag_medlem",
-              "kjøringsId": "tjenestemannsorg_dataunderlag_medlem-${kjøringsId}"
+              "kjøringsId": "tjenestemannsorg_dataunderlag_medlem-${skyopplasterId}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "tjenestemannsorg_dataunderlag_medlem-${kjøringsId}",
+              "kjøringsId": "tjenestemannsorg_dataunderlag_medlem-${skyopplasterId}",
               "filstiHosDVH": "tjenestemannsorg/fakturering/medlem"
             }
           ]
