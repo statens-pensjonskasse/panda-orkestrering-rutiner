@@ -4,7 +4,7 @@
     "mal": "maler/fakturering/tjenestemannsorg_arbeidsgiverandel/T1-T2/tjenestemannsorg_arbeidsgiverandel_fakturering.json",
     "tags": ["fakturering"],
     "premiemodell": "tjenestemannsorg_arbeidsgiverandel",
-    "støttetAvPaOrkBa01FraVersjon": "0.0.78"
+    "støttetAvPaOrkBa01FraVersjon": "1.0.14"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",

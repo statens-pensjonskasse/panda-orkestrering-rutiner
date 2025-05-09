@@ -5,7 +5,7 @@
     "mal": "maler/fakturering/hbf_ovrige/T1-T6/ovrige_fakturering.json",
     "tags": ["fakturering"],
     "premiemodell": "hbf_ovrige",
-    "støttetAvPaOrkBa01FraVersjon": "0.0.78"
+    "støttetAvPaOrkBa01FraVersjon": "1.0.14"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",

@@ -4,7 +4,7 @@
     "mal": "maler/fakturering/tjenestemannsorg/T1-T6/tjenestemannsorg_fakturering.json",
     "tags": ["fakturering"],
     "premiemodell": "tjenestemannsorg",
-    "støttetAvPaOrkBa01FraVersjon": "0.0.78"
+    "støttetAvPaOrkBa01FraVersjon": "1.0.14"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
