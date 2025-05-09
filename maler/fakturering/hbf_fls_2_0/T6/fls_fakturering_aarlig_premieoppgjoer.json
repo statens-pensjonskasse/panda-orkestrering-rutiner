@@ -22,6 +22,7 @@
     "aggregertPremiejusteringVersjon": "<aggregertPremiejusteringVersjon>",
     "oppgjørsVersjon": "<oppgjørsVersjon>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa02Versjon": "<X.Y.Z>",
     "paFakBa04Versjon": "<X.Y.Z>",
@@ -543,6 +544,12 @@
           "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
         },
         {
+          "handling": "kopier_filer_fra_batch_til_skyopplaster",
+          "fraBatch": "pa_fak_ba_09",
+          "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+          "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${skyopplasterId}"
+        },
+        {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_09"
         }
@@ -905,22 +912,27 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_loepende_premieoppgjoer_dataunderlag/${inneværendeÅr}11"
-        },
-        {
           "handling": "send_bare_filer_fra_batch_output_til_dvh",
           "filPrefix": "loepende_premieoppgjoer_dataunderlag",
           "batch": "pa_fak_ba_09",
           "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
         },
         {
+          "handling": "kopier_filer_fra_batch_til_skyopplaster",
+          "fraBatch": "pa_fak_ba_09",
+          "filPrefix": "loepende_premieoppgjoer_dataunderlag",
+          "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${skyopplasterId}"
+        },
+        {
           "handling": "opprett_filliste_og_triggerfil_hos_dvh",
           "filPrefix": "loepende_premieoppgjoer_dataunderlag",
           "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
           "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
+        },
+        {
+          "handling": "opprett_bestilling_til_skyopplaster",
+          "kjøringsId": "loepende_premieoppgjoer_dataunderlag-${skyopplasterId}",
+          "filstiHosDVH": "hbf_fls/loepende_premieoppgjoer/medlem"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -1161,66 +1173,86 @@
           "kommentar": "kopierer oppgjoersfil"
         },
         {
-          "handling": "pa_fak_ba_09",
-          "modus": "premieoppgjoer_dataunderlag_for_medlem",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
+          "navn": "pa_fak_ba_09 (premieoppgjoer_dataunderlag_medlem)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "premieoppgjoer_dataunderlag_for_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
+            },
+            {
+              "handling": "send_batch_output_til_dvh",
+              "filPrefix": "premieoppgjoer_dataunderlag_medlem",
+              "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
+              "batch": "pa_fak_ba_09",
+              "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "premieoppgjoer_dataunderlag_medlem",
+              "kjøringsId": "premieoppgjoer_dataunderlag_medlem-${skyopplasterId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "premieoppgjoer_dataunderlag_medlem-${skyopplasterId}",
+              "filstiHosDVH": "hbf_fls/premieoppgjoer/medlem"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_09"
+            }
+          ]
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "filnavn": "premieoppgjoer_dataunderlag_medlem",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
-        },
-        {
-          "handling": "rydd_filområde_hos_dvh",
-          "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "premieoppgjoer_dataunderlag_medlem",
-          "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_fls/premieoppgjoer/medlem"
-        },
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_09"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "premieoppgjoer_dataunderlag_medlem",
-          "batchFra": "pa_fak_ba_09",
-          "batchTil": "pa_fak_ba_09",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "premieoppgjoer_dataunderlag_for_avtale",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "arkiver_all_batch_output",
-          "filnavn": "premieoppgjoer_dataunderlag_avtale",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premieoppgjoer_dataunderlag_for_avtale/${inneværendeÅr}"
-        },
-        {
-          "handling": "rydd_filområde_hos_dvh",
-          "filstiHosDVH": "/hbf_fls/premieoppgjoer/avtale"
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "premieoppgjoer_dataunderlag_avtale",
-          "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_fls/premieoppgjoer/avtale"
+          "navn": "pa_fak_ba_09 (premieoppgjoer_dataunderlag_avtale)",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "premieoppgjoer_dataunderlag_medlem",
+              "batchFra": "pa_fak_ba_09",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "premieoppgjoer_dataunderlag_for_avtale",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "rydd_filområde_hos_dvh",
+              "filstiHosDVH": "/hbf_fls/premieoppgjoer/avtale"
+            },
+            {
+              "handling": "send_batch_output_til_dvh",
+              "filPrefix": "premieoppgjoer_dataunderlag_avtale",
+              "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
+              "batch": "pa_fak_ba_09",
+              "filstiHosDVH": "/hbf_fls/premieoppgjoer/avtale"
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "premieoppgjoer_dataunderlag_avtale",
+              "kjøringsId": "premieoppgjoer_dataunderlag_avtale-${skyopplasterId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "premieoppgjoer_dataunderlag_avtale-${skyopplasterId}",
+              "filstiHosDVH": "hbf_fls/premieoppgjoer/avtale"
+            }
+          ]
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",

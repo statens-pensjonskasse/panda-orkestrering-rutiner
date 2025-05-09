@@ -9,14 +9,18 @@
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+
     "termin": "<terminår>-01",
     "førstePeriode": "<førstePeriodeÅr>11",
     "andrePeriode": "<andrePeriodeÅr>12",
     "tredjePeriode": "<tredjePeriodeÅr>01",
     "fjerdePeriode": "<fjerdePeriodeÅr>02",
+
     "termininfoVersjon": "<termininfoVersjon>",
     "premiejusteringVersjon": "<premiejusteringVersjon>",
     "estimertLoennsoppgjoerVersjon": "<estimertLoennsoppgjoerVersjon>",
+    "skyopplasterId": "#{genererUUID}",
+
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa14Versjon": "<X.Y.Z>"
@@ -558,12 +562,6 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_stat_dataunderlag_for_medlem/${termin}"
-        },
-        {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "hbf_stat_dataunderlag_medlem",
           "filListe": "HBFSTAT_FILLISTE_MEDLEM.txt",
@@ -580,17 +578,57 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_stat_dataunderlag_for_avtale/${termin}"
-        },
-        {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "hbf_stat_dataunderlag_avtale",
           "filListe": "HBFSTAT_FILLISTE_AVTALE.txt",
           "batch": "pa_fak_ba_09",
           "filstiHosDVH": "/hbf_stat/fakturering/avtale"
+        },
+        {
+          "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "dataunderlag_avtale",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "premiemodell": "HBF_STAT",
+              "termin": "${termin}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "hbf_stat_dataunderlag_avtale",
+              "kjøringsId": "hbf_stat_dataunderlag_avtale-${skyopplasterId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "hbf_stat_dataunderlag_avtale-${skyopplasterId}",
+              "filstiHosDVH": "hbf_stat/fakturering/avtale"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "dataunderlag_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "premiemodell": "HBF_STAT",
+              "termin": "${termin}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "hbf_stat_dataunderlag_medlem",
+              "kjøringsId": "hbf_stat_dataunderlag_medlem-${skyopplasterId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "hbf_stat_dataunderlag_medlem-${skyopplasterId}",
+              "filstiHosDVH": "hbf_stat/fakturering/medlem"
+            }
+          ]
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",

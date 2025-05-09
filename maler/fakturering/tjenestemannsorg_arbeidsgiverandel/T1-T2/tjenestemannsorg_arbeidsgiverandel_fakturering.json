@@ -19,6 +19,7 @@
 
     "termininfoVersjon": "<termininfoVersjon>",
     "premiejusteringsVersjon": "<premiejusteringsVersjon>",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>"
@@ -601,12 +602,6 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_for_medlem/${termin}"
-        },
-        {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem",
           "filListe": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL_FILLISTE_MEDLEM.txt",
@@ -623,17 +618,57 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_for_avtale/${termin}"
-        },
-        {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale",
           "filListe": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL_FILLISTE_AVTALE.txt",
           "batch": "pa_fak_ba_09",
           "filstiHosDVH": "/tjenestemannsorg_arbeidsgiverandel/fakturering/avtale"
+        },
+        {
+          "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "dataunderlag_avtale",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
+              "termin": "${termin}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale",
+              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale-${skyopplasterId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale-${skyopplasterId}",
+              "filstiHosDVH": "tjenestemannsorg_arbeidsgiverandel/fakturering/avtale"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "dataunderlag_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
+              "termin": "${termin}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem",
+              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem-${skyopplasterId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem-${skyopplasterId}",
+              "filstiHosDVH": "tjenestemannsorg_arbeidsgiverandel/fakturering/medlem"
+            }
+          ]
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",

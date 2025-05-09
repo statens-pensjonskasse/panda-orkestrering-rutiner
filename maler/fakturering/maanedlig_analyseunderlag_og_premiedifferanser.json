@@ -15,7 +15,7 @@
     "periode": "<periode>",
     "rettighet": "<rettighet>",
     "uttrekksdato": "<dd.MM.YYYY>",
-    "kjøringsId": "#{genererUUID}",
+    "skyopplasterId": "#{genererUUID}",
 
     "paResBa01Versjon": "<X.Y.Z>",
     "paResBa03Versjon": "<X.Y.Z>",
@@ -173,12 +173,12 @@
               "fraBatch": "pa_res_ba_01",
               "filPrefix": "rettighet_ytelser_for_dvh",
               "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
-              "kjøringsId": "rettighet_ytelse-${kjøringsId}",
+              "kjøringsId": "rettighet_ytelse-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "rettighet_ytelse-${kjøringsId}",
+              "kjøringsId": "rettighet_ytelse-${skyopplasterId}",
               "filstiHosDVH": "rettighet_ytelse"
             }
           ]
@@ -211,12 +211,12 @@
               "fraBatch": "pa_res_ba_01",
               "filPrefix": "poliser",
               "nøkkel": "panda-poliser/${fremskrivingsDato}",
-              "kjøringsId": "poliser-${kjøringsId}",
+              "kjøringsId": "poliser-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "poliser-${kjøringsId}",
+              "kjøringsId": "poliser-${skyopplasterId}",
               "filstiHosDVH": "polise"
             }
           ]
@@ -631,12 +631,12 @@
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "reserveoppbygging_dataunderlag",
               "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}",
-              "kjøringsId": "reserveoppbygging-${kjøringsId}",
+              "kjøringsId": "reserveoppbygging-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "reserveoppbygging-${kjøringsId}",
+              "kjøringsId": "reserveoppbygging-${skyopplasterId}",
               "filstiHosDVH": "reserveoppbygging"
             }
           ]
@@ -684,12 +684,12 @@
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "kontofoeringunderlag",
               "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato}",
-              "kjøringsId": "kontofoering-${kjøringsId}",
+              "kjøringsId": "kontofoering-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "kontofoering-${kjøringsId}",
+              "kjøringsId": "kontofoering-${skyopplasterId}",
               "filstiHosDVH": "kontofoering"
             },
             {
@@ -741,12 +741,12 @@
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "feilmelding_dataunderlag",
               "nøkkel": "feilmelding_dataunderlag/${fremskrivingsDato}",
-              "kjøringsId": "feilende_medlemmer-${kjøringsId}",
+              "kjøringsId": "feilende_medlemmer-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "feilende_medlemmer-${kjøringsId}",
+              "kjøringsId": "feilende_medlemmer-${skyopplasterId}",
               "filstiHosDVH": "feilende_medlemmer"
             },
             {
@@ -797,12 +797,12 @@
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "administrasjonspremieunderlag_dataunderlag",
               "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDato}",
-              "kjøringsId": "administrasjonspremieunderlag-${kjøringsId}",
+              "kjøringsId": "administrasjonspremieunderlag-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "administrasjonspremieunderlag-${kjøringsId}",
+              "kjøringsId": "administrasjonspremieunderlag-${skyopplasterId}",
               "filstiHosDVH": "administrasjonspremieunderlag"
             }
           ]
@@ -848,12 +848,12 @@
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "administrasjonspremie_dataunderlag",
               "nøkkel": "generer_administrasjonspremie_dataunderlag/${periode}",
-              "kjøringsId": "administrasjonspremie-${kjøringsId}",
+              "kjøringsId": "administrasjonspremie-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "administrasjonspremie-${kjøringsId}",
+              "kjøringsId": "administrasjonspremie-${skyopplasterId}",
               "filstiHosDVH": "administrasjonspremie"
             },
             {
@@ -906,12 +906,12 @@
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "tidslinjehendelser_dataunderlag",
               "nøkkel": "generer_beriket_tidslinjehendelser/${fremskrivingsDato}",
-              "kjøringsId": "tidslinjehendelser-${kjøringsId}",
+              "kjøringsId": "tidslinjehendelser-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "tidslinjehendelser-${kjøringsId}",
+              "kjøringsId": "tidslinjehendelser-${skyopplasterId}",
               "filstiHosDVH": "tidslinjehendelser"
             },
             {
@@ -955,12 +955,12 @@
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "pensjonsgivende_loenn_dataunderlag",
               "nøkkel": "pensjonsgivende_loenn_dataunderlag/${fremskrivingsDato}",
-              "kjøringsId": "pensjonsgivende_loenn-${kjøringsId}",
+              "kjøringsId": "pensjonsgivende_loenn-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "pensjonsgivende_loenn-${kjøringsId}",
+              "kjøringsId": "pensjonsgivende_loenn-${skyopplasterId}",
               "filstiHosDVH": "pensjonsgivende_loenn"
             },
             {
@@ -1003,12 +1003,12 @@
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "pensjonsgivende_maanedsloenn_differanser_dataunderlag",
               "nøkkel": "pensjonsgivende_maanedsloenn_differanser_dataunderlag/${periode}",
-              "kjøringsId": "pensjonsgivende_maanedsloenn_differanser-${kjøringsId}",
+              "kjøringsId": "pensjonsgivende_maanedsloenn_differanser-${skyopplasterId}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "pensjonsgivende_maanedsloenn_differanser-${kjøringsId}",
+              "kjøringsId": "pensjonsgivende_maanedsloenn_differanser-${skyopplasterId}",
               "filstiHosDVH": "pensjonsgivende_maanedsloenn_differanser"
             }
           ]

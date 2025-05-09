@@ -17,6 +17,7 @@
     "termininfoVersjon": "<termininfoVersjon>",
     "solvensVersjon": "<solvensVersjon>",
     "premiejusteringVersjon": "<premiejusteringVersjon>",
+    "skyopplasterId": "#{genererUUID}",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
@@ -354,12 +355,6 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_as_asa_dataunderlag_for_medlem/${termin}"
-        },
-        {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "hbf_as_asa_dataunderlag_medlem",
           "filListe": "ASASA_FILLISTE_MEDLEM.txt",
@@ -376,17 +371,57 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
-          "batch": "pa_fak_ba_09",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "hbf_as_asa_dataunderlag_for_avtale/${termin}"
-        },
-        {
           "handling": "send_batch_output_til_dvh",
           "filPrefix": "hbf_as_asa_dataunderlag_avtale",
           "filListe": "ASASA_FILLISTE_AVTALE.txt",
           "batch": "pa_fak_ba_09",
           "filstiHosDVH": "/hbf_as_asa/fakturering/avtale"
+        },
+        {
+          "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "dataunderlag_avtale",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "premiemodell": "HBF_AS/ASA",
+              "termin": "${termin}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "hbf_as_asa_dataunderlag_avtale",
+              "kjøringsId": "hbf_as_asa_dataunderlag_avtale-${skyopplasterId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "hbf_as_asa_dataunderlag_avtale-${skyopplasterId}",
+              "filstiHosDVH": "hbf_as_asa/fakturering/avtale"
+            },
+            {
+              "handling": "pa_fak_ba_09",
+              "modus": "dataunderlag_medlem",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "premiemodell": "HBF_AS/ASA",
+              "termin": "${termin}",
+              "kjøringsId": "#{genererUUID}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "kopier_filer_fra_batch_til_skyopplaster",
+              "fraBatch": "pa_fak_ba_09",
+              "filPrefix": "hbf_as_asa_dataunderlag_medlem",
+              "kjøringsId": "hbf_as_asa_dataunderlag_medlem-${skyopplasterId}"
+            },
+            {
+              "handling": "opprett_bestilling_til_skyopplaster",
+              "kjøringsId": "hbf_as_asa_dataunderlag_medlem-${skyopplasterId}",
+              "filstiHosDVH": "hbf_as_asa/fakturering/medlem"
+            }
+          ]
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
