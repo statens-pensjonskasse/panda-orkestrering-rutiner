@@ -5,7 +5,7 @@
     "mal": "maler/fakturering/poa_kjeder/T1-T4/poa_afp_kjeder_fakturering.json",
     "tags": ["fakturering"],
     "premiemodell": "poa_kjeder",
-    "støttetAvPaOrkBa01FraVersjon": "0.0.78"
+    "støttetAvPaOrkBa01FraVersjon": "1.0.14"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",

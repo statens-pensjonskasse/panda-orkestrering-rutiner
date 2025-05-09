@@ -5,7 +5,7 @@
     "mal": "maler/fakturering/poa_pen/T1-T4/poa_pen_fakturering.json",
     "tags": ["fakturering"],
     "premiemodell": "poa_pen",
-    "støttetAvPaOrkBa01FraVersjon": "1.0.11"
+    "støttetAvPaOrkBa01FraVersjon": "1.0.14"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
