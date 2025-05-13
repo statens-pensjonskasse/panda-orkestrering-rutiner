@@ -3,7 +3,7 @@
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_as_asa_solvens.json",
     "tags": ["prognose", "solvens"],
-    "premiemodell": "as_asa",
+    "premiemodell": "hbf_as_asa",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {
