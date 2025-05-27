@@ -20,8 +20,6 @@
 
     "skalIgnorereTidslinjegenerering": "true",
     "skalIgnorereTestdataRettighetYtelser": "true",
-    "skalIgnorerePensjonsgivendeLoenn": "true",
-    "skalIgnorerePensjonsgivendeMaanedsloennDifferanser": "true",
     "skalIgnorereFakturaDataunderlag": "true",
 
     "skalIgnorereSendDataunderlagTilDVH": "true",
@@ -252,15 +250,13 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_res_ba_03",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "batch": "pa_res_ba_03"
             },
 
             {
               "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
               "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -268,27 +264,23 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_res_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataFremskriving}",
-              "nøkkel": "panda-poliser/${fremskrivingsDato}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "nøkkel": "panda-poliser/${fremskrivingsDato}"
             },
             {
               "handling": "pa_res_ba_03",
               "modus": "panda_pensjonsgivende_loenn",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
-              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_03",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_res_ba_03",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "batch": "pa_res_ba_03"
             }
           ]
         },
@@ -298,8 +290,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_05",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "batch": "pa_fak_ba_05"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -307,28 +298,24 @@
               "batchFra": "pa_res_ba_03",
               "batchTil": "pa_fak_ba_05",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
             },
             {
               "handling": "pa_fak_ba_05",
               "modus": "generer_pensjonsgivende_maanedsloenn",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
-              "validerFeilendeMedlemmer": true,
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "validerFeilendeMedlemmer": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_05",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_05",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "batch": "pa_fak_ba_05"
             }
           ]
         },
@@ -338,8 +325,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_03",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "batch": "pa_fak_ba_03"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -347,8 +333,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${forrigeFremskrivingsDato}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${forrigeFremskrivingsDato}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -356,28 +341,26 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${fremskrivingsDato}"
             },
             {
               "handling": "pa_fak_ba_03",
               "modus": "pensjonsgivende_maanedsloenn_differanser",
               "bokføringsperiode": "${periode}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true,
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "førsteKjøring": "${forrigeFremskrivingsDato}",
+              "andreKjøring": "${fremskrivingsDato}",
+              "validerFeilendeMedlemmer": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_03",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_03",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "batch": "pa_fak_ba_03"
             }
           ]
         },
@@ -989,8 +972,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "batch": "pa_fak_ba_09"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -998,8 +980,7 @@
               "batchFra": "pa_res_ba_03",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
             },
             {
               "handling": "pa_fak_ba_09",
@@ -1007,15 +988,13 @@
               "kjøringsId": "#{genererUUID}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
-              "validerFeilendeMedlemmer": true,
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "validerFeilendeMedlemmer": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "pensjonsgivende_loenn_dataunderlag/${fremskrivingsDato}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeLoenn}"
+              "nøkkel": "pensjonsgivende_loenn_dataunderlag/${fremskrivingsDato}"
             },
             {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
@@ -1040,8 +1019,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "batch": "pa_fak_ba_09"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -1049,23 +1027,20 @@
               "batchFra": "pa_fak_ba_03",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}"
             },
             {
               "handling": "pa_fak_ba_09",
               "modus": "pensjonsgivende_maanedsloenn_differanser_dataunderlag",
               "kjøringsId": "#{genererUUID}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "validerFeilendeMedlemmer": true,
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "validerFeilendeMedlemmer": true
             },
             {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "pensjonsgivende_maanedsloenn_differanser_dataunderlag/${periode}",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser_dataunderlag/${periode}"
             },
             {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
@@ -1084,8 +1059,7 @@
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_09",
-              "ignorertInstruksjon": "${skalIgnorerePensjonsgivendeMaanedsloennDifferanser}"
+              "batch": "pa_fak_ba_09"
             }
           ]
         }
