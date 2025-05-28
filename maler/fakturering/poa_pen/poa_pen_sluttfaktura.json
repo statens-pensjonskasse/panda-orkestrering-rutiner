@@ -3,7 +3,7 @@
   "gyldigVersjon": "1.0.11",
   "metainfo": {
     "mal": "maler/fakturering/poa_pen/poa_pen_sluttfaktura.json",
-    "tags": ["fakturering"],
+    "tags": ["sluttfaktura"],
     "premiemodell": "poa_pen",
     "støttetAvPaOrkBa01FraVersjon": "1.0.14"
   },
@@ -13,8 +13,8 @@
     "forrigeTermin": "<termin - 1>",
     "termin": "<termin>",
 
-    "førsteAvregningPeriode": "<periode - 1",
-    "andreAvregningPeriode": "<periode",
+    "førsteAvregningPeriode": "<periode - 1>",
+    "andreAvregningPeriode": "<periode>",
 
     "avtaleliste": "<avtaleliste>",
 
