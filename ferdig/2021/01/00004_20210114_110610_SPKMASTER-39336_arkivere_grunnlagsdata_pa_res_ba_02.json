@@ -1,9 +1,0 @@
-{
-  "navn": "Arkivere grunnlagsdata fra pa_res_ba_02",
-  "operasjoner": [
-    {
-      "handling": "arkiver_utdata_pa_res_ba_02",
-      "grunnlagsdata": "grunnlagsdata_2020-12-18_14-33-19-65"
-    }
-  ]
-}

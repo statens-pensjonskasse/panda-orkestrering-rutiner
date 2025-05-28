@@ -1,9 +1,0 @@
-{
-  "navn": "Arkivere grunnlagsdata fra aktuar for reserveberegning",
-  "operasjoner": [
-    {
-      "handling": "arkiver_reserveberegning_grunnlagsdata_fra_aktuar",
-      "beskrivelse": "Med K2013"
-    }
-  ]
-}
