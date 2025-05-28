@@ -1,8 +1,0 @@
-<spkmeta:data xmlns:spkmeta="https://spk.no/modul-metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="https://spk.no/modul-metadata https://git.spk.no/projects/INC/repos/metadata-schema-definition/raw/metadata-1.7.xsd">
-    <app>
-        <team-id>premie</team-id>
-        <domain>premie</domain>
-        <applikasjonsgruppe>panda</applikasjonsgruppe>
-    </app>
-</spkmeta:data>

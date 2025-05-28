@@ -1,11 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.spk.panda</groupId>
     <artifactId>panda-orkestrering-rutiner</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>panda-orkestrering-rutiner</name>
     <description>Samling av oppskrifter for orkestrering av panda økosystemet</description>
+
+    <scm>
+        <connection>scm:git:git@github.com:statens-pensjonskasse/panda-orkestrering-rutiner.git</connection>
+        <developerConnection>scm:git:git@github.com:statens-pensjonskasse/panda-orkestrering-rutiner.git</developerConnection>
+        <url>https://github.com/statens-pensjonskasse/panda-orkestrering-rutiner</url>
+    </scm>
 
     <properties>
         <java.version>21</java.version>
@@ -54,6 +60,13 @@
 
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/statens-pensjonskasse/*</url>
+        </repository>
+    </repositories>
+
     <build>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
         <plugins>
@@ -89,6 +102,5 @@
 
         </plugins>
     </build>
-
 </project>
 
