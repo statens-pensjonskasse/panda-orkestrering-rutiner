@@ -1,9 +1,6 @@
 # Panda orkestering rutiner
-
-Støtte prosjekt for kjøring av [rutinefiler](https://github.com/statens-pensjonskasse/panda-orkestrering/blob/main/dokumentasjon/rutiner/readme.md)
-i [panda-orkestrering](http://wiki.spk.no/display/dok/SPK-Panda+Orkestrering+batch).
-
-Kjøring av malene startes med panda-flytkontroll
+Dette repoet inneholder maler som brukes til kjøring av rutinefiler i panda-prosjektet.
+For å sette i gang kjøring av en mal så brukes tjenesten panda-flytkontroll.
 
 # Maler
 Maler som brukes i ulike leveranser:
@@ -20,3 +17,6 @@ Maler som brukes i ulike leveranser:
 * [premieprognoser fra panda](maler/fakturering/premieprognoser_fra_panda) inneholder rutiner for premieprognoser fra Panda 
 * [rutiner for test](maler/fakturering/rutinefiler_for_test) inneholder nyttige rutiner som kan brukes i/til test 
 * [deprecated rutiner](maler/fakturering/deprecated-rutiner) inneholder deprecated maler for prognosefakturering fra Panda i premieåret 2021, og panda fakturering fra Panda i 2022 og 2023.
+
+# Bidrag 
+For å bidra til prosjektet eller for å melde inn feil se [offentlig kode i SPK](https://github.com/statens-pensjonskasse/offentlig).
