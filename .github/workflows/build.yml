@@ -1,0 +1,19 @@
+name: Build and Publish Library with Maven
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: statens-pensjonskasse/github-actions-library/.github/workflows/build-library-maven.yaml@272387355821cfc5b0805b0f788ac8e97a7cc312 # v1.24.5
+    permissions:
+      contents: write
+      packages: write
+    secrets: inherit
+    with:
+      java-version: 21
+      slack-channel: '#panda-ci'
+      slack-bot-name: "GH-Actions CI"
+      slack-bot-icon: ':panda_face:'
+      publish-artifacts: false
