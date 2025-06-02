@@ -6,7 +6,7 @@ For å sette i gang kjøring av en mal så brukes tjenesten panda-flytkontroll.
 Maler som brukes i ulike leveranser:
 
 * [hbf as asa](maler/fakturering/hbf_as_asa) inneholder maler for fakturering av hbf as asa fra Panda
-* [hbf fls 2.0](maler/fakturering/hbf_fls_2_0) inneholder maler for fakturering av hbf fls 2.0 fra Panda
+* [hbf fls](maler/fakturering/hbf_fls) inneholder maler for fakturering av hbf fls 2.0 fra Panda
 * [hbf øvrige](maler/fakturering/hbf_ovrige) inneholder maler for fakturering av hbf øvrige fra Panda
 * [hbf stat](maler/fakturering/hbf_stat) inneholder maler for fakturering av hbf stat fra Panda
 * [poa afp](maler/fakturering/poa_kjeder) inneholder maler for fakturering av poa afp kjeder fra Panda
@@ -16,7 +16,6 @@ Maler som brukes i ulike leveranser:
 * [ad hoc templater](maler/fakturering/ad_hoc) inneholder rutiner som bla. arkivering av termininfofil
 * [premieprognoser fra panda](maler/fakturering/premieprognoser_fra_panda) inneholder rutiner for premieprognoser fra Panda 
 * [rutiner for test](maler/fakturering/rutinefiler_for_test) inneholder nyttige rutiner som kan brukes i/til test 
-* [deprecated rutiner](maler/fakturering/deprecated-rutiner) inneholder deprecated maler for prognosefakturering fra Panda i premieåret 2021, og panda fakturering fra Panda i 2022 og 2023.
 
 # Bidrag 
 For å bidra til prosjektet eller for å melde inn feil se [offentlig kode i SPK](https://github.com/statens-pensjonskasse/offentlig).
