@@ -6,7 +6,7 @@ For å sette i gang kjøring av en mal så brukes tjenesten panda-flytkontroll.
 Maler som brukes i ulike leveranser:
 
 * [hbf as asa](maler/fakturering/hbf_as_asa) inneholder maler for fakturering av hbf as asa fra Panda
-* [hbf fls 2.0](maler/fakturering/hbf_fls) inneholder maler for fakturering av hbf fls 2.0 fra Panda
+* [hbf fls](maler/fakturering/hbf_fls) inneholder maler for fakturering av hbf fls 2.0 fra Panda
 * [hbf øvrige](maler/fakturering/hbf_ovrige) inneholder maler for fakturering av hbf øvrige fra Panda
 * [hbf stat](maler/fakturering/hbf_stat) inneholder maler for fakturering av hbf stat fra Panda
 * [poa afp](maler/fakturering/poa_kjeder) inneholder maler for fakturering av poa afp kjeder fra Panda
