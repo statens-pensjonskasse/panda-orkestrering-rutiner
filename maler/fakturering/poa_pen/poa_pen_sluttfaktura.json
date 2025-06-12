@@ -3,7 +3,7 @@
   "gyldigVersjon": "1.0.11",
   "metainfo": {
     "mal": "maler/fakturering/poa_pen/poa_pen_sluttfaktura.json",
-    "tags": ["sluttfaktura"],
+    "tags": ["fakturering","sluttfaktura"],
     "premiemodell": "poa_pen",
     "støttetAvPaOrkBa01FraVersjon": "1.0.14"
   },
@@ -13,8 +13,9 @@
     "forrigeTermin": "<termin - 1>",
     "termin": "<termin>",
 
-    "førsteAvregningPeriode": "<periode - 1>",
-    "andreAvregningPeriode": "<periode>",
+    "førstePeriode": "<periode - 2>",
+    "andrePeriode": "<periode - 1>",
+    "tredjePeriode": "<periode>",
 
     "avtaleliste": "<avtaleliste>",
 
@@ -58,7 +59,7 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${førsteAvregningPeriode}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${førstePeriode}",
           "tillatTomFil": true
         },
         {
@@ -67,7 +68,16 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${andreAvregningPeriode}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${andrePeriode}",
+          "tillatTomFil": true
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+          "batchFra": "pa_fak_ba_03",
+          "batchTil": "pa_fak_ba_15",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${tredjePeriode}",
           "tillatTomFil": true
         },
         {
@@ -226,6 +236,7 @@
           "modus": "poa_pen_dataunderlag_for_medlem",
           "kjøringsId": "#{genererUUID}",
           "premiemodell": "POA_PEN",
+          "leveransetype": "SLUTTFAKTURA",
           "termin": "${termin}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
@@ -239,13 +250,14 @@
         {
           "handling": "opprett_bestilling_til_skyopplaster",
           "kjøringsId": "poa_pen_dataunderlag_medlem-${skyopplasterId}",
-          "filstiHosDVH": "poa_pen/fakturering/medlem"
+          "filstiHosDVH": "poa_pen/sluttfaktura/medlem"
         },
         {
           "handling": "pa_fak_ba_09",
           "modus": "poa_pen_dataunderlag_for_avtale",
           "kjøringsId": "#{genererUUID}",
           "premiemodell": "POA_PEN",
+          "leveransetype": "SLUTTFAKTURA",
           "termin": "${termin}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
@@ -259,7 +271,7 @@
         {
           "handling": "opprett_bestilling_til_skyopplaster",
           "kjøringsId": "poa_pen_dataunderlag_avtale-${skyopplasterId}",
-          "filstiHosDVH": "poa_pen/fakturering/avtale"
+          "filstiHosDVH": "poa_pen/sluttfaktura/avtale"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
