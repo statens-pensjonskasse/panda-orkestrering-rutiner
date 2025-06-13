@@ -49,15 +49,19 @@
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_15"
         },
-
         {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "pensjonsgivende_maanedsloenn_differanser",
-          "batchFra": "pa_fak_ba_03",
-          "batchTil": "pa_fak_ba_15",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/{{var.forHver}}",
-          "forHver": "${avregningsperioder}"
+          "handling": "forHver",
+          "elementer": "${avregningsperioder}",
+          "utfør_handlinger": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+              "batchFra": "pa_fak_ba_03",
+              "batchTil": "pa_fak_ba_15",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/{{element}}"
+            }
+          ]
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
