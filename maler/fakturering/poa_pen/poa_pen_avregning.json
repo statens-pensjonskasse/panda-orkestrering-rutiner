@@ -5,23 +5,23 @@
     "mal": "maler/fakturering/poa_pen/poa_pen_avregning.json",
     "tags": ["fakturering", "avregning"],
     "premiemodell": "poa_pen",
-    "støttetAvPaOrkBa01FraVersjon": "1.0.19"
+    "støttetAvPaOrkBa01FraVersjon": "1.0.22"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
-    "termin": "2025-02",
+    "termin": "<termin>",
 
-    "avregningsperiode": "202502",
+    "periode": "<periode>",
 
-    "termininfoVersjon": "2025/v42",
-    "premiesatsVersjon": "42",
+    "termininfoVersjon": "<termininfoVersjon>",
+    "premiesatsVersjon": "<premiesatsVersjon>",
     "skyopplasterId": "#{genererUUID}",
     "avregningsperioder": ["<perioder>"],
 
-    "paFakBa04Versjon": "4.0.7",
-    "paFakBa09Versjon": "4.0.0",
-    "paFakBa15Versjon": "0.0.12"
+    "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa15Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -74,7 +74,7 @@
         {
           "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${avregningsperiode}",
+          "periode": "${periode}",
           "prognoseVersjon": "avregning",
           "batch": "pa_fak_ba_15",
           "filnavn": "avregningsliste_poa_pen",
@@ -125,7 +125,7 @@
         {
           "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${avregningsperiode}",
+          "periode": "${periode}",
           "prognoseVersjon": "avregning",
           "filnavn": "avregningsliste_poa_pen",
           "batch": "pa_fak_ba_04",
@@ -193,7 +193,7 @@
         {
           "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${avregningsperiode}",
+          "periode": "${periode}",
           "prognoseVersjon": "avregning",
           "filnavn": "avregningsliste_poa_pen",
           "batch": "pa_fak_ba_09",
