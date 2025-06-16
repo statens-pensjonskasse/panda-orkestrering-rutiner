@@ -1,6 +1,6 @@
 {
   "navn": "Avregning for POA PEN",
-  "gyldigVersjon": "1.0.19",
+  "gyldigVersjon": "1.0.22",
   "metainfo": {
     "mal": "maler/fakturering/poa_pen/poa_pen_avregning.json",
     "tags": ["fakturering", "avregning"],
@@ -12,12 +12,11 @@
 
     "termin": "<termin>",
 
-    "periode": "<periode>",
-
     "termininfoVersjon": "<termininfoVersjon>",
     "premiesatsVersjon": "<premiesatsVersjon>",
     "skyopplasterId": "#{genererUUID}",
     "avregningsperioder": ["<perioder>"],
+    "avregningssjekksum": "<avregningssjekksum>",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
@@ -72,14 +71,15 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${periode}",
-          "prognoseVersjon": "avregning",
+          "periode": "${termin}",
+          "kategori": "avregning",
+          "versjon": "${avregningssjekksum}",
           "batch": "pa_fak_ba_15",
-          "filnavn": "avregningsliste_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
+
         {
           "handling": "pa_fak_ba_15",
           "modus": "avregning_poa_pen",
@@ -123,11 +123,11 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${periode}",
-          "prognoseVersjon": "avregning",
-          "filnavn": "avregningsliste_poa_pen",
+          "periode": "${termin}",
+          "kategori": "avregning",
+          "versjon": "${avregningssjekksum}",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -191,11 +191,11 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${periode}",
-          "prognoseVersjon": "avregning",
-          "filnavn": "avregningsliste_poa_pen",
+          "periode": "${termin}",
+          "kategori": "avregning",
+          "versjon": "${avregningssjekksum}",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
