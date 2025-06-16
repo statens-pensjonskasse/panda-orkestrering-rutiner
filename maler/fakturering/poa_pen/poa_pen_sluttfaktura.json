@@ -1,11 +1,11 @@
 {
   "navn": "Sluttfaktura POA PEN",
-  "gyldigVersjon": "1.0.11",
+  "gyldigVersjon": "1.0.21",
   "metainfo": {
     "mal": "maler/fakturering/poa_pen/poa_pen_sluttfaktura.json",
     "tags": ["fakturering","sluttfaktura"],
     "premiemodell": "poa_pen",
-    "støttetAvPaOrkBa01FraVersjon": "1.0.14"
+    "støttetAvPaOrkBa01FraVersjon": "1.0.21"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
@@ -104,12 +104,12 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${avtaleliste}",
-          "prognoseVersjon": "avtaleliste",
+          "periode": "${termin}",
+          "kategori": "sluttfaktura",
+          "versjon": "${avtaleliste}",
           "batch": "pa_fak_ba_15",
-          "filnavn": "avtaleliste_poa_pen",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
@@ -155,11 +155,11 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${avtaleliste}",
-          "prognoseVersjon": "avtaleliste",
-          "filnavn": "avtaleliste_poa_pen",
+          "periode": "${termin}",
+          "kategori": "sluttfaktura",
+          "versjon": "${avtaleliste}",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -223,11 +223,11 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
           "premiemodell": "poa_pen",
-          "periode": "${avtaleliste}",
-          "prognoseVersjon": "avtaleliste",
-          "filnavn": "avtaleliste_poa_pen",
+          "periode": "${termin}",
+          "kategori": "sluttfaktura",
+          "versjon": "${avtaleliste}",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
