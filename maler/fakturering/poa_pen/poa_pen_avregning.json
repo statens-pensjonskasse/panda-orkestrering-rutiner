@@ -1,0 +1,249 @@
+{
+  "navn": "Avregning for POA PEN",
+  "gyldigVersjon": "1.0.22",
+  "metainfo": {
+    "mal": "maler/fakturering/poa_pen/poa_pen_avregning.json",
+    "tags": ["fakturering", "avregning"],
+    "premiemodell": "poa_pen",
+    "støttetAvPaOrkBa01FraVersjon": "1.0.22"
+  },
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+
+    "termin": "<termin>",
+
+    "termininfoVersjon": "<termininfoVersjon>",
+    "premiesatsVersjon": "<premiesatsVersjon>",
+    "skyopplasterId": "#{genererUUID}",
+    "avregningsperioder": ["<perioder>"],
+    "avregningChecksum": "<avregningChecksum>",
+
+    "paFakBa04Versjon": "<X.Y.Z>",
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paFakBa15Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_04",
+          "versjon": "${paFakBa04Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_09",
+          "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_fak_ba_15",
+          "versjon": "${paFakBa15Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_15 (generer_poa_pen_premier)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_15"
+        },
+        {
+          "handling": "forHver",
+          "elementer": "${avregningsperioder}",
+          "utfør_handlinger": [
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+              "batchFra": "pa_fak_ba_03",
+              "batchTil": "pa_fak_ba_15",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "pensjonsgivende_maanedsloenn_differanser/{{element}}"
+            }
+          ]
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "premiesats",
+          "prognoseVersjon": "${premiesatsVersjon}",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${termin}",
+          "kategori": "avregning",
+          "versjon": "${avregningChecksum}",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+
+        {
+          "handling": "pa_fak_ba_15",
+          "modus": "avregning_poa_pen",
+          "termin": "${termin}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_15",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "avregning_poa_pen/${termin}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_15"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_04 (generer_fakturaunderlag_for_poa_pen og generer_agressofil_poa_pen)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_04",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "avregning_poa_pen/${termin}"
+        },
+        {
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_04",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "termininfoType": "termininfo_poa_pen",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${termin}",
+          "kategori": "avregning",
+          "versjon": "${avregningChecksum}",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_fakturaunderlag_for_poa_pen",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${termin}",
+          "premiemodell": "POA_PEN",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_batch_output",
+          "filnavn": "fakturaunderlag",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "avregning_poa_pen/${termin}"
+        },
+        {
+          "handling": "pa_fak_ba_04",
+          "modus": "generer_agressofil_poa_pen",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "termin": "${termin}",
+          "premiemodell": "POA_PEN",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_04",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "agressofil_avregning_poa_pen/${termin}",
+          "filter": "Agressofil"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_04"
+        }
+      ]
+    },
+    {
+      "navn": "pa_fak_ba_09 (poa_pen_dataunderlag_for_medlem og poa_pen_dataunderlag_for_avtale)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "avregning_poa_pen/${termin}"
+        },
+        {
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_09",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "termininfoType": "termininfo_poa_pen",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_fakturering_til_batch",
+          "premiemodell": "poa_pen",
+          "periode": "${termin}",
+          "kategori": "avregning",
+          "versjon": "${avregningChecksum}",
+          "batch": "pa_fak_ba_09",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "poa_pen_dataunderlag_for_medlem",
+          "kjøringsId": "#{genererUUID}",
+          "premiemodell": "POA_PEN",
+          "termin": "${termin}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_skyopplaster",
+          "fraBatch": "pa_fak_ba_09",
+          "filPrefix": "poa_pen_dataunderlag_medlem",
+          "kjøringsId": "poa_pen_dataunderlag_medlem-${skyopplasterId}"
+        },
+        {
+          "handling": "opprett_bestilling_til_skyopplaster",
+          "kjøringsId": "poa_pen_dataunderlag_medlem-${skyopplasterId}",
+          "filstiHosDVH": "poa_pen/fakturering/medlem"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "poa_pen_dataunderlag_for_avtale",
+          "kjøringsId": "#{genererUUID}",
+          "premiemodell": "POA_PEN",
+          "termin": "${termin}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_skyopplaster",
+          "fraBatch": "pa_fak_ba_09",
+          "filPrefix": "poa_pen_dataunderlag_avtale",
+          "kjøringsId": "poa_pen_dataunderlag_avtale-${skyopplasterId}"
+        },
+        {
+          "handling": "opprett_bestilling_til_skyopplaster",
+          "kjøringsId": "poa_pen_dataunderlag_avtale-${skyopplasterId}",
+          "filstiHosDVH": "poa_pen/fakturering/avtale"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_09"
+        }
+      ]
+    }
+  ]
+}
