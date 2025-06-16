@@ -16,7 +16,7 @@
     "premiesatsVersjon": "<premiesatsVersjon>",
     "skyopplasterId": "#{genererUUID}",
     "avregningsperioder": ["<perioder>"],
-    "avregningssjekksum": "<avregningssjekksum>",
+    "avregningChecksum": "<avregningChecksum>",
 
     "paFakBa04Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
@@ -75,7 +75,7 @@
           "premiemodell": "poa_pen",
           "periode": "${termin}",
           "kategori": "avregning",
-          "versjon": "${avregningssjekksum}",
+          "versjon": "${avregningChecksum}",
           "batch": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -127,7 +127,7 @@
           "premiemodell": "poa_pen",
           "periode": "${termin}",
           "kategori": "avregning",
-          "versjon": "${avregningssjekksum}",
+          "versjon": "${avregningChecksum}",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -195,7 +195,7 @@
           "premiemodell": "poa_pen",
           "periode": "${termin}",
           "kategori": "avregning",
-          "versjon": "${avregningssjekksum}",
+          "versjon": "${avregningChecksum}",
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
