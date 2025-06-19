@@ -365,7 +365,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_09 (poa_pen_dataunderlag_for_medlem og poa_pen_dataunderlag_for_avtale)",
+      "navn": "pa_fak_ba_09 (dataunderlag_medlem og dataunderlag_avtale)",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -425,10 +425,10 @@
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "poa_pen_dataunderlag_for_medlem",
-          "kjøringsId": "#{genererUUID}",
+          "modus": "dataunderlag_medlem",
           "premiemodell": "POA_PEN",
           "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
@@ -445,10 +445,10 @@
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "poa_pen_dataunderlag_for_avtale",
-          "kjøringsId": "#{genererUUID}",
+          "modus": "dataunderlag_avtale",
           "premiemodell": "POA_PEN",
           "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },

@@ -168,7 +168,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_09 (poa_pen_dataunderlag_for_medlem og poa_pen_dataunderlag_for_avtale)",
+      "navn": "pa_fak_ba_09 (dataunderlag_avtale og dataunderlag_medlem)",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -201,10 +201,11 @@
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "poa_pen_dataunderlag_for_medlem",
-          "kjøringsId": "#{genererUUID}",
+          "modus": "dataunderlag_medlem",
           "premiemodell": "POA_PEN",
+          "leveransetype": "AVREGNING",
           "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
@@ -217,14 +218,15 @@
         {
           "handling": "opprett_bestilling_til_skyopplaster",
           "kjøringsId": "poa_pen_dataunderlag_medlem-${skyopplasterId}",
-          "filstiHosDVH": "poa_pen/fakturering/medlem"
+          "filstiHosDVH": "poa_pen/avregning/medlem"
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "poa_pen_dataunderlag_for_avtale",
-          "kjøringsId": "#{genererUUID}",
+          "modus": "dataunderlag_avtale",
           "premiemodell": "POA_PEN",
+          "leveransetype": "AVREGNING",
           "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
@@ -237,7 +239,7 @@
         {
           "handling": "opprett_bestilling_til_skyopplaster",
           "kjøringsId": "poa_pen_dataunderlag_avtale-${skyopplasterId}",
-          "filstiHosDVH": "poa_pen/fakturering/avtale"
+          "filstiHosDVH": "poa_pen/avregning/avtale"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",

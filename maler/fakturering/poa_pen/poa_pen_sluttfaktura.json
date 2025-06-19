@@ -233,11 +233,11 @@
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "poa_pen_dataunderlag_for_medlem",
-          "kjøringsId": "#{genererUUID}",
+          "modus": "dataunderlag_medlem",
           "premiemodell": "POA_PEN",
           "leveransetype": "SLUTTFAKTURA",
           "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
@@ -254,11 +254,11 @@
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "poa_pen_dataunderlag_for_avtale",
-          "kjøringsId": "#{genererUUID}",
+          "modus": "dataunderlag_avtale",
           "premiemodell": "POA_PEN",
           "leveransetype": "SLUTTFAKTURA",
           "termin": "${termin}",
+          "kjøringsId": "#{genererUUID}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
         },
