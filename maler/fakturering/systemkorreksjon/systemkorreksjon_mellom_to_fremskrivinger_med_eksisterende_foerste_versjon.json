@@ -1,5 +1,5 @@
 {
-  "navn": "Systemkorreksjons sammenlikning mellom to versjoner av panda ${første_versjon_reserveberegning} og ${andre_versjon_reserveberegning}",
+  "navn": "Systemkorreksjons som sammenlikner eksisterende versjon av panda ${første_versjon_reserveberegning} med fremskrivingsdato ${forrigeFremskrivingsDato} mot ny kjøring av panda med versjon ${andre_versjon_reserveberegning} og fremskrivingsdato ${fremskrivingsDato}",
   "metainfo": {
     "mal": "maler/fakturering/systemkorreksjon.json",
     "tags": ["systemkorreksjon"],
@@ -16,13 +16,12 @@
     "fremskrivingsDato": "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
 
-
-
-
     "bokføringsperiode": "<bokføringsperiode>",
     "uttrekksdato": "<dd.MM.YYYY>",
+
     "første_versjon_reserveberegning": "<X.Y.Z>",
     "andre_versjon_reserveberegning": "<X.Y.Z>",
+
     "paFakBa03Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa11Versjon": "<X.Y.Z>"
@@ -186,8 +185,7 @@
               "bokføringsperiode": "${bokføringsperiode}",
               "fraReserveberegningVersjon": "${første_versjon_reserveberegning}",
               "tilReserveberegningVersjon": "${andre_versjon_reserveberegning}",
-              "validerFeilendeMedlemmer": true,
-              "feilHvisFilMangler": false
+              "validerFeilendeMedlemmer": true
             },
             {
               "handling": "arkiver_all_batch_output",

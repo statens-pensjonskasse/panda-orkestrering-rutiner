@@ -1,5 +1,5 @@
 {
-  "navn": "Systemkorreksjons sammenlikning mellom to versjoner av panda ${første_versjon_reserveberegning} og ${andre_versjon_reserveberegning}",
+  "navn": "Systemkorreksjons som sammenlikner eksisterende versjon av panda ${første_versjon_reserveberegning} med fremskrivingsdato ${fremskrivingsdatoForVersjonSystemkorreksjon} mot ny kjøring av panda med versjon ${andre_versjon_reserveberegning} og fremskrivingsdato ${fremskrivingsDato}",
   "metainfo": {
     "mal": "maler/fakturering/systemkorreksjon.json",
     "tags": ["systemkorreksjon"],
@@ -9,18 +9,19 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "skyopplasterId": "#{genererUUID}",
+
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
-    "fremskrivingsDato": "<YYYY.MM.dd>",
-    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
-    "bokføringsperiode": "<bokføringsperiode>",
 
+    "fremskrivingsDato": "<YYYY.MM.dd>",
+    "fremskrivingsdatoForVersjonSystemkorreksjon": "<samme hvis diff mellom versjoner på samme fremskrivingsdato>",
+
+    "bokføringsperiode": "<bokføringsperiode>",
     "uttrekksdato": "<dd.MM.YYYY>",
-    Denne er ikke gjort enda, derfor er disse her
-    "første_versjon_finnes_i_arkiv": "<true/false>",
-    "første_versjon_er_systemkorreksjon": "<true/false>",
+
     "første_versjon_reserveberegning": "<X.Y.Z>",
     "andre_versjon_reserveberegning": "<X.Y.Z>",
+
     "paFakBa03Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa11Versjon": "<X.Y.Z>"
@@ -40,132 +41,10 @@
         {
           "navn": "pa_fak_ba_11",
           "versjon": "${paFakBa11Versjon}"
-        }
-      ]
-    },
-    {
-      "navn": "Systemkorreksjon finnes ikke i arkiv",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "handling": "deploy_batch",
-          "batcher": [
-            {
-              "navn": "pa_res_ba_01",
-              "versjon": "${første_versjon_reserveberegning}"
-            }
-          ],
-          "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
         },
         {
-          "navn": "pa_res_ba_01 (panda_reserveberegning)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_res_ba_01",
-              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-              "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "pa_res_ba_01",
-              "modus": "panda_reserveberegning",
-              "sisteFremskrivingsdato": "${fremskrivingsDato}",
-              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-              "rettighet": "panda_veldig_forenkla_rettighet",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_res_ba_01",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            }
-          ]
-        },
-        {
-          "navn": "pa_fak_ba_11 (flettede_kontofoeringer)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_11",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "kontofoering",
-              "batchFra": "pa_res_ba_01",
-              "batchTil": "pa_fak_ba_11",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "feilmeldinger",
-              "batchFra": "pa_res_ba_01",
-              "batchTil": "pa_fak_ba_11",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "flettede_kontofoeringer",
-              "batchFra": "pa_fak_ba_11",
-              "batchTil": "pa_fak_ba_11",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}",
-              "kommentar": "Henter fra fakturering",
-              "feilHvisFilMangler": false
-            },
-            {
-              "handling": "hent_spesifisert_del_av_medlemsdata",
-              "batchTil": "pa_fak_ba_11",
-              "filnavnTil": "etterlatte",
-              "typeindikator": "ETTERLATT",
-              "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
-            },
-            {
-              "handling": "pa_fak_ba_11",
-              "modus": "flette_feilende_medlemmer",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "reserveberegningVersjon": "${første_versjon_reserveberegning}",
-              "validerFeilendeMedlemmer": true,
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "arkiver_all_batch_output",
-              "batch": "pa_fak_ba_11",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            },
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_11",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
-            }
-          ]
+          "navn": "pa_res_ba_01",
+          "versjon": "${andre_versjon_reserveberegning}"
         }
       ]
     },
@@ -173,15 +52,6 @@
       "navn": "Kjøring av systemkorreksjon",
       "handling": "gruppe",
       "gruppeAv": [
-        {
-          "handling": "deploy_batch",
-          "batcher": [
-            {
-              "navn": "pa_res_ba_01",
-              "versjon": "${andre_versjon_reserveberegning}"
-            }
-          ]
-        },
         {
           "navn": "pa_res_ba_01 (panda_reserveberegning)",
           "handling": "gruppe",
@@ -247,9 +117,8 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
-              "kommentar": "Henter fra fakturering",
-              "feilHvisFilMangler": false
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdatoForVersjonSystemkorreksjon}/systemkorreksjon/${første_versjon_reserveberegning}",
+              "kommentar": "Henter fra fakturering"
             },
             {
               "handling": "hent_spesifisert_del_av_medlemsdata",
@@ -280,7 +149,7 @@
           ]
         },
         {
-          "navn": "pa_fak_ba_03 (systemkorreksjon)",
+          "navn": "pa_fak_ba_03 (systemkorreksjon) mellom to fremskrivninger og evt versjoner",
           "handling": "gruppe",
           "gruppeAv": [
             {
@@ -294,19 +163,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}",
-              "kommentar": "Henter fra fakturering hvis første versjon ikke er systemkorreksjon",
-              "ignorertInstruksjon": "${første_versjon_er_systemkorreksjon}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "flettede_kontofoeringer",
-              "batchFra": "pa_fak_ba_11",
-              "batchTil": "pa_fak_ba_03",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${første_versjon_reserveberegning}",
-              "tillatTomFil": true,
-              "feilHvisFilMangler": false
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsdatoForVersjonSystemkorreksjon}/systemkorreksjon/${første_versjon_reserveberegning}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -323,8 +180,7 @@
               "bokføringsperiode": "${bokføringsperiode}",
               "fraReserveberegningVersjon": "${første_versjon_reserveberegning}",
               "tilReserveberegningVersjon": "${andre_versjon_reserveberegning}",
-              "validerFeilendeMedlemmer": true,
-              "feilHvisFilMangler": false
+              "validerFeilendeMedlemmer": true
             },
             {
               "handling": "arkiver_all_batch_output",
@@ -363,11 +219,11 @@
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "systemkorreksjon_dataunderlag",
-              "kjøringsId": "generer_systemkorreksjon_dataunderlag-${skyopplasterId}"
+              "kjøringsId": "generer_systemkorreksjon_dataunderlag-${første_versjon_reserveberegning}-${andre_versjon_reserveberegning}"
             },
             {
               "handling": "opprett_bestilling_til_skyopplaster",
-              "kjøringsId": "generer_systemkorreksjon_dataunderlag-${skyopplasterId}",
+              "kjøringsId": "generer_systemkorreksjon_dataunderlag-${første_versjon_reserveberegning}-${andre_versjon_reserveberegning}",
               "filstiHosDVH": "systemkorreksjon"
             }
           ]
