@@ -87,7 +87,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
+              "nøkkel": "systemkorreksjon/panda_reserveberegning/${fremskrivingsDato}/${andre_versjon_reserveberegning}"
             }
           ]
         },
@@ -106,7 +106,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
+              "nøkkel": "systemkorreksjon/panda_reserveberegning/${fremskrivingsDato}/${andre_versjon_reserveberegning}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -114,7 +114,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
+              "nøkkel": "systemkorreksjon/panda_reserveberegning/${fremskrivingsDato}/${andre_versjon_reserveberegning}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -144,7 +144,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_11",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
+              "nøkkel": "systemkorreksjon/flette_feilende_medlemmer/${fremskrivingsDato}/${andre_versjon_reserveberegning}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -176,7 +176,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/systemkorreksjon/${andre_versjon_reserveberegning}"
+              "nøkkel": "systemkorreksjon/flette_feilende_medlemmer/${fremskrivingsDato}/${andre_versjon_reserveberegning}"
             },
             {
               "handling": "pa_fak_ba_03",
