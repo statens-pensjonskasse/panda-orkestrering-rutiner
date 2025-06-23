@@ -199,6 +199,15 @@
           "batch": "pa_fak_ba_09",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
+
+        {
+          "handling": "kopier_termininfofil_fra_arkiv_til_batch",
+          "batchTil": "pa_fak_ba_15",
+          "termininfoVersjon": "${termininfoVersjon}",
+          "termininfoType": "termininfo_poa_pen",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+
         {
           "handling": "pa_fak_ba_09",
           "modus": "dataunderlag_medlem",
