@@ -122,7 +122,7 @@ private fun parseDokumentasjonForSletteInnslag(innhold: String): ArrayList<Grupp
             }
         }
 
-        handlinger.add(SletteHandling(filsti, levetid, levetid.isBlank()))
+        handlinger.add(SletteHandling(filsti, levetid, levetid.equals("Evig", ignoreCase = true)))
         grupper.add(GruppeAvHandlinger(header.text(), handlinger))
     }
     return grupper

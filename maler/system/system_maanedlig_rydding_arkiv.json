@@ -78,9 +78,9 @@
     "gruppeAv" : [ {
       "handling" : "slett_foreldede_filer_arkiv",
       "arkivområde" : "reserveberegning/pa_res_ba_01/panda-poliser",
-      "maksLevetidDager" : "${foralltid}",
+      "maksLevetidDager" : "",
       "testkjøring" : "${erTestkjøring}",
-      "ignorertInstruksjon" : false
+      "ignorertInstruksjon" : true
     } ]
   }, {
     "navn" : "3.2.2.1 Pensjonsgivende lønn",
@@ -108,9 +108,9 @@
     "gruppeAv" : [ {
       "handling" : "slett_foreldede_filer_arkiv",
       "arkivområde" : "fakturering/pa_fak_ba_03/pensjonsgivende_maanedsloenn_differanser",
-      "maksLevetidDager" : "${evig}",
+      "maksLevetidDager" : "",
       "testkjøring" : "${erTestkjøring}",
-      "ignorertInstruksjon" : false
+      "ignorertInstruksjon" : true
     } ]
   }, {
     "navn" : "3.2.3 Flett feilende medlemmer og kontoføringer",
@@ -118,9 +118,9 @@
     "gruppeAv" : [ {
       "handling" : "slett_foreldede_filer_arkiv",
       "arkivområde" : "fakturering/pa_fak_ba_11/flette_feilende_medlemmer",
-      "maksLevetidDager" : "${evig}",
+      "maksLevetidDager" : "",
       "testkjøring" : "${erTestkjøring}",
-      "ignorertInstruksjon" : false
+      "ignorertInstruksjon" : true
     } ]
   }, {
     "navn" : "3.2.4 Reserveoppbygging",
@@ -128,9 +128,9 @@
     "gruppeAv" : [ {
       "handling" : "slett_foreldede_filer_arkiv",
       "arkivområde" : "fakturering/pa_fak_ba_03/reserveoppbygging",
-      "maksLevetidDager" : "${evig}",
+      "maksLevetidDager" : "",
       "testkjøring" : "${erTestkjøring}",
-      "ignorertInstruksjon" : false
+      "ignorertInstruksjon" : true
     } ]
   }, {
     "navn" : "3.2.5 Premiedifferanser",
