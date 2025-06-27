@@ -81,7 +81,8 @@ private fun konverterGrupperTilRutinefil(grupperMedHandlinger: ArrayList<GruppeA
         ),
         "variabler" to mapOf(
             "3mnd" to "90",
-            "2år" to "1825",
+            "2år" to "730",
+            "5år" to "1825",
             "10år" to "3650",
             "erTestkjøring" to "false"
         ),
