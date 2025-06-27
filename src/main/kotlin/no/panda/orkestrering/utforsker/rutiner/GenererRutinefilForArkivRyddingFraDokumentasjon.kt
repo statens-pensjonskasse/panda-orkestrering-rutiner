@@ -1,5 +1,8 @@
 package no.panda.orkestrering.utforsker.rutiner
 
+import com.fasterxml.jackson.core.JsonGenerator
+import com.fasterxml.jackson.core.util.DefaultIndenter
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.jsoup.Jsoup
 import java.io.File
@@ -34,7 +37,9 @@ fun main() {
 
     val jsondokument = konverterGrupperTilRutinefil(grupperMedHandlinger)
 
-    val tekstdokument = ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsondokument)
+    val tekstdokument = ObjectMapper()
+        .writer(IntellijPrettyPrinter())
+        .writeValueAsString(jsondokument)
     Files.write(File("maler/system/system_maanedlig_rydding_arkiv.json").toPath(), tekstdokument.toByteArray(Charsets.UTF_8))
 }
 
@@ -131,3 +136,18 @@ private fun parseDokumentasjonForSletteInnslag(innhold: String): ArrayList<Grupp
 data class GruppeAvHandlinger(val navn: String, val gruppe: List<SletteHandling>)
 
 data class SletteHandling(val filsti: String, val levetid: String, val ignoreresPgaEvigLevetid: Boolean)
+
+class IntellijPrettyPrinter : DefaultPrettyPrinter() {
+    init {
+        indentObjectsWith(DefaultIndenter("  ", DefaultIndenter.SYS_LF))
+        indentArraysWith(DefaultIndenter("  ", DefaultIndenter.SYS_LF))
+    }
+
+    override fun writeObjectFieldValueSeparator(g: JsonGenerator) {
+        g.writeRaw(": ")
+    }
+
+    override fun createInstance(): DefaultPrettyPrinter {
+        return IntellijPrettyPrinter()
+    }
+}
