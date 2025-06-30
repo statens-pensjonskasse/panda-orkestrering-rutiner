@@ -1,0 +1,916 @@
+{
+  "navn": "Månedlig rydding arkiv",
+  "metainfo": {
+    "mal": "maler/system/system_maanedlig_rydding_arkiv.json",
+    "tags": [
+      "vedlikehold"
+    ],
+    "støttetAvPaOrkBa01FraVersjon": "1.1.3"
+  },
+  "variabler": {
+    "3mnd": "90",
+    "2år": "730",
+    "5år": "1825",
+    "10år": "3650",
+    "erTestkjøring": "false"
+  },
+  "operasjoner": [
+    {
+      "navn": "3.1 Arkivert grunnlagsdata for kjøring av reserveberegning",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "reserveberegning/pa_res_ba_02",
+          "maksLevetidDager": "",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": true
+        }
+      ]
+    },
+    {
+      "navn": "3.2.1 Reserveberegning",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "reserveberegning/grunnlagsdata-aktuar",
+          "maksLevetidDager": "",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": true
+        }
+      ]
+    },
+    {
+      "navn": "3.2.1.1 Kontoføringer",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "reserveberegning/pa_res_ba_01/panda_reserveberegning",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.1.2 Administrasjonspremieunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "reserveberegning/pa_res_ba_01/panda_administrasjonspremieunderlag",
+          "maksLevetidDager": "${5år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.1.3 Tidslinjehendelser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "reserveberegning/pa_res_ba_01/panda_tidslinjehendelser",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.1.4 Rettighet og ytelser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "reserveberegning/pa_res_ba_01/panda-testdata-rettighet-ytelser",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.1.5 Poliser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "reserveberegning/pa_res_ba_01/panda-poliser",
+          "maksLevetidDager": "",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": true
+        }
+      ]
+    },
+    {
+      "navn": "3.2.2.1 Pensjonsgivende lønn",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "reserveberegning/pa_res_ba_03/panda_pensjonsgivende_loenn",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.2.2 Pensjonsgivende månedslønn",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_05/generer_pensjonsgivende_maanedsloenn",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.2.3 Pensjonsgivende månedslønn endringer",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_03/pensjonsgivende_maanedsloenn_differanser",
+          "maksLevetidDager": "",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": true
+        }
+      ]
+    },
+    {
+      "navn": "3.2.3 Flett feilende medlemmer og kontoføringer",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_11/flette_feilende_medlemmer",
+          "maksLevetidDager": "",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": true
+        }
+      ]
+    },
+    {
+      "navn": "3.2.4 Reserveoppbygging",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_03/reserveoppbygging",
+          "maksLevetidDager": "",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": true
+        }
+      ]
+    },
+    {
+      "navn": "3.2.5 Premiedifferanser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_13/generer_fakturerbare_premiedifferanser",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.6 Reserveaggregering for medlem",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_02/reserveaggregering_for_medlem",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.7 Totalreserve",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_12/pa_fak_ba_02/reserveaggregering_for_medlem",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.8 Administrasjonspremier",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_05/generer_administrasjonspremier",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.9.1 Reserveoppbygging",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/generer_reserveoppbygging_dataunderlag",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.9.2 Flettede kontoføringer",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/generer_kontofoeringunderlag",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.9.3 Feilmeldinger",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/feilmelding_dataunderlag",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.9.4 Administrasjonspremieunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/generer_administrasjonspremieunderlag_dataunderlag",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.9.5 Administrasjonspremie",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/generer_administrasjonspremie_dataunderlag",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.9.6 Beriket tidslinjehendelser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/generer_beriket_tidslinjehendelser",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.9.7 Pensjonsgivende lønn",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/pensjonsgivende_loenn_dataunderlag",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.2.9.8 Pensjonsgivende lønn endringer",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/pensjonsgivende_maanedsloenn_differanser_dataunderlag",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3 Arkivert fra premiemodeller",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_14/aktuar",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3 Arkivert fra premiemodeller",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/aktuar",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.1.1 Premiefilter",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_14/premiefiltrering_for_hbf_stat",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.1.2 Fakturaunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_for_hbf_stat",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.1.3 Agressofil",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_for_hbf_stat",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.2.1 Premiefilter",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_14/premie_for_hbf_as_asa",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.2.2 Fakturaunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_fra_avtale",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.2.3 Agressofil",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_for_hbf_as_asa",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.1 Premiefilter",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_14/premiefiltrering_for_hbf_fls",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.2 Reservetransaksjonsdifferanser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_02/aggreger_reservetransaksjonsdifferanser_hbf_fls",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.3 Nøkkelunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_08/generer_noekkelunderlag",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.4 Faktiskepremier",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_08/aggreger_faktiske_premier",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.5 Premiefellesskap utjevning faktisk premie",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_06/premiefellesskap_utjevning_faktisk_premie",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.6 Premiefellesskap utjevning aggregert prognosepremie",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_06/premiefellesskap_utjevning_aggregert_prognosepremie",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.7 Fakturaunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_for_hbf_fls",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.8 Agressofil",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_for_hbf_fls",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.9 Løpende premieoppgjør",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_07/beregn_lopende_premieoppgjoer",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.10 Generer løpende premieoppgjør dataunderlag",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_09/generer_loepende_premieoppgjoer_dataunderlag",
+          "maksLevetidDager": "${3mnd}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.11 Sammenstill premieoppgjør",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_10/sammenstill_premieoppgjor",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.3.12 Generer agressofil årlig premieoppgjør",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.4.1 Premiefellesskap utjevning aggregert prognosepremie varsling",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_06/premiefellesskap_utjevning_aggregert_prognosepremie_varsling",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.5.1 Premiefiltrering for hbf Øvrige",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_14/premiefiltrering_for_hbf_ovrige",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.5.2 Generer fakturaunderlag for hbf Øvrige",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_for_hbf_ovrige",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.5.3 Generer agressofil for hbf Øvrige",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_for_hbf_ovrige",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.6.1 Premiefiltrering for POA AFP Frittstående",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_14/premiefiltrering_for_poa_afp_frittstaaende",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.6.2 Aggreger reservetransaksjonsdifferanser POA Frittstående",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_02/aggreger_reservetransaksjonsdifferanser_poa_frittstaaende",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.6.3 Generer nøkkelunderlag POA AFP Frittstående",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_08/generer_noekkelunderlag_poa_afp_frittstaaende",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.6.4 Aggreger nøkkler POA AFP Frittstående",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_08/aggreger_noekler_poa_afp_frittstaaende",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.6.5 Premiefellesskap utjevning POA AFP Frittstående",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_06/premiefellesskap_utjevning_poa_afp_frittstaaende",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.6.6 Generer fakturaunderlag POA AFP Frittstående",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_poa_afp_frittstaaende",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.6.7 Generer agressofil POA AFP Frittstående",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_poa_afp_frittstaaende",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.7.1 Premiefiltrering for POA AFP Kjeder",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_14/premiefiltrering_for_poa_afp_kjeder",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.7.2 Generer fakturaunderlag POA AFP Kjeder",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_for_poa_afp_kjeder",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.7.3 Generer agressofil POA AFP Kjeder",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_poa_afp_kjeder",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.8.1 Satsendring for POA PEN",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_15/satsendring_poa_pen",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.8.2 Generer POA PEN Premier",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_15/generer_poa_pen_premier",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.8.3 Generer fakturaunderlag POA PEN",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_for_poa_pen",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.8.4 Generer agressofil POA PEN",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_poa_pen",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.9.1 Premiefiltrering for Tjenestemannsorg",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_14/premiefiltrering_for_tjenestemannsorg",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.9.2 Generer administrasjonspremieunderlag for fakturering",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_05/generer_administrasjonspremieunderlag_for_fakturering",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.9.3 Generer medlemsandel Tjenestemanssorg",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_05/generer_medlemsandel_tjenestemannsorg",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.9.4 Generer fakturaunderlag for Tjenestemannsorg",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_for_tjenestemannsorg",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.9.5 Generer agressofil for Tjenestemannsorg",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_for_tjenestemannsorg",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.10.1 Generer fakturaunderlag for Tjenestemannsorg arbeidsgiverandel",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_fakturaunderlag_for_tjenestemannsorg_arbeidsgiverandel",
+          "maksLevetidDager": "${2år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    },
+    {
+      "navn": "3.3.9.2 Generer agressofil for tjenestemannsorg arbeidsgiverandel",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "slett_foreldede_filer_arkiv",
+          "arkivområde": "fakturering/pa_fak_ba_04/generer_agressofil_for_tjenestemannsorg_arbeidsgiverandel",
+          "maksLevetidDager": "${10år}",
+          "testkjøring": "${erTestkjøring}",
+          "ignorertInstruksjon": false
+        }
+      ]
+    }
+  ]
+}
