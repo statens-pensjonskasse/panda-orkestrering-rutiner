@@ -1,7 +1,7 @@
 {
   "navn": "Systemkorreksjons som sammenlikner eksisterende versjon av panda ${første_versjon_reserveberegning} mot ny kjøring av panda med versjon ${andre_versjon_reserveberegning}, begge på samme fremskrivingsdato ${fremskrivingsDato}",
   "metainfo": {
-    "mal": "maler/fakturering/systemkorreksjon.json",
+    "mal": "maler/fakturering/systemkorreksjon/systemkorreksjon_med_eksisterende_forste_versjon.json",
     "tags": ["systemkorreksjon"],
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

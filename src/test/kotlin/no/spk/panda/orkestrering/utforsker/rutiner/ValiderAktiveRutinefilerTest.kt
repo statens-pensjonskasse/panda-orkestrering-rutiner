@@ -35,7 +35,7 @@ class ValiderAktiveRutinefilerTest {
             .hasSize(0)
     }
     private fun hbfFlsMaler(): Stream<File> {
-        val katalog = File("maler/fakturering/hbf_fls_2_0")
+        val katalog = File("maler/fakturering/hbf_fls")
         return hentAlleJsonFiler(katalog).stream()
     }
 
@@ -139,7 +139,6 @@ class ValiderAktiveRutinefilerTest {
         return hentAlleJsonFiler(katalog).stream()
     }
 
-
     @Test
     fun `skal validere månedskjøringen`() {
         val månedskjøring = File("maler/fakturering/maanedlig_analyseunderlag_og_premiedifferanser.json")
@@ -149,13 +148,16 @@ class ValiderAktiveRutinefilerTest {
             .hasSize(0)
     }
 
-    @Test
-    fun `skal validere systemkorreksjon`() {
-        val månedskjøring = File("maler/fakturering/systemkorreksjon.json")
-
-        assertThat(validerJsonSkjema(rutinefilSkjema, månedskjøring.readText()))
-            .`as`("Ved validering av ${månedskjøring.path}")
+    @ParameterizedTest
+    @MethodSource("systemkorreksjonMaler")
+    fun `skal validere alle maler for systemkorreksjon`(fil: File) {
+        assertThat(validerJsonSkjema(rutinefilSkjema, fil.readText()))
+            .`as`("Ved validering av ${fil.path}")
             .hasSize(0)
     }
 
+    private fun systemkorreksjonMaler(): Stream<File> {
+        val katalog = File("maler/systemkorreksjon")
+        return hentAlleJsonFiler(katalog).stream()
+    }
 }

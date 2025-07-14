@@ -2,7 +2,7 @@
   "navn": "Agresso HBF FLS sluttfaktura termin ${termin}",
   "gyldigVersjon": "0.0.9",
   "metainfo": {
-    "mal": "maler/fakturering/hbf_fls_2_0/send_agressofil_fls_sluttfaktura.json",
+    "mal": "maler/fakturering/hbf_fls/send_agressofil_fls_sluttfaktura.json",
     "tags": ["fakturering", "agresso"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"

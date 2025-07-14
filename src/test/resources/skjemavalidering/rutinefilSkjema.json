@@ -28,7 +28,9 @@
               "aktuar",
               "agresso",
               "dvh",
-              "vedlikehold"
+              "vedlikehold",
+              "sluttfaktura",
+              "avregning"
             ]
           }
         },
