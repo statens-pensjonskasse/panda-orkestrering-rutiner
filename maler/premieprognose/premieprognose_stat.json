@@ -17,6 +17,16 @@
     "avtalelisteChecksum": "<avtalelisteChecksum>",
     "administrasjonspremieForSisteBokføringsperiode": "<periode>",
     "bokføringsperioderEndringspremier": "<perioder>",
+    "prognosejusteringChecksum": "<prognosejusteringChecksum>",
+    "ignorerPrognosejusteringInstruksjon": ",<true|false>",
+    "opprettNyAvtaleChecksum": "<opprettNyAvtaleChecksum>",
+    "ignorerOpprettNyAvtaleInstruksjon": ",<true|false>",
+    "opprettAvtalebytteChecksum": "<opprettAvtalebytteChecksum>",
+    "ignorerOpprettAvtalebytteInstruksjon": ",<true|false>",
+    "opprettAvtalebytteMedlemChecksum": "<opprettAvtalebytteMedlemChecksum>",
+    "ignorerOpprettAvtalebytteMedlemInstruksjon": ",<true|false>",
+    "opprettSluttmeldingChecksum": "<opprettSluttmeldingChecksum>",
+    "ignorerOpprettSluttmeldingInstruksjon": ",<true|false>",
     "paPreBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>",
     "paResBa01Versjon": "<X.Y.Z>",
@@ -121,6 +131,39 @@
           "periode": "${avtalelisteChecksum}",
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_pre_ba_01"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "premieprognose",
+          "periode": "opprett_ny_avtale",
+          "prognoseVersjon": "${opprettNyAvtaleChecksum}",
+          "batch": "pa_pre_ba_01",
+          "ignorertInstruksjon": "${ignorerOpprettNyAvtaleInstruksjon}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "premieprognose",
+          "periode": "opprett_avtalebytte",
+          "prognoseVersjon": "${opprettAvtalebytteChecksum}",
+          "batch": "pa_pre_ba_01",
+          "ignorertInstruksjon": "${ignorerOpprettAvtalebytteInstruksjon}"
+
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "premieprognose",
+          "periode": "opprett_avtalebytte_medlem",
+          "prognoseVersjon": "${opprettAvtalebytteMedlemChecksum}",
+          "batch": "pa_pre_ba_01",
+          "ignorertInstruksjon": "${ignorerOpprettAvtalebytteMedlemInstruksjon}"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "premieprognose",
+          "periode": "opprett_sluttmelding",
+          "prognoseVersjon": "${opprettSluttmeldingChecksum}",
+          "batch": "pa_pre_ba_01",
+          "ignorertInstruksjon": "${ignorerOpprettSluttmeldingInstruksjon}"
         },
         {
           "handling": "pa_pre_ba_01",
@@ -355,8 +398,8 @@
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
           "premiemodell": "premieprognose",
-          "periode": "${prognosejusteringChecksum}",
-          "prognoseVersjon": "prognosejustering",
+          "periode": "prognosejustering",
+          "prognoseVersjon": "${prognosejusteringChecksum}",
           "batch": "pa_pre_ba_02",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "ignorertInstruksjon": "${ignorerPrognosejusteringInstruksjon}"
