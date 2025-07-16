@@ -157,7 +157,7 @@ class ValiderAktiveRutinefilerTest {
     }
 
     private fun systemkorreksjonMaler(): Stream<File> {
-        val katalog = File("maler/systemkorreksjon")
+        val katalog = File("maler/fakturering/systemkorreksjon")
         return hentAlleJsonFiler(katalog).stream()
     }
 }
