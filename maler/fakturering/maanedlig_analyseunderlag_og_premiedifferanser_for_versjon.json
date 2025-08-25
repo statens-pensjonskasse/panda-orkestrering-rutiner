@@ -158,13 +158,6 @@
               "rettighet": "${rettighet}"
             },
             {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "rettighet_ytelser_for_dvh",
-              "filListe": "RETTIGHET_YTELSE_FILLISTE.txt",
-              "batch": "pa_res_ba_01",
-              "filstiHosDVH": "/rettighet_ytelse"
-            },
-            {
               "handling": "arkiver_all_batch_output",
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -194,13 +187,6 @@
               "modus": "panda-poliser",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
               "grunnlagsdataMappe": "${grunnlagsdataFremskriving}"
-            },
-            {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "poliser",
-              "filListe": "POLISE_FILLISTE.txt",
-              "batch": "pa_res_ba_01",
-              "filstiHosDVH": "/polise"
             },
             {
               "handling": "arkiver_all_batch_output",
@@ -622,13 +608,6 @@
               "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}"
             },
             {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "reserveoppbygging_dataunderlag",
-              "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/reserveoppbygging"
-            },
-            {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "reserveoppbygging_dataunderlag",
@@ -673,13 +652,6 @@
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "generer_kontofoeringunderlag/${fremskrivingsDato}"
-            },
-            {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "kontofoeringunderlag",
-              "filListe": "KONTOFOERING_FILLISTE.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/kontofoering"
             },
             {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
@@ -732,13 +704,6 @@
               "nøkkel": "feilmelding_dataunderlag/${fremskrivingsDato}"
             },
             {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "feilmelding_dataunderlag",
-              "filListe": "FEILENDE_MEDLEM_FILLISTE.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/feilende_medlemmer"
-            },
-            {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "feilmelding_dataunderlag",
@@ -788,13 +753,6 @@
               "nøkkel": "generer_administrasjonspremieunderlag_dataunderlag/${fremskrivingsDato}"
             },
             {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "administrasjonspremieunderlag_dataunderlag",
-              "filListe": "ADMINISTRASJONSPREMIEUNDERLAG_FILLISTE.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/administrasjonspremieunderlag"
-            },
-            {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "administrasjonspremieunderlag_dataunderlag",
@@ -837,13 +795,6 @@
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "generer_administrasjonspremie_dataunderlag/${periode}"
-            },
-            {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "administrasjonspremie_dataunderlag",
-              "filListe": "ADMINISTRASJONSPREMIE_FILLISTE.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/administrasjonspremie"
             },
             {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
@@ -895,13 +846,6 @@
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "generer_beriket_tidslinjehendelser/${fremskrivingsDato}"
-            },
-            {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "tidslinjehendelser_dataunderlag",
-              "filListe": "TIDSLINJEHENDELSER_FILLISTE.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/tidslinjehendelser"
             },
             {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",

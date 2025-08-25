@@ -125,7 +125,7 @@
           "batchFra": "pa_fak_ba_11",
           "batchTil": "pa_fak_ba_11",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}",
+          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/versjon_${paResBa01Versjon}",
           "kommentar": "Henter fra siste grunnlagsdatamappe"
         },
         {
@@ -169,7 +169,7 @@
           "batchFra": "pa_fak_ba_11",
           "batchTil": "pa_fak_ba_03",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/fremskriving_${paResBa01Versjon}",
+          "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/versjon_${paResBa01Versjon}",
           "kommentar": "Henter fra siste grunnlagsdatamappe"
         },
         {
@@ -235,13 +235,6 @@
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/fremskriving_${paResBa01Versjon}"
-            },
-            {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "reserveoppbygging_dataunderlag",
-              "filListe": "RESERVEOPPBYGGING_FILLISTE.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/reserveoppbygging"
             },
             {
               "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
