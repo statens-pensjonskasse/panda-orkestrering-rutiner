@@ -247,7 +247,7 @@
           "modus": "generer_fakturaunderlag_for_poa_afp_kjeder",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
-          "premiemodell": "POA_AFP",
+          "premiemodell": "POA_AFP_KJEDER",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -262,7 +262,7 @@
           "modus": "generer_agressofil_poa_afp_kjeder",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
-          "premiemodell": "POA_AFP",
+          "premiemodell": "POA_AFP_KJEDER",
           "validerFeilendeMedlemmer": true
         },
         {

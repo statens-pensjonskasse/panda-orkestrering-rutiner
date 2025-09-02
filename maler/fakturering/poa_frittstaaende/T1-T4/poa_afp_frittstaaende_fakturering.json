@@ -737,7 +737,7 @@
           "modus": "generer_fakturaunderlag_poa_afp_frittstaaende",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
-          "premiemodell": "POA_AFP",
+          "premiemodell": "POA_AFP_FRITTSTÅENDE",
           "validerFeilendeMedlemmer": true
         },
         {
@@ -752,7 +752,7 @@
           "modus": "generer_agressofil_poa_afp_frittstaaende",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "termin": "${termin}",
-          "premiemodell": "POA_AFP",
+          "premiemodell": "POA_AFP_FRITTSTÅENDE",
           "validerFeilendeMedlemmer": true
         },
         {
