@@ -1,5 +1,5 @@
 {
-  "navn": "Månedskjøring for periode ${periode} med siste fremskrivingsdato ${fremskrivingsDato}",
+  "navn": "Månedskjøring for versjonsendring, fremskriving og bestandsendring for periode ${periode} med siste fremskrivingsdato ${fremskrivingsDato}",
   "metainfo": {
     "mal": "maler/fakturering/maanedlig_analyseunderlag_og_premiedifferanser_versjonsisolering.json",
     "tags": [
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "navn": "kjøring fremskriving i tid",
+      "navn": "Kjøring fremskriving og bestandsendring",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -112,7 +112,7 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/fremskriving_${paResBa01Versjon}"
+                  "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}"
                 }
               ]
             },
@@ -136,7 +136,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/fremskriving_${paResBa01Versjon}",
+              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -145,7 +145,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/fremskriving_${paResBa01Versjon}",
+              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -154,7 +154,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/versjon_${paResBa01Versjon}",
+              "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/versjonsendring_${forrigePaResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -176,7 +176,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_11",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/fremskriving_${paResBa01Versjon}"
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -198,7 +198,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/versjon_${paResBa01Versjon}",
+              "nøkkel": "flette_feilende_medlemmer/${forrigeFremskrivingsDato}/versjonsendring_${forrigePaResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -207,7 +207,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/fremskriving_${paResBa01Versjon}",
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -223,7 +223,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_03",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveoppbygging/${periode}/fremskriving_${paResBa01Versjon}"
+              "nøkkel": "reserveoppbygging/${periode}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -249,7 +249,7 @@
                   "batchFra": "pa_fak_ba_03",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "reserveoppbygging/${periode}/fremskriving_${paResBa01Versjon}"
+                  "nøkkel": "reserveoppbygging/${periode}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -263,7 +263,7 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_fak_ba_09",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/fremskriving_${paResBa01Versjon}"
+                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}"
                 }
               ]
             }
@@ -272,7 +272,7 @@
       ]
     },
     {
-      "navn": "Kjøring med ny versjon",
+      "navn": "Kjøring versjonsendring",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -317,7 +317,7 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/versjon_${paResBa01Versjon}"
+                  "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/versjonsendring_${paResBa01Versjon}"
                 }
               ]
             },
@@ -561,7 +561,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/versjon_${paResBa01Versjon}",
+              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/versjonsendring_${paResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -570,7 +570,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/versjon_${paResBa01Versjon}",
+              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/versjonsendring_${paResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -579,7 +579,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/fremskriving_${forrigePaResBa01Versjon}",
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -601,7 +601,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_11",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/versjon_${paResBa01Versjon}"
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/versjonsendring_${paResBa01Versjon}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -623,7 +623,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/fremskriving_${forrigePaResBa01Versjon}",
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -632,7 +632,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/versjon_${paResBa01Versjon}",
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/versjonsendring_${paResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -648,7 +648,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_03",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveoppbygging/${periode}/versjon_${paResBa01Versjon}"
+              "nøkkel": "reserveoppbygging/${periode}/versjonsendring_${paResBa01Versjon}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -670,7 +670,7 @@
               "batchFra": "pa_fak_ba_03",
               "batchTil": "pa_fak_ba_13",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveoppbygging/${periode}/versjon_${paResBa01Versjon}"
+              "nøkkel": "reserveoppbygging/${periode}/versjonsendring_${paResBa01Versjon}"
             },
             {
               "handling": "pa_fak_ba_13",
@@ -700,7 +700,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}",
+              "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/versjonsendring_${paResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -804,7 +804,7 @@
                   "batchFra": "pa_fak_ba_03",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "reserveoppbygging/${periode}/versjon_${paResBa01Versjon}"
+                  "nøkkel": "reserveoppbygging/${periode}/versjonsendring_${paResBa01Versjon}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -818,13 +818,13 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_fak_ba_09",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/versjon_${paResBa01Versjon}"
+                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/versjonsendring_${paResBa01Versjon}"
                 },
                 {
                   "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "reserveoppbygging_dataunderlag",
-                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/fremskriving_${paResBa01Versjon}",
+                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/fremskriving_og_bestandsendring_${paResBa01Versjon}",
                   "kjøringsId": "reserveoppbygging-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}"
                 },
@@ -832,7 +832,7 @@
                   "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "reserveoppbygging_dataunderlag",
-                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/versjon_${paResBa01Versjon}",
+                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/versjonsendring_${paResBa01Versjon}",
                   "kjøringsId": "reserveoppbygging-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}"
                 },
@@ -857,7 +857,7 @@
                   "batchFra": "pa_fak_ba_11",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}",
+                  "nøkkel": "flette_feilende_medlemmer/${fremskrivingsDato}/versjonsendring_${paResBa01Versjon}",
                   "kommentar": "Henter fra siste grunnlagsdatamappe"
                 },
                 {
@@ -907,7 +907,7 @@
                   "batchFra": "pa_res_ba_01",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/versjon_${paResBa01Versjon}"
+                  "nøkkel": "panda_reserveberegning/${fremskrivingsDato}/versjonsendring_${paResBa01Versjon}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
