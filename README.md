@@ -18,4 +18,4 @@ Maler som brukes i ulike leveranser:
 * [rutiner for test](maler/fakturering/rutinefiler_for_test) inneholder nyttige rutiner som kan brukes i/til test 
 
 # Bidrag 
-For å bidra til prosjektet eller for å melde inn feil se [offentlig kode i SPK](https://github.com/statens-pensjonskasse/offentlig).
+For å bidra til prosjektet eller for å melde inn feil se [offentlig kode i SPK](https://github.com/statens-pensjonskasse/.github).
