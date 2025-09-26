@@ -1,4 +1,4 @@
-name: Build and Publish Library with Maven
+name: Kjør integritetstester for rutinefiler
 
 on:
   push:
@@ -6,14 +6,18 @@ on:
 
 jobs:
   build:
-    uses: statens-pensjonskasse/github-actions-library/.github/workflows/build-library-maven.yaml@a00c5981b61673992de3cde9f95f1f8be30ca0eb # v1.37.3
-    permissions:
-      contents: write
-      packages: write
-    secrets: inherit
-    with:
-      java-version: 21
-      slack-channel: '#panda-ci'
-      slack-bot-name: "GH-Actions CI"
-      slack-bot-icon: ':panda_face:'
-      publish-artifacts: false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Kjør tester fra maven
+        run: mvn -B clean test
