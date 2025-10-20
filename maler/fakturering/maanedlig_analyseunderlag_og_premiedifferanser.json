@@ -607,7 +607,7 @@
             },
             {
               "handling": "pa_fak_ba_09",
-              "modus": "generer_reserveoppbygging_dataunderlag",
+              "modus": "generer_reserveoppbygging_dataunderlag_on_prem",
               "kjøringsId": "#{genererUUID}",
               "uttrekksdato": "${uttrekksdato}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
