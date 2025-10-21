@@ -1,10 +1,10 @@
 {
   "navn": "Månedskjøring for versjonsendring, fremskriving og bestandsendring for periode ${periode} med siste fremskrivingsdato ${fremskrivingsDato}",
   "metainfo": {
-    "mal": "maler/fakturering/maanedlig_analyseunderlag_og_premiedifferanser_versjonsisolering.json",
+    "mal": "maler/fakturering/to-stegs_maanedlig_analyseunderlag_og_premiedifferanser.json",
     "tags": [
-      "månedskjøring",
-      "versjonsisolering"
+      "to-steg",
+      "månedskjøring"
     ],
     "støttetAvPaOrkBa01FraVersjon": "1.0.11"
   },
