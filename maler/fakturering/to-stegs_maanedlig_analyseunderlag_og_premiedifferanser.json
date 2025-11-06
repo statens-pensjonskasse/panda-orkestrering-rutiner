@@ -170,6 +170,7 @@
               "modus": "flette_feilende_medlemmer",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "reserveberegningVersjon": "${forrigePaResBa01Versjon}",
+              "flettetFremskrivingsdato": "${fremskrivingsDato}",
               "validerFeilendeMedlemmer": true
             },
             {
@@ -450,6 +451,14 @@
               "nøkkel": "panda-poliser/${fremskrivingsDato}/to-steg"
             },
             {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${fremskrivingsDato}"
+            },
+            {
               "handling": "pa_res_ba_03",
               "modus": "panda_pensjonsgivende_loenn",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
@@ -595,6 +604,7 @@
               "modus": "flette_feilende_medlemmer",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "reserveberegningVersjon": "${paResBa01Versjon}",
+              "flettetFremskrivingsdato": "${fremskrivingsDato}",
               "validerFeilendeMedlemmer": true
             },
             {
