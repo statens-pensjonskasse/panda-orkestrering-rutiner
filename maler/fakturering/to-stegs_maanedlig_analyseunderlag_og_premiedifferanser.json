@@ -451,6 +451,14 @@
               "nøkkel": "panda-poliser/${fremskrivingsDato}"
             },
             {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${fremskrivingsDato}"
+            },
+            {
               "handling": "pa_res_ba_03",
               "modus": "panda_pensjonsgivende_loenn",
               "sisteFremskrivingsdato": "${fremskrivingsDato}",
