@@ -170,6 +170,7 @@
               "modus": "flette_feilende_medlemmer",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "reserveberegningVersjon": "${forrigePaResBa01Versjon}",
+              "flettetFremskrivingsdato": "${fremskrivingsDato}",
               "validerFeilendeMedlemmer": true
             },
             {
@@ -595,6 +596,7 @@
               "modus": "flette_feilende_medlemmer",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "reserveberegningVersjon": "${paResBa01Versjon}",
+              "flettetFremskrivingsdato": "${fremskrivingsDato}",
               "validerFeilendeMedlemmer": true
             },
             {
