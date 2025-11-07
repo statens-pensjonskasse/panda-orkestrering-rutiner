@@ -1,5 +1,5 @@
 {
-  "navn": "To-stegs månedskjøring for versjonsendring, fremskriving og bestandsendring for periode ${periode} med siste fremskrivingsdato ${fremskrivingsDato}",
+  "navn": "Ad-hoc første kjøring av to-stegs månedskjøring for versjonsendring, fremskriving og bestandsendring for periode ${periode} med siste fremskrivingsdato ${fremskrivingsDato}",
   "metainfo": {
     "mal": "maler/fakturering/ad_hoc/to-stegs_maanedlig_analyseunderlag_og_premiedifferanser.json",
     "tags": [
