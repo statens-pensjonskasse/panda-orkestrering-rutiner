@@ -236,10 +236,10 @@
                   "validerFeilendeMedlemmer": true
                 },
                 {
-                  "handling": "arkiver_all_batch_output",
-                  "batch": "pa_fak_ba_09",
-                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}"
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster",
+                  "fraBatch": "pa_fak_ba_09",
+                  "filPrefix": "reserveoppbygging_dataunderlag",
+                  "kjøringsId": "reserveoppbygging-${skyopplasterId}"
                 }
               ]
             }
@@ -442,26 +442,10 @@
                   "validerFeilendeMedlemmer": true
                 },
                 {
-                  "handling": "arkiver_all_batch_output",
-                  "batch": "pa_fak_ba_09",
-                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/versjonsendring_${paResBa01Versjon}"
-                },
-                {
-                  "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
+                  "handling": "kopier_filer_fra_batch_til_skyopplaster",
                   "fraBatch": "pa_fak_ba_09",
                   "filPrefix": "reserveoppbygging_dataunderlag",
-                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}",
-                  "kjøringsId": "reserveoppbygging-${skyopplasterId}",
-                  "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-                },
-                {
-                  "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
-                  "fraBatch": "pa_fak_ba_09",
-                  "filPrefix": "reserveoppbygging_dataunderlag",
-                  "nøkkel": "generer_reserveoppbygging_dataunderlag/${periode}/versjonsendring_${paResBa01Versjon}",
-                  "kjøringsId": "reserveoppbygging-${skyopplasterId}",
-                  "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+                  "kjøringsId": "reserveoppbygging-${skyopplasterId}"
                 },
                 {
                   "handling": "opprett_bestilling_til_skyopplaster",
