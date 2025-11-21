@@ -1,0 +1,36 @@
+{
+  "navn": "Henter kjøreinformasjon for reserveberegning og last opp til panda analyse (${orkestreringUtKatalog})",
+  "metainfo": {
+    "mal": "maler/reserveberegning/metaopplaster_kjoeringer_reserveberegning.json",
+    "tags": ["eksport"],
+    "støttetAvPaOrkBa01FraVersjon": "1.4.3"
+  },
+  "variabler": {
+    "orkestreringUtKatalog": "orkestrering_2025-11-03_13-40-13-46",
+    "paOrkBa05Versjon": "0.0.4"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_ork_ba_05",
+          "versjon": "${paOrkBa05Versjon}"
+        }
+      ]
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_ork_ba_05"
+    },
+    {
+      "handling": "kopier_pa_ork_ba_01_til_pa_ork_ba_05",
+      "orkestreringUtKatalog": "${orkestreringUtKatalog}"
+    },
+    {
+      "handling": "pa_ork_ba_05",
+      "program": "kjøringer",
+      "operasjon": "pa_res_ba_01"
+    }
+  ]
+}
