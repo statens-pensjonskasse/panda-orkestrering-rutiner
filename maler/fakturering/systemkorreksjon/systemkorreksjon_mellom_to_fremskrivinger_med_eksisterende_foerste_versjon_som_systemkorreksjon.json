@@ -133,6 +133,7 @@
               "modus": "flette_feilende_medlemmer",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "reserveberegningVersjon": "${andre_versjon_reserveberegning}",
+              "flettetFremskrivingsdato": "${fremskrivingsDato}",
               "validerFeilendeMedlemmer": true
             },
             {

@@ -147,6 +147,7 @@
               "modus": "flette_feilende_medlemmer",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "reserveberegningVersjon": "${første_versjon_reserveberegning}",
+              "flettetFremskrivingsdato": "${fremskrivingsDato}",
               "validerFeilendeMedlemmer": true,
               "ignorertInstruksjon": "${første_versjon_finnes_i_arkiv}"
             },
@@ -262,6 +263,7 @@
               "modus": "flette_feilende_medlemmer",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "reserveberegningVersjon": "${andre_versjon_reserveberegning}",
+              "flettetFremskrivingsdato": "${fremskrivingsDato}",
               "validerFeilendeMedlemmer": true
             },
             {
