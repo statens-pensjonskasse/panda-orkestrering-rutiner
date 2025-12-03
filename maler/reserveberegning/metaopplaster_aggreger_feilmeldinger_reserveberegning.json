@@ -6,12 +6,12 @@
     "støttetAvPaOrkBa01FraVersjon": "1.4.2"
   },
   "variabler": {
-    "arkivområde": "panda_reserveberegning/2025.11.01",
-    "grunnlagsdataMappeFeilmeldinger": "grunnlagsdata_2025-11-01_21-15-24-64",
+    "arkivområde": "panda_reserveberegning/<yyyy.MM.dd>",
+    "grunnlagsdataMappeFeilmeldinger": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "databaseKilde": "pa_res_ba_01",
-    "databaseSisteFremskrivingsdato": "2025-11-01",
+    "databaseSisteFremskrivingsdato": "<yyyy.MM.dd>",
     "paFakBa12Versjon": "1.0.13",
-    "paOrkBa05Versjon": "0.0.2"
+    "paOrkBa05Versjon": "0.0.6"
   },
   "operasjoner": [
     {
