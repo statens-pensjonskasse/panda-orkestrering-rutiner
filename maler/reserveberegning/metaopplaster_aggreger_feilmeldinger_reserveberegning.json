@@ -1,0 +1,71 @@
+{
+  "navn": "Aggreger feilmeldinger for reserveberegning og last opp til panda analyse (${databaseSisteFremskrivingsdato})",
+  "metainfo": {
+    "mal": "maler/reserveberegning/metaopplaster_aggreger_feilmeldinger_reserveberegning.json",
+    "tags": ["eksport"],
+    "støttetAvPaOrkBa01FraVersjon": "1.4.2"
+  },
+  "variabler": {
+    "arkivområde": "panda_reserveberegning/<yyyy.MM.dd>",
+    "grunnlagsdataMappeFeilmeldinger": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
+    "databaseKilde": "pa_res_ba_01",
+    "databaseSisteFremskrivingsdato": "<yyyy.MM.dd>",
+    "paFakBa12Versjon": "1.0.13",
+    "paOrkBa05Versjon": "0.0.6"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_12",
+          "versjon": "${paFakBa12Versjon}"
+        },
+        {
+          "navn": "pa_ork_ba_05",
+          "versjon": "${paOrkBa05Versjon}"
+        }
+      ]
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_12"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_ork_ba_05"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "feilmeldinger",
+      "batchFra": "pa_res_ba_01",
+      "batchTil": "pa_fak_ba_12",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappeFeilmeldinger}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappeFeilmeldinger}",
+      "nøkkel": "${arkivområde}",
+      "feilHvisFilMangler": true
+    },
+    {
+      "handling": "pa_fak_ba_12",
+      "grunnlagsdataMappe": "${grunnlagsdataMappeFeilmeldinger}",
+      "modus": "aggreger_csv",
+      "filnavn": "feilmelding",
+      "utFilnavn": "feilmeldinger_aggregert",
+      "grupperingsfelter": 3,
+      "skalTelleAntallGruppert": true
+    },
+    {
+      "handling": "kopier_filer_fra_batch_til_batch",
+      "filPrefix": "feilmeldinger_aggregert",
+      "fraBatch": "pa_fak_ba_12",
+      "tilBatch": "pa_ork_ba_05",
+      "kopierFraTidsserieKatalog": false
+    },
+    {
+      "handling": "pa_ork_ba_05",
+      "program": "aggregerte_feilmeldinger",
+      "kilde": "${databaseKilde}",
+      "sisteFremskrivingsdato": "${databaseSisteFremskrivingsdato}"
+    }
+  ]
+}
