@@ -1210,7 +1210,6 @@
             },
             {
               "handling": "arkiver_all_batch_output",
-              "filnavn": "premieoppgjoer_dataunderlag_medlem",
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
