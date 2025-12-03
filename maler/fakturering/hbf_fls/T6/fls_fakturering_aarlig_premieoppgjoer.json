@@ -1209,6 +1209,12 @@
               "filstiHosDVH": "hbf_fls/premieoppgjoer/medlem"
             },
             {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "premieoppgjoer_dataunderlag_for_medlem/${inneværendeÅr}"
+            },
+            {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
             }
