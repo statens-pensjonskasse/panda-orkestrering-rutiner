@@ -24,8 +24,7 @@
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa11Versjon": "<X.Y.Z>",
     "paFakBa12Versjon": "<X.Y.Z>",
-    "paFakBa13Versjon": "<X.Y.Z>",
-    "paOrkBa05Versjon": "<X.Y.Z>"
+    "paFakBa13Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -66,10 +65,6 @@
         {
           "navn": "pa_fak_ba_13",
           "versjon": "${paFakBa13Versjon}"
-        },
-        {
-          "navn": "pa_ork_ba_05",
-          "versjon": "${paOrkBa05Versjon}"
         }
       ]
     },
@@ -698,76 +693,6 @@
             {
               "handling": "rydd_grunnlagsdata_for_batch",
               "batch": "pa_fak_ba_09"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "navn": "Metaopplaster",
-      "handling": "gruppe",
-      "gruppeAv": [
-        {
-          "navn": "Metaopplaster - aggregerte feilmeldinger",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_12"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "feilmeldinger",
-              "batchFra": "pa_res_ba_01",
-              "batchTil": "pa_fak_ba_12",
-              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_reserveberegning/${fremskrivingsDato}",
-              "feilHvisFilMangler": true
-            },
-            {
-              "handling": "pa_fak_ba_12",
-              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "modus": "aggreger_csv",
-              "filnavn": "feilmelding",
-              "utFilnavn": "feilmeldinger_aggregert",
-              "grupperingsfelter": 3,
-              "skalTelleAntallGruppert": true
-            },
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_ork_ba_05"
-            },
-            {
-              "handling": "kopier_filer_fra_batch_til_batch",
-              "filPrefix": "feilmeldinger_aggregert",
-              "fraBatch": "pa_fak_ba_12",
-              "tilBatch": "pa_ork_ba_05",
-              "kopierFraTidsserieKatalog": false
-            },
-            {
-              "handling": "pa_ork_ba_05",
-              "program": "aggregerte_feilmeldinger",
-              "kilde": "pa_res_ba_01",
-              "sisteFremskrivingsdato": "${fremskrivingsDato}"
-            }
-          ]
-        },
-        {
-          "navn": "Metaopplaster - kjøringer (pa_res_ba_01)",
-          "handling": "gruppe",
-          "gruppeAv": [
-            {
-              "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_ork_ba_05"
-            },
-            {
-              "handling": "kopier_pa_ork_ba_01_til_pa_ork_ba_05"
-            },
-            {
-              "handling": "pa_ork_ba_05",
-              "program": "kjøringer",
-              "operasjon": "pa_res_ba_01"
             }
           ]
         }
