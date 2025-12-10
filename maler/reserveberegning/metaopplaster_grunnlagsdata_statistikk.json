@@ -1,0 +1,66 @@
+{
+  "navn": "Generer statistikk over medlemsdata for uttrekksdato ${uttreksdato}",
+  "metainfo": {
+    "mal": "maler/reserveberegning/metaopplaster_grunnlagsdata_statistikk.json",
+    "tags": ["eksport"],
+    "støttetAvPaOrkBa01FraVersjon": "1.4.2"
+  },
+  "variabler": {
+    "uttreksdato": "<yyyy.MM.dd>",
+    "grunnlagsdataMappe": "grunnlagsdata_2025-11-06_15-03-41-75",
+    "paFakBa12Versjon": "1.0.13",
+    "paOrkBa05Versjon": "0.0.5"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_12",
+          "versjon": "${paFakBa12Versjon}"
+        },
+        {
+          "navn": "pa_ork_ba_05",
+          "versjon": "${paOrkBa05Versjon}"
+        }
+      ]
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_fak_ba_12"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_ork_ba_05"
+    },
+    {
+      "handling": "kopier_fra_arkiv_til_batch",
+      "filnavn": "medlemsdata",
+      "batchFra": "pa_res_ba_02",
+      "batchTil": "pa_fak_ba_12",
+      "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+      "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "pa_fak_ba_12",
+      "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+      "modus": "aggreger_csv",
+      "filnavn": "medlemsdata",
+      "utFilnavn": "medlemsdata_statistikk",
+      "grupperingsfelter": 2,
+      "skalTelleAntallGruppert": true
+    },
+    {
+      "handling": "kopier_filer_fra_batch_til_batch",
+      "filPrefix": "medlemsdata_statistikk",
+      "fraBatch": "pa_fak_ba_12",
+      "tilBatch": "pa_ork_ba_05",
+      "kopierFraTidsserieKatalog": false
+    },
+    {
+      "handling": "pa_ork_ba_05",
+      "program": "medlemsdata_statistikk",
+      "uttreksdato": "${uttreksdato}"
+    }
+  ]
+}
