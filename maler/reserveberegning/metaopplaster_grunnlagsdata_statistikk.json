@@ -6,10 +6,10 @@
     "støttetAvPaOrkBa01FraVersjon": "1.4.2"
   },
   "variabler": {
-    "uttreksdato": "<yyyy.MM.dd>",
+    "uttrekksdato": "<yyyy.MM.dd>",
     "grunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "paFakBa12Versjon": "1.0.13",
-    "paOrkBa05Versjon": "0.0.6"
+    "paOrkBa05Versjon": "0.0.7"
   },
   "operasjoner": [
     {
@@ -60,7 +60,7 @@
     {
       "handling": "pa_ork_ba_05",
       "program": "medlemsdata_statistikk",
-      "uttreksdato": "${uttreksdato}"
+      "uttrekksdato": "${uttrekksdato}"
     }
   ]
 }
