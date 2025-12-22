@@ -1,5 +1,5 @@
 {
-  "navn": "Generer statistikk over medlemsdata for uttrekksdato ${uttreksdato}",
+  "navn": "Generer statistikk over medlemsdata for uttrekksdato ${uttrekksdato}",
   "metainfo": {
     "mal": "maler/reserveberegning/metaopplaster_grunnlagsdata_statistikk.json",
     "tags": ["eksport"],
