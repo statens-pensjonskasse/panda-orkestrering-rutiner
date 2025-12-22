@@ -1,0 +1,75 @@
+{
+  "navn": "Henter kjøreinformasjon for batcher vi ønsker å følge med på i  månedskjøringen og last opp til panda analyse (${orkestreringUtKatalog})",
+  "metainfo": {
+    "mal": "maler/reserveberegning/metaopplaster_kjoeringer_maanedskjoering.json",
+    "tags": ["eksport"],
+    "støttetAvPaOrkBa01FraVersjon": "1.4.3"
+  },
+  "variabler": {
+    "orkestreringUtKatalog": "<orkestrering_YYYY-MM-DD_HH-mm-ss>",
+    "paOrkBa05Versjon": "0.0.8"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_ork_ba_05",
+          "versjon": "${paOrkBa05Versjon}"
+        }
+      ]
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_ork_ba_05"
+    },
+    {
+      "handling": "kopier_pa_ork_ba_01_til_pa_ork_ba_05",
+      "orkestreringUtKatalog": "${orkestreringUtKatalog}"
+    },
+    {
+      "handling": "pa_ork_ba_05",
+      "program": "kjøringer",
+      "operasjon": "pa_res_ba_01"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_ork_ba_05"
+    },
+    {
+      "handling": "kopier_pa_ork_ba_01_til_pa_ork_ba_05",
+      "orkestreringUtKatalog": "${orkestreringUtKatalog}"
+    },
+    {
+      "handling": "pa_ork_ba_05",
+      "program": "kjøringer",
+      "operasjon": "pa_fak_ba_11"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_ork_ba_05"
+    },
+    {
+      "handling": "kopier_pa_ork_ba_01_til_pa_ork_ba_05",
+      "orkestreringUtKatalog": "${orkestreringUtKatalog}"
+    },
+    {
+      "handling": "pa_ork_ba_05",
+      "program": "kjøringer",
+      "operasjon": "pa_fak_ba_03"
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_ork_ba_05"
+    },
+    {
+      "handling": "kopier_pa_ork_ba_01_til_pa_ork_ba_05",
+      "orkestreringUtKatalog": "${orkestreringUtKatalog}"
+    },
+    {
+      "handling": "pa_ork_ba_05",
+      "program": "kjøringer",
+      "operasjon": "pa_fak_ba_02"
+    }
+  ]
+}
