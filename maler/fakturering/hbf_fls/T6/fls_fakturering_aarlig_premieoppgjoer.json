@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.78",
   "metainfo": {
     "mal": "maler/fakturering/hbf_fls/T6/fls_fakturering_aarlig_premieoppgjoer.json",
-    "tags": ["fakturering"],
+    "tags": ["fakturering", "premieoppgjør"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "1.0.15"
   },

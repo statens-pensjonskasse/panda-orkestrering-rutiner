@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.9",
   "metainfo": {
     "mal": "maler/fakturering/hbf_fls/T6/send_agressofil_fls_aarlig_premieoppgjoer.json",
-    "tags": ["fakturering", "agresso"],
+    "tags": ["fakturering", "agresso", "premieoppgjør"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"
   },
