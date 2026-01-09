@@ -217,7 +217,7 @@
         {
           "handling": "slett_foreldede_filer_arkiv",
           "arkivområde": "fakturering/pa_fak_ba_05/generer_administrasjonspremier",
-          "maksLevetidDager": "${3mnd}",
+          "maksLevetidDager": "${2år}",
           "testkjøring": "${erTestkjøring}",
           "ignorertInstruksjon": false
         }
