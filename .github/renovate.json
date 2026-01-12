@@ -2,5 +2,21 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>statens-pensjonskasse/renovate-presets-internal:weekly-automerge-non-major"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "org.jetbrains.kotlin:kotlin-stdlib",
+        "org.jetbrains.kotlin:kotlin-gradle-plugin",
+        "org.jetbrains.kotlin:kotlin-reflect"
+      ],
+      "enabled": false
+    },
+    {
+      "enabled": false,
+      "matchPackageNames": [
+        "org.jetbrains.kotlin{/,}**"
+      ]
+    }
   ]
 }
