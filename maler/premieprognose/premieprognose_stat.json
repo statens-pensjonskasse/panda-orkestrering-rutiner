@@ -6,6 +6,18 @@
     "premiemodell": "hbf_stat",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
+  "premieprognose_metainfo": {
+    "beskrivelse": "Februarvarsel|Junivarsel|Oppdatert prognose",
+    "tilleggsbeskrivelse": "",
+    "kjøringstype": "Prognose|Budsjett|Bestilling",
+    "kjøringsløp": "Standard|Solvens",
+    "parametre": {
+      "lønnsvekst_prognose": "",
+      "g_vekst_prognose": "",
+      "lønnsvekst_sensitivitet": "",
+      "g_vekst_sensitivitet": ""
+    }
+  },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "fraGrunnlagsdataMappe": "<grunnlagsdata_0000-00-00_00-00-00-00>",
@@ -147,7 +159,6 @@
           "prognoseVersjon": "${opprettAvtalebytteChecksum}",
           "batch": "pa_pre_ba_01",
           "ignorertInstruksjon": "${ignorerOpprettAvtalebytteInstruksjon}"
-
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
