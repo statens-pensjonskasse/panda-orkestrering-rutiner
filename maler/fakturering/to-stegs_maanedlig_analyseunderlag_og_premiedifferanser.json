@@ -733,7 +733,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_02"
+              "batch": "pa_fak_ba_12"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
