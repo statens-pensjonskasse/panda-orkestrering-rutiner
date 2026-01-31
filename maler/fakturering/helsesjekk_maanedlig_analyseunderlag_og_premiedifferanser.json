@@ -22,7 +22,8 @@
     "paFakBa03Versjon": "<X.Y.Z>",
     "paFakBa11Versjon": "<X.Y.Z>",
     "paFakBa12Versjon": "<X.Y.Z>",
-    "paFakBa13Versjon": "<X.Y.Z>"
+    "paFakBa13Versjon": "<X.Y.Z>",
+    "paOrkBa05Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -34,10 +35,6 @@
         {
           "navn": "pa_res_ba_01",
           "versjon": "${paResBa01Versjon}"
-        },
-        {
-          "navn": "pa_res_ba_03",
-          "versjon": "${paResBa03Versjon}"
         },
         {
           "navn": "pa_fak_ba_02",
@@ -58,6 +55,10 @@
         {
           "navn": "pa_fak_ba_13",
           "versjon": "${paFakBa13Versjon}"
+        },
+        {
+          "navn": "pa_ork_ba_05",
+          "versjon": "${paOrkBa05Versjon}"
         }
       ]
     },
@@ -95,6 +96,51 @@
               "batch": "pa_res_ba_01",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "panda_reserveberegning/${fremskrivingsDato}"
+            },
+            {
+              "navn": "Rapporter feilmeldinger",
+              "handling": "gruppe",
+              "gruppeAv": [
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_fak_ba_12"
+                },
+                {
+                  "handling": "kopier_fra_mellomlager_til_batch",
+                  "filnavn": "feilmeldinger",
+                  "batchTil": "pa_fak_ba_12",
+                  "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+                  "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+                  "nøkkel": "panda_reserveberegning/${fremskrivingsDato}",
+                  "feilHvisFilMangler": true
+                },
+                {
+                  "handling": "pa_fak_ba_12",
+                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+                  "modus": "aggreger_csv",
+                  "filnavn": "feilmelding",
+                  "utFilnavn": "feilmeldinger_aggregert",
+                  "grupperingsfelter": 3,
+                  "skalTelleAntallGruppert": true
+                },
+                {
+                  "handling": "rydd_grunnlagsdata_for_batch",
+                  "batch": "pa_ork_ba_05"
+                },
+                {
+                  "handling": "kopier_filer_fra_batch_til_batch",
+                  "filPrefix": "feilmeldinger_aggregert",
+                  "fraBatch": "pa_fak_ba_12",
+                  "tilBatch": "pa_ork_ba_05",
+                  "kopierFraTidsserieKatalog": false
+                },
+                {
+                  "handling": "pa_ork_ba_05",
+                  "program": "aggregerte_feilmeldinger",
+                  "kilde": "pa_res_ba_01_snapshot",
+                  "sisteFremskrivingsdato": "${fremskrivingsDato}"
+                }
+              ]
             }
           ]
         },
