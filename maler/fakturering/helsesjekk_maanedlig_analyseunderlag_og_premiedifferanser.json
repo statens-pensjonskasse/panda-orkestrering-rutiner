@@ -5,12 +5,13 @@
     "tags": [
       "eksport"
     ],
-    "støttetAvPaOrkBa01FraVersjon": "1.4.7"
+    "støttetAvPaOrkBa01FraVersjon": "1.4.8"
   },
   "gyldigVersjon": "1.0.11",
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
+    "forrigeGrunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "fremskrivingsDato": "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
@@ -71,9 +72,9 @@
           "batch": "pa_res_ba_01"
         },
         {
-          "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-          "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
-          "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
+          "handling": "kopier_grunnlagsdata_fra_pa_res_ba_02_til_batch",
+          "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+          "batch": "pa_res_ba_01"
         },
         {
           "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
@@ -186,7 +187,7 @@
           "batchTil": "pa_fak_ba_11",
           "filnavnTil": "etterlatte",
           "typeindikator": "ETTERLATT",
-          "grunnlagsdataMappeFra": "${grunnlagsdataFremskriving}",
+          "grunnlagsdataMappeFra": "${forrigeGrunnlagsdataFremskriving}",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
         },
         {
