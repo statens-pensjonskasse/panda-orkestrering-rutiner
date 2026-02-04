@@ -5,7 +5,7 @@
     "tags": [
       "eksport"
     ],
-    "støttetAvPaOrkBa01FraVersjon": "1.4.8"
+    "støttetAvPaOrkBa01FraVersjon": "1.4.9"
   },
   "gyldigVersjon": "1.0.11",
   "variabler": {
@@ -138,8 +138,9 @@
                 {
                   "handling": "pa_ork_ba_05",
                   "program": "aggregerte_feilmeldinger",
-                  "kilde": "pa_res_ba_01_snapshot",
-                  "sisteFremskrivingsdato": "${fremskrivingsDato}"
+                  "kilde": "pa_res_ba_01",
+                  "sisteFremskrivingsdato": "${fremskrivingsDato}",
+                  "midlertidig": true
                 }
               ]
             }
