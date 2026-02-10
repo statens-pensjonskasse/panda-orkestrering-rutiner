@@ -1,0 +1,26 @@
+{
+  "navn": "Rutine for å laste opp kapitalforvaltningsvedlegg for kontoutskrift fra aktuarområdet til skyopplaster",
+  "metainfo": {
+    "mal": "maler/kontoutskrift/hbf_as_asa/last_opp_kapitalforvaltningsvedlegg.json",
+    "tags": ["kontoutskrift"],
+    "premiemodell": "hbf_as_asa",
+    "støttetAvPaOrkBa01FraVersjon": "1.0.11"
+  },
+  "variabler": {
+    "skyopplasterId": "#{genererUUID}"
+  },
+  "operasjoner": [
+    {
+      "handling": "kopier_filer_fra_aktuar_til_skyopplaster",
+      "filPrefix": "kapitalforvaltningsvedlegg",
+      "premiemodell": "hbf_as_asa",
+      "nøkkel": "kontoutskrift/kapitalforvaltningsvedlegg",
+      "kjøringsId": "kapitalforvaltningsvedlegg-${skyopplasterId}"
+    },
+    {
+      "handling": "opprett_bestilling_til_skyopplaster",
+      "kjøringsId": "kapitalforvaltningsvedlegg-${skyopplasterId}",
+      "filstiHosDVH": "hbf_as_asa/kontoutskrift/kapitalforvaltningsvedlegg"
+    }
+  ]
+}

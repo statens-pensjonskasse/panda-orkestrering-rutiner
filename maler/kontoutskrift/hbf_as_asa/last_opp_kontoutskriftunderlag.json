@@ -1,0 +1,26 @@
+{
+  "navn": "Rutine for å laste opp kontoutskriftunderlag for kontoutskrift fra aktuarområdet til skyopplaster",
+  "metainfo": {
+    "mal": "maler/kontoutskrift/hbf_as_asa/last_opp_kontoutskriftunderlag.json",
+    "tags": ["kontoutskrift"],
+    "premiemodell": "hbf_as_asa",
+    "støttetAvPaOrkBa01FraVersjon": "1.0.11"
+  },
+  "variabler": {
+    "skyopplasterId": "#{genererUUID}"
+  },
+  "operasjoner": [
+    {
+      "handling": "kopier_filer_fra_aktuar_til_skyopplaster",
+      "filPrefix": "kontoutskriftunderlag",
+      "premiemodell": "hbf_as_asa",
+      "nøkkel": "kontoutskrift/kontoutskriftunderlag",
+      "kjøringsId": "kontoutskriftunderlag-${skyopplasterId}"
+    },
+    {
+      "handling": "opprett_bestilling_til_skyopplaster",
+      "kjøringsId": "kontoutskriftunderlag-${skyopplasterId}",
+      "filstiHosDVH": "hbf_as_asa/kontoutskrift/kontoutskriftunderlag"
+    }
+  ]
+}
