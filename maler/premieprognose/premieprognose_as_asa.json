@@ -142,6 +142,9 @@
                 {
                   "navn": "filtrer_medlemsbestand",
                   "fraFil": "avtaleliste_hbf_as_asa.csv"
+                },
+                {
+                  "navn": "lukk_vedtak"
                 }
               ]
             },
