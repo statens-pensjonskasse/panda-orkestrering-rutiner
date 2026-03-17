@@ -1,5 +1,5 @@
 {
-  "navn": "Manuell aggregert totalreserve pr dekning  for månedskjøring (${databaseSisteFremskrivingsdato})",
+  "navn": "Manuell aggregert totalreserve pr dekning for månedskjøring (${databaseSisteFremskrivingsdato})",
   "metainfo": {
     "mal": "maler/fakturering/maanedskjoering/metaopplaster_manuell_aggreger_totalreserve_dekning.json",
     "tags": [
