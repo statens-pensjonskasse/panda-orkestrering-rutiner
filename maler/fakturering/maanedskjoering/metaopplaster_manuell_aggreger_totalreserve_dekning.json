@@ -13,7 +13,7 @@
     "grunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "databaseSisteFremskrivingsdato": "yyyy.MM.dd",
     "paFakBa12Versjon": "1.0.13",
-    "paOrkBa05Versjon": "0.1.0"
+    "paOrkBa05Versjon": "0.2.0"
   },
   "operasjoner": [
     {
@@ -56,7 +56,7 @@
           "modus": "aggreger_csv",
           "filnavn": "flettede_kontofoeringer",
           "utFilnavn": "totalreserve_dekning",
-          "grupperingsfelter": 5,
+          "grupperingsfelter": "5,12",
           "resultatfelter": 9
         },
         {
@@ -101,7 +101,7 @@
           "modus": "aggreger_csv",
           "filnavn": "flettede_kontofoeringer",
           "utFilnavn": "totalreserve_dekning",
-          "grupperingsfelter": 5,
+          "grupperingsfelter": "5,12",
           "resultatfelter": 9
         },
         {
