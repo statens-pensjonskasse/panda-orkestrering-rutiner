@@ -1,0 +1,123 @@
+{
+  "navn": "Manuell aggregert totalreserve pr dekning for månedskjøring (${databaseSisteFremskrivingsdato})",
+  "metainfo": {
+    "mal": "maler/fakturering/maanedskjoering/metaopplaster_manuell_aggreger_totalreserve_dekning.json",
+    "tags": [
+      "eksport"
+    ],
+    "støttetAvPaOrkBa01FraVersjon": "1.5.0"
+  },
+  "variabler": {
+    "arkivområdeFremskrivingOgBestand": "flette_feilende_medlemmer/<yyyy.MM.dd>/fremskriving_og_bestandsendring_<x.y.z>",
+    "arkivområdeVersjonsendring": "flette_feilende_medlemmer/<yyyy.MM.dd>/versjonsendring_<x.y.z>",
+    "grunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
+    "databaseSisteFremskrivingsdato": "yyyy.MM.dd",
+    "paFakBa12Versjon": "1.0.13",
+    "paOrkBa05Versjon": "0.3.0"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_12",
+          "versjon": "${paFakBa12Versjon}"
+        },
+        {
+          "navn": "pa_ork_ba_05",
+          "versjon": "${paOrkBa05Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "Totalreserve fremskriving",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_12"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_ork_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_kontofoeringer",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_12",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "${arkivområdeFremskrivingOgBestand}",
+          "feilHvisFilMangler": true
+        },
+        {
+          "handling": "pa_fak_ba_12",
+          "modus": "aggreger_csv",
+          "filnavn": "flettede_kontofoeringer",
+          "utFilnavn": "totalreserve_dekning",
+          "grupperingsfelter": "5,12",
+          "resultatfelter": 9
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "totalreserve_dekning",
+          "fraBatch": "pa_fak_ba_12",
+          "tilBatch": "pa_ork_ba_05",
+          "kopierFraTidsserieKatalog": false
+        },
+        {
+          "handling": "pa_ork_ba_05",
+          "program": "aggregert_totalreserve_dekning",
+          "kilde": "fremskriving_og_bestandsendring",
+          "sisteFremskrivingsdato": "${databaseSisteFremskrivingsdato}"
+        }
+      ]
+    },
+    {
+      "navn": "Totalreserve versjonsendring",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_12"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_ork_ba_05"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_kontofoeringer",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_12",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "${arkivområdeVersjonsendring}",
+          "feilHvisFilMangler": true
+        },
+        {
+          "handling": "pa_fak_ba_12",
+          "modus": "aggreger_csv",
+          "filnavn": "flettede_kontofoeringer",
+          "utFilnavn": "totalreserve_dekning",
+          "grupperingsfelter": "5,12",
+          "resultatfelter": 9
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "totalreserve_dekning",
+          "fraBatch": "pa_fak_ba_12",
+          "tilBatch": "pa_ork_ba_05",
+          "kopierFraTidsserieKatalog": false
+        },
+        {
+          "handling": "pa_ork_ba_05",
+          "program": "aggregert_totalreserve_dekning",
+          "kilde": "versjonsendring",
+          "sisteFremskrivingsdato": "${databaseSisteFremskrivingsdato}"
+        }
+      ]
+    }
+  ]
+}
