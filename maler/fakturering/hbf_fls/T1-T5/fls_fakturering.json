@@ -94,7 +94,7 @@
               "batchFra": "pa_fak_ba_13",
               "batchTil": "pa_fak_ba_14",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriodeLPO}"
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriodeLPO}/to-steg"
             },
             {
               "handling": "pa_fak_ba_14",
@@ -136,7 +136,7 @@
               "batchFra": "pa_fak_ba_13",
               "batchTil": "pa_fak_ba_14",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriodeLPO}"
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriodeLPO}/to-steg"
             },
             {
               "handling": "pa_fak_ba_14",
