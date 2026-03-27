@@ -680,6 +680,14 @@
               "batchFra": "pa_fak_ba_03",
               "batchTil": "pa_fak_ba_13",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "reserveoppbygging/${periode}/fremskriving_og_bestandsendring_${forrigePaResBa01Versjon}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reserveoppbygging",
+              "batchFra": "pa_fak_ba_03",
+              "batchTil": "pa_fak_ba_13",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "reserveoppbygging/${periode}/versjonsendring_${paResBa01Versjon}"
             },
             {
