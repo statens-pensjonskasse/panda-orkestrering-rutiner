@@ -130,24 +130,6 @@
                       "utFilnavn": "feilmeldinger_aggregert",
                       "grupperingsfelter": 3,
                       "skalTelleAntallGruppert": true
-                    },
-                    {
-                      "handling": "rydd_grunnlagsdata_for_batch",
-                      "batch": "pa_ork_ba_05"
-                    },
-                    {
-                      "handling": "kopier_filer_fra_batch_til_batch",
-                      "filPrefix": "feilmeldinger_aggregert",
-                      "fraBatch": "pa_fak_ba_12",
-                      "tilBatch": "pa_ork_ba_05",
-                      "kopierFraTidsserieKatalog": false
-                    },
-                    {
-                      "handling": "pa_ork_ba_05",
-                      "program": "aggregerte_feilmeldinger",
-                      "kilde": "pa_res_ba_01",
-                      "sisteFremskrivingsdato": "${fremskrivingsDato}",
-                      "midlertidig": true
                     }
                   ]
                 }
