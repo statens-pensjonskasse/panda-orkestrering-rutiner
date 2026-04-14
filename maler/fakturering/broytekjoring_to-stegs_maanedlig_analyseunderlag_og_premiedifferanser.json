@@ -1,5 +1,5 @@
 {
-  "navn": "Brøytekjøring for to-stegs månedskjøring med siste fremskrivingsdato ${fremskrivingsDato}, reserveberegning med versjon ${paResBa01Versjon} og grunnlagsdata ${grunnlagsdataFremskriving}",
+  "navn": "Brøytekjøring for to-stegs månedskjøring med siste fremskrivingsdato ${fremskrivingsDato}, reserveberegning med versjonsendring fra ${forrigePaResBa01Versjon} til ${paResBa01Versjon} og grunnlagsdata ${grunnlagsdataFremskriving}",
   "metainfo": {
     "mal": "maler/fakturering/broytekjoring_to-stegs_maanedlig_analyseunderlag_og_premiedifferanser.json",
     "tags": [
