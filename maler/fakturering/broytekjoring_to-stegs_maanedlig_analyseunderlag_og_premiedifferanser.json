@@ -80,7 +80,7 @@
             },
             {
               "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
               "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
             },
             {
@@ -270,7 +270,7 @@
             },
             {
               "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
-              "grunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+              "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
               "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
             },
             {
