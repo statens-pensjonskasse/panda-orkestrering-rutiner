@@ -94,7 +94,7 @@
               "batchFra": "pa_fak_ba_13",
               "batchTil": "pa_fak_ba_14",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriodeLPO}"
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriodeLPO}/to-steg"
             },
             {
               "handling": "pa_fak_ba_14",
@@ -136,7 +136,7 @@
               "batchFra": "pa_fak_ba_13",
               "batchTil": "pa_fak_ba_14",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriodeLPO}"
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriodeLPO}/to-steg"
             },
             {
               "handling": "pa_fak_ba_14",
@@ -192,7 +192,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}"
+              "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}/to-steg"
             },
             {
               "handling": "pa_fak_ba_02",
@@ -242,7 +242,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}"
+              "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}/to-steg"
             },
             {
               "handling": "pa_fak_ba_02",
@@ -290,7 +290,7 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato1}"
+              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato1}/to-steg"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -314,7 +314,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}"
+              "nøkkel": "generer_administrasjonspremier/${førstePeriodeLPO}/to-steg"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -322,7 +322,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}"
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}/to-steg"
             },
             {
               "handling": "pa_fak_ba_08",
@@ -360,7 +360,7 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato2}"
+              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato2}/to-steg"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -384,7 +384,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}"
+              "nøkkel": "generer_administrasjonspremier/${andrePeriodeLPO}/to-steg"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -392,7 +392,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}"
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}/to-steg"
             },
             {
               "handling": "pa_fak_ba_08",
@@ -867,10 +867,6 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_filområde_hos_dvh",
-          "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
-        },
-        {
           "navn": "pa_fak_ba_09 (utjevnet_premier_dataunderlag_avtale og utjevnet_premier_dataunderlag_medlem)",
           "handling": "gruppe",
           "gruppeAv": [
@@ -910,13 +906,6 @@
               "validerFeilendeMedlemmer": true
             },
             {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "utjevnet_premier_dataunderlag_avtale",
-              "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/hbf_fls/prognosefakturering/avtale"
-            },
-            {
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "utjevnet_premier_dataunderlag_avtale",
@@ -935,13 +924,6 @@
               "termin": "${termin}",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "validerFeilendeMedlemmer": true
-            },
-            {
-              "handling": "send_batch_output_til_dvh",
-              "filPrefix": "utjevnet_premier_dataunderlag_medlem",
-              "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/hbf_fls/prognosefakturering/medlem"
             },
             {
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
@@ -1001,12 +983,6 @@
               "validerFeilendeMedlemmer": true
             },
             {
-              "handling": "send_bare_filer_fra_batch_output_til_dvh",
-              "filPrefix": "loepende_premieoppgjoer_dataunderlag",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
-            },
-            {
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "loepende_premieoppgjoer_dataunderlag",
@@ -1055,12 +1031,6 @@
               "validerFeilendeMedlemmer": true
             },
             {
-              "handling": "send_bare_filer_fra_batch_output_til_dvh",
-              "filPrefix": "loepende_premieoppgjoer_dataunderlag",
-              "batch": "pa_fak_ba_09",
-              "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
-            },
-            {
               "handling": "kopier_filer_fra_batch_til_skyopplaster",
               "fraBatch": "pa_fak_ba_09",
               "filPrefix": "loepende_premieoppgjoer_dataunderlag",
@@ -1071,12 +1041,6 @@
               "batch": "pa_fak_ba_09"
             }
           ]
-        },
-        {
-          "handling": "opprett_filliste_og_triggerfil_hos_dvh",
-          "filPrefix": "loepende_premieoppgjoer_dataunderlag",
-          "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
-          "filstiHosDVH": "/hbf_fls/loepende_premieoppgjoer/medlem"
         },
         {
           "handling": "opprett_bestilling_til_skyopplaster",
