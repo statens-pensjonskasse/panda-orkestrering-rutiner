@@ -1,0 +1,64 @@
+{
+  "navn": "Kontoutskrift",
+  "gyldigVersjon": "1.5.1",
+  "metainfo": {
+    "mal": "maler/fakturering/poa_pen/poa_pen_sluttfaktura.json",
+    "tags": ["kontoutskrift"],
+    "støttetAvPaOrkBa01FraVersjon": "1.5.1"
+  },
+
+  "variabler": {
+    "paDokBa01Versjon": "<x.y.z>",
+
+    "utdataMappe": "#{grunnlagsdatamappeNå}",
+    "aar": "YYYY"
+  },
+
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_dok_ba_01",
+          "versjon": "${paDokBa01Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_dok_ba_01 (panda_dokumenter_batch KONTOUTSKRIFT)",
+      "handling": "gruppe",
+      "gruppeAv": [
+
+        {
+          "handling": "pa_dok_ba_01",
+          "modus": "KONTOUTSKRIFT",
+          "aar": "${aar}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_dok_ba_01",
+          "utdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "kontoutskrift/${termin}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_dok_ba_01 (panda_dokumenter_batch KONTOUTSKRIFT_VEDLEGG)",
+      "handling": "gruppe",
+      "gruppeAv": [
+
+        {
+          "handling": "pa_dok_ba_01",
+          "modus": "KONTOUTSKRIFT_VEDLEGG",
+          "aar": "${aar}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_dok_ba_01",
+          "utdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "kontoutskrift_vedlegg/${termin}"
+        }
+      ]
+    }
+  ]
+}
