@@ -98,7 +98,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${førstePeriode}/to-steg"
             }
           ]
         },
@@ -137,7 +137,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${andrePeriode}/to-steg"
             }
           ]
         },
@@ -176,7 +176,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}/to-steg"
             }
           ]
         },
@@ -215,7 +215,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}/to-steg"
             }
           ]
         },
@@ -254,7 +254,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${femtePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${femtePeriode}/to-steg"
             }
           ]
         },
@@ -293,7 +293,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${sjettePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${sjettePeriode}/to-steg"
             }
           ]
         },
@@ -384,7 +384,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${førstePeriode}/to-steg"
             },
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
@@ -423,7 +423,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${andrePeriode}/to-steg"
             },
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
@@ -462,7 +462,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}/to-steg"
             },
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
@@ -501,7 +501,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}/to-steg"
             },
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
@@ -540,7 +540,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${femtePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${femtePeriode}/to-steg"
             },
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
@@ -579,7 +579,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${sjettePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${sjettePeriode}/to-steg"
             },
             {
               "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
@@ -591,38 +591,6 @@
               "filnavn": "avtaleliste_tjenestemannsorg"
             }
           ]
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_for_medlem",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_medlem",
-          "filListe": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL_FILLISTE_MEDLEM.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/tjenestemannsorg_arbeidsgiverandel/fakturering/medlem"
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_for_avtale",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "tjenestemannsorg_arbeidsgiverandel_dataunderlag_avtale",
-          "filListe": "TJENESTEMANNSORG_ARBEIDSGIVERANDEL_FILLISTE_AVTALE.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/tjenestemannsorg_arbeidsgiverandel/fakturering/avtale"
         },
         {
           "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",

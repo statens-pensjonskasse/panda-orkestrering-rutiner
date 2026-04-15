@@ -63,7 +63,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -105,7 +105,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -147,7 +147,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -352,38 +352,6 @@
           "batchTil": "pa_fak_ba_09",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "premiefiltrering_for_poa_afp_kjeder/${tredjePeriode}"
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "poa_afp_kjeder_dataunderlag_for_medlem",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "POA_AFP_KJEDER",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "poa_afp_kjeder_dataunderlag_medlem",
-          "filListe": "POAAFP_FILLISTE_MEDLEM.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/poa_afp/fakturering/kjeder/medlem"
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "poa_afp_kjeder_dataunderlag_for_avtale",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "POA_AFP_KJEDER",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "poa_afp_kjeder_dataunderlag_avtale",
-          "filListe": "POAAFP_FILLISTE_AVTALE.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/poa_afp/fakturering/kjeder/avtale"
         }
       ]
     },

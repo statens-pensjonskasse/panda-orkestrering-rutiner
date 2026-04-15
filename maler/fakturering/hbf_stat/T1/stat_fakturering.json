@@ -66,7 +66,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -105,7 +105,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -144,7 +144,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}",
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}/to-steg",
           "feilHvisFilMangler": false
         },
         {
@@ -184,7 +184,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${fjerdePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${fjerdePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -263,7 +263,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${førstePeriode}/to-steg"
             }
           ]
         },
@@ -294,7 +294,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${andrePeriode}/to-steg"
             }
           ]
         },
@@ -325,7 +325,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}/to-steg"
             }
           ]
         },
@@ -356,7 +356,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}/to-steg"
             }
           ]
         },
@@ -455,7 +455,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${førstePeriode}/to-steg"
             }
           ]
         },
@@ -486,7 +486,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${andrePeriode}/to-steg"
             }
           ]
         },
@@ -517,7 +517,7 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${tredjePeriode}/to-steg"
             }
           ]
         },
@@ -548,41 +548,9 @@
               "batchFra": "pa_fak_ba_05",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}"
+              "nøkkel": "generer_administrasjonspremier/${fjerdePeriode}/to-steg"
             }
           ]
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "hbf_stat_dataunderlag_for_medlem",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "HBF_STAT",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "hbf_stat_dataunderlag_medlem",
-          "filListe": "HBFSTAT_FILLISTE_MEDLEM.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_stat/fakturering/medlem"
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "hbf_stat_dataunderlag_for_avtale",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "HBF_STAT",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "hbf_stat_dataunderlag_avtale",
-          "filListe": "HBFSTAT_FILLISTE_AVTALE.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_stat/fakturering/avtale"
         },
         {
           "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",
