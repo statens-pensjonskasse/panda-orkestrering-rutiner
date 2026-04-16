@@ -366,7 +366,7 @@
       "gruppeAv": [
         {
           "handling": "pa_fak_ba_04",
-          "modus": "premieprognoser",
+          "modus": "premieprognoser_for_hbf_ovrige",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "prognoseAar": "${prognoseAar}",
           "premiemodell": "HBF_ØVRIGE",
