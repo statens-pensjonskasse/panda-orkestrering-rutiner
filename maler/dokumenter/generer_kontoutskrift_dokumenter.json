@@ -28,7 +28,6 @@
       "navn": "pa_dok_ba_01 (panda_dokumenter_batch KONTOUTSKRIFT)",
       "handling": "gruppe",
       "gruppeAv": [
-
         {
           "handling": "pa_dok_ba_01",
           "modus": "KONTOUTSKRIFT",
@@ -37,8 +36,8 @@
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_dok_ba_01",
-          "utdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "kontoutskrift/${termin}"
+          "grunnlagsdataMappe": "${utdataMappe}",
+          "nøkkel": "kontoutskrift/${aar}"
         }
       ]
     },
@@ -46,7 +45,6 @@
       "navn": "pa_dok_ba_01 (panda_dokumenter_batch KONTOUTSKRIFT_VEDLEGG)",
       "handling": "gruppe",
       "gruppeAv": [
-
         {
           "handling": "pa_dok_ba_01",
           "modus": "KONTOUTSKRIFT_VEDLEGG",
@@ -55,8 +53,8 @@
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_dok_ba_01",
-          "utdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "kontoutskrift_vedlegg/${termin}"
+          "grunnlagsdataMappe": "${utdataMappe}",
+          "nøkkel": "kontoutskrift_vedlegg/${aar}"
         }
       ]
     }
