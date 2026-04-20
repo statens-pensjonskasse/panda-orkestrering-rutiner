@@ -1,0 +1,71 @@
+{
+  "navn": "Kontoutskrift",
+  "gyldigVersjon": "1.5.1",
+  "metainfo": {
+    "mal": "maler/dokumenter/opplasting_kontoutskrift_dokumenter.json",
+    "tags": ["kontoutskrift"],
+    "støttetAvPaOrkBa01FraVersjon": "1.5.1"
+  },
+
+  "variabler": {
+    "paPreBa02Versjon": "<x.y.z>",
+    "aar": "YYYY",
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}"
+  },
+
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 (panda_opplaster KONTOUTSKRIFT)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "Kontoutskrift",
+          "batchFra": "pa_dok_ba_01",
+          "batchTil": "pa_pre_ba_02",
+          "nøkkel": "kontoutskrift/${aar}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "pdf_til_mongo",
+          "kjøringsId": "0"
+        }
+      ]
+    },
+    {
+      "navn": "pa_dok_ba_01 (panda_dokumenter_batch KONTOUTSKRIFT_VEDLEGG)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "Kontoutskrift_vedlegg",
+          "batchFra": "pa_dok_ba_01",
+          "batchTil": "pa_pre_ba_02",
+          "nøkkel": "kontoutskrift_vedlegg/${aar}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "pdf_til_mongo",
+          "kjøringsId": "0"
+        }
+      ]
+    }
+  ]
+}
