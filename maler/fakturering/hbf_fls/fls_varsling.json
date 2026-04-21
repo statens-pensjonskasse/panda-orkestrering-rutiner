@@ -90,7 +90,7 @@
       ]
     },
     {
-      "navn": "pa_fak_ba_09 utjevnet_premier_varsling_avtale",
+      "navn": "pa_fak_ba_09 dataunderlag_fls_medlem",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -131,7 +131,7 @@
       ]
     },
     {
-      "navn": "pa_pre_ba_02 last opp premieprognosedata for utjevnet_premier_varsling_medlem",
+      "navn": "pa_pre_ba_02 utjevnet_premier_varsling_medlem",
       "handling": "gruppe",
       "gruppeAv": [
         {
