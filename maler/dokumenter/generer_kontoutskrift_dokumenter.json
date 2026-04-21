@@ -1,5 +1,5 @@
 {
-  "navn": "Kontoutskrift",
+  "navn": "Generer kontoutskrift dokumenter for år ${aar}",
   "gyldigVersjon": "1.5.1",
   "metainfo": {
     "mal": "maler/dokumenter/generer_kontoutskrift_dokumenter.json",
