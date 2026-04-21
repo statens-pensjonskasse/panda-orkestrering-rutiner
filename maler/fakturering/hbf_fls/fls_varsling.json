@@ -15,9 +15,11 @@
     "prognoseVersjonVarsling": "<prognoseVersjonVarsling>",
     "fordelingsnøkkelPeriode": "<fordelingsnøkkelPeriode>",
     "skyopplasterId": "#{genererUUID}",
+    "kjøringsId": "<kjøringsId>",
 
     "paFakBa06Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>"
+    "paFakBa09Versjon": "<X.Y.Z>",
+    "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -30,6 +32,10 @@
         {
           "navn": "pa_fak_ba_09",
           "versjon": "${paFakBa09Versjon}"
+        },
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
         }
       ]
     },
@@ -109,32 +115,6 @@
         },
         {
           "handling": "pa_fak_ba_09",
-          "modus": "dataunderlag_fls_avtale",
-          "leveransetype": "VARSLING",
-          "kjøringsId": "#{genererUUID}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "utjevnet_premier_varsling_avtale",
-          "filListe": "HBFFLS_FILLISTE_AVTALE.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_fls/prognose/avtale"
-        },
-        {
-          "handling": "kopier_filer_fra_batch_til_skyopplaster",
-          "fraBatch": "pa_fak_ba_09",
-          "filPrefix": "utjevnet_premier_varsling_avtale",
-          "kjøringsId": "utjevnet_premier_varsling_avtale-${skyopplasterId}"
-        },
-        {
-          "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "utjevnet_premier_varsling_avtale-${skyopplasterId}",
-          "filstiHosDVH": "hbf_fls/varsling/avtale"
-        },
-        {
-          "handling": "pa_fak_ba_09",
           "modus": "dataunderlag_fls_medlem",
           "leveransetype": "VARSLING",
           "kjøringsId": "#{genererUUID}",
@@ -142,26 +122,24 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "send_batch_output_til_dvh",
+          "handling": "kopier_filer_fra_batch_til_batch",
           "filPrefix": "utjevnet_premier_varsling_medlem",
-          "filListe": "HBFFLS_FILLISTE_MEDLEM.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/hbf_fls/prognose/medlem"
-        },
-        {
-          "handling": "kopier_filer_fra_batch_til_skyopplaster",
           "fraBatch": "pa_fak_ba_09",
-          "filPrefix": "utjevnet_premier_varsling_medlem",
-          "kjøringsId": "utjevnet_premier_varsling_medlem-${skyopplasterId}"
-        },
+          "tilBatch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp premieprognosedata for utjevnet_premier_varsling_medlem",
+      "handling": "gruppe",
+      "gruppeAv": [
         {
-          "handling": "opprett_bestilling_til_skyopplaster",
-          "kjøringsId": "utjevnet_premier_varsling_medlem-${skyopplasterId}",
-          "filstiHosDVH": "hbf_fls/varsling/medlem"
-        },
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_09"
+          "handling": "pa_pre_ba_02",
+          "modus": "utjevnet_premier_varsling_medlem",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "utjevnet_premier_varsling_medlem",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     }
