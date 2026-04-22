@@ -1,0 +1,62 @@
+{
+  "navn": "Generer kontoutskrift dokumenter for år ${aar}",
+  "gyldigVersjon": "1.5.1",
+  "metainfo": {
+    "mal": "maler/dokumenter/generer_kontoutskrift_dokumenter.json",
+    "tags": ["kontoutskrift"],
+    "støttetAvPaOrkBa01FraVersjon": "1.5.1"
+  },
+
+  "variabler": {
+    "paDokBa01Versjon": "<x.y.z>",
+
+    "utdataMappe": "#{grunnlagsdatamappeNå}",
+    "aar": "YYYY"
+  },
+
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_dok_ba_01",
+          "versjon": "${paDokBa01Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_dok_ba_01 (panda_dokumenter_batch KONTOUTSKRIFT)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "pa_dok_ba_01",
+          "modus": "KONTOUTSKRIFT",
+          "aar": "${aar}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_dok_ba_01",
+          "grunnlagsdataMappe": "${utdataMappe}",
+          "nøkkel": "kontoutskrift/${aar}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_dok_ba_01 (panda_dokumenter_batch KONTOUTSKRIFT_VEDLEGG)",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "pa_dok_ba_01",
+          "modus": "KONTOUTSKRIFT_VEDLEGG",
+          "aar": "${aar}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_dok_ba_01",
+          "grunnlagsdataMappe": "${utdataMappe}",
+          "nøkkel": "kontoutskrift_vedlegg/${aar}"
+        }
+      ]
+    }
+  ]
+}
