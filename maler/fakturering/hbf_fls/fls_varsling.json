@@ -117,6 +117,7 @@
           "handling": "pa_fak_ba_09",
           "modus": "dataunderlag_fls_medlem",
           "leveransetype": "VARSLING",
+          "prognoseaar": "${år}",
           "kjøringsId": "#{genererUUID}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "validerFeilendeMedlemmer": true
@@ -127,11 +128,27 @@
           "fraBatch": "pa_fak_ba_09",
           "tilBatch": "pa_pre_ba_02",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_fak_ba_09",
+          "modus": "dataunderlag_fls_avtale",
+          "leveransetype": "VARSLING",
+          "prognoseaar": "${år}",
+          "kjøringsId": "#{genererUUID}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "utjevnet_premier_varsling_avtale",
+          "fraBatch": "pa_fak_ba_09",
+          "tilBatch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     },
     {
-      "navn": "pa_pre_ba_02 utjevnet_premier_varsling_medlem",
+      "navn": "pa_pre_ba_02 utjevnet_premier_varsling",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -139,6 +156,13 @@
           "modus": "utjevnet_premier_varsling_medlem",
           "kjøringsId": "${kjøringsId}",
           "filnavn": "utjevnet_premier_varsling_medlem",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "utjevnet_premier_varsling_avtale",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "utjevnet_premier_varsling_avtale",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
