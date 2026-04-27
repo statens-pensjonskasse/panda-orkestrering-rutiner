@@ -1,8 +1,8 @@
 {
-  "navn": "Opplasting av kontoutskrift dokumenter for år ${aar}",
+  "navn": "Publisering av kontoutskrift dokumenter for år ${aar}",
   "gyldigVersjon": "1.5.1",
   "metainfo": {
-    "mal": "maler/dokumenter/opplasting_kontoutskrift_dokumenter.json",
+    "mal": "maler/kontoutskrift/hbf_as_asa/publiser_kontoutskrift_dokumenter.json",
     "tags": [
       "kontoutskrift"
     ],
