@@ -1,6 +1,6 @@
 {
   "navn": "Varsling HBF FLS 2.0 for år ${år} og prognoseVersjonVarsling ${prognoseVersjonVarsling}",
-  "gyldigVersjon": "0.0.53",
+  "gyldigVersjon": "1.5.2",
   "metainfo": {
     "mal": "maler/fakturering/hbf_fls/fls_varsling.json",
     "tags": ["fakturering", "prognose"],
