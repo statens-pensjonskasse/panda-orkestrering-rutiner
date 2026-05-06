@@ -81,7 +81,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -119,7 +119,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -157,7 +157,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${tredjePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -309,7 +309,7 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_08",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskrivingsdato}"
+          "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskrivingsdato}/to-steg"
         },
         {
           "handling": "pa_fak_ba_08",
@@ -433,7 +433,7 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_08",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsdato}"
+          "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsdato}/to-steg"
         },
         {
           "handling": "pa_fak_ba_08",
@@ -561,7 +561,7 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_08",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_administrasjonspremieunderlag/${tredjeFremskrivingsdato}"
+          "nøkkel": "panda_administrasjonspremieunderlag/${tredjeFremskrivingsdato}/to-steg"
         },
         {
           "handling": "pa_fak_ba_08",
@@ -831,38 +831,6 @@
           "batchTil": "pa_fak_ba_09",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "premiefellesskap_utjevning_poa_afp_frittstaaende/${tredjePeriode}"
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "poa_afp_frittstaaende_dataunderlag_for_medlem",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "premiemodell": "POA_AFP_FRITTSTÅENDE",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "poa_afp_frittstaaende_dataunderlag_medlem",
-          "filListe": "POAAFP_FILLISTE_MEDLEM.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/poa_afp/fakturering/frittstaaende/medlem"
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "poa_afp_frittstaaende_dataunderlag_for_avtale",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "premiemodell": "POA_AFP_FRITTSTÅENDE",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "poa_afp_frittstaaende_dataunderlag_avtale",
-          "filListe": "POAAFP_FILLISTE_AVTALE.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/poa_afp/fakturering/frittstaaende/avtale"
         }
       ]
     },

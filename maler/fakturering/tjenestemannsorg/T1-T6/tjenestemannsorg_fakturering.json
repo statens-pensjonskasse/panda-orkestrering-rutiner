@@ -68,7 +68,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${førstePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -110,7 +110,7 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}/to-steg"
         },
         {
           "handling": "pa_fak_ba_14",
@@ -144,7 +144,7 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_05",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskrivingsdato}"
+          "nøkkel": "panda_administrasjonspremieunderlag/${førsteFremskrivingsdato}/to-steg"
         },
         {
           "handling": "pa_fak_ba_05",
@@ -180,7 +180,7 @@
           "batchFra": "pa_res_ba_01",
           "batchTil": "pa_fak_ba_05",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsdato}"
+          "nøkkel": "panda_administrasjonspremieunderlag/${andreFremskrivingsdato}/to-steg"
         },
         {
           "handling": "pa_fak_ba_05",
@@ -444,38 +444,6 @@
               "filnavn": "avtaleliste_tjenestemannsorg"
             }
           ]
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "tjenestemannsorg_dataunderlag_for_medlem",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "TJENESTEMANNSORG",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "tjenestemannsorg_dataunderlag_medlem",
-          "filListe": "TJENESTEMANNSORG_FILLISTE_MEDLEM.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/tjenestemannsorg/fakturering/medlem"
-        },
-        {
-          "handling": "pa_fak_ba_09",
-          "modus": "tjenestemannsorg_dataunderlag_for_avtale",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "premiemodell": "TJENESTEMANNSORG",
-          "termin": "${termin}",
-          "kjøringsId": "#{genererUUID}",
-          "validerFeilendeMedlemmer": true
-        },
-        {
-          "handling": "send_batch_output_til_dvh",
-          "filPrefix": "tjenestemannsorg_dataunderlag_avtale",
-          "filListe": "TJENESTEMANNSORG_FILLISTE_AVTALE.txt",
-          "batch": "pa_fak_ba_09",
-          "filstiHosDVH": "/tjenestemannsorg/fakturering/avtale"
         },
         {
           "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",
