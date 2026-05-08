@@ -6,7 +6,7 @@
     "støttetAvPaOrkBa01FraVersjon": "1.4.2"
   },
   "variabler": {
-    "arkivområde": "panda_reserveberegning/<yyyy.MM.dd>",
+    "arkivområde": "panda_reserveberegning/<yyyy.MM.dd>/versjonsendring_<X.Y.Z>",
     "grunnlagsdataMappeFeilmeldinger": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "databaseKilde": "pa_res_ba_01",
     "databaseSisteFremskrivingsdato": "<yyyy.MM.dd>",
