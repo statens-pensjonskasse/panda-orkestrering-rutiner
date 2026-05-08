@@ -1,0 +1,47 @@
+{
+  "navn": "Premieprognose GRU",
+  "metainfo": {
+    "mal": "maler/premieprognose/premieprognose_gru.json",
+    "tags": ["prognose"],
+    "premiemodell": "gru",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.60"
+  },
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "kjøringsId": "<kjøringsId>",
+    "checksum": "<checksum>",
+    "paPreBa02Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp GRU premieprognoser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "gru_premieprognoser",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "gru_prognose",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        }
+      ]
+    }
+  ]
+}
