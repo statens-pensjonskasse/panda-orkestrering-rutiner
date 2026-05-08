@@ -47,7 +47,9 @@
             "poa_kjeder",
             "poa_frittstaaende",
             "tjenestemannsorg",
-            "tjenestemannsorg_arbeidsgiverandel"
+            "tjenestemannsorg_arbeidsgiverandel",
+            "ysk",
+            "gru"
           ],
           "type": "string"
         },
