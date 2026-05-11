@@ -10,6 +10,7 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "<kjøringsId>",
     "checksum": "<checksum>",
+    "prognoseAar": "<prognoseAar>",
     "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
@@ -31,8 +32,17 @@
           "batch": "pa_pre_ba_02"
         },
         {
+          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
+          "gruppe": "premieprognose",
+          "premiemodell": "gru",
+          "periode": "${prognoseAar}",
+          "checksum": "${checksum}",
+          "batch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
           "handling": "pa_pre_ba_02",
-          "modus": "gru_premieprognoser",
+          "modus": "premieprognoser_gru",
           "kjøringsId": "${kjøringsId}",
           "filnavn": "gru_prognose",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
