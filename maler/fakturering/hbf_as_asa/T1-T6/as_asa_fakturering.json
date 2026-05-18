@@ -284,6 +284,68 @@
           "tillatTomFil": true
         },
         {
+          "navn": "pa_fak_ba_09 ${førstePeriode}",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "hbf_as_asa",
+              "periode": "${førstePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_hbf_as_asa"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premie_for_hbf_as_asa/${førstePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${førstePeriode}/to-steg"
+            }
+          ]
+        },
+        {
+          "navn": "pa_fak_ba_09 ${andrePeriode}",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "konkatiner_og_kopier_fil_fra_aktuar_til_batch",
+              "premiemodell": "hbf_as_asa",
+              "periode": "${andrePeriode}",
+              "prognoseVersjon": "avtaleliste",
+              "batch": "pa_fak_ba_09",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "filnavn": "avtaleliste_hbf_as_asa"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "reservetransaksjonsdifferanser_medlem",
+              "batchFra": "pa_fak_ba_14",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "premie_for_hbf_as_asa/${andrePeriode}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "administrasjonspremie",
+              "batchFra": "pa_fak_ba_05",
+              "batchTil": "pa_fak_ba_09",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_administrasjonspremier/${andrePeriode}/to-steg"
+            }
+          ]
+        },
+        {
           "navn": "pa_fak_ba_09 generer utvidet format for dataunderlag medlem og avtale ${termin} og last opp til sky",
           "handling": "gruppe",
           "gruppeAv": [
