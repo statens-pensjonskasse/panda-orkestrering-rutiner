@@ -1,9 +1,11 @@
 package no.spk.panda.orkestrering.utforsker.rutiner
 
 import com.networknt.schema.InputFormat
-import com.networknt.schema.JsonSchema
-import com.networknt.schema.JsonSchemaFactory
-import com.networknt.schema.SpecVersion
+import com.networknt.schema.Schema
+import com.networknt.schema.SchemaRegistry
+import com.networknt.schema.SchemaRegistryConfig
+import com.networknt.schema.SpecificationVersion
+import com.networknt.schema.path.PathType
 import java.io.File
 import java.util.*
 
@@ -20,12 +22,13 @@ fun validerJsonSkjema(jsonSkjema: String, jsonTekst: String): List<SkjemaValider
         Locale.setDefault(Locale.ENGLISH)
 
         // Perform validation
-        val schemaFactory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V202012)
-        val schema: JsonSchema = schemaFactory.getSchema(jsonSkjema)
+        val config = SchemaRegistryConfig.builder().pathType(PathType.JSON_PATH).build()
+        val schemaRegistry = SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12) { it.schemaRegistryConfig(config) }
+        val schema: Schema = schemaRegistry.getSchema(jsonSkjema, InputFormat.JSON)
         val validationErrors = schema.validate(jsonTekst, InputFormat.JSON)
 
         return validationErrors.map {
-            SkjemaValidering(it.type, it.message)
+            SkjemaValidering(it.keyword, "${it.instanceLocation}: ${it.message}")
         }
     } finally {
         // Setter locale tilbake til den orginale verdien

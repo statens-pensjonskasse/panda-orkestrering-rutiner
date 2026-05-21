@@ -1,9 +1,9 @@
 package no.panda.orkestrering.utforsker.rutiner
 
-import com.fasterxml.jackson.core.JsonGenerator
-import com.fasterxml.jackson.core.util.DefaultIndenter
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter
-import com.fasterxml.jackson.databind.ObjectMapper
+import tools.jackson.core.JsonGenerator
+import tools.jackson.core.util.DefaultIndenter
+import tools.jackson.core.util.DefaultPrettyPrinter
+import tools.jackson.databind.ObjectMapper
 import org.jsoup.Jsoup
 import java.io.File
 import java.net.URI
@@ -38,7 +38,8 @@ fun main() {
     val jsondokument = konverterGrupperTilRutinefil(grupperMedHandlinger)
 
     val tekstdokument = ObjectMapper()
-        .writer(IntellijPrettyPrinter())
+        .writer()
+        .with(IntellijPrettyPrinter())
         .writeValueAsString(jsondokument)
     Files.write(File("maler/system/system_maanedlig_rydding_arkiv.json").toPath(), tekstdokument.toByteArray(Charsets.UTF_8))
 }
@@ -143,7 +144,7 @@ class IntellijPrettyPrinter : DefaultPrettyPrinter() {
         indentArraysWith(DefaultIndenter("  ", DefaultIndenter.SYS_LF))
     }
 
-    override fun writeObjectFieldValueSeparator(g: JsonGenerator) {
+    override fun writeObjectNameValueSeparator(g: JsonGenerator) {
         g.writeRaw(": ")
     }
 
