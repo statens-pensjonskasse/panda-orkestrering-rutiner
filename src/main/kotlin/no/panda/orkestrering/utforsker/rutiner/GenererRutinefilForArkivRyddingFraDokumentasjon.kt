@@ -1,36 +1,45 @@
 package no.panda.orkestrering.utforsker.rutiner
 
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.jsoup.Jsoup
 import tools.jackson.core.JsonGenerator
 import tools.jackson.core.util.DefaultIndenter
 import tools.jackson.core.util.DefaultPrettyPrinter
 import tools.jackson.databind.ObjectMapper
-import org.jsoup.Jsoup
 import java.io.File
-import java.net.URI
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.net.http.HttpResponse
 import java.nio.file.Files
+import java.security.KeyStore
 import java.security.SecureRandom
-import java.security.cert.X509Certificate
+import java.security.cert.CertificateFactory
+import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
+import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
 
 fun main() {
 
-    val client = enHttpklientSomIgnorererSSLVerifiseringen()
-
     /*
     Leser driftsdokumentasjon fra https://wiki.spk.no/spaces/dok/pages/537887546/SPK-Panda+Driftsdokumentasjon+for+automatisk+sletting+av+arkiverte+filer
      */
-    val request = HttpRequest.newBuilder()
-        .uri(URI.create("https://wiki.spk.no/rest/api/content/537887546?expand=body.storage"))
-        .GET()
+    val client: OkHttpClient = spkSignertKlient()
+
+    val request: Request = Request.Builder()
+        .url("https://wiki.spk.no/rest/api/content/537887546?expand=body.storage")
         .build()
 
-    val response = client!!.send(request, HttpResponse.BodyHandlers.ofString())
-    val jsonNode = ObjectMapper().readTree(response.body())
+    val tekst = try {
+        client.newCall(request).execute().use { resp ->
+            if (!resp.isSuccessful) throw RuntimeException("HTTP ${resp.code}")
+            resp.body.string()
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+        return
+    }
+
+
+    val jsonNode = ObjectMapper().readTree(tekst)
     val innhold = jsonNode.get("body").get("storage").get("value").asText()
 
     val grupperMedHandlinger = parseDokumentasjonForSletteInnslag(innhold)
@@ -44,15 +53,39 @@ fun main() {
     Files.write(File("maler/system/system_maanedlig_rydding_arkiv.json").toPath(), tekstdokument.toByteArray(Charsets.UTF_8))
 }
 
-private fun enHttpklientSomIgnorererSSLVerifiseringen(): HttpClient? = HttpClient.newBuilder()
-    .sslContext(SSLContext.getInstance("TLS").apply {
-        init(null, arrayOf<TrustManager>(object : X509TrustManager {
-            override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {}
-            override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {}
-            override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
-        }), SecureRandom())
-    })
-    .build()
+fun spkSignertKlient(): OkHttpClient {
+    try {
+        // Last inn CA-sertifikat fra resources
+        val cf = CertificateFactory.getInstance("X.509")
+        val caInput = Thread.currentThread().contextClassLoader.getResourceAsStream("spk_root_ca.crt")
+            ?: throw RuntimeException("Fant ikke spk_root_ca.crt i resources")
+        caInput.use {
+            val ca = cf.generateCertificate(caInput)
+
+            // Opprett en KeyStore med CA
+            val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
+            keyStore.load(null, null)
+            keyStore.setCertificateEntry("spk_root_ca", ca)
+
+            // Opprett TrustManagerFactory med KeyStore
+            val tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm())
+            tmf.init(keyStore)
+
+            // Opprett SSLContext med TrustManager
+            val sslContext = SSLContext.getInstance("TLS")
+            sslContext.init(null, tmf.getTrustManagers(), SecureRandom())
+
+            val client: OkHttpClient = OkHttpClient.Builder()
+                .sslSocketFactory(sslContext.getSocketFactory(), (tmf.getTrustManagers()[0] as X509TrustManager?)!!)
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build()
+            return client
+        }
+    } catch (e: Exception) {
+        throw RuntimeException(e)
+    }
+}
 
 private fun konverterGrupperTilRutinefil(grupperMedHandlinger: ArrayList<GruppeAvHandlinger>): Map<String, Any> {
     val operasjoner = ArrayList<Map<String, Any>>()
