@@ -74,7 +74,7 @@
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "generer_poa_pen_premier/${terminår}-02",
-          "tillatTomFil": true,
+          "feilHvisFilMangler": false,
           "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
         },
         {
@@ -84,7 +84,7 @@
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "generer_poa_pen_premier/${terminår}-03",
-          "tillatTomFil": true,
+          "feilHvisFilMangler": false,
           "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
         },
         {
