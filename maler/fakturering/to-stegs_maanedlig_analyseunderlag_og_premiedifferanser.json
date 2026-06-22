@@ -448,7 +448,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_res_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda-poliser/${fremskrivingsDato}/to-steg"
+              "nøkkel": "panda-poliser/${fremskrivingsDato}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -456,7 +456,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_res_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda-poliser/${fremskrivingsDato}/to-steg"
+              "nøkkel": "panda-poliser/${fremskrivingsDato}"
             },
             {
               "handling": "pa_res_ba_03",
@@ -781,7 +781,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_05",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}/to-steg",
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
