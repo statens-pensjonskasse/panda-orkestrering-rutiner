@@ -980,7 +980,7 @@
                   "batchFra": "pa_fak_ba_05",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "generer_administrasjonspremier/${periode}"
+                  "nøkkel": "generer_administrasjonspremier/${periode}/to-steg"
                 },
                 {
                   "handling": "pa_fak_ba_09",
