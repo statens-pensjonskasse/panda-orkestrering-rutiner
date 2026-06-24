@@ -337,7 +337,7 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}/to-steg" 
+                  "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
                 }
               ]
             },
@@ -356,7 +356,7 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda_tidslinjehendelser/${fremskrivingsDato}/to-steg" 
+                  "nøkkel": "panda_tidslinjehendelser/${fremskrivingsDato}"
                 }
               ]
             },
@@ -375,13 +375,13 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}/to-steg" 
+                  "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}"
                 },
                 {
                   "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
                   "fraBatch": "pa_res_ba_01",
                   "filPrefix": "rettighet_ytelser_for_dvh",
-                  "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}/to-steg",
+                  "nøkkel": "panda-testdata-rettighet-ytelser/${fremskrivingsDato}",
                   "kjøringsId": "rettighet_ytelse-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}"
                 },
@@ -406,13 +406,13 @@
                   "handling": "arkiver_all_batch_output",
                   "batch": "pa_res_ba_01",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda-poliser/${fremskrivingsDato}/to-steg"
+                  "nøkkel": "panda-poliser/${fremskrivingsDato}"
                 },
                 {
                   "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
                   "fraBatch": "pa_res_ba_01",
                   "filPrefix": "poliser",
-                  "nøkkel": "panda-poliser/${fremskrivingsDato}/to-steg",
+                  "nøkkel": "panda-poliser/${fremskrivingsDato}",
                   "kjøringsId": "poliser-${skyopplasterId}",
                   "grunnlagsdataMappe": "${grunnlagsdataMappe}"
                 },
@@ -448,7 +448,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_res_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda-poliser/${fremskrivingsDato}/to-steg"
+              "nøkkel": "panda-poliser/${fremskrivingsDato}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -456,7 +456,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_res_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda-poliser/${fremskrivingsDato}/to-steg"
+              "nøkkel": "panda-poliser/${fremskrivingsDato}"
             },
             {
               "handling": "pa_res_ba_03",
@@ -700,7 +700,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_13",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_fakturerbare_premiedifferanser/${periode}/to-steg" 
+              "nøkkel": "generer_fakturerbare_premiedifferanser/${periode}/to-steg"
             }
           ]
         },
@@ -731,7 +731,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_02",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}/to-steg" 
+              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}/to-steg"
             }
           ]
         },
@@ -749,7 +749,7 @@
               "batchFra": "pa_fak_ba_02",
               "batchTil": "pa_fak_ba_12",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}/to-steg" 
+              "nøkkel": "reserveaggregering_for_medlem/${fremskrivingsDato}/to-steg"
             },
             {
               "handling": "pa_fak_ba_12",
@@ -763,7 +763,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_12",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "pa_fak_ba_02/reserveaggregering_for_medlem/${fremskrivingsDato}/to-steg" 
+              "nøkkel": "pa_fak_ba_02/reserveaggregering_for_medlem/${fremskrivingsDato}/to-steg"
             }
           ]
         },
@@ -781,7 +781,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_05",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}/to-steg",
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -943,7 +943,7 @@
                   "batchFra": "pa_res_ba_01",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}/to-steg"
+                  "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -1020,7 +1020,7 @@
                   "batchFra": "pa_res_ba_01",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda_tidslinjehendelser/${fremskrivingsDato}/to-steg",
+                  "nøkkel": "panda_tidslinjehendelser/${fremskrivingsDato}",
                   "kommentar": "Henter fra siste grunnlagsdatamappe"
                 },
                 {
