@@ -1,5 +1,5 @@
 {
-  "navn": "GKRS",
+  "navn": "Opplasting av GKRS for regnskapsår ${regnskapsAar}",
   "metainfo": {
     "mal": "maler/gkrs/gkrs.json",
     "tags": ["gkrs"],
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "navn": "pa_pre_ba_02 last opp GKRS premieprognoser",
+      "navn": "pa_pre_ba_02 last opp GKRS for regnskapsår ${regnskapsAar}",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -33,7 +33,6 @@
         },
         {
           "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
-          "gruppe": "premieprognose",
           "premiemodell": "gkrs",
           "periode": "${regnskapsAar}",
           "checksum": "${checksum}",
