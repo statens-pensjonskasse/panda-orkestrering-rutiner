@@ -33,7 +33,8 @@
         },
         {
           "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
-          "premiemodell": "gkrs",
+          "gruppe": "gkrs",
+          "premiemodell": "hbf_fls",
           "periode": "${regnskapsAar}",
           "checksum": "${checksum}",
           "batch": "pa_pre_ba_02",
