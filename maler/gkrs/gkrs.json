@@ -1,16 +1,16 @@
 {
-  "navn": "Premieprognose GKRS",
+  "navn": "GKRS",
   "metainfo": {
-    "mal": "maler/premieprognose/premieprognose_gkrs.json",
-    "tags": ["prognose"],
-    "premiemodell": "gkrs",
+    "mal": "maler/gkrs/gkrs.json",
+    "tags": ["gkrs"],
+    "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "<kjøringsId>",
     "checksum": "<checksum>",
-    "prognoseAar": "<prognoseAar>",
+    "regnskapsAar": "<regnskapsAar>",
     "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
@@ -35,16 +35,16 @@
           "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
           "gruppe": "premieprognose",
           "premiemodell": "gkrs",
-          "periode": "${prognoseAar}",
+          "periode": "${regnskapsAar}",
           "checksum": "${checksum}",
           "batch": "pa_pre_ba_02",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "pa_pre_ba_02",
-          "modus": "premieprognoser_gkrs",
+          "modus": "gkrs",
           "kjøringsId": "${kjøringsId}",
-          "filnavn": "gkrs_prognose",
+          "filnavn": "gkrs",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
