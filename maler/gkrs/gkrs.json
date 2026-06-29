@@ -1,0 +1,57 @@
+{
+  "navn": "Opplasting av GKRS for regnskapsår ${regnskapsAar}",
+  "metainfo": {
+    "mal": "maler/gkrs/gkrs.json",
+    "tags": ["gkrs"],
+    "premiemodell": "hbf_fls",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.60"
+  },
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "kjøringsId": "<kjøringsId>",
+    "checksum": "<checksum>",
+    "regnskapsAar": "<regnskapsAar>",
+    "paPreBa02Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp GKRS for regnskapsår ${regnskapsAar}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
+          "gruppe": "gkrs",
+          "premiemodell": "hbf_fls",
+          "periode": "${regnskapsAar}",
+          "checksum": "${checksum}",
+          "batch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "gkrs",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "gkrs",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        }
+      ]
+    }
+  ]
+}
