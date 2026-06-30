@@ -176,15 +176,6 @@
           "nøkkel": "generer_poa_pen_premier/${forrigeTermin}"
         },
         {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "fakturerbare_premier_poa_pen",
-          "batchFra": "pa_fak_ba_15",
-          "batchTil": "pa_fak_ba_15",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "satsendring_poa_pen/${termin}",
-          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
-        },
-        {
           "handling": "kopier_termininfofil_fra_arkiv_til_batch",
           "batchTil": "pa_fak_ba_15",
           "termininfoVersjon": "${termininfoVersjon}",
@@ -286,6 +277,15 @@
           "nøkkel": "generer_poa_pen_premier/${termin}"
         },
         {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_04",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "satsendring_poa_pen/${termin}",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+        },
+        {
           "handling": "kopier_termininfofil_fra_arkiv_til_batch",
           "batchTil": "pa_fak_ba_04",
           "termininfoVersjon": "${termininfoVersjon}",
@@ -379,6 +379,15 @@
           "batchTil": "pa_fak_ba_09",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "generer_poa_pen_premier/${termin}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fakturerbare_premier_poa_pen",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "satsendring_poa_pen/${termin}",
+          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
         },
         {
           "handling": "kopier_termininfofil_fra_arkiv_til_batch",
