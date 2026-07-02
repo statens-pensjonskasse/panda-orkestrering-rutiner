@@ -322,7 +322,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}/to-steg"
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato1}"
             },
             {
               "handling": "pa_fak_ba_08",
@@ -392,7 +392,7 @@
               "batchFra": "pa_res_ba_01",
               "batchTil": "pa_fak_ba_08",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}/to-steg"
+              "nøkkel": "panda_administrasjonspremieunderlag/${fremskrivingsDato2}"
             },
             {
               "handling": "pa_fak_ba_08",
