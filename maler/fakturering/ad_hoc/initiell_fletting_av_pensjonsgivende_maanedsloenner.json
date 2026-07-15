@@ -1,0 +1,77 @@
+{
+  "navn": "Rutine for initiell fletting av pensjonsgivende månedslønner for periode ${periode} med siste fremskrivingsdato $(fremskrivingsdato)",
+  "metainfo": {
+    "mal": "maler/fakturering/ad_hoc/initiell_fletting_av_pensjonsgivende_maanedsloenner.json",
+    "tags": ["flettede_pensjonsgivende_månedslønn", "initiell", "flette_feilende_medlemmer"],
+    "støttetAvPaOrkBa01FraVersjon": "1.0.11"
+  },
+  "gyldigVersjon": "1.0.11",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
+    "fremskrivingsDato": "<YYYY.MM.dd>",
+    "periode": "<periode>",
+    "paFakBa11Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_fak_ba_11",
+          "versjon": "${paFakBa11Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "Initiell fletting av pensjonsgivende månedslønner",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/${forrigeFremskrivingsDato}",
+          "kommentar": "Henter forrige måneds flettede pensjonsgivende månedslønner"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/${fremskrivingsDato}",
+          "kommentar": "Henter denne månedens pensjonsgivende månedslønner"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/${fremskrivingsDato}",
+          "kommentar": "Henter denne månedens feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_feilende_medlemmer",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "${fremskrivingsDato}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flettede_pensjonsgivende_maanedsloenner/${periode}"
+        }
+      ]
+    }
+  ]
+}
