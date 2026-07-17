@@ -1,11 +1,10 @@
 {
   "navn": "To-stegs månedskjøring for versjonsendring, fremskriving og bestandsendring for periode ${periode} med siste fremskrivingsdato ${fremskrivingsDato} med fletting av pensjonsgivende månedslønner",
   "metainfo": {
-    "mal": "maler/fakturering/to-stegs_maanedlig_analyseunderlag_og_premiedifferanser_flettede_pensjonsgivende_maanedsloenner.json",
+    "mal": "maler/fakturering/to-stegs_maanedlig_analyseunderlag_og_premiedifferanser_med_fletting.json",
     "tags": [
       "to-steg",
-      "månedskjøring",
-      "flettede_pensjonsgivende_maanedsloenner"
+      "månedskjøring"
     ],
     "støttetAvPaOrkBa01FraVersjon": "1.0.11"
   },
