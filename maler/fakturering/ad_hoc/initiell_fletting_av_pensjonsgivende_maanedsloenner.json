@@ -24,7 +24,6 @@
       "<YYYY.MM.dd>",
       "<YYYY.MM.dd>",
       "<YYYY.MM.dd>"
-
     ],
 
     "paFakBa11Versjon": "<X.Y.Z>",
@@ -78,7 +77,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_11",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "flettede_pensjonsgivende_maanedsloenner/${førsteFremskrivingsDato}"
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/${førsteFremskrivingsDato}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -105,17 +104,8 @@
           "batchFra": "pa_fak_ba_11",
           "batchTil": "pa_fak_ba_11",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "flettede_pensjonsgivende_maanedsloenner/{{forrigeFremskrivingsDato}}",
-          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "pensjonsgivende_maanedsloenn",
-          "batchFra": "pa_fak_ba_05",
-          "batchTil": "pa_fak_ba_11",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn/{{fremskrivingsDato}}",
-          "kommentar": "Henter nåværende måneds pensjonsgivende månedslønner"
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/{{forrigeFremskrivingsDato}}",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -123,8 +113,17 @@
           "batchFra": "pa_res_ba_03",
           "batchTil": "pa_fak_ba_11",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "feilmeldinger/{{fremskrivingsDato}}",
+          "nøkkel": "panda_pensjonsgivende_loenn/{{fremskrivingsDato}}",
           "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/{{fremskrivingsDato}}",
+          "kommentar": "Henter nåværende måneds pensjonsgivende månedslønner"
         },
         {
           "handling": "pa_fak_ba_11",
@@ -137,7 +136,7 @@
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_11",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "flettede_pensjonsgivende_maanedsloenner/{{fremskrivingsDato}}"
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/{{fremskrivingsDato}}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
