@@ -42,7 +42,7 @@
         <dependency>
             <groupId>tools.jackson.module</groupId>
             <artifactId>jackson-module-kotlin</artifactId>
-            <version>3.2.0</version>
+            <version>3.2.1</version>
         </dependency>
 
         <dependency>
