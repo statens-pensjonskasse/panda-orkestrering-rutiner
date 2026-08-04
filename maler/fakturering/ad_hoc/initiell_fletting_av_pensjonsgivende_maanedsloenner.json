@@ -9,21 +9,7 @@
   },
   "gyldigVersjon": "1.0.0",
   "variabler": {
-    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-
-    "førsteFremskrivingsDato": "<YYYY.MM.dd>",
-
-    "forrigeFremskrivingsDatoer": [
-      "<YYYY.MM.dd>",
-      "<YYYY.MM.dd>"
-    ],
-    "fremskrivingsDatoer": [
-      "<YYYY.MM.dd>",
-      "<YYYY.MM.dd>"
-
-    ],
-
-    "paFakBa11Versjon": "<X.Y.Z>"
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}"
   },
   "operasjoner": [
     {
@@ -31,13 +17,12 @@
       "batcher": [
         {
           "navn": "pa_fak_ba_11",
-          "versjon": "${paFakBa11Versjon}"
+          "versjon": "3.0.10"
         }
       ]
     },
-
     {
-      "navn": "Initiell fletting av første måned",
+      "navn": "Initiell fletting for 2025.01.01",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -50,21 +35,30 @@
           "batchFra": "pa_fak_ba_05",
           "batchTil": "pa_fak_ba_11",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_pensjonsgivende_maanedsloenn/${forsteFremskrivingsDato}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.01.01",
           "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.01.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
         },
         {
           "handling": "pa_fak_ba_11",
           "modus": "flette_pensjonsgivende_månedslønner",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "flettetFremskrivingsdato": "${forsteFremskrivingsDato}",
+          "flettetFremskrivingsdato": "2025.01.01",
           "validerFeilendeMedlemmer": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_11",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_pensjonsgivende_maanedsloenner/${forsteFremskrivingsDato}"
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.01.01"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -72,15 +66,10 @@
         }
       ]
     },
-
     {
-      "navn": "Fletting av påfølgende måneder (for hver zipped)",
-      "handling": "for_hver_zipped",
-      "lister": {
-        "forrigeFremskrivingsDato": "${forrigeFremskrivingsDatoer}",
-        "fremskrivingsDato": "${fremskrivingsDatoer}"
-      },
-      "utfør_handlinger": [
+      "navn": "Fletting for 2025.02.01",
+      "handling": "gruppe",
+      "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_11"
@@ -91,17 +80,8 @@
           "batchFra": "pa_fak_ba_11",
           "batchTil": "pa_fak_ba_11",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_pensjonsgivende_maanedsloenner/{{forrigeFremskrivingsDato}}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.01.01",
           "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "feilmeldinger",
-          "batchFra": "pa_res_ba_03",
-          "batchTil": "pa_fak_ba_11",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "panda_pensjonsgivende_loenn/{{fremskrivingsDato}}",
-          "kommentar": "Henter nåværende måneds feilmeldinger"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -109,21 +89,1002 @@
           "batchFra": "pa_fak_ba_05",
           "batchTil": "pa_fak_ba_11",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_pensjonsgivende_maanedsloenn/{{fremskrivingsDato}}",
-          "kommentar": "Henter nåværende måneds pensjonsgivende månedslønner"
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.02.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.02.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
         },
         {
           "handling": "pa_fak_ba_11",
           "modus": "flette_pensjonsgivende_månedslønner",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "flettetFremskrivingsdato": "{{fremskrivingsDato}}",
+          "flettetFremskrivingsdato": "2025.02.01",
           "validerFeilendeMedlemmer": true
         },
         {
           "handling": "arkiver_all_batch_output",
           "batch": "pa_fak_ba_11",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "flette_pensjonsgivende_maanedsloenner/{{fremskrivingsDato}}"
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.02.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.03.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.02.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.03.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.03.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.03.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.03.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.04.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.03.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.04.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.04.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.04.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.04.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.05.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.04.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.05.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.05.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.05.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.05.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.06.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.05.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.06.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.06.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.06.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.06.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.07.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.06.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.07.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.07.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.07.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.07.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.08.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.07.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.08.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.08.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.08.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.08.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.09.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.08.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.09.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.09.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.09.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.09.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.10.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.09.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.10.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.10.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.10.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.10.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.11.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.10.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.11.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.11.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.11.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.11.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2025.12.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.11.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2025.12.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2025.12.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2025.12.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.12.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2026.01.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2025.12.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2026.01.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2026.01.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2026.01.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.01.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2026.02.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.01.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2026.02.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2026.02.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2026.02.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.02.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2026.03.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.02.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2026.03.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2026.03.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2026.03.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.03.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2026.04.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.03.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2026.04.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2026.04.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2026.04.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.04.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2026.05.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.04.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2026.05.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2026.05.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2026.05.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.05.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2026.06.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.05.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2026.06.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2026.06.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2026.06.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.06.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2026.07.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.06.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2026.07.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2026.07.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2026.07.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.07.01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        }
+      ]
+    },
+    {
+      "navn": "Fletting for 2026.08.01",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_11"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "flettede_pensjonsgivende_maanedsloenner",
+          "batchFra": "pa_fak_ba_11",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.07.01",
+          "kommentar": "Henter forrige flettede pensjonsgivende månedslønner for å flette feilende medlemmer"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "pensjonsgivende_maanedsloenn",
+          "batchFra": "pa_fak_ba_05",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_pensjonsgivende_maanedsloenn/2026.08.01",
+          "kommentar": "Henter månedens pensjonsgivende månedslønn"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "feilmeldinger",
+          "batchFra": "pa_res_ba_03",
+          "batchTil": "pa_fak_ba_11",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "panda_pensjonsgivende_loenn/2026.08.01",
+          "kommentar": "Henter nåværende måneds feilmeldinger"
+        },
+        {
+          "handling": "pa_fak_ba_11",
+          "modus": "flette_pensjonsgivende_månedslønner",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "flettetFremskrivingsdato": "2026.08.01",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_11",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "flette_pensjonsgivende_maanedsloenner/2026.08.01"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
