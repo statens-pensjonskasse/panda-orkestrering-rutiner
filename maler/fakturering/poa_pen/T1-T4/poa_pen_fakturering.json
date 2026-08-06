@@ -24,6 +24,8 @@
     "skyopplasterId": "#{genererUUID}",
 
     "skalIkkeUtføreSatsendring": "<true/false>",
+    "ignorerKopierFraArkivTermin02": "<true/false>",
+    "ignorerKopierFraArkivTermin03": "<true/false>",
 
     "sluttfakturaAvtalelister": [],
 
@@ -75,7 +77,7 @@
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "generer_poa_pen_premier/${terminår}-02",
           "feilHvisFilMangler": false,
-          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+          "ignorertInstruksjon": "${ignorerKopierFraArkivTermin02}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -85,7 +87,7 @@
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
           "nøkkel": "generer_poa_pen_premier/${terminår}-03",
           "feilHvisFilMangler": false,
-          "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
+          "ignorertInstruksjon": "${ignorerKopierFraArkivTermin03}"
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
