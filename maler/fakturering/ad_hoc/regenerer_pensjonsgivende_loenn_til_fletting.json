@@ -1,0 +1,1278 @@
+{
+  "navn": "Rutine for regenerering av pensjonsgivende lønn til fletting",
+  "metainfo": {
+    "mal": "maler/fakturering/ad_hoc/regenerer_pensjonsgivende_loenn_til_fletting.json",
+    "tags": [
+      "arkivering"
+    ],
+    "støttetAvPaOrkBa01FraVersjon": "1.6.1"
+  },
+  "gyldigVersjon": "1.0.0",
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "sisteFremskrivingsdatoJanuar2025": "2025.02.01",
+    "sisteFremskrivingsdatoFebruar2025": "2025.03.01",
+    "sisteFremskrivingsdatoMars2025": "2025.04.01",
+    "sisteFremskrivingsdatoApril2025": "2025.05.01",
+    "sisteFremskrivingsdatoMai2025": "2025.06.01",
+    "sisteFremskrivingsdatoJuni2025": "2025.07.01",
+    "sisteFremskrivingsdatoJuli2025": "2025.08.01",
+    "sisteFremskrivingsdatoAugust2025": "2025.09.01",
+    "sisteFremskrivingsdatoSeptember2025": "2025.10.01",
+    "sisteFremskrivingsdatoOktober2025": "2025.11.01",
+    "sisteFremskrivingsdatoNovember2025": "2025.12.01",
+    "sisteFremskrivingsdatoDesember2025": "2026.01.01",
+    "sisteFremskrivingsdatoJanuar2026": "2026.02.01",
+    "sisteFremskrivingsdatoFebruar2026": "2026.03.01",
+    "sisteFremskrivingsdatoMars2026": "2026.04.01",
+    "sisteFremskrivingsdatoApril2026": "2026.05.01",
+    "sisteFremskrivingsdatoMai2026": "2026.06.01",
+    "sisteFremskrivingsdatoJuni2026": "2026.07.01",
+    "sisteFremskrivingsdatoJuli2026": "2026.08.01"
+  },
+  "operasjoner": [
+    {
+      "navn": "Regenerer pensjonsgivende lønn januar 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for januar 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "0.0.13"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-02-03_10-05-10-73",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "7"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoJanuar2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoJanuar2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-02-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoJanuar2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for januar 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.18"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoJanuar2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoJanuar2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoJanuar2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn februar 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for februar 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "0.0.13"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-02-28_21-33-51-73",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "7"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoFebruar2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoFebruar2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-03-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoFebruar2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for februar 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.20"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoFebruar2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoFebruar2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoFebruar2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn mars 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for mars 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "0.0.13"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-03-31_21-33-39-43",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "7"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoMars2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoMars2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-04-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoMars2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for mars 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.22"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoMars2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoMars2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoMars2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn april 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for april 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "0.0.13"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-04-30_21-33-56-81",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "7"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoApril2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoApril2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-05-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoApril2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for april 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.23"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoApril2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoApril2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoApril2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn mai 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for mai 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "0.0.13"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-05-31_17-05-10-62",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "8"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoMai2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoMai2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-06-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoMai2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for mai 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.24"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoMai2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoMai2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoMai2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn juni 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for juni 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "0.0.14"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-06-24_21-33-47-36",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "8"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoJuni2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoJuni2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-07-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoJuni2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for juni 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.24"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoJuni2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoJuni2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoJuni2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn juli 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for juli 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "0.0.14"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-07-27_17-07-06-27",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "8"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoJuli2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoJuli2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-08-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoJuli2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for juli 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.25"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoJuli2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoJuli2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoJuli2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn august 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for august 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "0.0.14"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-08-31_17-05-37-70",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "8"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoAugust2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoAugust2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-09-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoAugust2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for august 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.28"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoAugust2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoAugust2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoAugust2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn september 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for september 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "1.0.3"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-09-30_21-34-15-30",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "9"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoSeptember2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoSeptember2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-10-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoSeptember2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for september 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.28"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoSeptember2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoSeptember2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoSeptember2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn oktober 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for oktober 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "1.0.4"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-10-31_21-34-18-27",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "9"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-11-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for oktober 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.30"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoOktober2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "Regenerer pensjonsgivende lønn oktober 2025",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "navn": "Regenerer pensjonsgivende årslønn for oktober 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_res_ba_03",
+                  "versjon": "1.0.4"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            },
+            {
+              "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_03",
+              "fraGrunnlagsdataMappe": "grunnlagsdata_2025-10-31_21-34-18-27",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "kommentar": "Hent grunnlagsdata (stillingshistorikk) til pensjonsgivende lønn"
+            },
+            {
+              "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "tilGrunnlagsdataMappe": "9"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "poliser",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "feilmeldinger",
+              "batchFra": "pa_res_ba_01",
+              "batchTil": "pa_res_ba_03",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda-poliser/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "pa_res_ba_03",
+              "modus": "panda_pensjonsgivende_loenn",
+              "sisteFremskrivingsdato": "2025-11-01",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_res_ba_03",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_res_ba_03"
+            }
+          ]
+        },
+        {
+          "navn": "Regenerer pensjonsgivende månedslønn for oktober 2025",
+          "handling": "gruppe",
+          "gruppeAv": [
+            {
+              "handling": "deploy_batch",
+              "batcher": [
+                {
+                  "navn": "pa_fak_ba_05",
+                  "versjon": "2.0.30"
+                }
+              ]
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            },
+            {
+              "handling": "kopier_fra_arkiv_til_batch",
+              "filnavn": "pensjonsgivende_loenn",
+              "batchFra": "pa_res_ba_03",
+              "batchTil": "pa_fak_ba_05",
+              "grunnlagsdataMappeFra": "${grunnlagsdataMappe}",
+              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+              "nøkkel": "panda_pensjonsgivende_loenn/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "pa_fak_ba_05",
+              "modus": "generer_pensjonsgivende_maanedsloenn",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "sisteFremskrivingsdato": "${sisteFremskrivingsdatoOktober2025}",
+              "validerFeilendeMedlemmer": true
+            },
+            {
+              "handling": "arkiver_all_batch_output",
+              "batch": "pa_fak_ba_05",
+              "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+              "nøkkel": "generer_pensjonsgivende_maanedsloenn/${sisteFremskrivingsdatoOktober2025}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_05"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
