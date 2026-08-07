@@ -56,8 +56,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "7"
+              "versjon": "7",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -169,8 +169,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "7"
+              "versjon": "7",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -282,8 +282,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "7"
+              "versjon": "7",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -395,8 +395,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "7"
+              "versjon": "7",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -508,8 +508,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "8"
+              "versjon": "8",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -621,8 +621,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "8"
+              "versjon": "8",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -734,8 +734,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "8"
+              "versjon": "8",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -847,8 +847,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "8"
+              "versjon": "8",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -960,8 +960,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "9"
+              "versjon": "9",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -1073,8 +1073,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "9"
+              "versjon": "9",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -1186,8 +1186,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "9"
+              "versjon": "9",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -1299,8 +1299,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "9"
+              "versjon": "9",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -1412,8 +1412,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "9"
+              "versjon": "9",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -1525,8 +1525,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "9"
+              "versjon": "9",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -1638,8 +1638,8 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
-              "tilGrunnlagsdataMappe": "9"
+              "versjon": "9",
+              "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
