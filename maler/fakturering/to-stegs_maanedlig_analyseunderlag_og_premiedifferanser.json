@@ -537,7 +537,7 @@
             {
               "handling": "kopier_fra_arkiv_til_batch",
               "filnavn": "feilmeldinger",
-              "batchFra": "pa_fak_ba_03",
+              "batchFra": "pa_res_ba_03",
               "batchTil": "pa_fak_ba_11",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}",
