@@ -1,5 +1,5 @@
 {
-  "navn": "Opplasting av GKRS for regnskapsår ${regnskapsAar}",
+  "navn": "Beriking og Opplasting av GKRS for regnskapsår ${regnskapsAar}",
   "metainfo": {
     "mal": "maler/gkrs/gkrs.json",
     "tags": ["gkrs"],
@@ -9,8 +9,10 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "<kjøringsId>",
-    "checksum": "<checksum>",
-    "regnskapsAar": "<regnskapsAar>",
+    "checksumGkrs": "<checksumGrks>",
+    "checksumForutsetninger": "<checksumForutsetninger>",
+    "regnskapsAar": "yyyy",
+    "paDokBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
@@ -18,8 +20,69 @@
       "handling": "deploy_batch",
       "batcher": [
         {
+          "navn": "pa_dok_ba_01",
+          "versjon": "${paDokBa01Versjon}"
+        },
+        {
           "navn": "pa_pre_ba_02",
           "versjon": "${paPreBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "Rydd grunnlagsdata for batchene pa_dok_ba_01 og pa_pre_ba_02",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_dok_ba_01"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        }
+      ]
+    },
+    {
+      "navn": "pa_dok_ba_01 berik GKRS for regnskapsår ${regnskapsAar}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
+          "gruppe": "gkrs",
+          "premiemodell": "hbf_fls",
+          "periode": "${regnskapsAar}",
+          "kategori": "forutsetninger",
+          "checksum": "${checksumForutsetninger}",
+          "batch": "pa_dok_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
+          "gruppe": "gkrs",
+          "premiemodell": "hbf_fls",
+          "periode": "${regnskapsAar}",
+          "checksum": "${checksumGkrs}",
+          "kategori": "gkrs",
+          "batch": "pa_dok_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_dok_ba_01",
+          "modus": "gkrs",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "kopier_filer_fra_batch_til_batch",
+          "filPrefix": "gkrs_beriket",
+          "fraBatch": "pa_dok_ba_01",
+          "tilBatch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "kopierFraTidsserieKatalog": false
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_dok_ba_01"
         }
       ]
     },
@@ -28,23 +91,10 @@
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_pre_ba_02"
-        },
-        {
-          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
-          "gruppe": "gkrs",
-          "premiemodell": "hbf_fls",
-          "periode": "${regnskapsAar}",
-          "checksum": "${checksum}",
-          "batch": "pa_pre_ba_02",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
           "handling": "pa_pre_ba_02",
           "modus": "gkrs",
           "kjøringsId": "${kjøringsId}",
-          "filnavn": "gkrs",
+          "filnavn": "gkrs_beriket",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
