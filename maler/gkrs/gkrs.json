@@ -11,7 +11,7 @@
     "kjøringsId": "<kjøringsId>",
     "checksumGkrs": "<checksumGrks>",
     "checksumForutsetninger": "<checksumForutsetninger>",
-    "regnskapsAar": "yyyy",
+    "regnskapsAar": "<yyyy>",
     "paDokBa01Versjon": "<X.Y.Z>",
     "paPreBa02Versjon": "<X.Y.Z>"
   },
