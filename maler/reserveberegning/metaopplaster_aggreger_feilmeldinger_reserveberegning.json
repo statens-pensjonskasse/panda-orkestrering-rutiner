@@ -10,8 +10,8 @@
     "grunnlagsdataMappeFeilmeldinger": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
     "databaseKilde": "pa_res_ba_01",
     "databaseSisteFremskrivingsdato": "<yyyy.MM.dd>",
-    "paFakBa12Versjon": "1.0.13",
-    "paOrkBa05Versjon": "0.0.6"
+    "paFakBa12Versjon": "#{sisteBatchVersjon(pa_fak_ba_12)}",
+    "paOrkBa05Versjon": "#{sisteBatchVersjon(pa_ork_ba_05)}"
   },
   "operasjoner": [
     {
