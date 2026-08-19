@@ -7,7 +7,7 @@
   },
   "variabler": {
     "orkestreringUtKatalog": "<orkestrering_YYYY-MM-DD_HH-mm-ss>",
-    "paOrkBa05Versjon": "0.0.8"
+    "paOrkBa05Versjon": "#{sisteBatchVersjon(pa_ork_ba_05)}"
   },
   "operasjoner": [
     {
