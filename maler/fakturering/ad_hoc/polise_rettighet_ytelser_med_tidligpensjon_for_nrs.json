@@ -5,8 +5,9 @@
     "tags": [
       "eksport"
     ],
-    "støttetAvPaOrkBa01FraVersjon": "1.4.3"
+    "støttetAvPaOrkBa01FraVersjon": "2.2.1"
   },
+  "gyldigVersjon": "2.2.1",
   "variabler": {
     "skyopplasterId": "#{genererUUID}",
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
