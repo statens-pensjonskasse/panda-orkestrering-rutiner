@@ -62,16 +62,6 @@
           "gruppe": "gkrs",
           "premiemodell": "hbf_fls",
           "periode": "${regnskapsAar}",
-          "kategori": "prismodell",
-          "checksum": "${checksumPrismodell}",
-          "batch": "pa_dok_ba_01",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
-          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
-          "gruppe": "gkrs",
-          "premiemodell": "hbf_fls",
-          "periode": "${regnskapsAar}",
           "checksum": "${checksumGkrs}",
           "kategori": "gkrs",
           "batch": "pa_dok_ba_01",
