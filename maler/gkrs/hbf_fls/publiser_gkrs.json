@@ -10,8 +10,6 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeFra": "<grunnlagsdataMappeFra>",
     "metadataBestillingId": "<metadataBestillingId>",
-    "checksumGkrs": "<checksumGrks>",
-    "checksumForutsetninger": "<checksumForutsetninger>",
     "regnskapsAar": "<yyyy>",
     "registrertAv": "XXX",
     "paPreBa02Versjon": "<X.Y.Z>"
