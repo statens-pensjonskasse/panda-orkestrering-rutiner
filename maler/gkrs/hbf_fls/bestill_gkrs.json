@@ -1,19 +1,19 @@
 {
-  "navn": "Beriking og Opplasting av GKRS for regnskapsår ${regnskapsAar}",
+  "navn": "Bestilling av GKRS for regnskapsår ${regnskapsAar}, og generering av excel-fil",
   "metainfo": {
-    "mal": "maler/gkrs/gkrs.json",
+    "mal": "maler/gkrs/hbf_fls/bestill_gkrs.json",
     "tags": ["gkrs"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "kjøringsId": "<kjøringsId>",
-    "checksumGkrs": "<checksumGrks>",
+    "checksumGkrs": "<checksumGkrs>",
     "checksumForutsetninger": "<checksumForutsetninger>",
+    "checksumPrismodell": "<checksumPrismodell>",
     "regnskapsAar": "<yyyy>",
     "paDokBa01Versjon": "<X.Y.Z>",
-    "paPreBa02Versjon": "<X.Y.Z>"
+    "paDokBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -24,13 +24,13 @@
           "versjon": "${paDokBa01Versjon}"
         },
         {
-          "navn": "pa_pre_ba_02",
-          "versjon": "${paPreBa02Versjon}"
+          "navn": "pa_dok_ba_02",
+          "versjon": "${paDokBa02Versjon}"
         }
       ]
     },
     {
-      "navn": "Rydd grunnlagsdata for batchene pa_dok_ba_01 og pa_pre_ba_02",
+      "navn": "Rydd grunnlagsdata for batchene pa_dok_ba_01 og pa_dok_ba_02",
       "handling": "gruppe",
       "gruppeAv": [
         {
@@ -39,7 +39,7 @@
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_pre_ba_02"
+          "batch": "pa_dok_ba_02"
         }
       ]
     },
@@ -69,37 +69,47 @@
         },
         {
           "handling": "pa_dok_ba_01",
-          "modus": "gkrs",
+          "modus": "sammenstill_gkrs",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "kopier_filer_fra_batch_til_batch",
-          "filPrefix": "gkrs_beriket",
-          "fraBatch": "pa_dok_ba_01",
-          "tilBatch": "pa_pre_ba_02",
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_dok_ba_01",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "kopierFraTidsserieKatalog": false
-        },
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_dok_ba_01"
+          "nøkkel": "sammenstill_gkrs/${regnskapsAar}"
         }
       ]
     },
     {
-      "navn": "pa_pre_ba_02 last opp GKRS for regnskapsår ${regnskapsAar}",
+      "navn": "pa_dok_ba_02 generere excel fil for gkrs ${regnskapsAar}",
       "handling": "gruppe",
       "gruppeAv": [
         {
-          "handling": "pa_pre_ba_02",
-          "modus": "gkrs",
-          "kjøringsId": "${kjøringsId}",
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_dok_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "gkrs_beriket",
+          "batchFra": "pa_dok_ba_01",
+          "batchTil": "pa_dok_ba_02",
+          "nøkkel": "sammenstill_gkrs/${regnskapsAar}",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_dok_ba_02",
+          "modus": "generer_gkrs_dokumenter",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_dok_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_gkrs_dokumenter/${regnskapsAar}"
+        },
+        {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_pre_ba_02"
+          "batch": "pa_dok_ba_02"
         }
       ]
     }

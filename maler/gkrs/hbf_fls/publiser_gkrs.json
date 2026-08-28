@@ -1,0 +1,93 @@
+{
+  "navn": "Publisering og opplasting av GKRS for regnskapsår ${regnskapsAar} til Mongo db og Snowflake",
+  "metainfo": {
+    "mal": "maler/gkrs/hbf_fls/publiser_gkrs.json",
+    "tags": ["gkrs"],
+    "premiemodell": "hbf_fls",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.60"
+  },
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappeFra": "<grunnlagsdataMappeFra>",
+    "metadataBestillingId": "<metadataBestillingId>",
+    "checksumPrismodell": "<checksumPrismodell>",
+    "regnskapsAar": "<yyyy>",
+    "registrertAv": "XXX",
+    "paPreBa02Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp GKRS filer for regnskapsår ${regnskapsAar}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "gkrs_beriket",
+          "batchFra": "pa_dok_ba_01",
+          "batchTil": "pa_pre_ba_02",
+          "nøkkel": "sammenstill_gkrs/${regnskapsAar}",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "gkrs_beriket",
+          "kjøringsId": "${metadataBestillingId}",
+          "filnavn": "gkrs_beriket",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "Gkrs",
+          "batchFra": "pa_dok_ba_02",
+          "batchTil": "pa_pre_ba_02",
+          "nøkkel": "generer_gkrs_dokumenter/${regnskapsAar}",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "gkrs_dokumenter",
+          "kjøringsId": "${metadataBestillingId}",
+          "registrertAv": "${registrertAv}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
+          "gruppe": "gkrs",
+          "premiemodell": "hbf_fls",
+          "periode": "${regnskapsAar}",
+          "kategori": "prismodell",
+          "checksum": "${checksumPrismodell}",
+          "batch": "pa_dok_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "gkrs_prismodell",
+          "kjøringsId": "${metadataBestillingId}",
+          "filnavn": "gkrs_prismodell",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        }
+      ]
+    }
+  ]
+}
