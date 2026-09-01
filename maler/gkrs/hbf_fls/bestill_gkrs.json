@@ -94,7 +94,7 @@
           "batchFra": "pa_dok_ba_01",
           "batchTil": "pa_dok_ba_02",
           "nøkkel": "sammenstill_gkrs/${regnskapsAar}",
-          "grunnlagsdataMappeFra": "${grunnlagsdataMappe}"
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "pa_dok_ba_02",
