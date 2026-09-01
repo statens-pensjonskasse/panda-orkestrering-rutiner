@@ -99,6 +99,7 @@
         {
           "handling": "pa_dok_ba_02",
           "modus": "generer_gkrs_dokumenter",
+          "aar": "${regnskapsAar}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
