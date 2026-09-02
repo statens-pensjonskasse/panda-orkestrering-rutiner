@@ -39,7 +39,8 @@
           "batchFra": "pa_dok_ba_01",
           "batchTil": "pa_pre_ba_02",
           "nøkkel": "sammenstill_gkrs/${regnskapsAar}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappeFra}"
+          "grunnlagsdataMappe": "${grunnlagsdataMappeFra}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
         },
         {
           "handling": "pa_pre_ba_02",
@@ -54,17 +55,19 @@
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "Gkrs",
+          "filnavn": "GKRS",
           "batchFra": "pa_dok_ba_02",
           "batchTil": "pa_pre_ba_02",
           "nøkkel": "generer_gkrs_dokumenter/${regnskapsAar}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappeFra}"
+          "grunnlagsdataMappe": "${grunnlagsdataMappeFra}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
         },
         {
           "handling": "pa_pre_ba_02",
           "modus": "gkrs_dokumenter",
           "kjøringsId": "${metadataBestillingId}",
-          "registrertAv": "${registrertAv}"
+          "registrertAv": "${registrertAv}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
@@ -77,7 +80,7 @@
           "periode": "${regnskapsAar}",
           "kategori": "prismodell",
           "checksum": "${checksumPrismodell}",
-          "batch": "pa_dok_ba_01",
+          "batch": "pa_pre_ba_02",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
