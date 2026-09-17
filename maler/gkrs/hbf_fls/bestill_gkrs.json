@@ -9,11 +9,13 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "checksumGkrs": "<checksumGkrs>",
+    "metadataBestillingId": "<metadataBestillingId>",
     "checksumForutsetninger": "<checksumForutsetninger>",
     "checksumPrismodell": "<checksumPrismodell>",
     "regnskapsAar": "<yyyy>",
     "paDokBa01Versjon": "<X.Y.Z>",
-    "paDokBa02Versjon": "<X.Y.Z>"
+    "paDokBa02Versjon": "<X.Y.Z>",
+    "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -26,6 +28,10 @@
         {
           "navn": "pa_dok_ba_02",
           "versjon": "${paDokBa02Versjon}"
+        },
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
         }
       ]
     },
@@ -111,6 +117,53 @@
         {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_dok_ba_02"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp GKRS prismodell og beriket for regnskapsår ${regnskapsAar}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "gkrs_beriket",
+          "batchFra": "pa_dok_ba_01",
+          "batchTil": "pa_pre_ba_02",
+          "nøkkel": "sammenstill_gkrs/${regnskapsAar}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "gkrs_beriket",
+          "kjøringsId": "${metadataBestillingId}",
+          "filnavn": "gkrs_beriket",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
+          "gruppe": "gkrs",
+          "premiemodell": "hbf_fls",
+          "periode": "${regnskapsAar}",
+          "kategori": "prismodell",
+          "checksum": "${checksumPrismodell}",
+          "batch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "gkrs_prismodell",
+          "kjøringsId": "${metadataBestillingId}",
+          "filnavn": "gkrs_prismodell",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     }
