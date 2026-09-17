@@ -10,7 +10,6 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeFra": "<grunnlagsdataMappeFra>",
     "metadataBestillingId": "<metadataBestillingId>",
-    "checksumPrismodell": "<checksumPrismodell>",
     "regnskapsAar": "<yyyy>",
     "registrertAv": "XXX",
     "paPreBa02Versjon": "<X.Y.Z>"
@@ -35,26 +34,6 @@
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
-          "filnavn": "gkrs_beriket",
-          "batchFra": "pa_dok_ba_01",
-          "batchTil": "pa_pre_ba_02",
-          "nøkkel": "sammenstill_gkrs/${regnskapsAar}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappeFra}",
-          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
-        },
-        {
-          "handling": "pa_pre_ba_02",
-          "modus": "gkrs_beriket",
-          "kjøringsId": "${metadataBestillingId}",
-          "filnavn": "gkrs_beriket",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
-          "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_pre_ba_02"
-        },
-        {
-          "handling": "kopier_fra_arkiv_til_batch",
           "filnavn": "GKRS",
           "batchFra": "pa_dok_ba_02",
           "batchTil": "pa_pre_ba_02",
@@ -72,23 +51,6 @@
         {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_pre_ba_02"
-        },
-        {
-          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
-          "gruppe": "gkrs",
-          "premiemodell": "hbf_fls",
-          "periode": "${regnskapsAar}",
-          "kategori": "prismodell",
-          "checksum": "${checksumPrismodell}",
-          "batch": "pa_pre_ba_02",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
-        },
-        {
-          "handling": "pa_pre_ba_02",
-          "modus": "gkrs_prismodell",
-          "kjøringsId": "${metadataBestillingId}",
-          "filnavn": "gkrs_prismodell",
-          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         }
       ]
     }
