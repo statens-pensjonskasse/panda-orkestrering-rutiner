@@ -59,7 +59,7 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${førstePeriode}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser_fra_flettede/${førstePeriode}",
           "tillatTomFil": true
         },
         {
@@ -68,7 +68,7 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${andrePeriode}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser_fra_flettede/${andrePeriode}",
           "tillatTomFil": true
         },
         {
@@ -77,7 +77,7 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${tredjePeriode}",
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser_fra_flettede/${tredjePeriode}",
           "tillatTomFil": true
         },
         {
