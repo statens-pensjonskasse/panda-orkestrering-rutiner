@@ -33,7 +33,8 @@
               "vedlikehold",
               "sluttfaktura",
               "avregning",
-              "premieoppgjør"
+              "premieoppgjør",
+              "ad-hoc"
             ]
           }
         },
