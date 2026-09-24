@@ -1179,47 +1179,6 @@
               ]
             },
             {
-              "navn": "pa_fak_ba_09 (pensjonsgivende_loenn)",
-              "handling": "gruppe",
-              "gruppeAv": [
-                {
-                  "handling": "rydd_grunnlagsdata_for_batch",
-                  "batch": "pa_fak_ba_09"
-                },
-                {
-                  "handling": "kopier_fra_arkiv_til_batch",
-                  "filnavn": "pensjonsgivende_loenn",
-                  "batchFra": "pa_res_ba_03",
-                  "batchTil": "pa_fak_ba_09",
-                  "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "panda_pensjonsgivende_loenn/${fremskrivingsDato}"
-                },
-                {
-                  "handling": "pa_fak_ba_09",
-                  "modus": "pensjonsgivende_loenn_dataunderlag",
-                  "kjøringsId": "#{genererUUID}",
-                  "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-                  "sisteFremskrivingsdato": "${fremskrivingsDato}",
-                  "validerFeilendeMedlemmer": true
-                },
-                {
-                  "handling": "kopier_filer_fra_batch_til_skyopplaster",
-                  "fraBatch": "pa_fak_ba_09",
-                  "filPrefix": "pensjonsgivende_loenn_dataunderlag",
-                  "kjøringsId": "pensjonsgivende_loenn-${skyopplasterId}"
-                },
-                {
-                  "handling": "opprett_bestilling_til_skyopplaster",
-                  "kjøringsId": "pensjonsgivende_loenn-${skyopplasterId}",
-                  "filstiHosDVH": "pensjonsgivende_loenn"
-                },
-                {
-                  "handling": "rydd_grunnlagsdata_for_batch",
-                  "batch": "pa_fak_ba_09"
-                }
-              ]
-            },
-            {
               "navn": "pa_fak_ba_09 (pensjonsgivende_maanedsloenn_differanser)",
               "handling": "gruppe",
               "gruppeAv": [
