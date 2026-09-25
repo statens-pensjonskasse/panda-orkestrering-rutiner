@@ -1192,7 +1192,7 @@
                   "batchFra": "pa_fak_ba_03",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${periode}"
+                  "nøkkel": "pensjonsgivende_maanedsloenn_differanser_fra_flettede/${periode}"
                 },
                 {
                   "handling": "pa_fak_ba_09",
@@ -1224,7 +1224,7 @@
                 },
                 {
                   "handling": "kopier_fra_arkiv_til_batch",
-                  "filnavn": "pensjonsgivende_maanedsloenn_differanser",
+                  "filnavn": "flettede_pensjonsgivende_maanedsloenner",
                   "batchFra": "pa_fak_ba_11",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
