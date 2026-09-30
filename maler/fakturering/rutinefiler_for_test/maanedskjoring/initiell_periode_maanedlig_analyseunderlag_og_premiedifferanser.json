@@ -746,7 +746,7 @@
               "handling": "arkiver_all_batch_output",
               "batch": "pa_fak_ba_11",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}"
+              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}/versjonsendring_${paResBa01Versjon}"
             },
             {
               "handling": "rydd_grunnlagsdata_for_batch",
@@ -777,7 +777,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_03",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}",
+              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}/versjonsendring_${paResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -880,7 +880,7 @@
               "batchFra": "pa_fak_ba_11",
               "batchTil": "pa_fak_ba_02",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}",
+              "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}/versjonsendring_${paResBa01Versjon}",
               "kommentar": "Henter fra siste grunnlagsdatamappe"
             },
             {
@@ -903,7 +903,7 @@
           "gruppeAv": [
             {
               "handling": "rydd_grunnlagsdata_for_batch",
-              "batch": "pa_fak_ba_02"
+              "batch": "pa_fak_ba_12"
             },
             {
               "handling": "kopier_fra_arkiv_til_batch",
@@ -926,6 +926,10 @@
               "batch": "pa_fak_ba_12",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
               "nøkkel": "pa_fak_ba_02/reserveaggregering_for_medlem/${førsteFremskrivingsDato}"
+            },
+            {
+              "handling": "rydd_grunnlagsdata_for_batch",
+              "batch": "pa_fak_ba_12"
             }
           ]
         },
@@ -1044,7 +1048,7 @@
                   "batchFra": "pa_fak_ba_11",
                   "batchTil": "pa_fak_ba_09",
                   "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-                  "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}",
+                  "nøkkel": "flette_feilende_medlemmer/${førsteFremskrivingsDato}/versjonsendring_${paResBa01Versjon}",
                   "kommentar": "Henter fra siste grunnlagsdatamappe",
                   "ignorertInstruksjon": "${skalIgnorereFakturaDataunderlag}"
                 },
