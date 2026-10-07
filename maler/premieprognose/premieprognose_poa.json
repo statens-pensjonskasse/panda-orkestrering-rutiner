@@ -11,7 +11,8 @@
     "kjøringsId": "<kjøringsId>",
     "checksumPEN": "<checksum>",
     "checksumAFP": "<checksum>",
-    "skalIgnorereAFP": "false|true>",
+    "prognoseaar": "<yyyy>",
+    "skalIgnorereAFP": "true|false>",
     "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
@@ -36,6 +37,7 @@
           "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
           "gruppe": "premieprognose",
           "premiemodell": "poa_pen",
+          "periode": "${prognoseaar}",
           "checksum": "${checksumPEN}",
           "batch": "pa_pre_ba_02",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
@@ -66,6 +68,7 @@
           "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
           "gruppe": "premieprognose",
           "premiemodell": "poa_afp",
+          "periode": "${prognoseaar}",
           "checksum": "${checksumAFP}",
           "batch": "pa_pre_ba_02",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
