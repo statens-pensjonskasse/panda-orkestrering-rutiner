@@ -1,0 +1,93 @@
+{
+  "navn": "Premieprognose POA PEN og AFP",
+  "metainfo": {
+    "mal": "maler/premieprognose/premieprognose_poa.json",
+    "tags": ["prognose"],
+    "premiemodell": "poa",
+    "støttetAvPaOrkBa01FraVersjon": "0.0.60"
+  },
+  "variabler": {
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "kjøringsId": "<kjøringsId>",
+    "checksumPEN": "<checksum>",
+    "checksumAFP": "<checksum>",
+    "prognoseaar": "<yyyy>",
+    "skalIgnorereAFP": "<true|false>",
+    "paPreBa02Versjon": "<X.Y.Z>"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp POA PEN premieprognoser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
+          "gruppe": "premieprognose",
+          "premiemodell": "poa_pen",
+          "periode": "${prognoseaar}",
+          "checksum": "${checksumPEN}",
+          "batch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "premieprognoser_poa_pen",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "poa_pen_premieprognose",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp POA AFP premieprognoser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02",
+          "ignorertInstruksjon": "${skalIgnorereAFP}"
+        },
+        {
+          "handling": "kopier_fil_fra_arkiv_aktuar_til_batch",
+          "gruppe": "premieprognose",
+          "premiemodell": "poa_afp",
+          "periode": "${prognoseaar}",
+          "checksum": "${checksumAFP}",
+          "batch": "pa_pre_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": "${skalIgnorereAFP}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "premieprognoser_poa_afp",
+          "kjøringsId": "${kjøringsId}",
+          "filnavn": "poa_afp_premieprognose",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "ignorertInstruksjon": "${skalIgnorereAFP}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02",
+          "ignorertInstruksjon": "${skalIgnorereAFP}"
+        }
+      ]
+    }
+  ]
+}
