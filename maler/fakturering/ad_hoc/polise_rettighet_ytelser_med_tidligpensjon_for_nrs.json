@@ -1,0 +1,114 @@
+{
+  "navn": "Kjører poliser og rettighet_ytelser med tidligpensjon til DVH for NRS-rapport",
+  "metainfo": {
+    "mal": "maler/fakturering/ad_hoc/polise_rettighet_ytelser_med_tidligpensjon_for_nrs.json",
+    "tags": [
+      "eksport"
+    ],
+    "støttetAvPaOrkBa01FraVersjon": "2.2.1"
+  },
+  "gyldigVersjon": "2.2.1",
+  "variabler": {
+    "skyopplasterId": "#{genererUUID}",
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataFremskriving": "<grunnlagsdatamappe>",
+    "reserveberegningGrunnlagsdataAktuarVersjon": "<grunnlagsdata aktuar>",
+    "fremskrivingsDato": "<yyyy.MM.dd>",
+    "rettighet": "panda_veldig_forenkla_rettighet",
+    "paResBa01Versjon": "#{sisteBatchVersjon(pa_res_ba_01)}"
+  },
+  "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_res_ba_01",
+          "versjon": "${paResBa01Versjon}"
+        }
+      ]
+    },
+    {
+      "handling": "rydd_grunnlagsdata_for_batch",
+      "batch": "pa_res_ba_01"
+    },
+    {
+      "handling": "kopier_arkivert_pa_res_ba_02_til_pa_res_ba_01",
+      "fraGrunnlagsdataMappe": "${grunnlagsdataFremskriving}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
+      "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "handling": "regelverk_til_pa_res_ba_01",
+      "regelverk": "Tidligpensjon",
+      "fraOgMed": "2025.01.01",
+      "tilGrunnlagsdataMappe": "${grunnlagsdataMappe}"
+    },
+    {
+      "navn": "panda-testdata-rettighet-ytelser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "pa_res_ba_01",
+          "modus": "panda-testdata-rettighet-ytelser",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "sisteFremskrivingsdato": "${fremskrivingsDato}",
+          "rettighet": "${rettighet}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "panda-testdata-rettighet-ytelser/nrs/${fremskrivingsDato}"
+        },
+        {
+          "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
+          "fraBatch": "pa_res_ba_01",
+          "filPrefix": "rettighet_ytelser_for_dvh",
+          "nøkkel": "panda-testdata-rettighet-ytelser/nrs/${fremskrivingsDato}",
+          "kjøringsId": "rettighet_ytelse-${skyopplasterId}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "opprett_bestilling_til_skyopplaster",
+          "kjøringsId": "rettighet_ytelse-${skyopplasterId}",
+          "filstiHosDVH": "rettighet_ytelse_nrs"
+        }
+      ]
+    },
+    {
+      "navn": "panda-poliser",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "pa_res_ba_01",
+          "modus": "panda-poliser",
+          "sisteFremskrivingsdato": "${fremskrivingsDato}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_res_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "panda-poliser/nrs/${fremskrivingsDato}"
+        },
+        {
+          "handling": "kopier_filer_fra_arkiv_til_skyopplaster",
+          "fraBatch": "pa_res_ba_01",
+          "filPrefix": "poliser",
+          "nøkkel": "panda-poliser/nrs/${fremskrivingsDato}",
+          "kjøringsId": "poliser-${skyopplasterId}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "opprett_bestilling_til_skyopplaster",
+          "kjøringsId": "poliser-${skyopplasterId}",
+          "filstiHosDVH": "polise_nrs"
+        }
+      ]
+    }
+  ]
+}
