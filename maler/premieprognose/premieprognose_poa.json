@@ -12,7 +12,7 @@
     "checksumPEN": "<checksum>",
     "checksumAFP": "<checksum>",
     "prognoseaar": "<yyyy>",
-    "skalIgnorereAFP": "true|false>",
+    "skalIgnorereAFP": "<true|false>",
     "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
