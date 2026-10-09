@@ -117,6 +117,68 @@
       ]
     },
     {
+      "navn": "pa_fak_ba_14 administrasjonspremiefilter",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_as_asa",
+          "periode": "${førstePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "filnavn": "avtaleliste_hbf_as_asa"
+        },
+        {
+          "handling": "kopier_filer_fra_aktuar_til_batch",
+          "premiemodell": "hbf_as_asa",
+          "periode": "${andrePeriode}",
+          "prognoseVersjon": "avtaleliste",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "filnavn": "avtaleliste_hbf_as_asa"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_14",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremier/${førstePeriode}"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_15",
+          "batchTil": "pa_fak_ba_14",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+        },
+        {
+          "handling": "pa_fak_ba_14",
+          "modus": "administrasjonspremiefilter",
+          "premiemodell": "HBF_AS_ASA",
+          "termin": "${termin}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "validerFeilendeMedlemmer": true
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_fak_ba_14",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "administrasjonspremiefilter_for_hbf_ovrige/${termin}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_fak_ba_14"
+        }
+      ]
+    },
+    {
       "navn": "pa_fak_ba_04 generer hbf øvrige fakturaunderlag og agressofil ${termin}",
       "handling": "gruppe",
       "gruppeAv": [
@@ -141,6 +203,14 @@
           "tillatTomFil": true
         },
         {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_04",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "administrasjonspremiefilter_for_hbf_ovrige/${termin}"
+        },
+        {
           "navn": "pa_fak_ba_04 ${førstePeriode}",
           "handling": "gruppe",
           "gruppeAv": [
@@ -160,14 +230,6 @@
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "premiefiltrering_for_hbf_ovrige/${førstePeriode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremie",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_04",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriode}/to-steg"
             }
           ]
         },
@@ -191,14 +253,6 @@
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "premiefiltrering_for_hbf_ovrige/${andrePeriode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremie",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_04",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriode}/to-steg"
             }
           ]
         },
@@ -262,6 +316,14 @@
           "tillatTomFil": true
         },
         {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "administrasjonspremie",
+          "batchFra": "pa_fak_ba_14",
+          "batchTil": "pa_fak_ba_09",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "administrasjonspremiefilter_for_hbf_ovrige/${termin}"
+        },
+        {
           "navn": "pa_fak_ba_09 ${førstePeriode}",
           "handling": "gruppe",
           "gruppeAv": [
@@ -281,14 +343,6 @@
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "premiefiltrering_for_hbf_ovrige/${førstePeriode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremie",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_09",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${førstePeriode}/to-steg"
             }
           ]
         },
@@ -312,14 +366,6 @@
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
               "nøkkel": "premiefiltrering_for_hbf_ovrige/${andrePeriode}"
-            },
-            {
-              "handling": "kopier_fra_arkiv_til_batch",
-              "filnavn": "administrasjonspremie",
-              "batchFra": "pa_fak_ba_05",
-              "batchTil": "pa_fak_ba_09",
-              "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "generer_administrasjonspremier/${andrePeriode}/to-steg"
             }
           ]
         },
