@@ -90,11 +90,10 @@
           "ignorertInstruksjon": "${ignorerKopierFraArkivTermin03}"
         },
         {
-          "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "poa_pen",
+          "handling": "kopier_premiesatsfil_fra_arkiv_til_batch",
           "periode": "premiesats",
-          "prognoseVersjon": "${premiesatsVersjon}",
-          "batch": "pa_fak_ba_15",
+          "premiesatsVersjon": "${premiesatsVersjon}",
+          "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "ignorertInstruksjon": "${skalIkkeUtføreSatsendring}"
         },
@@ -185,11 +184,10 @@
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
-          "handling": "kopier_filer_fra_aktuar_til_batch",
-          "premiemodell": "poa_pen",
+          "handling": "kopier_premiesatsfil_fra_arkiv_til_batch",
           "periode": "premiesats",
-          "prognoseVersjon": "${premiesatsVersjon}",
-          "batch": "pa_fak_ba_15",
+          "premiesatsVersjon": "${premiesatsVersjon}",
+          "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
         {
