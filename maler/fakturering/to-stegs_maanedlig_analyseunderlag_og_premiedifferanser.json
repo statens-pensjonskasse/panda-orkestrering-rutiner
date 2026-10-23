@@ -12,6 +12,7 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataFremskriving": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
+    "forrigeReserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
     "fremskrivingsDato": "<YYYY.MM.dd>",
     "forrigeFremskrivingsDato": "<YYYY.MM.dd>",
@@ -99,7 +100,7 @@
             },
             {
               "handling": "kopier_arkivert_grunnlagsdata_fra_aktuar_til_pa_res_ba_01",
-              "versjon": "${reserveberegningGrunnlagsdataAktuarVersjon}",
+              "versjon": "${forrigeReserveberegningGrunnlagsdataAktuarVersjon}",
               "tilGrunnlagsdataMappe": "${grunnlagsdataFremskriving}"
             },
             {
