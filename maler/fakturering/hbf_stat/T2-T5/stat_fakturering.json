@@ -10,18 +10,17 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
 
-    "termin": "<termin>",
-    "førstePeriode": "<førstePeriode>",
-    "andrePeriode": "<andrePeriode>",
-
-    "termininfoVersjon": "<termininfoVersjon>",
-    "premiejusteringVersjon": "<premiejusteringVersjon>",
+    "termin": "2026-05",
+    "førstePeriode": "202609",
+    "andrePeriode": "202610",
+    "termininfoVersjon": "2026/v3",
+    "premiejusteringVersjon": "NA",
     "estimertLoennsoppgjoerVersjon": "<estimertLoennsoppgjoerVersjon>",
     "skyopplasterId": "#{genererUUID}",
 
-    "paFakBa04Versjon": "<X.Y.Z>",
-    "paFakBa09Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "paFakBa04Versjon": "5.0.12",
+    "paFakBa09Versjon": "5.1.6",
+    "paFakBa14Versjon": "1.0.46"
   },
   "operasjoner": [
     {
