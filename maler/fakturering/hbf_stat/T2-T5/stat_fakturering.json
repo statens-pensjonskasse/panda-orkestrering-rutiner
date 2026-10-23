@@ -73,7 +73,7 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
+          "handling": "mellomlagre_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "premiefiltrering_for_hbf_stat/${førstePeriode}"
@@ -90,7 +90,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "batch": "pa_fak_ba_14",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -99,7 +100,8 @@
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "filnavn": "avtaleliste_hbf_stat"
+          "filnavn": "avtaleliste_hbf_stat",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -107,23 +109,27 @@
           "batchFra": "pa_fak_ba_13",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}/to-steg"
+          "nøkkel": "generer_fakturerbare_premiedifferanser/${andrePeriode}/to-steg",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "pa_fak_ba_14",
           "modus": "premiefiltrering_for_hbf_stat",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "ignorertInstruksjon": true
         },
         {
-          "handling": "arkiver_all_batch_output",
+          "handling": "mellomlagre_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "premiefiltrering_for_hbf_stat/${andrePeriode}"
+          "nøkkel": "premiefiltrering_for_hbf_stat/${andrePeriode}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "batch": "pa_fak_ba_14",
+          "ignorertInstruksjon": true
         }
       ]
     },
@@ -160,7 +166,7 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
+          "handling": "mellomlagre_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "administrasjonspremiefilter_for_hbf_stat/${førstePeriode}"
@@ -177,7 +183,8 @@
       "gruppeAv": [
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "batch": "pa_fak_ba_14",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_filer_fra_aktuar_til_batch",
@@ -186,7 +193,8 @@
           "prognoseVersjon": "avtaleliste",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "filnavn": "avtaleliste_hbf_stat"
+          "filnavn": "avtaleliste_hbf_stat",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
@@ -194,24 +202,28 @@
           "batchFra": "pa_fak_ba_15",
           "batchTil": "pa_fak_ba_14",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "generer_administrasjonspremier/${andrePeriode}"
+          "nøkkel": "generer_administrasjonspremier/${andrePeriode}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "pa_fak_ba_14",
           "modus": "administrasjonspremiefilter",
           "premiemodell": "HBF_STAT",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "validerFeilendeMedlemmer": true
+          "validerFeilendeMedlemmer": true,
+          "ignorertInstruksjon": true
         },
         {
-          "handling": "arkiver_all_batch_output",
+          "handling": "mellomlagre_all_batch_output",
           "batch": "pa_fak_ba_14",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-          "nøkkel": "administrasjonspremiefilter_for_hbf_stat/${andrePeriode}"
+          "nøkkel": "administrasjonspremiefilter_for_hbf_stat/${andrePeriode}",
+          "ignorertInstruksjon": true
         },
         {
           "handling": "rydd_grunnlagsdata_for_batch",
-          "batch": "pa_fak_ba_14"
+          "batch": "pa_fak_ba_14",
+          "ignorertInstruksjon": true
         }
       ]
     },
@@ -261,7 +273,7 @@
               "filnavn": "avtaleliste_hbf_stat"
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
+              "handling": "kopier_fra_mellomlager_til_batch",
               "filnavn": "reservetransaksjonsdifferanser_medlem",
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_04",
@@ -269,7 +281,7 @@
               "nøkkel": "premiefiltrering_for_hbf_stat/${førstePeriode}"
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
+              "handling": "kopier_fra_mellomlager_til_batch",
               "filnavn": "administrasjonspremie",
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_04",
@@ -289,23 +301,26 @@
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_04",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "filnavn": "avtaleliste_hbf_stat"
+              "filnavn": "avtaleliste_hbf_stat",
+              "ignorertInstruksjon": true
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
+              "handling": "kopier_fra_mellomlager_til_batch",
               "filnavn": "reservetransaksjonsdifferanser_medlem",
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_stat/${andrePeriode}"
+              "nøkkel": "premiefiltrering_for_hbf_stat/${andrePeriode}",
+              "ignorertInstruksjon": true
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
+              "handling": "kopier_fra_mellomlager_til_batch",
               "filnavn": "administrasjonspremie",
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_04",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "administrasjonspremiefilter_for_hbf_stat/${andrePeriode}"
+              "nøkkel": "administrasjonspremiefilter_for_hbf_stat/${andrePeriode}",
+              "ignorertInstruksjon": true
             }
           ]
         },
@@ -318,7 +333,7 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_batch_output",
+          "handling": "mellomlagre_all_batch_output",
           "filnavn": "fakturaunderlag",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
@@ -333,7 +348,7 @@
           "validerFeilendeMedlemmer": true
         },
         {
-          "handling": "arkiver_all_batch_output",
+          "handling": "mellomlagre_all_batch_output",
           "batch": "pa_fak_ba_04",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "nøkkel": "generer_agressofil_for_hbf_stat/${termin}",
@@ -391,7 +406,7 @@
               "filnavn": "avtaleliste_hbf_stat"
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
+              "handling": "kopier_fra_mellomlager_til_batch",
               "filnavn": "reservetransaksjonsdifferanser_medlem",
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_09",
@@ -399,7 +414,7 @@
               "nøkkel": "premiefiltrering_for_hbf_stat/${førstePeriode}"
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
+              "handling": "kopier_fra_mellomlager_til_batch",
               "filnavn": "administrasjonspremie",
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_09",
@@ -419,23 +434,26 @@
               "prognoseVersjon": "avtaleliste",
               "batch": "pa_fak_ba_09",
               "grunnlagsdataMappe": "${grunnlagsdataMappe}",
-              "filnavn": "avtaleliste_hbf_stat"
+              "filnavn": "avtaleliste_hbf_stat",
+              "ignorertInstruksjon": true
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
+              "handling": "kopier_fra_mellomlager_til_batch",
               "filnavn": "reservetransaksjonsdifferanser_medlem",
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "premiefiltrering_for_hbf_stat/${andrePeriode}"
+              "nøkkel": "premiefiltrering_for_hbf_stat/${andrePeriode}",
+              "ignorertInstruksjon": true
             },
             {
-              "handling": "kopier_fra_arkiv_til_batch",
+              "handling": "kopier_fra_mellomlager_til_batch",
               "filnavn": "administrasjonspremie",
               "batchFra": "pa_fak_ba_14",
               "batchTil": "pa_fak_ba_09",
               "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-              "nøkkel": "administrasjonspremiefilter_for_hbf_stat/${andrePeriode}"
+              "nøkkel": "administrasjonspremiefilter_for_hbf_stat/${andrePeriode}",
+              "ignorertInstruksjon": true
             }
           ]
         },
