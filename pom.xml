@@ -48,13 +48,13 @@
         <dependency>
             <groupId>com.networknt</groupId>
             <artifactId>json-schema-validator</artifactId>
-            <version>3.0.8</version>
+            <version>3.0.9</version>
         </dependency>
 
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.23.2</version>
+            <version>1.24.1</version>
         </dependency>
 
         <dependency>
