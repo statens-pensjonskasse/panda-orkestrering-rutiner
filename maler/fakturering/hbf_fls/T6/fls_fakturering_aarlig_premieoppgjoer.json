@@ -9,6 +9,7 @@
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "metadataKjoeringId": "<metadataKjoeringId>",
 
     "forrigeÅr": "<YYYY>",
     "inneværendeÅr": "<YYYY>",
@@ -31,7 +32,10 @@
     "paFakBa08Versjon": "<X.Y.Z>",
     "paFakBa09Versjon": "<X.Y.Z>",
     "paFakBa10Versjon": "<X.Y.Z>",
-    "paFakBa14Versjon": "<X.Y.Z>"
+    "paFakBa14Versjon": "<X.Y.Z>",
+    "paDokBa01Versjon": "<X.Y.Z>",
+    "paDokBa02Versjon": "<X.Y.Z>",
+    "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
     {
@@ -68,6 +72,18 @@
         {
           "navn": "pa_fak_ba_14",
           "versjon": "${paFakBa14Versjon}"
+        },
+        {
+          "navn": "pa_dok_ba_01",
+          "versjon": "${paDokBa01Versjon}"
+        },
+        {
+          "navn": "pa_dok_ba_02",
+          "versjon": "${paDokBa02Versjon}"
+        },
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
         }
       ]
     },
@@ -1223,6 +1239,103 @@
         {
           "handling": "rydd_grunnlagsdata_for_batch",
           "batch": "pa_fak_ba_09"
+        }
+      ]
+    },
+    {
+      "navn": "pa_dok_ba_01 sammenstill premieoppgjør for år ${inneværendeÅr}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_dok_ba_01"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "premieoppgjor",
+          "batchFra": "pa_fak_ba_10",
+          "batchTil": "pa_dok_ba_01",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
+          "nøkkel": "sammenstill_premieoppgjor/${inneværendeÅr}"
+        },
+        {
+          "handling": "pa_dok_ba_01",
+          "modus": "sammenstill_premieoppgjoer",
+          "aar": "${inneværendeÅr}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_dok_ba_01",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "sammenstill_premieoppgjoer/${inneværendeÅr}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_dok_ba_01"
+        }
+      ]
+    },
+    {
+      "navn": "pa_dok_ba_02 generere pdf fil for premieoppgjør ${inneværendeÅr}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_dok_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fls_gruppert_premieoppgjoer_sammenstilt",
+          "batchFra": "pa_dok_ba_01",
+          "batchTil": "pa_dok_ba_02",
+          "nøkkel": "sammenstill_premieoppgjoer/${inneværendeÅr}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_dok_ba_02",
+          "modus": "generer_fls_premieoppgjoer_pdf",
+          "aar": "${inneværendeÅr}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "arkiver_all_batch_output",
+          "batch": "pa_dok_ba_02",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}",
+          "nøkkel": "generer_fls_premieoppgjoer_pdf/${inneværendeÅr}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_dok_ba_02"
+        }
+      ]
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp sammenstilt premieoppgjør for år ${inneværendeÅr}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "fls_gruppert_premieoppgjoer_sammenstilt",
+          "batchFra": "pa_dok_ba_01",
+          "batchTil": "pa_pre_ba_02",
+          "nøkkel": "sammenstill_premieoppgjoer/${inneværendeÅr}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "fls_premieoppgjoer",
+          "kjøringsId": "${metadataKjoeringId}",
+          "filnavn": "fls_gruppert_premieoppgjoer_sammenstilt",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
         }
       ]
     }

@@ -8,15 +8,59 @@
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"
   },
   "variabler": {
-    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "år" : "<YYYY>"
+    "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
+    "grunnlagsdataMappeForAgressoFil" : "<grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "registrertAv": "XXX",
+    "metadataKjoeringId": "<metadataKjoeringId>",
+
+    "år" : "<YYYY>",
+    "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
+    {
+      "handling": "deploy_batch",
+      "batcher": [
+        {
+          "navn": "pa_pre_ba_02",
+          "versjon": "${paPreBa02Versjon}"
+        }
+      ]
+    },
     {
       "handling": "send_til_agresso",
       "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
       "arkivFilsti": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${år}",
       "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
+    },
+    {
+      "navn": "pa_pre_ba_02 last opp sammenstilt premieoppgjør for år ${år}",
+      "handling": "gruppe",
+      "gruppeAv": [
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        },
+        {
+          "handling": "kopier_fra_arkiv_til_batch",
+          "filnavn": "Premieoppgjoer",
+          "batchFra": "pa_dok_ba_02",
+          "batchTil": "pa_pre_ba_02",
+          "nøkkel": "generer_fls_premieoppgjoer_pdf/${år}",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappeForAgressoFil}",
+          "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "pa_pre_ba_02",
+          "modus": "premieoppgjoer_pdf",
+          "kjøringsId": "${metadataKjoeringId}",
+          "registrertAv": "${registrertAv}",
+          "grunnlagsdataMappe": "${grunnlagsdataMappe}"
+        },
+        {
+          "handling": "rydd_grunnlagsdata_for_batch",
+          "batch": "pa_pre_ba_02"
+        }
+      ]
     }
   ]
 }
