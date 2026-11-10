@@ -51,7 +51,7 @@
         },
         {
           "handling": "pa_pre_ba_02",
-          "modus": "premieoppgjoer_pdf",
+          "modus": "fls_premieoppgjoer_pdf",
           "kjøringsId": "${metadataKjoeringId}",
           "registrertAv": "${registrertAv}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
