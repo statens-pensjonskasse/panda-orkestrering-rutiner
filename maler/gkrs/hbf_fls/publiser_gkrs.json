@@ -38,7 +38,7 @@
           "batchFra": "pa_dok_ba_02",
           "batchTil": "pa_pre_ba_02",
           "nøkkel": "generer_gkrs_dokumenter/${regnskapsAar}",
-          "grunnlagsdataMappe": "${grunnlagsdataMappeFra}",
+          "grunnlagsdataMappeFra": "${grunnlagsdataMappeFra}",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}"
         },
         {
