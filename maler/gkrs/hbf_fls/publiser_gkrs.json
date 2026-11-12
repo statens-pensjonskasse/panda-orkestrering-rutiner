@@ -10,6 +10,7 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeFra": "<grunnlagsdataMappeFra>",
     "metadataBestillingId": "<metadataBestillingId>",
+    "kjøringsId": "<metadataKjoeringId>",
     "regnskapsAar": "<yyyy>",
     "registrertAv": "XXX",
     "paPreBa02Versjon": "<X.Y.Z>"
@@ -44,7 +45,7 @@
         {
           "handling": "pa_pre_ba_02",
           "modus": "gkrs_dokumenter",
-          "kjøringsId": "${metadataBestillingId}",
+          "metadataBestillingId": "${metadataBestillingId}",
           "registrertAv": "${registrertAv}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },

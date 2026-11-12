@@ -11,7 +11,8 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeForAgressoFil" : "<grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "registrertAv": "XXX",
-    "metadataKjoeringId": "<metadataKjoeringId>",
+    "kjøringsId": "<metadataKjoeringId>",
+    "metadataBestillingId": "<metadataBestillingId>",
 
     "år" : "<YYYY>",
     "paPreBa02Versjon": "<X.Y.Z>"
@@ -52,7 +53,7 @@
         {
           "handling": "pa_pre_ba_02",
           "modus": "fls_premieoppgjoer_pdf",
-          "kjøringsId": "${metadataKjoeringId}",
+          "metadataBestillingId": "${metadataBestillingId}",
           "registrertAv": "${registrertAv}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
