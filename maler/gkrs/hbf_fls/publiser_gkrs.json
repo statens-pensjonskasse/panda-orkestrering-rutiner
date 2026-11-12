@@ -2,7 +2,7 @@
   "navn": "Publisering og opplasting av GKRS for regnskapsår ${regnskapsAar} til Mongo db og Snowflake",
   "metainfo": {
     "mal": "maler/gkrs/hbf_fls/publiser_gkrs.json",
-    "tags": ["gkrs"],
+    "tags": ["gkrs", "metadataBestilling"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

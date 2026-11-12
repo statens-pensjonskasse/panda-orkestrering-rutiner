@@ -22,7 +22,8 @@ fun validerJsonSkjema(jsonSkjema: String, jsonTekst: String): List<SkjemaValider
         Locale.setDefault(Locale.ENGLISH)
 
         // Perform validation
-        val config = SchemaRegistryConfig.builder().pathType(PathType.JSON_PATH).build()
+        // errorMessageKeyword gjør at egne feilmeldinger kan angis med "message" i skjemaet
+        val config = SchemaRegistryConfig.builder().pathType(PathType.JSON_PATH).errorMessageKeyword("message").build()
         val schemaRegistry = SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12) { it.schemaRegistryConfig(config) }
         val schema: Schema = schemaRegistry.getSchema(jsonSkjema, InputFormat.JSON)
         val validationErrors = schema.validate(jsonTekst, InputFormat.JSON)

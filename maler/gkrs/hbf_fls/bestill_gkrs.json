@@ -2,7 +2,7 @@
   "navn": "Bestilling av GKRS for regnskapsår ${regnskapsAar}, og generering av excel-fil",
   "metainfo": {
     "mal": "maler/gkrs/hbf_fls/bestill_gkrs.json",
-    "tags": ["gkrs"],
+    "tags": ["gkrs", "metadataBestilling"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

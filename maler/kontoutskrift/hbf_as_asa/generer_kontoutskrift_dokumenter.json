@@ -4,6 +4,7 @@
   "metainfo": {
     "mal": "maler/kontoutskrift/hbf_as_asa/generer_kontoutskrift_dokumenter.json",
     "tags": ["kontoutskrift"],
+    "premiemodell": "hbf_as_asa",
     "støttetAvPaOrkBa01FraVersjon": "1.5.1"
   },
 

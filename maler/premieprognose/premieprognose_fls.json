@@ -2,7 +2,7 @@
   "navn": "Premieprognose FLS prognoseår ${prognoseAar}",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_fls.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

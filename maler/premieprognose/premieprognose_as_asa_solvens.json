@@ -2,7 +2,7 @@
   "navn": "Premieprognose AS/ASA grunnlag for å kunne beregne solvenspremie",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_as_asa_solvens.json",
-    "tags": ["prognose", "solvens"],
+    "tags": ["prognose", "solvens", "metadataBestilling"],
     "premiemodell": "hbf_as_asa",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

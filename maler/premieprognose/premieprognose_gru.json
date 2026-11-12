@@ -2,7 +2,7 @@
   "navn": "Premieprognose GRU",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_gru.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "gru",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

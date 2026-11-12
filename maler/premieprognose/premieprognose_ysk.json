@@ -2,7 +2,7 @@
   "navn": "Premieprognose YSK",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_ysk.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "ysk",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },
