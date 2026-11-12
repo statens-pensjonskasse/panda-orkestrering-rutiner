@@ -28,12 +28,6 @@
       ]
     },
     {
-      "handling": "send_til_agresso",
-      "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
-      "arkivFilsti": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${år}",
-      "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
-    },
-    {
       "navn": "pa_pre_ba_02 last opp sammenstilt premieoppgjør for år ${år}",
       "handling": "gruppe",
       "gruppeAv": [
@@ -62,6 +56,12 @@
           "batch": "pa_pre_ba_02"
         }
       ]
+    },
+    {
+      "handling": "send_til_agresso",
+      "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
+      "arkivFilsti": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${år}",
+      "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     }
   ]
 }
