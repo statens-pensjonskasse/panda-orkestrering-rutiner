@@ -2,7 +2,7 @@
   "navn": "Premieprognose AS/ASA",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_as_asa.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "hbf_as_asa",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

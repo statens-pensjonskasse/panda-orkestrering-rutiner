@@ -127,7 +127,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "\$.metainfo: required property 'premiemodell' not found"),
+                SkjemaValidering("required", "\$.metainfo: Maler tagget med fakturering, prognose, agresso eller kontoutskrift må ha premiemodell i metainfo."),
             )
 
     }
@@ -135,6 +135,37 @@ class RutinefilSkjemaTest {
         return listOf(
             "fakturering", "prognose", "agresso"
         )
+    }
+
+    @Test
+    fun `Rutinefil tagget med metadataBestilling skal kreve variabelen kjøringsId`() {
+
+        val utenKjøringsId = """
+             {
+                "navn": "En test",
+                "metainfo": {
+                    "mal": "maler/rutinefil.json",
+                    "tags": ["gkrs", "metadataBestilling"],
+                    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+                 },
+                "variabler": {
+                    "enVariabel": "abc"
+                },
+                "operasjoner": [
+                    {
+                      "handling": "pa_res_ba_01"
+                    }
+                ]
+             }
+        """.trimIndent()
+
+        assertThat(
+            validerJsonSkjema(rutinefilSkjema, utenKjøringsId)
+        )
+            .hasSize(1)
+            .containsExactlyInAnyOrder(
+                SkjemaValidering("required", "\$.variabler: Maler tagget med metadataBestilling må ha variabelen kjøringsId, fordi flytkontroll bruker den til å finne kjøringene i MongoDB."),
+            )
     }
 
     @Test

@@ -2,7 +2,7 @@
   "navn": "Premieprognose Øvrige",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_ovrige.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "hbf_ovrige",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

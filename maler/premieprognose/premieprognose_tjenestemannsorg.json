@@ -2,7 +2,7 @@
   "navn": "Premieprognose Tjenestemannsorganisasjon",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_tjenestemannsorg.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "tjenestemannsorg",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

@@ -3,7 +3,7 @@
   "gyldigVersjon": "0.0.9",
   "metainfo": {
     "mal": "maler/fakturering/hbf_fls/T6/send_agressofil_fls_aarlig_premieoppgjoer.json",
-    "tags": ["fakturering", "agresso", "premieoppgjør"],
+    "tags": ["fakturering", "agresso", "premieoppgjør", "metadataBestilling"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"
   },
@@ -11,7 +11,8 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeForAgressoFil" : "<grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
     "registrertAv": "XXX",
-    "metadataKjoeringId": "<metadataKjoeringId>",
+    "kjøringsId": "<metadataKjoeringId>",
+    "metadataBestillingId": "<metadataBestillingId>",
 
     "år" : "<YYYY>",
     "paPreBa02Versjon": "<X.Y.Z>"
@@ -25,12 +26,6 @@
           "versjon": "${paPreBa02Versjon}"
         }
       ]
-    },
-    {
-      "handling": "send_til_agresso",
-      "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
-      "arkivFilsti": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${år}",
-      "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     },
     {
       "navn": "pa_pre_ba_02 last opp sammenstilt premieoppgjør for år ${år}",
@@ -52,7 +47,7 @@
         {
           "handling": "pa_pre_ba_02",
           "modus": "fls_premieoppgjoer_pdf",
-          "kjøringsId": "${metadataKjoeringId}",
+          "metadataBestillingId": "${metadataBestillingId}",
           "registrertAv": "${registrertAv}",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
@@ -61,6 +56,12 @@
           "batch": "pa_pre_ba_02"
         }
       ]
+    },
+    {
+      "handling": "send_til_agresso",
+      "filnavn": "agressofil_hbf_fls_aarlig_premieoppgjoer",
+      "arkivFilsti": "generer_agressofil_hbf_fls_for_aarlig_premieoppgjoer/${år}",
+      "grunnlagsdataMappeForAgressoFil": "${grunnlagsdataMappeForAgressoFil}"
     }
   ]
 }

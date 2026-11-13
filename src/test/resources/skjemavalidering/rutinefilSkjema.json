@@ -34,7 +34,12 @@
               "sluttfaktura",
               "avregning",
               "premieoppgjør",
-              "ad-hoc"
+              "ad-hoc",
+              "gkrs",
+              "solvens",
+              "metadataBestilling",
+              "kontoutskrift",
+              "brøytekjøring"
             ]
           }
         },
@@ -81,7 +86,10 @@
           "then": {
             "required": [
               "premiemodell"
-            ]
+            ],
+            "message": {
+              "required": "Maler tagget med fakturering, prognose, agresso eller kontoutskrift må ha premiemodell i metainfo."
+            }
           }
         }
       ]
@@ -117,6 +125,35 @@
     "metainfo",
     "variabler",
     "operasjoner"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "metainfo": {
+            "properties": {
+              "tags": {
+                "contains": {
+                  "const": "metadataBestilling"
+                }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variabler": {
+            "required": [
+              "kjøringsId"
+            ],
+            "message": {
+              "required": "Maler tagget med metadataBestilling må ha variabelen kjøringsId, fordi flytkontroll bruker den til å finne kjøringene i MongoDB."
+            }
+          }
+        }
+      }
+    }
   ],
   "additionalProperties": false
 }

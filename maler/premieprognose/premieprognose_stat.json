@@ -2,7 +2,7 @@
   "navn": "Premieprognose Stat",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_stat.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "hbf_stat",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

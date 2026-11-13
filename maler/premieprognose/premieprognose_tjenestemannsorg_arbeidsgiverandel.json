@@ -2,7 +2,7 @@
   "navn": "Premieprognose Tjenestemannsorganisasjon arbeidsgiverandel",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_tjenestemannsorg_arbeidsgiverandel.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "tjenestemannsorg_arbeidsgiverandel",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

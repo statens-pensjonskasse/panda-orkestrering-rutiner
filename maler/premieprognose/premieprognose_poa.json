@@ -2,7 +2,7 @@
   "navn": "Premieprognose POA PEN og AFP",
   "metainfo": {
     "mal": "maler/premieprognose/premieprognose_poa.json",
-    "tags": ["prognose"],
+    "tags": ["prognose", "metadataBestilling"],
     "premiemodell": "poa",
     "støttetAvPaOrkBa01FraVersjon": "0.0.60"
   },

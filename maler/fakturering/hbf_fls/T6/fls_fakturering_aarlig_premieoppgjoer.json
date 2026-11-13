@@ -3,13 +3,13 @@
   "gyldigVersjon": "0.0.78",
   "metainfo": {
     "mal": "maler/fakturering/hbf_fls/T6/fls_fakturering_aarlig_premieoppgjoer.json",
-    "tags": ["fakturering", "premieoppgjør"],
+    "tags": ["fakturering", "premieoppgjør", "metadataBestilling"],
     "premiemodell": "hbf_fls",
     "støttetAvPaOrkBa01FraVersjon": "1.0.15"
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "metadataKjoeringId": "<metadataKjoeringId>",
+    "kjøringsId": "<metadataKjoeringId>",
 
     "forrigeÅr": "<YYYY>",
     "inneværendeÅr": "<YYYY>",
@@ -1329,7 +1329,7 @@
         {
           "handling": "pa_pre_ba_02",
           "modus": "fls_premieoppgjoer",
-          "kjøringsId": "${metadataKjoeringId}",
+          "kjøringsId": "${kjøringsId}",
           "filnavn": "fls_gruppert_premieoppgjoer_sammenstilt",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}"
         },
