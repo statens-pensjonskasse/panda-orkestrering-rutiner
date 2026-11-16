@@ -10,6 +10,7 @@
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "kjøringsId": "<metadataKjoeringId>",
+    "metadataBestillingId": "<metadataBestillingId - brukes av panda-flytkontroll for å finne igjen bestillingen>",
 
     "forrigeÅr": "<YYYY>",
     "inneværendeÅr": "<YYYY>",

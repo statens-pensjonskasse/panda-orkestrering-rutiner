@@ -10,7 +10,7 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeFra": "<grunnlagsdataMappeFra>",
     "metadataBestillingId": "<metadataBestillingId>",
-    "kjøringsId": "<metadataKjoeringId>",
+    "kjøringsId": "<metadataKjoeringId - brukes av panda-flytkontroll for å finne igjen kjøringen>",
     "regnskapsAar": "<yyyy>",
     "registrertAv": "<xxx>",
     "paPreBa02Versjon": "<X.Y.Z>"

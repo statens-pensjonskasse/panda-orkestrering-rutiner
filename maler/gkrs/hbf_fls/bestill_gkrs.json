@@ -10,6 +10,7 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "checksumGkrs": "<checksumGkrs>",
     "kjøringsId": "<metadataKjoeringId>",
+    "metadataBestillingId": "<metadataBestillingId - brukes av panda-flytkontroll for å finne igjen bestillingen>",
     "checksumForutsetninger": "<checksumForutsetninger>",
     "checksumPrismodell": "<checksumPrismodell>",
     "regnskapsAar": "<yyyy>",

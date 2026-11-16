@@ -11,7 +11,7 @@
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
     "grunnlagsdataMappeForAgressoFil" : "<grunnlagsdata_yyyy-MM-dd_HH-mm-ss-SS>",
     "registrertAv": "<xxx>",
-    "kjøringsId": "<metadataKjoeringId>",
+    "kjøringsId": "<metadataKjoeringId - brukes av panda-flytkontroll for å finne igjen kjøringen>",
     "metadataBestillingId": "<metadataBestillingId>",
 
     "år" : "<YYYY>",
