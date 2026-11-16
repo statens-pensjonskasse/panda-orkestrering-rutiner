@@ -12,9 +12,9 @@
 
   "variabler": {
     "paPreBa02Versjon": "<x.y.z>",
-    "aar": "YYYY",
-    "grunnlagsdataMappeForDokumenter": "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "registrertAv": "XXX"
+    "aar": "<yyyy>",
+    "grunnlagsdataMappeForDokumenter": "<grunnlagsdata_yyyy-MM-dd_HH-mm-ss-SS>",
+    "registrertAv": "<xxx>"
   },
 
   "operasjoner": [

@@ -12,7 +12,7 @@
     "paDokBa01Versjon": "<x.y.z>",
 
     "utdataMappe": "#{grunnlagsdatamappeNå}",
-    "aar": "YYYY"
+    "aar": "<yyyy>"
   },
 
   "operasjoner": [

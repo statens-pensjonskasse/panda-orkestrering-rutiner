@@ -6,7 +6,7 @@
     "støttetAvPaOrkBa01FraVersjon": "1.4.3"
   },
   "variabler": {
-    "orkestreringUtKatalog": "orkestrering_2025-11-03_13-40-13-46",
+    "orkestreringUtKatalog": "<orkestrering_YYYY-MM-DD_HH-mm-ss>",
     "paOrkBa05Versjon": "#{sisteBatchVersjon(pa_ork_ba_05)}"
   },
   "operasjoner": [

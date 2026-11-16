@@ -9,8 +9,8 @@
   },
   "variabler": {
     "grunnlagsdataMappe": "#{grunnlagsdatamappeNå}",
-    "grunnlagsdataMappeForAgressoFil" : "<grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
-    "registrertAv": "XXX",
+    "grunnlagsdataMappeForAgressoFil" : "<grunnlagsdata_yyyy-MM-dd_HH-mm-ss-SS>",
+    "registrertAv": "<xxx>",
     "kjøringsId": "<metadataKjoeringId>",
     "metadataBestillingId": "<metadataBestillingId>",
 

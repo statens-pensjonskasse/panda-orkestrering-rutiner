@@ -8,7 +8,7 @@
   },
   "variabler": {
     "år" : "<yyyy>",
-    "versjon": "v<x>"
+    "versjon": "<vx>"
   },
   "operasjoner": [
     {

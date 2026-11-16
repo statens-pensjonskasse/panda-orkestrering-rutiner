@@ -11,7 +11,7 @@
     "arkivområdeFremskrivingOgBestand": "flette_feilende_medlemmer/<yyyy.MM.dd>/fremskriving_og_bestandsendring_<x.y.z>",
     "arkivområdeVersjonsendring": "flette_feilende_medlemmer/<yyyy.MM.dd>/versjonsendring_<x.y.z>",
     "grunnlagsdataMappe": "<grunnlagsdata_YYYY-MM-DD_HH-mm-ss>",
-    "databaseSisteFremskrivingsdato": "yyyy.MM.dd",
+    "databaseSisteFremskrivingsdato": "<yyyy.MM.dd>",
     "paFakBa12Versjon": "#{sisteBatchVersjon(pa_fak_ba_12)}",
     "paOrkBa05Versjon": "#{sisteBatchVersjon(pa_ork_ba_05)}"
   },

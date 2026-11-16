@@ -14,7 +14,7 @@
     "reserveberegningGrunnlagsdataAktuarVersjon": "<versjon>",
 
     "fremskrivingsDato": "<YYYY.MM.dd>",
-    "fremskrivingsdatoForVersjonSystemkorreksjon": "<samme som variabelen over <fremskrivingsDato> hvis man har samme fremskrivingsdato på versjoner for reserveberegning, ellers brukes forrigeFremskrivingsDato>",
+    "fremskrivingsdatoForVersjonSystemkorreksjon": "<samme som 'fremskrivingsDato' hvis man har samme fremskrivingsdato på versjoner for reserveberegning, ellers brukes forrigeFremskrivingsDato>",
 
     "bokføringsperiode": "<bokføringsperiode>",
     "uttrekksdato": "<dd.MM.YYYY>",

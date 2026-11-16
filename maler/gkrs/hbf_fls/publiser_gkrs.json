@@ -12,7 +12,7 @@
     "metadataBestillingId": "<metadataBestillingId>",
     "kjøringsId": "<metadataKjoeringId>",
     "regnskapsAar": "<yyyy>",
-    "registrertAv": "XXX",
+    "registrertAv": "<xxx>",
     "paPreBa02Versjon": "<X.Y.Z>"
   },
   "operasjoner": [
