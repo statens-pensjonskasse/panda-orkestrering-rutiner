@@ -28,12 +28,48 @@ class RutinefilSkjemaTest {
         )
             .hasSize(4)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "$: required property 'navn' not found"),
-                SkjemaValidering("required", "$: required property 'metainfo' not found"),
-                SkjemaValidering("required", "$: required property 'variabler' not found"),
-                SkjemaValidering("required", "$: required property 'operasjoner' not found"),
+                SkjemaValidering("required", "$", "navn", "Rutinefilen må inneholde feltet navn."),
+                SkjemaValidering("required", "$", "metainfo", "Rutinefilen må inneholde feltet metainfo."),
+                SkjemaValidering("required", "$", "variabler", "Rutinefilen må inneholde feltet variabler."),
+                SkjemaValidering("required", "$", "operasjoner", "Rutinefilen må inneholde feltet operasjoner."),
             )
 
+    }
+
+    @ParameterizedTest
+    @MethodSource("tommeNavn")
+    fun `Rutinefilen må ha et navn`(navn: String) {
+
+        val utenNavn = """
+             {
+                "navn": "$navn",
+                "metainfo": {
+                    "mal": "maler/rutinefil.json",
+                    "tags": ["eksport"],
+                    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+                 },
+                "variabler": {
+                    "enVariabel": "abc"
+                },
+                "operasjoner": [
+                    {
+                      "handling": "pa_res_ba_01"
+                    }
+                ]
+             }
+        """.trimIndent()
+
+        assertThat(
+            validerJsonSkjema(rutinefilSkjema, utenNavn)
+        )
+            .hasSize(1)
+            .containsExactlyInAnyOrder(
+                SkjemaValidering("pattern", "\$.navn", melding = "Rutinefilen må ha et navn."),
+            )
+
+    }
+    private fun tommeNavn(): List<String> {
+        return listOf("", "   ")
     }
 
     @Test
@@ -61,7 +97,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("minItems", "\$.operasjoner: must have at least 1 items but found 0"),
+                SkjemaValidering("minItems", "\$.operasjoner"),
             )
 
     }
@@ -93,7 +129,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("minItems", "\$.metainfo.tags: must have at least 1 items but found 0"),
+                SkjemaValidering("minItems", "\$.metainfo.tags"),
             )
 
     }
@@ -127,7 +163,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "\$.metainfo: Maler tagget med fakturering, prognose, agresso eller kontoutskrift må ha premiemodell i metainfo."),
+                SkjemaValidering("required", "\$.metainfo", "premiemodell", "Maler tagget med fakturering, prognose, agresso eller kontoutskrift må ha premiemodell i metainfo."),
             )
 
     }
@@ -164,7 +200,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "\$.variabler: Maler tagget med metadataBestilling må ha variabelen kjøringsId, fordi flytkontroll bruker den til å finne kjøringene i MongoDB."),
+                SkjemaValidering("required", "\$.variabler", "kjøringsId", "Maler tagget med metadataBestilling må ha variabelen kjøringsId, fordi flytkontroll bruker den til å finne kjøringene i MongoDB."),
             )
     }
 
@@ -195,7 +231,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "\$.operasjoner[0]: required property 'handling' not found"),
+                SkjemaValidering("required", "\$.operasjoner[0]", "handling"),
             )
     }
 

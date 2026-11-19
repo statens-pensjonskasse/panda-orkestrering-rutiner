@@ -7,33 +7,36 @@ import com.networknt.schema.SchemaRegistryConfig
 import com.networknt.schema.SpecificationVersion
 import com.networknt.schema.path.PathType
 import java.io.File
-import java.util.*
 
 data class SkjemaValidering(
     val type: String,
-    val melding: String
-)
+    val sti: String,
+    val felt: String? = null,
+    // Bare satt når skjemaet har en egen melding under "message"
+    val melding: String? = null,
+) {
+    fun beskrivelse(): String {
+        val tekst = melding ?: when (type) {
+            "required" -> "mangler påkrevd felt '$felt'"
+            else -> "bryter regelen '$type'" + (felt?.let { " for felt '$it'" } ?: "")
+        }
+        return "$sti: $tekst"
+    }
+}
 
 fun validerJsonSkjema(jsonSkjema: String, jsonTekst: String): List<SkjemaValidering> {
-    // JsonSchema validatoren forholder seg til Locale, noe som gjorde testene flaky
-    // Setter derfor Locale til engelsk for å unngå at testene feiler på grunn av språk
-    val originalLocale = Locale.getDefault()
-    try {
-        Locale.setDefault(Locale.ENGLISH)
+    val config = SchemaRegistryConfig.builder().pathType(PathType.JSON_PATH).errorMessageKeyword("message").build()
+    val schemaRegistry = SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12) { it.schemaRegistryConfig(config) }
+    val schema: Schema = schemaRegistry.getSchema(jsonSkjema, InputFormat.JSON)
+    val validationErrors = schema.validate(jsonTekst, InputFormat.JSON)
 
-        // Perform validation
-        // errorMessageKeyword gjør at egne feilmeldinger kan angis med "message" i skjemaet
-        val config = SchemaRegistryConfig.builder().pathType(PathType.JSON_PATH).errorMessageKeyword("message").build()
-        val schemaRegistry = SchemaRegistry.withDefaultDialect(SpecificationVersion.DRAFT_2020_12) { it.schemaRegistryConfig(config) }
-        val schema: Schema = schemaRegistry.getSchema(jsonSkjema, InputFormat.JSON)
-        val validationErrors = schema.validate(jsonTekst, InputFormat.JSON)
-
-        return validationErrors.map {
-            SkjemaValidering(it.keyword, "${it.instanceLocation}: ${it.message}")
-        }
-    } finally {
-        // Setter locale tilbake til den orginale verdien
-        Locale.setDefault(originalLocale)
+    return validationErrors.map {
+        SkjemaValidering(
+            type = it.keyword,
+            sti = it.instanceLocation.toString(),
+            felt = it.property,
+            melding = if (it.isCustomMessage) it.message else null,
+        )
     }
 }
 

@@ -8,7 +8,7 @@
     "støttetAvPaOrkBa01FraVersjon": "0.0.9"
   },
   "variabler": {
-    "grunnlagsdataMappeForAgressoFil" : "grunnlagsdata_<yyyy-MM-dd_HH-mm-ss-SS>",
+    "grunnlagsdataMappeForAgressoFil" : "<grunnlagsdata_yyyy-MM-dd_HH-mm-ss-SS>",
     "termin" : "<termin>"
   },
   "operasjoner": [
