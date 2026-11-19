@@ -28,10 +28,10 @@ class RutinefilSkjemaTest {
         )
             .hasSize(4)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "$: Rutinefilen må inneholde feltet navn."),
-                SkjemaValidering("required", "$: Rutinefilen må inneholde feltet metainfo."),
-                SkjemaValidering("required", "$: Rutinefilen må inneholde feltet variabler."),
-                SkjemaValidering("required", "$: Rutinefilen må inneholde feltet operasjoner."),
+                SkjemaValidering("required", "$", "navn", "Rutinefilen må inneholde feltet navn."),
+                SkjemaValidering("required", "$", "metainfo", "Rutinefilen må inneholde feltet metainfo."),
+                SkjemaValidering("required", "$", "variabler", "Rutinefilen må inneholde feltet variabler."),
+                SkjemaValidering("required", "$", "operasjoner", "Rutinefilen må inneholde feltet operasjoner."),
             )
 
     }
@@ -64,7 +64,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("pattern", "\$.navn: Rutinefilen må ha et navn."),
+                SkjemaValidering("pattern", "\$.navn", melding = "Rutinefilen må ha et navn."),
             )
 
     }
@@ -97,7 +97,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("minItems", "\$.operasjoner: must have at least 1 items but found 0"),
+                SkjemaValidering("minItems", "\$.operasjoner"),
             )
 
     }
@@ -129,7 +129,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("minItems", "\$.metainfo.tags: must have at least 1 items but found 0"),
+                SkjemaValidering("minItems", "\$.metainfo.tags"),
             )
 
     }
@@ -163,7 +163,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "\$.metainfo: Maler tagget med fakturering, prognose, agresso eller kontoutskrift må ha premiemodell i metainfo."),
+                SkjemaValidering("required", "\$.metainfo", "premiemodell", "Maler tagget med fakturering, prognose, agresso eller kontoutskrift må ha premiemodell i metainfo."),
             )
 
     }
@@ -200,7 +200,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "\$.variabler: Maler tagget med metadataBestilling må ha variabelen kjøringsId, fordi flytkontroll bruker den til å finne kjøringene i MongoDB."),
+                SkjemaValidering("required", "\$.variabler", "kjøringsId", "Maler tagget med metadataBestilling må ha variabelen kjøringsId, fordi flytkontroll bruker den til å finne kjøringene i MongoDB."),
             )
     }
 
@@ -231,7 +231,7 @@ class RutinefilSkjemaTest {
         )
             .hasSize(1)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "\$.operasjoner[0]: required property 'handling' not found"),
+                SkjemaValidering("required", "\$.operasjoner[0]", "handling"),
             )
     }
 

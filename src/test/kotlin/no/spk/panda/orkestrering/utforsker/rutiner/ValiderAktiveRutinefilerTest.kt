@@ -30,7 +30,7 @@ class ValiderAktiveRutinefilerTest {
         assertThat(feil)
             .withFailMessage {
                 "${fil.path} har ${feil.size} feil mot rutinefilskjemaet:\n" +
-                    feil.joinToString("\n") { "  - ${it.melding}" }
+                    feil.joinToString("\n") { "  - ${it.beskrivelse()}" }
             }
             .isEmpty()
     }
