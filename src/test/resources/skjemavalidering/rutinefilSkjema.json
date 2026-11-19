@@ -3,7 +3,11 @@
   "type": "object",
   "properties": {
     "navn": {
-      "type": "string"
+      "type": "string",
+      "pattern": "\\S",
+      "message": {
+        "pattern": "Rutinefilen må ha et navn."
+      }
     },
     "metainfo": {
       "type": "object",
@@ -126,6 +130,14 @@
     "variabler",
     "operasjoner"
   ],
+  "message": {
+    "required": {
+      "navn": "Rutinefilen må inneholde feltet navn.",
+      "metainfo": "Rutinefilen må inneholde feltet metainfo.",
+      "variabler": "Rutinefilen må inneholde feltet variabler.",
+      "operasjoner": "Rutinefilen må inneholde feltet operasjoner."
+    }
+  },
   "allOf": [
     {
       "if": {

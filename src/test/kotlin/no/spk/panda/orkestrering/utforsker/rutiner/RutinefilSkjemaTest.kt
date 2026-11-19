@@ -28,12 +28,48 @@ class RutinefilSkjemaTest {
         )
             .hasSize(4)
             .containsExactlyInAnyOrder(
-                SkjemaValidering("required", "$: required property 'navn' not found"),
-                SkjemaValidering("required", "$: required property 'metainfo' not found"),
-                SkjemaValidering("required", "$: required property 'variabler' not found"),
-                SkjemaValidering("required", "$: required property 'operasjoner' not found"),
+                SkjemaValidering("required", "$: Rutinefilen må inneholde feltet navn."),
+                SkjemaValidering("required", "$: Rutinefilen må inneholde feltet metainfo."),
+                SkjemaValidering("required", "$: Rutinefilen må inneholde feltet variabler."),
+                SkjemaValidering("required", "$: Rutinefilen må inneholde feltet operasjoner."),
             )
 
+    }
+
+    @ParameterizedTest
+    @MethodSource("tommeNavn")
+    fun `Rutinefilen må ha et navn`(navn: String) {
+
+        val utenNavn = """
+             {
+                "navn": "$navn",
+                "metainfo": {
+                    "mal": "maler/rutinefil.json",
+                    "tags": ["eksport"],
+                    "støttetAvPaOrkBa01FraVersjon": "0.1.8"
+                 },
+                "variabler": {
+                    "enVariabel": "abc"
+                },
+                "operasjoner": [
+                    {
+                      "handling": "pa_res_ba_01"
+                    }
+                ]
+             }
+        """.trimIndent()
+
+        assertThat(
+            validerJsonSkjema(rutinefilSkjema, utenNavn)
+        )
+            .hasSize(1)
+            .containsExactlyInAnyOrder(
+                SkjemaValidering("pattern", "\$.navn: Rutinefilen må ha et navn."),
+            )
+
+    }
+    private fun tommeNavn(): List<String> {
+        return listOf("", "   ")
     }
 
     @Test
