@@ -150,7 +150,7 @@
           "batchFra": "pa_fak_ba_03",
           "batchTil": "pa_fak_ba_15",
           "grunnlagsdataMappeTil": "${grunnlagsdataMappe}",
-          "nøkkel": "pensjonsgivende_maanedsloenn_differanser/${førsteAvregningPrognosePeriode}"
+          "nøkkel": "pensjonsgivende_maanedsloenn_differanser_fra_flettede/${førsteAvregningPrognosePeriode}"
         },
         {
           "handling": "kopier_fra_arkiv_til_batch",
