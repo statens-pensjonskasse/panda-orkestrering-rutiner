@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    uses: statens-pensjonskasse/public-actions-library/.github/workflows/codeql-java-kotlin.yaml@1b9bc926ff226735b12a58c287542d73dc49371d # v0.3.9
+    uses: statens-pensjonskasse/public-actions-library/.github/workflows/codeql-java-kotlin.yaml@4bbd47023c53914a01c3a99ee4a6b4703cafb143 # v0.3.10
     permissions:
       security-events: write
       packages: read
