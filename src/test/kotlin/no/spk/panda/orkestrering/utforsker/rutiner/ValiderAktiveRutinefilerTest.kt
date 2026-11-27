@@ -40,6 +40,7 @@ class ValiderAktiveRutinefilerTest {
         "maler/reserveberegning/metaopplaster_aggreger_feilmeldinger_reserveberegning.json" to setOf("databaseKilde"),
         "maler/fakturering/poa_pen/T1-T4/poa_pen_fakturering.json" to setOf("sluttfakturaAvtalelister"),
         "maler/system/system_maanedlig_rydding_arkiv.json" to setOf("3mnd", "2år", "5år", "10år", "erTestkjøring"),
+        "maler/fakturering/ad_hoc/polise_rettighet_ytelser_med_tidligpensjon_for_nrs.json" to setOf("rettighet"),
     )
 
     // Flytkontroll tolker verdier som inneholder <xxx> som ikke utfylt, og hindrer bestilling til de er fylt ut.

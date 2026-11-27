@@ -14,6 +14,7 @@
     "grunnlagsdataFremskriving": "<grunnlagsdatamappe>",
     "reserveberegningGrunnlagsdataAktuarVersjon": "<grunnlagsdata aktuar>",
     "fremskrivingsDato": "<yyyy.MM.dd>",
+    "rettighet": "panda_veldig_forenkla_rettighet",
     "paResBa01Versjon": "#{sisteBatchVersjon(pa_res_ba_01)}"
   },
   "operasjoner": [
@@ -55,7 +56,7 @@
           "modus": "panda-testdata-rettighet-ytelser",
           "grunnlagsdataMappe": "${grunnlagsdataMappe}",
           "sisteFremskrivingsdato": "${fremskrivingsDato}",
-          "rettighet": "panda_veldig_forenkla_rettighet"
+          "rettighet": "${rettighet}"
         },
         {
           "handling": "arkiver_all_batch_output",
