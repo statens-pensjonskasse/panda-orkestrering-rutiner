@@ -1,6 +1,6 @@
 # Panda orkestering rutiner
 
-> **Arkivert:** Dette repoet ble arkivert i november 2026 og vedlikeholdes ikke lenger. Repoet er skrivebeskyttet og beholdes kun for historikk.
+> **Arkivert:** Dette repoet ble arkivert i november 2026 og vedlikeholdes ikke lenger.
 
 Dette repoet inneholder maler som brukes til kjøring av rutinefiler i panda-prosjektet.
 For å sette i gang kjøring av en mal så brukes tjenesten panda-flytkontroll.
